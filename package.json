@@ -1,0 +1,27 @@
+{
+  "name": "softsynth.github.io",
+  "version": "1.0.0",
+  "description": "Port the old softsynth.com website written using PHP to a modern markdown site using eleventy.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/philburk/softsynth.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/philburk/softsynth.github.io/issues"
+  },
+  "homepage": "https://github.com/philburk/softsynth.github.io#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.5",
+    "@11ty/eleventy-navigation": "^1.0.5"
+  }
+}
