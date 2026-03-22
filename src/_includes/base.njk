@@ -4,102 +4,240 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} - SoftSynth</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #0052cc;
+            --primary-hover: #003d99;
+            --bg-color: #f7f9fc;
+            --text-main: #172b4d;
+            --text-muted: #6b778c;
+            --surface: #ffffff;
+            --border: #dfe1e6;
+        }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            color: #333;
-            background-color: #fafafa;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
         }
-        .container {
-            max-width: 800px;
+        
+        /* Premium Header */
+        header {
+            background: var(--surface);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-container {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
-            min-height: 100vh;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+
         #site-header {
             display: flex;
             align-items: center;
             gap: 20px;
-            margin-bottom: 1rem;
         }
-        #midheader h1 {
-            margin: 0;
-            font-size: 2em;
-        }
-        #midheader h2 {
-            margin: 0;
-            font-size: 1.2em;
-            color: #666;
-            font-weight: normal;
-        }
-        nav {
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #eaeaea;
-        }
-        nav ul {
+        #site-header img { transition: transform 0.2s; }
+        #site-header img:hover { transform: scale(1.02); }
+        #midheader h1 { margin: 0; font-size: 1.8em; font-weight: 700; color: var(--text-main); letter-spacing: -0.5px; }
+        #midheader h2 { margin: 0; font-size: 1em; color: var(--text-muted); font-weight: 400; }
+        
+        /* Modern Top Navigation with Dropdowns */
+        .main-nav { display: flex; align-items: center; }
+        .nav-list {
             list-style: none;
-            padding: 0;
             margin: 0;
+            padding: 0;
             display: flex;
-            gap: 20px;
+            gap: 32px;
         }
-        nav a {
+        .nav-item { position: relative; }
+        .nav-item a {
             text-decoration: none;
-            color: #0066cc;
+            color: var(--text-main);
             font-weight: 500;
+            font-size: 0.95em;
+            padding: 10px 0;
+            display: block;
+            transition: color 0.2s;
         }
-        nav a[aria-current="page"] {
-            color: #333;
-            text-decoration: underline;
+        .nav-item a:hover, .nav-item.active > a { color: var(--primary); }
+
+        /* Dropdown specific styles */
+        .nav-list ul {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(15px);
+            background: var(--surface);
+            min-width: 220px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            list-style: none;
+            padding: 12px 0;
+            margin: 0;
+            z-index: 100;
         }
-        main img {
-            max-width: 100%;
-            height: auto;
+        /* Reveal dropdown on hover */
+        .nav-item:hover > ul {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        .nav-list ul li { margin: 0; }
+        .nav-list ul a {
+            padding: 8px 24px;
+            font-size: 0.9em;
+            color: var(--text-main);
+            display: block;
+        }
+        .nav-list ul a:hover {
+            background: #f4f5f7;
+            color: var(--primary);
+        }
+
+        /* Mobile Hamburger Toggle */
+        .nav-toggle-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+        .nav-toggle-btn span {
+            display: block; width: 24px; height: 2px; background: var(--text-main); position: relative; transition: 0.3s;
+        }
+        .nav-toggle-btn span::before, .nav-toggle-btn span::after {
+            content: ''; position: absolute; width: 24px; height: 2px; background: var(--text-main); left: 0; transition: 0.3s;
+        }
+        .nav-toggle-btn span::before { top: -8px; }
+        .nav-toggle-btn span::after { bottom: -8px; }
+        
+        body.menu-open .nav-toggle-btn span { background: transparent; }
+        body.menu-open .nav-toggle-btn span::before { transform: rotate(45deg); top: 0; }
+        body.menu-open .nav-toggle-btn span::after { transform: rotate(-45deg); bottom: 0; }
+
+        /* Layout Main */
+        .app-wrapper {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: var(--surface);
+            padding: 40px 60px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            min-height: 60vh;
+        }
+        main h2 { margin-top: 0; color: var(--text-main); font-size: 2.2em; font-weight: 700; letter-spacing: -0.5px; }
+        main img { max-width: 100%; height: auto; border-radius: 8px; }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.9em;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 900px) {
+            .app-wrapper { margin: 20px; padding: 30px; }
+            .header-container { padding: 15px 20px; }
+            #site-header img { width: 140px; height: auto; }
+            #midheader h1 { font-size: 1.4em; }
+            
+            .nav-toggle-btn { display: block; }
+            .main-nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--surface);
+                border-top: 1px solid var(--border);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+                padding: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+            }
+            body.menu-open .main-nav { max-height: 500px; }
+            
+            .nav-list { flex-direction: column; gap: 0; width: 100%; }
+            .nav-item { border-bottom: 1px solid var(--border); }
+            .nav-item a { padding: 15px 20px; }
+            
+            /* Flatten dropdowns on mobile */
+            .nav-list ul {
+                position: static;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                border-radius: 0;
+                opacity: 1;
+                visibility: visible;
+                padding: 0;
+                background: #f8f9fa;
+                display: none;
+            }
+            body.menu-open .nav-item:hover > ul { position: static; transform: none; display: block; }
+            .nav-list ul a { padding: 12px 20px 12px 40px; border-top: 1px solid var(--border); }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
+    <header>
+        <div class="header-container">
             <div id="site-header">
-                <div id="leftheader">
-                    <a href="{{ '/' | url }}">
-                        <img src="{{ '/images/softsynth_logo.png' | url }}" alt="SoftSynth Logo" width="200" height="100" border="0">
-                    </a>
-                </div>
+                <a href="{{ '/' | url }}">
+                    <img src="{{ '/images/softsynth_logo.png' | url }}" alt="SoftSynth Logo" width="200" height="auto" border="0">
+                </a>
                 <div id="midheader">
                     <h1>SoftSynth</h1>
                     <h2>... music and computers ...</h2>
                 </div>
             </div>
-            <nav>
-                {% set navPages = collections.all | eleventyNavigation %}
-                <ul>
-                {%- for entry in navPages %}
-                    <li>
-                        <a href="{{ entry.url | url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>
-                            {{ entry.title }}
-                        </a>
-                    </li>
-                {%- endfor %}
-                </ul>
+            
+            <nav class="main-nav">
+                {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({
+                    listElement: "ul",
+                    listItemElement: "li",
+                    listClass: "nav-list",
+                    listItemClass: "nav-item",
+                    activeListItemClass: "active",
+                    activeKey: eleventyNavigation.key
+                }) | safe }}
             </nav>
-        </header>
 
+            <button class="nav-toggle-btn" aria-label="Toggle Navigation" onclick="document.body.classList.toggle('menu-open')">
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="app-wrapper">
         <main>
             <h2>{{ title }}</h2>
             {{ content | safe }}
         </main>
-        
-        <footer>
-            <p>&copy; {{ page.date.getFullYear() }} SoftSynth.com. Generated with Eleventy.</p>
-        </footer>
     </div>
+    
+    <footer>
+        <p>&copy; {{ page.date.getFullYear() }} SoftSynth.com. Generated with Eleventy.</p>
+    </footer>
 </body>
 </html>
