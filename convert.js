@@ -217,7 +217,7 @@ function processFile(filePath) {
         }
     }
 
-    const validExtensions = ['.php', '.html', '.htm', '.zip', '.lha', '.mid', '.pdf', '.png', '.jpg', '.jpeg', '.gif', '.txt', '.jar', '.mp3', '.wav', '.ogg', '.css', '.js', '.wasm', '.map', '.json', '.woff', '.woff2', '.ttf', '.svg'];
+    const validExtensions = ['.php', '.html', '.htm', '.zip', '.lha', '.mid', '.pdf', '.png', '.jpg', '.jpeg', '.gif', '.txt', '.jar', '.mp3', '.wav', '.ogg', '.css', '.js', '.wasm', '.map', '.json', '.woff', '.woff2', '.ttf', '.svg', '.ico'];
     if (!validExtensions.includes(ext)) {
         // Handle extensionless files like Javadoc 'package-list'
         if (basename.toLowerCase() !== 'package-list') {
@@ -227,7 +227,7 @@ function processFile(filePath) {
 
     ensureDirSync(path.dirname(destPath));
 
-    if (['.zip', '.lha', '.mid', '.pdf', '.png', '.jpg', '.jpeg', '.gif', '.txt', '.jar', '.mp3', '.wav', '.ogg', '.css', '.js', '.wasm', '.map', '.json', '.woff', '.woff2', '.ttf', '.svg'].includes(ext) || basename.toLowerCase() === 'package-list') {
+    if (['.zip', '.lha', '.mid', '.pdf', '.png', '.jpg', '.jpeg', '.gif', '.txt', '.jar', '.mp3', '.wav', '.ogg', '.css', '.js', '.wasm', '.map', '.json', '.woff', '.woff2', '.ttf', '.svg', '.ico'].includes(ext) || basename.toLowerCase() === 'package-list') {
         fs.copyFileSync(filePath, destPath);
         console.log(`COPIED  : ${destRelPath}`);
         return;
