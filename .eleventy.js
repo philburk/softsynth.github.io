@@ -18,6 +18,13 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/**/*.ogg");
   eleventyConfig.addPassthroughCopy("src/**/*.css");
   eleventyConfig.addPassthroughCopy("src/**/*.js");
+  eleventyConfig.addPassthroughCopy("src/**/*.wasm");
+  eleventyConfig.addPassthroughCopy("src/**/*.map");
+  eleventyConfig.addPassthroughCopy("src/**/*.json");
+  eleventyConfig.addPassthroughCopy("src/**/*.woff");
+  eleventyConfig.addPassthroughCopy("src/**/*.woff2");
+  eleventyConfig.addPassthroughCopy("src/**/*.ttf");
+  eleventyConfig.addPassthroughCopy("src/**/*.svg");
 
   return {
     dir: {
@@ -26,7 +33,7 @@ module.exports = function(eleventyConfig) {
       output: "public"
     },
     templateFormats: ["md", "njk"],
-    markdownTemplateEngine: "njk",
+    markdownTemplateEngine: false,
     dataTemplateEngine: "njk"
   };
 };

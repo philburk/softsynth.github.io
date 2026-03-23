@@ -75,12 +75,9 @@
         }
         .nav-item a:hover, .nav-item.active > a { color: var(--primary); }
 
-        /* Dropdown specific styles */
+        /* Generic Dropdown Container Styles */
         .nav-list ul {
             position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%) translateY(15px);
             background: var(--surface);
             min-width: 220px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
@@ -94,11 +91,30 @@
             margin: 0;
             z-index: 100;
         }
-        /* Reveal dropdown on hover */
-        .nav-item:hover > ul {
+        
+        /* First-level Dropdowns (Drop down) */
+        .nav-list > .nav-item > ul {
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(15px);
+        }
+        .nav-list > .nav-item:hover > ul {
             opacity: 1;
             visibility: visible;
             transform: translateX(-50%) translateY(0);
+        }
+
+        /* Nested Submenus (Fly out to right) */
+        .nav-list .nav-item .nav-item > ul {
+            top: 0;
+            left: 100%;
+            transform: translateX(15px) translateY(0);
+            margin-top: -13px; /* Align precisely with parent item */
+        }
+        .nav-list .nav-item .nav-item:hover > ul {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0) translateY(0);
         }
         .nav-list ul li { margin: 0; }
         .nav-list ul a {

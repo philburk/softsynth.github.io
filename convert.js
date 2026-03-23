@@ -48,6 +48,14 @@ turndownService.addRule('preserveAnchor', {
     }
 });
 
+// Force all <pre> blocks into fenced code-blocks since Turndown natively skips them if nested inside legacy <ul> lists without <li> wrappers
+turndownService.addRule('forcePre', {
+    filter: 'pre',
+    replacement: function (content, node) {
+        return '\n\n```text\n' + node.textContent.trim() + '\n```\n\n';
+    }
+});
+
 const targetFolders = process.argv.slice(2);
 if (targetFolders.length === 0) {
     console.error("Please provide a folder path to convert.");
@@ -209,7 +217,7 @@ function processFile(filePath) {
         }
     }
 
-    const validExtensions = ['.php', '.html', '.htm', '.zip', '.lha', '.mid', '.pdf', '.png', '.jpg', '.jpeg', '.gif', '.txt', '.jar', '.mp3', '.wav', '.ogg', '.css', '.js'];
+    const validExtensions = ['.php', '.html', '.htm', '.zip', '.lha', '.mid', '.pdf', '.png', '.jpg', '.jpeg', '.gif', '.txt', '.jar', '.mp3', '.wav', '.ogg', '.css', '.js', '.wasm', '.map', '.json', '.woff', '.woff2', '.ttf', '.svg'];
     if (!validExtensions.includes(ext)) {
         // Handle extensionless files like Javadoc 'package-list'
         if (basename.toLowerCase() !== 'package-list') {
@@ -219,7 +227,7 @@ function processFile(filePath) {
 
     ensureDirSync(path.dirname(destPath));
 
-    if (['.zip', '.lha', '.mid', '.pdf', '.png', '.jpg', '.jpeg', '.gif', '.txt', '.jar', '.mp3', '.wav', '.ogg', '.css', '.js'].includes(ext) || basename.toLowerCase() === 'package-list') {
+    if (['.zip', '.lha', '.mid', '.pdf', '.png', '.jpg', '.jpeg', '.gif', '.txt', '.jar', '.mp3', '.wav', '.ogg', '.css', '.js', '.wasm', '.map', '.json', '.woff', '.woff2', '.ttf', '.svg'].includes(ext) || basename.toLowerCase() === 'package-list') {
         fs.copyFileSync(filePath, destPath);
         console.log(`COPIED  : ${destRelPath}`);
         return;
@@ -252,17 +260,28 @@ function processFile(filePath) {
         // Fix any accidental double slashes
         markdownBody = markdownBody.replace(/\]\(\/+/g, '](/');
 
-        // 2. Sophisticated URL Parser: Translate legacy relative paths and .php endpoints into native absolute Eleventy routes
+        // 2. Sophisticated URL Parser: Translate legacy paths, .php endpoints, and encode illegal spaces
         markdownBody = markdownBody.replace(/\]\(([^)]+)\)/g, (match, linkUrl) => {
-            let urlParts = linkUrl.match(/^([^\s?#]*)([?#][^\s]*)?(.*)$/);
-            if (!urlParts) return match;
+            let titleStr = '';
+            let rawUrl = linkUrl;
+            // Extract Markdown Title ("Title") if Turndown added one
+            let titleMatch = linkUrl.match(/^(.*?)\s+("[^"]*"|'[^']*')$/);
+            if (titleMatch) {
+                rawUrl = titleMatch[1];
+                titleStr = ' ' + titleMatch[2];
+            }
             
-            let urlPath = urlParts[1];
+            // URI encode any literal spaces in the URL string, which natively breaks CommonMark!
+            rawUrl = rawUrl.replace(/ /g, '%20');
+            
+            let urlParts = rawUrl.match(/^([^?#]*)([?#].*)?$/);
+            if (!urlParts) return '](' + rawUrl + titleStr + ')';
+            
+            let urlPath = urlParts[1] || '';
             let suffix = urlParts[2] || '';
-            let title = urlParts[3] || '';
 
             if (urlPath.toLowerCase().startsWith('http') || urlPath.toLowerCase().startsWith('mailto')) {
-                return match; 
+                return '](' + rawUrl + titleStr + ')'; 
             }
 
             let isLegacyFile = false;
@@ -272,7 +291,9 @@ function processFile(filePath) {
                 urlPath = urlPath.slice(0, -extMatch[0].length);
             }
 
-            if (urlPath === '' && suffix.startsWith('#')) return match; // local anchor
+            if (urlPath === '' && suffix.startsWith('#')) {
+                return '](' + suffix + titleStr + ')';
+            }
             if (urlPath === '') urlPath = '/';
 
             // Resolve ALL relative links (even images/zips!) to proper Absolute Paths so Eleventy subfolders never break them
@@ -289,7 +310,7 @@ function processFile(filePath) {
                 }
             }
 
-            return '](' + urlPath + suffix + title + ')';
+            return '](' + urlPath + suffix + titleStr + ')';
         });
 
         // 3. Globally escape all raw HTML tags that Turndown dumped into the Markdown so they display safely as text.
