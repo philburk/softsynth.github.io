@@ -8,8 +8,8 @@ const turndownService = new TurndownService({
     codeBlockStyle: 'fenced'
 });
 turndownService.use(turndownPluginGfm.gfm);
-// Keep audio elements entirely intact instead of stripping them
-turndownService.keep(['audio', 'source']);
+// Keep audio and script elements entirely intact instead of stripping them
+turndownService.keep(['audio', 'source', 'script', 'noscript']);
 
 // Custom rule to aggressively force headerless HTML layout blocks into Markdown Tables natively 
 turndownService.addRule('forceMarkdownTable', {
@@ -314,8 +314,8 @@ function processFile(filePath) {
         });
 
         // 3. Globally escape all raw HTML tags that Turndown dumped into the Markdown so they display safely as text.
-        // EXCEPT: We use a negative lookahead to ignore <audio>, <source>, and <br> components so they render natively.
-        markdownBody = markdownBody.replace(/<(?!\/?audio\b|\/?source\b|\/?br\b)([^>]+)>/gi, '&lt;$1&gt;');
+        // EXCEPT: We use a negative lookahead to ignore <audio>, <source>, <script>, <noscript>, and <br> components so they render natively.
+        markdownBody = markdownBody.replace(/<(?!\/?audio\b|\/?source\b|\/?script\b|\/?noscript\b|\/?br\b)([^>]+)>/gi, '&lt;$1&gt;');
 
         // 4. Safely restore the legacy HTML anchor tokens back into real DOM elements so in-page links function properly
         markdownBody = markdownBody.replace(/\[\[\[ANCHOR_([^\]]+)\]\]\]/g, '<a name="$1"></a>');

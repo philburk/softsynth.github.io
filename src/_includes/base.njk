@@ -19,6 +19,10 @@
 
       gtag('config', 'G-79HEJDRKRP');
     </script>
+
+    {% if extraHead %}
+    {{ extraHead | safe }}
+    {% endif %}
 </head>
 <body>
     <header>
