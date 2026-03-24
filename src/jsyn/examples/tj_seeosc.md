@@ -23,4 +23,4 @@ Note that the waveforms with the "BL" or "DPW" suffix are band-limited. Sweep th
 
 * * *
 
-<script>(async function () { await cheerpjInit(version=11); cheerpjCreateDisplay(800, 600); cheerpjRunMain( "com.jsyn.examples.SeeOscillators", "/app/jsyn/examples/jsyn-examples-v2-17.2.0.jar" ); })();</script>
+<script>(async function () { await cheerpjInit(version=11); cheerpjCreateDisplay(800, 600); cheerpjRunMain( "com.jsyn.examples.SeeOscillators", "jsyn-examples-v2-17.2.0.jar" ); })();</script>
