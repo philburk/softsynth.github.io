@@ -12,30 +12,30 @@ eleventyNavigation:
 
 **Note that Java no longer is supported by the Chrome browser.** So we are using [CheerPJ](https://cheerpj.com/) to run these Applets using JavaScript and WASM! The ones marked "OK" are working as intended. The others have problems.
 
-*   [SeeOsc](/jsyn/examples/tj_seeosc/) = various oscillators, OK
-*   [FourPole](/jsyn/examples/fourpole/) = four pole lowpass filter, "Moog" style, OK
-*   [GoogleWave](/jsyn/examples/googlewave/) = custom unit generator that creates an elliptical waveform, OK
-*   [ChebyshevSong](/jsyn/examples/chebyshev_song/) - play an algorithmically generated song on a Chebyshev WaveShaper instrument, OK
-*   [Wind](/jsyn/examples/wind_circuit/) = filtered noise
+*   [SeeOsc](/jsyn/examples/tj_seeosc.html) = various oscillators, OK
+*   [FourPole](/jsyn/examples/fourpole.html) = four pole lowpass filter, "Moog" style, OK
+*   [GoogleWave](/jsyn/examples/googlewave.html) = custom unit generator that creates an elliptical waveform, OK
+*   [ChebyshevSong](/jsyn/examples/chebyshev_song.html) - play an algorithmically generated song on a Chebyshev WaveShaper instrument, OK
+*   [Wind](/jsyn/examples/wind_circuit.html) = filtered noise
 
 These example use the older AWT style GUI.
 
-*   [SawFader](/jsyn/examples/tj_sawfader/) - modulate a sawtooth wave. OK
-*   [WaveMaker](/jsyn/examples/tj_wavemaker/) = build waveforms and play using TableOscillator, OK
-*   [FMLab](/jsyn/examples/fmlab/) - edit various FM instruments
-*   [PluckedString](/jsyn/examples/tj_pluck1/) = plucked string sound using a Karplus-Strong physical model. OK
-*   [Birds](/jsyn/examples/tj_birds/) = trigger multiple oscillating "birds". OK
-*   [FilterFun](/jsyn/examples/filterfun/) - hear the effect of various filters on different sounds.
-*   [Delay1](/jsyn/examples/tj_delay1/) - create an echo effect.
-*   [Env2](/jsyn/examples/tj_env2/) - use a multisegmented envelope. OK
-*   [EnvEdit1](/jsyn/examples/tj_envedit1/) - try JSyn's interactive Envelope Editor. OK
+*   [SawFader](/jsyn/examples/tj_sawfader.html) - modulate a sawtooth wave. OK
+*   [WaveMaker](/jsyn/examples/tj_wavemaker.html) = build waveforms and play using TableOscillator, OK
+*   [FMLab](/jsyn/examples/fmlab.html) - edit various FM instruments
+*   [PluckedString](/jsyn/examples/tj_pluck1.html) = plucked string sound using a Karplus-Strong physical model. OK
+*   [Birds](/jsyn/examples/tj_birds.html) = trigger multiple oscillating "birds". OK
+*   [FilterFun](/jsyn/examples/filterfun.html) - hear the effect of various filters on different sounds.
+*   [Delay1](/jsyn/examples/tj_delay1.html) - create an echo effect.
+*   [Env2](/jsyn/examples/tj_env2.html) - use a multisegmented envelope. OK
+*   [EnvEdit1](/jsyn/examples/tj_envedit1.html) - try JSyn's interactive Envelope Editor. OK
 
 ### HyperInstruments
 
 *   **[WebDrum](http://www.transjam.com) - jam live with other musicians across the web! OK (Kotlin)**
-*   [Performance Rack #1](/jsyn/examples/perfrack1/) - explore an interactive "music" generator. (1997) OK
-*   [PinWheel](/jsyn/examples/pinwheel/) - rotate a melody in a pitch/time space (1997) OK
-*   [Tuna](/jsyn/examples/tj_tuna/) - combine various odd sounds in a song for tuna fish. (1997)
+*   [Performance Rack #1](/jsyn/examples/perfrack1.html) - explore an interactive "music" generator. (1997) OK
+*   [PinWheel](/jsyn/examples/pinwheel.html) - rotate a melody in a pitch/time space (1997) OK
+*   [Tuna](/jsyn/examples/tj_tuna.html) - combine various odd sounds in a song for tuna fish. (1997)
 
 ### User <a name="Gallery"></a>Gallery
 
@@ -51,7 +51,7 @@ These Applets may require the native code JSyn plugin. If so please ask the webm
 *   [**Music and Computers**](http://musicandcomputersbook.com/) -online textbookwith JSyn Applets by Larry Polansky, Douglas Repetto, Mary Roberts, Dan Rockmore and Phil Burk.
 *   **[Physics of Waves](http://www.phys.unca.edu/)** - sound demos for University of North Carolina by **Dr. Mike Ruiz** and **Evan Ruiz**. [CNN Story.](http://www.cnn.com/2002/TECH/science/08/30/coolsc.ebooks/index.html)
 *   **[Geometry Unheard Of](http://www-sfb288.math.tu-berlin.de/vgp/unheard/ma-freizeit/freizeitweb/jvmusic/javaViewSyn_index.html)** - listen to complex rotatable geometries (German text), by **Mona Brand** and **Thomas Noll**
-*   **[Phaser](/jsyn/examples/phaser/)** - by **[Jonathan Simon](/jsyn/examples_beta/jonsimon_cv/)**, inspired by Steve Reich's phase pieces
+*   **[Phaser](/jsyn/examples/phaser.html)** - by **[Jonathan Simon](/jsyn/examples_beta/jonsimon_cv.html)**, inspired by Steve Reich's phase pieces
 *   **[JLooch](http://music.columbia.edu/~brad/jlooch/)** and **[JNissa](http://music.columbia.edu/~brad/jnissa/)**, algorithmic ambient pieces by **[Brad Garton](http://music.columbia.edu/cmc/people/brad.html)** at the [Columbia University Computer Music Center,](http://music.columbia.edu/cmc/) dedicated to the pets.
 *   **[Punos Interactive](http://www.punosmusic.com)** - Numerous Compositions and Interactive Software Instruments by **[Nick Didkovsky](http://www.doctornerve.org)**
 *   **[Rhythmicon](http://www.musicmavericks.org/rhythmicon/)** - software version of early 20th century instrument, commisioned by Minnesota Public Radio, developed by Nick Didkovsky.
