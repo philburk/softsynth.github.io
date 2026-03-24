@@ -17,43 +17,43 @@ You may wish to read the document that describes [how to compile and run JSyn pr
 
 This document is gradually being replaced by the JSyn [Tutorial](/jsyn/docs/tutorial).
 
-## 
+##
 
 * * *
 
 Table of Contents
 
-[JSyn Package](#JSynPackage)  
-[Starting the Synthesis Engine](#StartingEngine)  
-[Creating Unit Generators](#CreatingUnitGenerators)  
-[Connecting Unit Generators](#ConnectingUnitGenerators)  
-[Setting Parameters](#Setting%20Parameters)  
-[Starting and Stopping  Units](#StartingUnits)  
-[Catching SynthException](#CatchingSynthException)  
-[Applet Template](#AppletTemplate)  
-[Time and Sleeping](#TimeSleeping)  
-[Using the Event Scheduler](#UsingEventScheduler)  
-[Loading a Sample from a File](#LoadingSample)  
-[Creating a Sample](#CreatingSample)  
-[Playing a Sample](#PlayingSample)  
-[Creating a Table](#CreatingTable)  
-[Using a Table for Wave Table Synthesis](#WaveTableSynthesis)  
-[Using a Table for Wave Shaping or Function Lookup](#WaveShaping)  
-[Loading a Table from a File](#LoadingTable)  
-[Using a SynthBus to Combine Signals.](#UsingSynthBus)  
-[Using Priority to Control the Order of Execution](#UsingPriority)  
-[Creating Envelopes](#CreatingEnvelopes)  
-[Using Envelopes to Control Other Units](#UsingEnvelopes)  
-[Grouping Units together into a Circuit](#GroupingUnits)  
-[Using a SynthDistributor in a SynthCircuit](#UsingSynthDistributor)  
-[Using AutoStop with Samples or Envelopes](#UsingAutoStop)  
-[Receiving Notification of Sample Playback Completion](#ReceivingNotification)  
-[Using a JSyn Applet in a Web Page](#WebPage)  
+[JSyn Package](#JSynPackage)
+[Starting the Synthesis Engine](#StartingEngine)
+[Creating Unit Generators](#CreatingUnitGenerators)
+[Connecting Unit Generators](#ConnectingUnitGenerators)
+[Setting Parameters](#Setting%20Parameters)
+[Starting and Stopping  Units](#StartingUnits)
+[Catching SynthException](#CatchingSynthException)
+[Applet Template](#AppletTemplate)
+[Time and Sleeping](#TimeSleeping)
+[Using the Event Scheduler](#UsingEventScheduler)
+[Loading a Sample from a File](#LoadingSample)
+[Creating a Sample](#CreatingSample)
+[Playing a Sample](#PlayingSample)
+[Creating a Table](#CreatingTable)
+[Using a Table for Wave Table Synthesis](#WaveTableSynthesis)
+[Using a Table for Wave Shaping or Function Lookup](#WaveShaping)
+[Loading a Table from a File](#LoadingTable)
+[Using a SynthBus to Combine Signals.](#UsingSynthBus)
+[Using Priority to Control the Order of Execution](#UsingPriority)
+[Creating Envelopes](#CreatingEnvelopes)
+[Using Envelopes to Control Other Units](#UsingEnvelopes)
+[Grouping Units together into a Circuit](#GroupingUnits)
+[Using a SynthDistributor in a SynthCircuit](#UsingSynthDistributor)
+[Using AutoStop with Samples or Envelopes](#UsingAutoStop)
+[Receiving Notification of Sample Playback Completion](#ReceivingNotification)
+[Using a JSyn Applet in a Web Page](#WebPage)
 [Class Overview](#OverviewClasses)
 
 * * *
 
-  
+
 Before reading this discussion, you may wish to look at the source code for example "[TJ\_SawFader.java](/jsyn/docs/old/TJ_SawFader.txt)".
 
 When you connect up a stereo system, you connect the various components so that sound can flow between them. Sound may flow, for example, from a CD player, to a graphic equalizer, to an amplifier, and then to a pair of speakers. In a similar manner, sound generating, and sound processing units are connected together in JSyn to create new sounds. These sound components are traditionally called unit generators. The library of unit generators includes oscillators, filters, ramps and other functions that you would find on a modular analog synthesiser, or a software synthesis package like CSound.
@@ -99,7 +99,7 @@ Synth.stopEngine();
 
 ### <a name="CreatingUnitGenerators"></a>Creating Unit Generators
 
-The next step is to create the various unit generators needed to create the desired sounds. The unit generator classes are all subclasses of the SynthUnit class.  An overview of the various unit generators available is available in the [JSyn Unit Generator Overview.](/jsyn/docs/old/unitlist/)  
+The next step is to create the various unit generators needed to create the desired sounds. The unit generator classes are all subclasses of the SynthUnit class.  An overview of the various unit generators available is available in the [JSyn Unit Generator Overview.](/jsyn/docs/old/unitlist/)
 Create two unit generators as follows:
 
 ```text
@@ -234,7 +234,7 @@ public class MyJSynProgram extends Applet
 /*
  * Setup synthesis by overriding start() method.
  */
-   public void start()  
+   public void start()
    {
       try
       {
@@ -250,7 +250,7 @@ public class MyJSynProgram extends Applet
 /*
   * Clean up synthesis by overriding stop() method.
   */
-   public void stop()  
+   public void stop()
    {
       try
       {
@@ -267,11 +267,11 @@ public class MyJSynProgram extends Applet
 
 JSyn maintains an internal timer that increments as the audio signals are calculated.  The timer units are "Ticks" and correspond to a block of  audio data.
 
-To find out the current time in ticks by calling **[Synth](/jsyn/docs/old/autodocs/com/softsynth/jsyn/Synth/).getTickCount().**  
-To find out how many audio frames are in a Tick by calling **Synth.getFramesPerTick()**.  
+To find out the current time in ticks by calling **[Synth](/jsyn/docs/old/autodocs/com/softsynth/jsyn/Synth/).getTickCount().**
+To find out how many audio frames are in a Tick by calling **Synth.getFramesPerTick()**.
 To determine the rate of Ticks per Second by calling **Synth.getTickRate()**.
 
-To sleep until a certain time then call **Synth.sleepUntilTick( wakeupTimeInTicks )**.  
+To sleep until a certain time then call **Synth.sleepUntilTick( wakeupTimeInTicks )**.
 To sleep for a certain number of ticks from now use **Synth.sleepForTicks( ticksToSleepFor )**.
 
 If you want to maintain synchronized timing over the long run then you should use sleepUntilTick() because sleepForTicks() will incorporate small delays that accumulate over time.  Here is an example of code that will do something every 100 ticks.  If the initial time is 1000, then doSomething will occur at 1000, 1100, 1200, 1300, 1400, etc.
@@ -472,7 +472,7 @@ A unit called TableOscillator will generate repeating waveforms using the values
     {
            data[i] = (short)
   (32767.0 * (0.5*Math.sin(i*2.0*Math.PI/WAVE_LENGTH)
-                             
+
   + 0.5*Math.sin(3.0*i*2.0*Math.PI/WAVE_LENGTH)));
   }
   /* Set guard point. */
@@ -517,7 +517,7 @@ if( shrtData != null )
 
 We already learned that each SynthOutput can be connected to **multiple** SynthInputs, and each SynthInput can only have **one** SynthOutput connected to it.   There is another kind of Port called a "bus" that has the opposite rule. Each SynthBusOutput can be connected to only **one** SynthBusInput.  Each SynthBusInput can have **multiple** SynthBusOutputs connected to it. This is called _"multiple fan-**in**"._
 
-All of the SynthBusOutputs connected to a SynthBusInput are added together before being used.  This makes them handy for mixing signals.  You can convert a normal signal to a bus signal using a BusWriter unit.  It has a SynthInput and a SynthBusOutput.  Multiple BusWriter units can be connected to a single BusReader unit which has a SynthBusInput and a normal SynthOutput.  
+All of the SynthBusOutputs connected to a SynthBusInput are added together before being used.  This makes them handy for mixing signals.  You can convert a normal signal to a bus signal using a BusWriter unit.  It has a SynthInput and a SynthBusOutput.  Multiple BusWriter units can be connected to a single BusReader unit which has a SynthBusInput and a normal SynthOutput.
 This technique is handy if you want to combine an arbitrary number of signals to be processed together.  If you only need to combine two signals then you could just use a AddUnit unit.
 
 Here is an example that show how to mix an array of oscillators to a single bus.  The output of this bus could then be processed by a filter or passed to a reverberation effect, etc.
@@ -583,8 +583,8 @@ As a convenient alternative you can construct the envelope in one step using a c
 
 ### <a name="UsingEnvelopes"></a>Using Envelopes to Control Other Units
 
-Envelopes can be used to control the parameters of various unit generators.  Envelopes cannot, however, be used directly they require an envelope player unit called a [EnvelopePlayer](/jsyn/docs/old/autodocs/com/softsynth/jsyn/EnvelopePlayer/). Envelopes are queued on an envelope just like samples are queued on a sample player.  Consider this example:  
- 
+Envelopes can be used to control the parameters of various unit generators.  Envelopes cannot, however, be used directly they require an envelope player unit called a [EnvelopePlayer](/jsyn/docs/old/autodocs/com/softsynth/jsyn/EnvelopePlayer/). Envelopes are queued on an envelope just like samples are queued on a sample player.  Consider this example:
+
 
 ```text
 myEnv = new EnvelopePlayer();

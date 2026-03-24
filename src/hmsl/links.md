@@ -17,7 +17,7 @@ Nick Didkovsky is an active HMSL composer in New York who has written several ar
 
 Larry Polansky:
 
-> "[Works for Performers and  Live Interactive Computer](http://eamusic.dartmouth.edu/~larry/misc_writings/program_notes/langton.notes.html)"  
+> "[Works for Performers and  Live Interactive Computer](http://eamusic.dartmouth.edu/~larry/misc_writings/program_notes/langton.notes.html)"
 > [Simple Harmonic Motion](http://www.artifact.com/shm.html)
 
 David Rosenboom:

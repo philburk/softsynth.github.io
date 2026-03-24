@@ -13,7 +13,7 @@ public void run()    // real-time task for thread
     int advanceTime = (int) (Synth.getTickRate() * 0.5); // half second advance
     Synth.sleepUntilTick( startTime  - advanceTime );  // Wake up early!
     int nextTime = startTime;
-    while( true ) 
+    while( true )
     {
         bang( nextTime );        // Request that a note be played later!
         nextTime += duration;    // Advance nextTime by fixed amount.

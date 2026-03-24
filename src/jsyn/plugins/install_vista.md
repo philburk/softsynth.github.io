@@ -21,8 +21,8 @@ Windows Vista has a much stronger security system than other versions of Windows
 
 This does the same thing as the Short Instructions above but with more step-by-step help.
 
-1.  You will need "Administrator" privilege to do this. If you have a home computer then you are probably OK. If you are sharing a computer at school then you may not have administrator privilege.  
-    
+1.  You will need "Administrator" privilege to do this. If you have a home computer then you are probably OK. If you are sharing a computer at school then you may not have administrator privilege.
+
 2.  Download "[JSynV144.dll](/jsyn/plugins/archives/JSynV144.dll)" to the Desktop by right clicking on that link and selecting "Save Link As...".
 3.  Click on "Desktop" on the left, then click on "Save" to save the file to your Desktop.
 4.  Download "[jsyn.jar](/jsyn/plugins/archives/jsyn.jar)" to the Desktop by right clicking on that link and selecting "Save Link As...".
@@ -41,8 +41,8 @@ This does the same thing as the Short Instructions above but with more step-by-s
 17.  Double click on "ext".
 18.  Drag the "jsyn.jar" file to the "ext" folder. (Note: Windows Vista may be hiding the ".jar" file extension to protect you from knowing what type of file it is. So the file might look like it is just called "jsyn".)
 19.  You will see a series of security dialog from Windows Vista warning you that you are placing a file in that folder. Just keep clicking "Continue" unitl it is done.
-20.  Exit the browser completely by choosing Quit from the file menu or close all the browser windows then reopen the browser and try using JSyn.  
-     
+20.  Exit the browser completely by choosing Quit from the file menu or close all the browser windows then reopen the browser and try using JSyn.
+
 
 As far as we know, this procedure works. If the procedure does not work then please [send us an email here](/contacts/).
 

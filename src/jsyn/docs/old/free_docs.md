@@ -3,7 +3,7 @@ layout: base.njk
 title: "JSyn Docs for Old API"
 ---
 
-&lt;!-- .bigred { color: #F00; } --&gt;  
+&lt;!-- .bigred { color: #F00; } --&gt;
 
 <center>&lt;table width="100%"&gt;&lt;tbody&gt;&lt;tr valign="TOP" bgcolor="#FFFFCC"&gt;&lt;td valign="TOP"&gt;<center>&lt;h1&gt;&lt;font color="#008040"&gt;JSyn Documentation for Free Lite SDK&lt;/font&gt;&lt;/h1&gt;</center>&lt;/td&gt;&lt;/tr&gt;&lt;tr bgcolor="#FFCC99"&gt;&lt;td&gt;<center>&lt;a href="/"&gt;SoftSynth.com&lt;/a&gt; | &lt;a href="/jsyn"&gt;JSyn&lt;/a&gt;</center>&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</center>
 

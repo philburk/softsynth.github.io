@@ -14,7 +14,7 @@ Si vous ne vous êtes pas encore enregistré, veuillez le faire à la [Home Page
 
 Si le téléchargement n'a a pas fonctionné, ou si pForth ne fonctionne pas, veuillez s'il vous plaît alerter [Phil Burk](/contacts/).
 
-Phil Burk est disponible comme sous-traitant (voir page "[contractor "](/contractor/), en anglais) pour la création de classes pForth, pour le développement d'applications,  
+Phil Burk est disponible comme sous-traitant (voir page "[contractor "](/contractor/), en anglais) pour la création de classes pForth, pour le développement d'applications,
 ou afin de porter pForth sur de nouvelles plate-formes.
 
 ## Les versions récentes incluent
@@ -49,7 +49,7 @@ ou afin de porter pForth sur de nouvelles plate-formes.
 *      so that it matches ANS standard.  2>R is now same as SWAP >R >R
 *      Thank you Leo Wong for reporting this bug.
 *    - Added PF\_USER\_INIT and PF\_USER\_TERM for user definable init and term calls.
-  
+
  - FIXED memory leak in pfDoForth()
 
 ### V18

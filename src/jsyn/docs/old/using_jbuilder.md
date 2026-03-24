@@ -54,11 +54,11 @@ You're off and running! Now go code some music.
 
 ### Tips and Tricks
 
-**Q: I changed the name of a Java file, or a package name. Now JBuilder tells me that the package name is incorrect. How can I fix this?**  
+**Q: I changed the name of a Java file, or a package name. Now JBuilder tells me that the package name is incorrect. How can I fix this?**
 A: There are at least two possible causes for this:
 
 1.  Your package name must match the folder hierarchy of the Java source code. Suppose JBuilder is looking for source code in the folder "src/". Suppose you have a class called "MyThing" in the package "com.mydomain.goodstuff". The source code must then be in a file called "src/com/mydomain/goodstuff/MyThing.java".
 2.  If the folder hierarchy is correct, then it is possible that JBulder is just confused. It keeps track of where to find various packages and that information can become corrupt. So look for a folder called **"package cache"** in your classes folder. It is likely to contain a bunch of files whose names correspond to your packages and that have a ".dep2" suffix. Close JBuilder then delete folder. When you restart JBuilder and compile then it will rebuild that cache.
 
-  
+
 You can **quickly run any Java class** that has a valid main() method by right-clicking on its name in the file browser at the left hand side of the JBuilder screen. Then select Run or Debug from the popup menu. Mac users will need a 2 or 3 button mouse for this.

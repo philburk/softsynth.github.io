@@ -10,11 +10,11 @@ eleventyNavigation:
 
 # History of [JSyn](/jsyn/)
 
-by Phil Burk  
+by Phil Burk
 July, 20, 2001
 
-This history was written in request to an inquiry on the [JSyn mail list.](http://groups.yahoo.com/group/jsyn/)  
-From: "Ronald Edward Petty"  
+This history was written in request to an inquiry on the [JSyn mail list.](http://groups.yahoo.com/group/jsyn/)
+From: "Ronald Edward Petty"
 \> How did jsyn come around...?
 
 Well, since you asked...

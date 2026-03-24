@@ -15,6 +15,6 @@ To Do:
 4.  Set the amplitudes of each oscillator to about 0.6. See and hear the clipping that results.
 5.  The scope shows the color coded output of both oscillators and the mixer. Convince yourself that the mixer output is the sum of the two oscillators. (It may appear to be very slightly delayed.)
 
-  
+
 
 To see how I did this, please look at the [source code](/jsyn/tutorial/TUT_SineMix.txt) for this Java Applet.

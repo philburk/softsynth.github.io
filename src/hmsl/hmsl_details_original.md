@@ -61,7 +61,7 @@ The TOP\_COLLECTION could be a parallel collection which means it plays all of i
      5 choose  \ pick random number 0,1,2,3,4
      0=        \ is it zero, 1 chance in 5
      IF  stop: player_fast  \ send stop message
-     THEN 
+     THEN
  ;
  \ 'C gets the address of a function
  'C MAYBE.STOP.FAST PUT.REPEAT.FUNCTION: PLAYER_1
@@ -90,7 +90,7 @@ HMSL includes a library of classes for building interactive graphical environmen
         \ Play random notes in one octave range
         \ in parallel with an accelerando
         : DOIT
-            par{ 
+            par{
                 16 0  \ set up loop
                 DO  12 choose \ random over 1 octave
                     60 + \ above middle C

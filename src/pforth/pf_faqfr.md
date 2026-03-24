@@ -4,16 +4,16 @@ layout: base.njk
 
 <center>&lt;h5&gt;&lt;a href="http://www.softsynth/pforth/pf_faq.htm"&gt;This page is originally in english...&lt;/a&gt;&lt;/h5&gt;&lt;h1&gt;FAQ PForth&lt;/h1&gt;</center>
 
-[Où puis-je télécharger pForth ?](#telecharger)  
-[Combien ça coûte ?](#coute)  
-[Est-ce que pForth fonctionnera sur ma machine ?](#machine)  
-[Est-ce que pForth peut faire des applications indépendantes sous Windows et Unix ?](#independantes)  
-[Est-ce que pForth a accès aux fonctions API Win32 ?](#Win32)  
+[Où puis-je télécharger pForth ?](#telecharger)
+[Combien ça coûte ?](#coute)
+[Est-ce que pForth fonctionnera sur ma machine ?](#machine)
+[Est-ce que pForth peut faire des applications indépendantes sous Windows et Unix ?](#independantes)
+[Est-ce que pForth a accès aux fonctions API Win32 ?](#Win32)
 [Comment puis-je appeler mon propre code 'C' ?](#code_c)
 
 Où puis-je <a name="telecharger"></a>télécharger pForth ?"
 
-> La home page de pForth se trouve à:   [/pforth](/pforth) (en anglais)  
+> La home page de pForth se trouve à:   [/pforth](/pforth) (en anglais)
 > Elle est aussi disponible en français à:   [/pforth/pforthfr.htm](/pforth/indexfr/)
 
 Combien ça <a name="coute"></a>coûte ?
@@ -23,12 +23,12 @@ Combien ça <a name="coute"></a>coûte ?
 Est-ce que pForth fonctionnera sur ma <a name="machine"></a>machine?
 
 > J'ai réalisé des versions de pForth pour les  PCs, Macintosh, et Linux sous plate-forme Intel. Cependant pForth est facilement portable aussi vous pourrez probablement le compiler sur toute machine respectant ces conditions pré-requises:
-> 
+>
 > *   avoir un compilateur 'C' compatible ANSI (par exemple "gcc"),
 > *   supporter des entiers 32 bit,
 > *   posséder des fonctions d'entrées/sorties,
 > *   posséder quelques centaines de Kilo octets de RAM.
-> 
+>
 > Pour plus d'information, veuillez vous référer à la section concernant la [compilation de pForth](/pforth/manuelpf/#Compiling_pForth) dans le manuel de référence.
 
 Est-ce que pForth peut faire des applications indépendantes <a name="independantes"></a> sous Windows et sous Unix ?

@@ -11,7 +11,7 @@ Let us consider how to play notes, or other sound events, at specific times. Sup
 public void run()    // real-time task for thread
 {
     Synth.sleepUntilTick( startTime );  // Wait until it is time to start.
-    while( true ) 
+    while( true )
     {
         bang();    // Play a note right now.
         Synth.sleepForTicks( duration );  // Sleep a while. BAD!!!!

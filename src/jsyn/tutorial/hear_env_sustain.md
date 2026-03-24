@@ -5,8 +5,8 @@ title: "JSyn Tutorial"
 
 Let's queue separate portions of an envelope for the attack and release portion of a sustaining note.
 
-This applet has two buttons.  
-The "Attack" button queues the beginning of the envelope.  
+This applet has two buttons.
+The "Attack" button queues the beginning of the envelope.
 The "Release" button queues the ending of the envelope.
 
 To Do:

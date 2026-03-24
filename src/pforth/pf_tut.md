@@ -75,7 +75,7 @@ The stack is initially empty. To put some numbers on the stack, enter:
 
 Let's now print the number on top of the stack using the Forth word ' **.** ', which is pronounced " dot ". This is a hard word to write about in a manual because it is a single period.
 
-Enter: **.** 
+Enter: **.**
 
 You should see the last number you entered, 9182 , printed. Forth has a very handy word for showing you what's on the stack. It is **.S** , which is pronounced "dot S". The name was constructed from "dot" for print, and "S" for stack. (PForth will automatically print the stack after every line if the TRACE-STACK variable is set to TRUE.) If you enter:
 
@@ -111,9 +111,9 @@ You will notice that there are two copies of 777 on the stack. The word **DUP** 
 Another useful word, is **SWAP**. Enter:
 
 ```text
-0SP 
-23 7 .S 
-SWAP .S 
+0SP
+23 7 .S
+SWAP .S
 SWAP .S
 ```
 
@@ -153,7 +153,7 @@ ROT .S
 
 The stack diagram for ROT is, therefore:
 
-**ROT ( a b c -- b c a , ROTate third item to top )** 
+**ROT ( a b c -- b c a , ROTate third item to top )**
 
 You have now learned the more important stack manipulation words. You will see these in almost every Forth program. I should caution you that if you see too many stack manipulation words being used in your code then you may want to reexamine and perhaps reorganize your code. You will often find that you can avoid excessive stack manipulations by using _local or global VARIABLES_ which will be discussed later.
 
@@ -169,32 +169,32 @@ If you want to grab any arbitrary item on the stack, use **PICK** . Try entering
 
 PICK makes a copy of the Nth item on the stack. The numbering starts with zero, therefore:
 
-0 PICK is equivalent to DUP  
+0 PICK is equivalent to DUP
 1 PICK is equivalent to OVER
 
-**PICK ( ... v3 v2 v1 v0 N -- ... v3 v2 v1 v0 vN )** 
+**PICK ( ... v3 v2 v1 v0 N -- ... v3 v2 v1 v0 vN )**
 
 (Warning. The Forth-79 and FIG Forth standards differ from the ANS and Forth '83 standard in that their PICK numbering starts with one, not zero.)
 
 I have included the stack diagrams for some other useful stack manipulation words. Try experimenting with them by putting numbers on the stack and calling them to get a feel for what they do. Again, the text in parentheses is just a comment and need not be entered.
 
-**DROP ( n -- , remove top of stack )** 
+**DROP ( n -- , remove top of stack )**
 
-**?DUP ( n -- n n | 0 , duplicate only if non-zero, '|' means OR )** 
+**?DUP ( n -- n n | 0 , duplicate only if non-zero, '|' means OR )**
 
-**\-ROT ( a b c -- c a b , rotate top to third position )** 
+**\-ROT ( a b c -- c a b , rotate top to third position )**
 
-**2SWAP ( a b c d -- c d a b , swap pairs )** 
+**2SWAP ( a b c d -- c d a b , swap pairs )**
 
-**2OVER ( a b c d -- a b c d a b , leapfrog pair )** 
+**2OVER ( a b c d -- a b c d a b , leapfrog pair )**
 
-**2DUP ( a b -- a b a b , duplicate pair )** 
+**2DUP ( a b -- a b a b , duplicate pair )**
 
-**2DROP ( a b -- , remove pair )** 
+**2DROP ( a b -- , remove pair )**
 
-**NIP ( a b -- b , remove second item from stack )** 
+**NIP ( a b -- b , remove second item from stack )**
 
-**TUCK ( a b -- b a b , copy top item to third position )** 
+**TUCK ( a b -- b a b , copy top item to third position )**
 
 ### <a name="Problems - Stack"></a>Problems:
 
@@ -326,15 +326,15 @@ Two other handy words are **MIN** and **MAX** . They accept two numbers and retu
 
 Some other useful words are:
 
-**ABS ( n -- abs(n) , absolute value of n )** 
+**ABS ( n -- abs(n) , absolute value of n )**
 
-**NEGATE ( n -- -n , negate value, faster then -1 \* )** 
+**NEGATE ( n -- -n , negate value, faster then -1 \* )**
 
-**LSHIFT ( n c -- n&lt;<c , left shift of n )** 
+**LSHIFT ( n c -- n&lt;<c , left shift of n )**
 
-**RSHIFT ( n c -- n&gt;>c , logical right shift of n )** 
+**RSHIFT ( n c -- n&gt;>c , logical right shift of n )**
 
-**ARSHIFT ( n c -- n>>c ) , arithmetic right shift of n )** 
+**ARSHIFT ( n c -- n>>c ) , arithmetic right shift of n )**
 
 ARSHIFT or LSHIFT can be used if you have to multiply quickly by a power of 2 . A right shift is like doing a divide by 2. This is often faster than doing a regular multiply or divide. Try entering:
 
@@ -429,7 +429,7 @@ Here is a complete [ASCII chart](http://www.asciitable.com/).
 
 Notice that the word CHAR is a bit unusual because its input comes not from the stack, but from the following text. In a stack diagram, we represent that by putting the input in angle brackets, &lt;input&gt;. Here is the stack diagram for CHAR.
 
-**CHAR ( &lt;char&gt; -- char , get ASCII value of a character )** 
+**CHAR ( &lt;char&gt; -- char , get ASCII value of a character )**
 
 Using EMIT to output character strings would be very tedious. Luckily there is a better way. Enter:
 
@@ -468,22 +468,22 @@ TESTKEY
 
 \[Note: On some computers, the input if buffered so you will need to hit the ENTER key after typing your character.\]
 
-**EMIT ( char -- , output character )** 
+**EMIT ( char -- , output character )**
 
-**KEY ( -- char , input character )** 
+**KEY ( -- char , input character )**
 
-**SPACE ( -- , output a space )** 
+**SPACE ( -- , output a space )**
 
-**SPACES ( n -- , output n spaces )** 
+**SPACES ( n -- , output n spaces )**
 
-**CHAR ( &lt;char&gt; -- char , convert to ASCII )** 
+**CHAR ( &lt;char&gt; -- char , convert to ASCII )**
 
-**CR ( -- , start new line , carriage return )** 
+**CR ( -- , start new line , carriage return )**
 
-**." ( -- , output " delimited text )** 
+**." ( -- , output " delimited text )**
 
-##   
-  
+##
+
 <a name="Compiling from Files"></a>Compiling from Files
 
 PForth can read read from ordinary text files so you can use any editor that you wish to write your programs.
@@ -581,7 +581,7 @@ MY-VAR @ .
 
 This sets the variable MY-VAR to 513 , then reads the value back and prints it. The stack diagrams for these words follows:
 
-**@ ( address -- value , FETCH value FROM address in memory )** 
+**@ ( address -- value , FETCH value FROM address in memory )**
 
 **! ( value address -- , STORE value TO address in memory )**
 
@@ -694,8 +694,8 @@ The word FLAG in the stack diagram above refers to a logical value.
 
 Forth provides special words for comparing a number to 0. They are **0=** **0>** and **0&lt;** . Using 0&gt; is faster than calling 0 and > separately. Enter:
 
-23 0> . ( print -1 )  
-\-23 0> . ( print 0 )  
+23 0> . ( print -1 )
+\-23 0> . ( print 0 )
 23 0= . ( print 0 )
 
 For more complex decisions, you can use the _Boolean_ operators **OR** , **AND** , and **NOT** . OR returns a TRUE if either one or both of the top two stack items are true.
@@ -994,7 +994,7 @@ The word **COUNT** extracts the number of characters and their starting address.
 
 **CHAR+ ( address -- address' , add the size of one character )**
 
-**COUNT ( $addr -- addr #bytes , extract string information )** 
+**COUNT ( $addr -- addr #bytes , extract string information )**
 
 **TYPE ( addr #bytes -- , output characters at addr )**
 
@@ -1027,7 +1027,7 @@ Enter a string which should then be echoed. You could use this in a program that
 ;
 ```
 
-**ACCEPT ( addr maxbytes -- numbytes , input text, save at address )** 
+**ACCEPT ( addr maxbytes -- numbytes , input text, save at address )**
 
 You can use your word INPUT$ to write a word that will read a number from the keyboard. Enter:
 
@@ -1120,15 +1120,15 @@ If your answer doesn't exactly match these but it works, don't fret. In Forth, t
 ```
 
 ```text
-: SQUARE ( N -- N*N ) 
+: SQUARE ( N -- N*N )
     DUP *
 ;
 ```
 
 ```text
 : DIFF.SQUARES ( A B -- A*A-B*B )
-	SWAP SQUARE 
-	SWAP SQUARE - 
+	SWAP SQUARE
+	SWAP SQUARE -
 ;
 ```
 

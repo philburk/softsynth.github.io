@@ -5,8 +5,8 @@ title: "JSyn Tutorial"
 
 The technique we used in the last Applet works fine for percussive notes. But how do we play a note that has a middle section of indeterminate length, like a note on a flute or trumpet? JSyn allows us to queue up portions of a note separately. First we queue the beginning of the note. When the beginning has finished, the envelope player will hold the last value. When we are ready for the note to end, we can queue up the ending portion. Let's define some terms:
 
-> **Attack** = beginning of a note.  
-> **Sustain** = middle section of a note that lasts for an indeterminate length of time.  
+> **Attack** = beginning of a note.
+> **Sustain** = middle section of a note that lasts for an indeterminate length of time.
 > **Release** = ending section as the sound dies away.
 
 Let's create an envelope that has a sustain portion and a release portion. We will make each portion only one frame long but they could be any length.

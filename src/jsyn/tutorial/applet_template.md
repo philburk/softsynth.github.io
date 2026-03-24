@@ -40,7 +40,7 @@ public class MyJSynProgram extends Applet
 /*
  * Setup synthesis by overriding start() method.
  */
-   public void start()  
+   public void start()
    {
       try
       {
@@ -53,7 +53,7 @@ public class MyJSynProgram extends Applet
  /*
   * Clean up synthesis by overriding stop() method.
   */
-   public void stop()  
+   public void stop()
    {
       try
       {

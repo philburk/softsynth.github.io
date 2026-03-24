@@ -12,7 +12,7 @@ Use a WebAudio and JavaScript to generate a tone using an oscillator.
 Roll mouse over the paragraphs below to start and stop sound.
 
 > Roll mouse over for ' . $frequency . " Hz tone
-> 
+>
 > \\n"; } printRollover(800); printRollover(400); printRollover(200); printRollover(100); ?>
 
 status messages

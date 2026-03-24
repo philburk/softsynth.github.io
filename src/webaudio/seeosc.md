@@ -13,9 +13,9 @@ status messages
 
 Select a waveform:  Sine Square Sawtooth Triangle
 
-Detune Pitch: 
+Detune Pitch:
 
-  
+
 
 ### JavaScript code for this example.
 

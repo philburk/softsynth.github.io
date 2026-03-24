@@ -3,8 +3,8 @@ layout: base.njk
 title: "JSyn Tutorial"
 ---
 
-The best way to understand frequency and amplitude is to hear the effect of changing them. This JSyn Applet creates a SineOscillator and then sets its frequency and amplitude ports based on the value of two scrollbars. We use a handy subclass of ScrollBar provided with JSyn that displays its value on the screen.  
-We also send the output of the SineOscillator to an on-screen oscilloscope so that we can see the effects visually. The waveform display has time on the horizontal axis and the value of the oscillator output on the vertcal axis. It is updated automatically about once per second.  
+The best way to understand frequency and amplitude is to hear the effect of changing them. This JSyn Applet creates a SineOscillator and then sets its frequency and amplitude ports based on the value of two scrollbars. We use a handy subclass of ScrollBar provided with JSyn that displays its value on the screen.
+We also send the output of the SineOscillator to an on-screen oscilloscope so that we can see the effects visually. The waveform display has time on the horizontal axis and the value of the oscillator output on the vertcal axis. It is updated automatically about once per second.
 To Do:
 
 *   Move the amplitude scrollbar until you hear sound.

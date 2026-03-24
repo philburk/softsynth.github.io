@@ -14,7 +14,7 @@ When the envelope is created, the values in the data array are copied to interna
 Suppose we wanted to change the attack time of an envelope. We can either create a new data array, or we can modify our original array. For clarity, let's make a new array.
 
 ```text
-double[] data = 
+double[] data =
     {
         0.5, 1.0,  // Take 0.5 seconds to go to value 1.0. instead of the original 0.2
     }

@@ -23,9 +23,9 @@ title: "JForth Tech Support"
 > > Line 58 of file "JRX:AREXXCALLS.F"
 > > call RexxSysLib_lib ErrorMsg  TuckA0
 > > ```
-> 
+>
 > Then you should download [Fix1\_ARexx.lha](/jforth/Fix1_ARexx.lha). It contains new versions of several ".fd" files and one include ".j" file. (The archive should contain full pathnames, but just in case, the .fd files go in JForth:Fd.files/ and the lone asl.j file goes into JForth:Include/libraries/)
-> 
+>
 > The current version of J4th2of3.lha already has this fix, so if you downloaded JForth after 9/4/98 you don't need this.
 
 * * *

@@ -2,7 +2,7 @@
 layout: base.njk
 ---
 
-     Install JSyn Plugin  
+     Install JSyn Plugin
 
 ## JSyn Plugin
 

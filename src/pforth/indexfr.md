@@ -48,8 +48,8 @@ Des versions de pForth pour UNIX, PC et Macintosh sont disponibles. Pour les sys
 *   [PCI card debugger for DOS with embedded pForth](http://www.probo.com/debugger.htm) by [Providenza & Boekelheide, Inc.](http://www.probo.com/)
 *   [Veuillez envoyer vos liens sur votre code relatif à pForth.](/contacts/)
 
-Pour mentionner des bugs, ou afin de poser des questions spécifiques sur pForth, envoyez un e-mail en anglais à [Phil Burk](/contacts/).  
-Phil Burk est disponible comme sous-traitant (cf page ["contractor"](/contractor/) , en anglais) pour développer des classes pForth, pour des développements d'applications, ou afin de porter pForth sur de nouvelles plates-formes.  
+Pour mentionner des bugs, ou afin de poser des questions spécifiques sur pForth, envoyez un e-mail en anglais à [Phil Burk](/contacts/).
+Phil Burk est disponible comme sous-traitant (cf page ["contractor"](/contractor/) , en anglais) pour développer des classes pForth, pour des développements d'applications, ou afin de porter pForth sur de nouvelles plates-formes.
 
 * * *
 
@@ -57,7 +57,7 @@ Phil Burk est disponible comme sous-traitant (cf page ["contractor"](/contractor
 
 Copyright 1994-7 3DO, Phil Burk, Larry Polansky, David Rosenboom
 
-Le code du logiciel pForth est déposé dans le domaine publique, toute tierce partie a la possibilité de reproduire, de distribuer et de modifier le code du logiciel pForth ou un de ses dérivés sans aucune contrepartie ou droit de license. Le code du logiciel est fourni "tel quel", sans aucune garantie d'aucune sorte, incluant, sans limitation, les garanties commerciales ci-inclues et la correspondance à une application particulière ou à leurs équivalents soumis à des lois de n'importe quelle juridiction.  
+Le code du logiciel pForth est déposé dans le domaine publique, toute tierce partie a la possibilité de reproduire, de distribuer et de modifier le code du logiciel pForth ou un de ses dérivés sans aucune contrepartie ou droit de license. Le code du logiciel est fourni "tel quel", sans aucune garantie d'aucune sorte, incluant, sans limitation, les garanties commerciales ci-inclues et la correspondance à une application particulière ou à leurs équivalents soumis à des lois de n'importe quelle juridiction.
 
 * * *
 

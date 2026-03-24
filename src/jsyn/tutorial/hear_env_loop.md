@@ -5,9 +5,9 @@ title: "JSyn Tutorial"
 
 Let's queue an envelope loop to get a tremolo effect during the sustain portion of a note.
 
-This applet has three buttons.  
-The "Attack+Steady" button queues only the beginning of the envelope.  
-The "Attack+Wiggle" button queues the attack plus a wiggling sustain loop.  
+This applet has three buttons.
+The "Attack+Steady" button queues only the beginning of the envelope.
+The "Attack+Wiggle" button queues the attack plus a wiggling sustain loop.
 The "Release" button queues the ending of the envelope.
 
 To Do:

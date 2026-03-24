@@ -48,7 +48,7 @@ Older release are available from the [old repository on Google Code!](http://cod
 
 To report bugs, please use the Issue tracker on GitHub.
 
-To ask pForth specific questions, please use the [pforth developer group list](https://groups.google.com/forum/#!forum/pforthdev).  
+To ask pForth specific questions, please use the [pforth developer group list](https://groups.google.com/forum/#!forum/pforthdev).
 
 * * *
 

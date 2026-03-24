@@ -3,7 +3,7 @@ layout: base.njk
 title: "JSyn Tutorial"
 ---
 
-Let's hear what this sine wave sounds like. In this web page, we are running a JSyn program that creates a SineOscillator, connects it to a LineOut, and starts them both. It is a Java Applet so it can run from a web page in a web browser. The Applet does not start the sine wave immediately. It only starts it when you check the check box.  
+Let's hear what this sine wave sounds like. In this web page, we are running a JSyn program that creates a SineOscillator, connects it to a LineOut, and starts them both. It is a Java Applet so it can run from a web page in a web browser. The Applet does not start the sine wave immediately. It only starts it when you check the check box.
 To Do:
 
 *   Turn down the volume on your speakers.

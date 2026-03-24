@@ -12,7 +12,7 @@ public void run()    // real-time task for thread
 {
     Synth.sleepUntilTick( startTime );  // Wait until it is time to start.
     int nextTime = startTime;
-    while( true ) 
+    while( true )
     {
         bang();                  // Play a note right now.
         nextTime += duration;    // Advance nextTime by fixed amount!!!!!!

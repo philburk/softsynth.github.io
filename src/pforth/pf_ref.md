@@ -392,8 +392,8 @@ SEE WORDS
 
 #### <a name="single-step-trace"></a>Single Step Trace and Debug
 
-It is often useful to proceed step by step through your code when debugging.  PForth provides a simple single step trace facility for this purpose.  Here is an example of using TRACE to debug a simple program.  Enter the following program:  
- 
+It is often useful to proceed step by step through your code when debugging.  PForth provides a simple single step trace facility for this purpose.  Here is an example of using TRACE to debug a simple program.  Enter the following program:
+
 
 ```text
 : SQUARE ( n -- n**2 )
@@ -438,8 +438,8 @@ The "Square os" was printed by (."). We can step multiple times using the "sm" c
 You should see:
 
 ```text
-&lt;<  TSQ +20          <10:2&gt; 7 7           ||  .                         >> 7 
-&lt;<  TSQ +24          <10:1&gt; 7             ||  (.")  is "                >> is 
+&lt;<  TSQ +20          <10:2&gt; 7 7           ||  .                         >> 7
+&lt;<  TSQ +24          <10:1&gt; 7             ||  (.")  is "                >> is
 &lt;<  TSQ +32          <10:1&gt; 7             ||  SQUARE                    >>    ok
 ```
 
@@ -476,7 +476,7 @@ g
 You should see:
 
 ```text
-&lt;<  SQUARE +8        <10:1&gt; 49            ||    EXIT                      >> 
+&lt;<  SQUARE +8        <10:1&gt; 49            ||    EXIT                      >>
 &lt;<  TSQ +36          <10:1&gt; 49            ||  .                           >>    ok
 ```
 
@@ -542,16 +542,16 @@ In a complicated Forth word it is sometimes hard to keep track of where things a
 Consider a word that calculates the difference of two squares, Here are two ways of writing the same word.
 
 ```text
-: DIFF.SQUARES ( A B -- A*A-B*B ) 
-    DUP * 
-    SWAP DUP * 
-    SWAP - 
-; 
-  ( or ) 
-: DIFF.SQUARES { A B -- A*A-B*B } 
-    A A * 
-    B B * - 
-; 
+: DIFF.SQUARES ( A B -- A*A-B*B )
+    DUP *
+    SWAP DUP *
+    SWAP -
+;
+  ( or )
+: DIFF.SQUARES { A B -- A*A-B*B }
+    A A *
+    B B * -
+;
 3 2 DIFF.SQUARES  ( would return 5 )
 ```
 
@@ -560,9 +560,9 @@ In the second definition of DIFF.SQUARES the curly bracket '{' told the compiler
 Local variables need not be passed on the stack. You can declare a local variable by placing it after a "vertical bar" ( | )character. These are automatically set to zero when created. Here is a simple example that uses -> and | in a word:
 
 ```text
-: SHOW2*  
+: SHOW2*
         { loc1 | unvar --  , 1 regular, 1 uninitialized }
-        LOC1  2*  ->  UNVAR 
+        LOC1  2*  ->  UNVAR
                 (set unver to 2*LOC1 )
         UNVAR   .   ( print UNVAR )
 ;
@@ -675,22 +675,22 @@ DEFER OLD-EMIT
 ' QUIT  IS OLD-EMIT  ( set to known value )
 : EEMMIITT  ( char --- , our fun EMIT )
     DUP OLD-EMIT OLD-EMIT
-; 
+;
 : STUTTER   ( --- )
     WHAT'S OLD-EMIT  'C QUIT =  ( still the same? )
     IF  ( this must be the first time )
-        WHAT'S EMIT  ( get the current value of EMIT )  
-        IS OLD-EMIT  ( save this value in OLD-EMIT )  
+        WHAT'S EMIT  ( get the current value of EMIT )
+        IS OLD-EMIT  ( save this value in OLD-EMIT )
         'C EEMMIITT IS EMIT
     ELSE ."  Attempt to STUTTER twice!" CR
     THEN
-; 
+;
 : STOP-IT!  ( --- )
     WHAT'S OLD-EMIT ' QUIT =
     IF  ." STUTTER not installed!" CR
 
     ELSE  WHAT'S OLD-EMIT IS EMIT
-        'C QUIT IS OLD-EMIT  
+        'C QUIT IS OLD-EMIT
                 ( reset to show termination )
     THEN
 ;
@@ -722,54 +722,54 @@ Here is an example of output from each word for a number ranging from large to v
 
 ```text
 FS.             FE.            FG.           F.
-1.234000e+12     1.234000e+12     1.234e+12     1234000000000. 
-1.234000e+11     123.4000e+09     1.234e+11     123400000000. 
-1.234000e+10     12.34000e+09     1.234e+10     12340000000. 
-1.234000e+09     1.234000e+09     1.234e+09     1234000000. 
-1.234000e+08     123.4000e+06     1.234e+08     123400000. 
-1.234000e+07     12.34000e+06     1.234e+07     12340000. 
-1.234000e+06     1.234000e+06     1234000.     1234000. 
-1.234000e+05     123.4000e+03     123400.     123400.0 
-1.234000e+04     12.34000e+03     12340.     12340.00 
-1.234000e+03     1.234000e+03     1234.     1234.000 
-1.234000e+02     123.4000e+00     123.4     123.4000 
-1.234000e+01     12.34000e+00     12.34     12.34000 
-1.234000e+00     1.234000e+00     1.234     1.234000 
-1.234000e-01     123.4000e-03     0.1234     0.1234000 
-1.234000e-02     12.34000e-03     0.01234     0.0123400 
-1.234000e-03     1.234000e-03     0.001234     0.0012340 
-1.234000e-04     123.4000e-06     0.0001234     0.0001234 
-1.234000e-05     12.34000e-06     1.234e-05     0.0000123 
-1.234000e-06     1.234000e-06     1.234e-06     0.0000012 
-1.234000e-07     123.4000e-09     1.234e-07     0.0000001 
-1.234000e-08     12.34000e-09     1.234e-08     0.0000000 
-1.234000e-09     1.234000e-09     1.234e-09     0.0000000 
-1.234000e-10     123.4000e-12     1.234e-10     0.0000000 
+1.234000e+12     1.234000e+12     1.234e+12     1234000000000.
+1.234000e+11     123.4000e+09     1.234e+11     123400000000.
+1.234000e+10     12.34000e+09     1.234e+10     12340000000.
+1.234000e+09     1.234000e+09     1.234e+09     1234000000.
+1.234000e+08     123.4000e+06     1.234e+08     123400000.
+1.234000e+07     12.34000e+06     1.234e+07     12340000.
+1.234000e+06     1.234000e+06     1234000.     1234000.
+1.234000e+05     123.4000e+03     123400.     123400.0
+1.234000e+04     12.34000e+03     12340.     12340.00
+1.234000e+03     1.234000e+03     1234.     1234.000
+1.234000e+02     123.4000e+00     123.4     123.4000
+1.234000e+01     12.34000e+00     12.34     12.34000
+1.234000e+00     1.234000e+00     1.234     1.234000
+1.234000e-01     123.4000e-03     0.1234     0.1234000
+1.234000e-02     12.34000e-03     0.01234     0.0123400
+1.234000e-03     1.234000e-03     0.001234     0.0012340
+1.234000e-04     123.4000e-06     0.0001234     0.0001234
+1.234000e-05     12.34000e-06     1.234e-05     0.0000123
+1.234000e-06     1.234000e-06     1.234e-06     0.0000012
+1.234000e-07     123.4000e-09     1.234e-07     0.0000001
+1.234000e-08     12.34000e-09     1.234e-08     0.0000000
+1.234000e-09     1.234000e-09     1.234e-09     0.0000000
+1.234000e-10     123.4000e-12     1.234e-10     0.0000000
 1.234000e-11     12.34000e-12     1.234e-11     0.0000000
 
-1.234568e+12     1.234568e+12     1.234568e+12     1234567890000. 
-1.234568e+11     123.4568e+09     1.234568e+11     123456789000. 
-1.234568e+10     12.34568e+09     1.234568e+10     12345678900. 
-1.234568e+09     1.234568e+09     1.234568e+09     1234567890. 
-1.234568e+08     123.4568e+06     1.234568e+08     123456789. 
-1.234568e+07     12.34568e+06     1.234568e+07     12345679. 
-1.234568e+06     1.234568e+06     1234568.     1234568. 
-1.234568e+05     123.4568e+03     123456.8     123456.8 
-1.234568e+04     12.34568e+03     12345.68     12345.68 
-1.234568e+03     1.234568e+03     1234.568     1234.568 
-1.234568e+02     123.4568e+00     123.4568     123.4568 
-1.234568e+01     12.34568e+00     12.34568     12.34568 
-1.234568e+00     1.234568e+00     1.234568     1.234568 
-1.234568e-01     123.4568e-03     0.1234568     0.1234568 
-1.234568e-02     12.34568e-03     0.01234568     0.0123456 
-1.234568e-03     1.234568e-03     0.001234568     0.0012345 
-1.234568e-04     123.4568e-06     0.0001234568     0.0001234 
-1.234568e-05     12.34568e-06     1.234568e-05     0.0000123 
-1.234568e-06     1.234568e-06     1.234568e-06     0.0000012 
-1.234568e-07     123.4568e-09     1.234568e-07     0.0000001 
-1.234568e-08     12.34568e-09     1.234568e-08     0.0000000 
-1.234568e-09     1.234568e-09     1.234568e-09     0.0000000 
-1.234568e-10     123.4568e-12     1.234568e-10     0.0000000 
+1.234568e+12     1.234568e+12     1.234568e+12     1234567890000.
+1.234568e+11     123.4568e+09     1.234568e+11     123456789000.
+1.234568e+10     12.34568e+09     1.234568e+10     12345678900.
+1.234568e+09     1.234568e+09     1.234568e+09     1234567890.
+1.234568e+08     123.4568e+06     1.234568e+08     123456789.
+1.234568e+07     12.34568e+06     1.234568e+07     12345679.
+1.234568e+06     1.234568e+06     1234568.     1234568.
+1.234568e+05     123.4568e+03     123456.8     123456.8
+1.234568e+04     12.34568e+03     12345.68     12345.68
+1.234568e+03     1.234568e+03     1234.568     1234.568
+1.234568e+02     123.4568e+00     123.4568     123.4568
+1.234568e+01     12.34568e+00     12.34568     12.34568
+1.234568e+00     1.234568e+00     1.234568     1.234568
+1.234568e-01     123.4568e-03     0.1234568     0.1234568
+1.234568e-02     12.34568e-03     0.01234568     0.0123456
+1.234568e-03     1.234568e-03     0.001234568     0.0012345
+1.234568e-04     123.4568e-06     0.0001234568     0.0001234
+1.234568e-05     12.34568e-06     1.234568e-05     0.0000123
+1.234568e-06     1.234568e-06     1.234568e-06     0.0000012
+1.234568e-07     123.4568e-09     1.234568e-07     0.0000001
+1.234568e-08     12.34568e-09     1.234568e-08     0.0000000
+1.234568e-09     1.234568e-09     1.234568e-09     0.0000000
+1.234568e-10     123.4568e-12     1.234568e-10     0.0000000
 1.234568e-11     12.34568e-12     1.234568e-11     0.0000000
 ```
 
@@ -1019,11 +1019,11 @@ pforth t_strings.fth
 pforth t_floats.ft
 ```
 
-Note that t\_corex.fth reveals an expected error because SAVE-INPUT is not fully implemented. (FIXME)  
+Note that t\_corex.fth reveals an expected error because SAVE-INPUT is not fully implemented. (FIXME)
 
 * * *
 
-  
+
 PForth source code is freely available and is in the public domain.
 
 Back to [pForth Home Page](/pforth)

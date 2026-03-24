@@ -7,7 +7,7 @@ title: "SoftSynth Products, music software"
 
 ## [JSyn](/jsyn/)
 
-Audio/Music Synthesis API for Java.  
+Audio/Music Synthesis API for Java.
 [Developer SDK](/jsyn/developers/), [Documentation](/jsyn/docs/), [Example Applets](/jsyn/examples/)
 
 **[Syntona](/syntona/)** is a graphical modular sound editor for JSyn.
@@ -18,7 +18,7 @@ Plays standard polyphonic ringtones from SP-MIDI files and Mobile XMF files. Ult
 
 ## [TransJam](http://www.transjam.com/)
 
-Collaboration Server for music jams, chat and games.  
+Collaboration Server for music jams, chat and games.
 [WebDrum](http://www.transjam.com/webdrum/) - a Multi-User Drum Jam using TransJam.
 
 ## Other Products

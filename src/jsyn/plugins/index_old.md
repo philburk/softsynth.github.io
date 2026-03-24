@@ -2,7 +2,7 @@
 layout: base.njk
 ---
 
-     Check JSyn Plugin  
+     Check JSyn Plugin
 
 ## JSyn Plugin (V144)
 

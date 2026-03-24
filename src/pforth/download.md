@@ -27,8 +27,8 @@ If you haven't already registered please do so on the [pForth Home Page.](/pfort
 *   Redefined MAKE\_ID to protect it from 16 bit ints
 *   John Providenza says "If you split local variables onto 2 lines, PForth crashes." Fixed. Also allow \\
 *   Fixed float evaluation in EVALUATE in "quit.fth".
-*   Flush register cache for ffColon and ffSemiColon to prevent stack warnings from ;  
-    
+*   Flush register cache for ffColon and ffSemiColon to prevent stack warnings from ;
+
 
 ### V21 - 9/16/1998
 
@@ -54,7 +54,7 @@ If you haven't already registered please do so on the [pForth Home Page.](/pfort
 *   Added stub for ?TERMINAL and KEY? for embedded systems.
 *   Added PF\_NO\_GLOBAL\_INIT for no reliance on global initialization.
 *   Added PF\_USER\_FLOAT for customization of FP support.
-*   Added floating point to string conversion words (F.) (FS.) (FE.)  
+*   Added floating point to string conversion words (F.) (FS.) (FE.)
     For example:   : F.   (F.)  TYPE  SPACE  ;
 *   Reversed order that values are placed on return stack in 2>R so that it matches ANS standard.  2>R is now same as SWAP >R >R. Thank you Leo Wong for reporting this bug.
 *   Added PF\_USER\_INIT and PF\_USER\_TERM for user definable init and term calls.

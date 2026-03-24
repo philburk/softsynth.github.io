@@ -19,10 +19,10 @@ One example of a JSyn program is the WebDrum Applet. The WebDrum is a drum patte
 
 The JSyn web site has a tutorial on JSyn programming, and has links to numerous interactive examples, compositions, and hyper-instruments that can be run from the browser.
 
-The free JSyn plugins, SDK, and Wire, are available at:  
+The free JSyn plugins, SDK, and Wire, are available at:
     [/jsyn/](/jsyn/)
 
-Additional press materials are available at:  
+Additional press materials are available at:
     [/jsyn/press/](/jsyn/press/)
 
 ### About SoftSynth.com

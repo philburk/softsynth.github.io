@@ -6,7 +6,7 @@ Test Vowel Consonant Ration Analysis
 
 ## Experiment with Spam Detection
 
-\= 'A') && ($c &lt;= 'Z') ) { $numUpper += 1; echo "EMailHandler\_MeasureCamelcaseRatio: detected " . $c . "  
+\= 'A') && ($c &lt;= 'Z') ) { $numUpper += 1; echo "EMailHandler\_MeasureCamelcaseRatio: detected " . $c . "
 \\n"; } else if( $c == ' ' ) { $afterLower = false; } } else { if( ($c &gt;= 'a') && ($c &lt;= 'z') ) { $afterLower = true; } } } return (1.0 \* $numUpper) / $numChars; } function EMailHandler\_MeasureVowelRatio( $text ) { $numChars = strlen($text); if( $numChars == 0 ) return 1.0; $vowels = ' aeiouyAEIOUY'; // include a space as well $char\_counts = count\_chars( $text, 0 ); $vowelsLength = strlen($vowels); $numVowels = 0; for( $i=0; $i<$vowelsLength; $i++ ) { $num = $char\_counts\[ ord( $vowels\[$i\] ) \]; $numVowels += $num; } return (1.0 \* $numVowels) / $numChars; } function TestString( $text ) { echo "
 
 * * *

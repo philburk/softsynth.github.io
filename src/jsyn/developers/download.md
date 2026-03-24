@@ -25,7 +25,7 @@ Current version is 16.8.0
 This JAR file contains only the new pure Java JSyn API. It was built from the [JSyn repository on GitHub](https://github.com/philburk/jsyn) using Ant. It is recommended for all new development.
 
 > [**jsyn-20171016.jar**](/jsyn/developers/archives/jsyn-20171016.jar) **- released October 16, 2017****, [](/jsyn/docs/release16/)(RECOMMENDED)**
-> 
+>
 > [jsyn-examples-20161201.zip](/jsyn/developers/archives/jsyn-examples-20161201.zip) - source code of examples, updated December 1, 2016
 
 ## Old API

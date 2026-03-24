@@ -6,7 +6,7 @@ title: "JSyn Road Map"
 # JSyn Road Map
 
 *   Add optional native audio device interface to replace JavaSound. This will fix the clicks on Mac, and give JSyn better support for FireWire devices and multi-channel devices.
-    
+
 *   Add spectral FFT-based analysis and synthesis units.
 *   Improve the oscilloscope.
 *   Add multi-threading support in the engine to increase the audio rendering power on multi-core CPUs.

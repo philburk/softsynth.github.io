@@ -4,12 +4,12 @@ layout: base.njk
 
 <center>&lt;h1&gt;&lt;font color="#000000"&gt;Download JForth&lt;/font&gt;&lt;/h1&gt;</center>
 
- 
+
 
 For the complete JForth system for the Amiga, please download the following 3 LHA archives. (If your browser asks for a plugin, then CANCEL and download them by right-clicking on the link and selecting "Save Link As...".)
 
-> [J4th1of3.lha](/jforth/archives/J4th1of3.lha) - code  
-> [J4th2of3.lha](/jforth/archives/J4th2of3.lha) - code (includes FD fix for ARexx as of 9/4/98)  
+> [J4th1of3.lha](/jforth/archives/J4th1of3.lha) - code
+> [J4th2of3.lha](/jforth/archives/J4th2of3.lha) - code (includes FD fix for ARexx as of 9/4/98)
 > [J4th3of3.lha](/jforth/archives/J4th3of3.lha) - essential documentation in RTF format
 
 Please read the [README](/jforth/readme.txt) file for instructions on installing JForth and joining the JForth-list mail group.

@@ -87,7 +87,7 @@ title: "JSyn Unit Generator Overview"
 *   [SampleWriter\_16F1](/jsyn/docs/old/autodocs/com/softsynth/jsyn/SampleWriter_16F1/) -  Input written to SynthSample serving as delay line for echo/reverb/delay effects.
 *   [SampleWriter\_16F2](/jsyn/docs/old/autodocs/com/softsynth/jsyn/SampleWriter_16F2/) -  Input written to stereo SynthSample serving as stereo delay line or for capturing a performance..
 
-##  
+##
 
 * * *
 

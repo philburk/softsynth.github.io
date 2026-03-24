@@ -16,43 +16,43 @@ Please read the [Documentation Home Page](/jsyn/docs/)  first before reading th
 
 You may wish to read the document that describes [how to compile and run JSyn programs](/jsyn/docs/compiling/) on your type of computer.
 
-## 
+##
 
 * * *
 
 Table of Contents
 
-[Importing JSyn Package](#JSynPackage)s  
-[Starting the Synthesis Engine](#StartingEngine)  
-[Creating Unit Generators](#CreatingUnitGenerators)  
-[Connecting Unit Generators](#ConnectingUnitGenerators)  
-[Setting Parameters](#Setting%20Parameters)  
-[Starting and Stopping Units](#StartingUnits)  
-[Applet Template](#AppletTemplate)  
-[Time and Sleeping](#TimeSleeping)  
-[Using the Event Scheduler](#UsingEventScheduler)  
-[Loading a Sample from a File](#LoadingSample)  
-[Creating a Sample](#CreatingSample)  
-[Playing a Sample](#PlayingSample)  
-[Defining an Arbitrary Function](#ArbitraryFunction)  
-[Creating a Lookup Table for Functions](#CreatingTable)  
-[Using a Table for Wave Table Synthesis](#WaveTableSynthesis)  
-[Loading a Table from a File](#LoadingTable)  
-[Creating Envelopes](#CreatingEnvelopes)  
-[Using Envelopes to Control Other Units](#UsingEnvelopes)  
-[Grouping Units together into a Circuit](#GroupingUnits)  
-[Using a PassThrough in a Circuit](#UsingPassThrough)  
-[Receiving Notification of Sample Playback Completion](#ReceivingNotification)  
-[Writing Custom Unit Generators](#Custom)  
-[Capturing Output to a WAV File](#CapturingOutput)  
-[Using Audio Input from a Microphone](#AudioIput)  
-[See Sound Using the AudioScope](#AudioScope)  
-[Using a JSyn Applet in a Web Page](#WebPage)  
+[Importing JSyn Package](#JSynPackage)s
+[Starting the Synthesis Engine](#StartingEngine)
+[Creating Unit Generators](#CreatingUnitGenerators)
+[Connecting Unit Generators](#ConnectingUnitGenerators)
+[Setting Parameters](#Setting%20Parameters)
+[Starting and Stopping Units](#StartingUnits)
+[Applet Template](#AppletTemplate)
+[Time and Sleeping](#TimeSleeping)
+[Using the Event Scheduler](#UsingEventScheduler)
+[Loading a Sample from a File](#LoadingSample)
+[Creating a Sample](#CreatingSample)
+[Playing a Sample](#PlayingSample)
+[Defining an Arbitrary Function](#ArbitraryFunction)
+[Creating a Lookup Table for Functions](#CreatingTable)
+[Using a Table for Wave Table Synthesis](#WaveTableSynthesis)
+[Loading a Table from a File](#LoadingTable)
+[Creating Envelopes](#CreatingEnvelopes)
+[Using Envelopes to Control Other Units](#UsingEnvelopes)
+[Grouping Units together into a Circuit](#GroupingUnits)
+[Using a PassThrough in a Circuit](#UsingPassThrough)
+[Receiving Notification of Sample Playback Completion](#ReceivingNotification)
+[Writing Custom Unit Generators](#Custom)
+[Capturing Output to a WAV File](#CapturingOutput)
+[Using Audio Input from a Microphone](#AudioIput)
+[See Sound Using the AudioScope](#AudioScope)
+[Using a JSyn Applet in a Web Page](#WebPage)
 [Class Overview](#OverviewClasses)
 
 * * *
 
-  
+
 
 When you connect up a stereo system, you connect the various components so that sound can flow between them. Sound may flow, for example, from a CD player, to a graphic equalizer, to an amplifier, and then to a pair of speakers. In a similar manner, sound generating, and sound processing units are connected together in JSyn to create new sounds. These sound components are traditionally called "unit generators". The library of unit generators includes oscillators, filters, ramps and other functions that you would find on a modular analog synthesiser, or a software synthesis package like CSound.
 
@@ -200,7 +200,7 @@ Here is a skeleton JSyn program that can be used to used to create your own prog
 
 JSyn maintains an internal timer that increments as the audio signals are calculated. To find out the current time in seconds call **synth.getCurrentTime().**
 
-To sleep until a certain time call **synth.sleepUntil(wakeupTime)**.  
+To sleep until a certain time call **synth.sleepUntil(wakeupTime)**.
 To sleep for a certain number of ticks from now use **synth.sleepFor(duration)**.
 
 If you want to maintain synchronized timing over the long run then you should use sleepUntil() because sleepFor() will incorporate small delays that accumulate over time.  Here is an example of code that will do something every 2 seconds.  If the initial time is 100.0, then doSomething will occur at 102.0, 104.0, 106.0, etc.
@@ -361,7 +361,7 @@ final static int CUBE_LENGTH = 1024;
 	fastCuber.function.set( cubeTable );
 ```
 
-A DoubleTable is similar in some ways to a FloatSample. Table data is accessed using  read() and write() methods. The main difference between a table and a sample is that table data may be randomly accessed while sample data is accessed sequentially. 
+A DoubleTable is similar in some ways to a FloatSample. Table data is accessed using  read() and write() methods. The main difference between a table and a sample is that table data may be randomly accessed while sample data is accessed sequentially.
 
 If you wish to have more accurate table lookup and reduce the effects of the linear interpolation, then use a larger table.
 
@@ -416,15 +416,15 @@ Creating an envelope is very similar to creating a sample.  In fact envelopes a
     myEnvData = new SegmentedEnvelope( data );
 ```
 
-  
+
 The first frame has a duration of 0.02 and a value of 1.0.  This means that when this envelope is started that it will take 0.02 seconds to go from its current value to a value of 1.0.  If you want to force an envelope to start immediately at a particular value then use a duration of 0.0.  When the envelope reaches 1.0 then it will take 0.30 seconds to reach a value of 0.1.  The final frame typically has a value of zero for envelopes that control amplitude.
 
 The envelope can be modified using write() just like with a sample.
 
 ### <a name="UsingEnvelopes"></a>Using Envelopes to Control Other Units
 
-Envelopes can be used to control the parameters of various unit generators.  Envelopes cannot, however, be used directly because they require an envelope player unit called a [VariableRateMonoReader](/jsyn/docs/javadocs/com/jsyn/unitgen/VariableRateMonoReader/)[](/jsyn/docs/javadocs/com/jsyn/unitgen/EnvelopePlayer/). You may recall that the same unit generator was used to play a sample! Envelopes are queued on an envelope just like samples are queued on a sample player.  Consider this example:  
- 
+Envelopes can be used to control the parameters of various unit generators.  Envelopes cannot, however, be used directly because they require an envelope player unit called a [VariableRateMonoReader](/jsyn/docs/javadocs/com/jsyn/unitgen/VariableRateMonoReader/)[](/jsyn/docs/javadocs/com/jsyn/unitgen/EnvelopePlayer/). You may recall that the same unit generator was used to play a sample! Envelopes are queued on an envelope just like samples are queued on a sample player.  Consider this example:
+
 
 ```text
 envPlayer = new VariableRateMonoReader();
@@ -599,9 +599,9 @@ import com.jsyn.engine.units.UnitGenerator;
 /**
  * Custom unit generator that can be used with other JSyn units.
  * Cube the input value and write it to output port.
- * 
+ *
  * @author Phil Burk (C) 2010 Mobileer Inc
- * 
+ *
  */
 public class CustomCubeUnit extends UnitFilter
 {
