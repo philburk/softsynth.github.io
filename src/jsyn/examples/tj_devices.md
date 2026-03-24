@@ -18,7 +18,7 @@ JSyn can use any available audio device, even devices with more than 2 channels.
 
 * * *
 
-<applet 
+<applet
     ARCHIVE="jsyn_pure.jar"
     code="JSynExamples.TJ_Devices.class"
     codebase="../../classes"

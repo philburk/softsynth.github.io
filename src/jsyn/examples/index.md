@@ -22,7 +22,7 @@ These example use the older AWT style GUI.
 
 *   [SawFader](/jsyn/examples/tj_sawfader.html) - modulate a sawtooth wave. OK
 *   [WaveMaker](/jsyn/examples/tj_wavemaker.html) = build waveforms and play using TableOscillator, OK
-*   [FMLab](/jsyn/examples/fmlab.html) - edit various FM instruments
+*   [FMLab](/jsyn/examples/fmlab.html) - edit various FM instruments OK
 *   [PluckedString](/jsyn/examples/tj_pluck1.html) = plucked string sound using a Karplus-Strong physical model. OK
 *   [Birds](/jsyn/examples/tj_birds.html) = trigger multiple oscillating "birds". OK
 *   [FilterFun](/jsyn/examples/filterfun.html) - hear the effect of various filters on different sounds.
