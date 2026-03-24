@@ -39,4 +39,13 @@ This editor uses FM to create a variety of sounds. Each row has a sine wave osci
 *   **Trumpet** - You can hear output of Ops 1,2 and 3. Ops 2 and 3 provide slightly detuned harmonics. Vibrato from Op#3.
 *   **Woozy** - slowly rising modulation envelope provides "wah" like sound.
 
-Java not supported! <script>cheerpjInit();</script>
+<applet
+	code="com.softsynth.jsyn.examples.FMLab.class"
+	codebase="../../classes"
+	archive="jsyn-examples.jar"
+    name="FMLab"
+    WIDTH="554" HEIGHT="89">
+Wait for CheerpJ to run the applet.
+</applet>
+
+<script>  cheerpjInit(); </script>

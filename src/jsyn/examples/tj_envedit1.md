@@ -17,9 +17,18 @@ An envelope contains an array of {duration,value} pairs called frames. In this e
 
 * * *
 
-Java not supported! <script>cheerpjInit();</script>
+<applet
+	code="com.softsynth.jsyn.examples.TJ_EnvEdit1.class"
+	codebase="../../classes"
+	archive="jsyn-examples.jar"
+    name="TJ_EnvEdit1"
+    WIDTH="582" HEIGHT="436">
+Wait for CheerpJ to run the applet.
+</applet>
+
+<script>  cheerpjInit(); </script>
 
 * * *
 
-  
+
 Click here to see the source code for [TJ\_EnvEdit1.java](/jsyn/examples/TJ_EnvEdit1.java).

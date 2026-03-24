@@ -8,4 +8,12 @@ The FilterFourPoles unit emulates the filters in the modular Moog synthesizers. 
 
 A band limited sawtooth oscillator is played through the filter.
 
-Wait for CheerpJ to run the applet. <script>cheerpjInit();</script>
+<applet
+	code="com.jsyn.examples.HearMoogFilter.class"
+	archive="jsyn-examples-v2-17.2.0.jar"
+    name="HearMoogFilter"
+    WIDTH="600" HEIGHT="500">
+Wait for CheerpJ to run the applet.
+</applet>
+
+<script>  cheerpjInit(); </script>

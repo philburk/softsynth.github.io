@@ -18,4 +18,11 @@ JSyn can use any available audio device, even devices with more than 2 channels.
 
 * * *
 
-* * *
+<applet 
+    ARCHIVE="jsyn_pure.jar"
+    code="JSynExamples.TJ_Devices.class"
+    codebase="../../classes"
+    name="TJ_Delay1" WIDTH="660" HEIGHT="224">
+</applet>
+
+<script>  cheerpjInit(); </script>

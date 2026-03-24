@@ -10,6 +10,15 @@ Synthetic bird sounds are produced by randomly varying the depth and rate of mod
 
 This page demonstrates how the oscilloscope can be opened in a separate window.
 
-Java not supported! <script>cheerpjInit();</script>
+<applet
+	code="com.softsynth.jsyn.examples.TJ_Birds.class"
+	codebase="../../classes"
+	archive="jsyn-examples.jar"
+    name="TJ_Birds"
+    WIDTH="287" HEIGHT="148">
+Java not supported!
+</applet>
+
+<script>  cheerpjInit(); </script>
 
 * * *

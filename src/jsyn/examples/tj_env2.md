@@ -16,6 +16,15 @@ An envelope contains an array of {duration,value} pairs called segments.  These
 
 * * *
 
-Java not supported! <script>cheerpjInit();</script>
+<applet
+    code="com.softsynth.jsyn.examples.TJ_Env2.class"
+    codebase="../../classes"
+    archive="jsyn-examples.jar"
+    name="TJ_Env2"
+    WIDTH="400" HEIGHT="300">
+Wait for CheerpJ to run the applet.
+</applet>
+
+<script>  cheerpjInit(); </script>
 
 * * *

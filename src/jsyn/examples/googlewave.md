@@ -10,6 +10,12 @@ This JSyn Applet uses a custom unit generator to create the sound of the doodle.
 
 **Increase the "Variance" slider** to make the waveform look more like the "wavy doodle".
 
-* * *
+<applet style="border: 1px solid blue;"
+    code="com.jsyn.examples.SeeGoogleWave.class"
+	  archive="jsyn-examples-v2-17.2.0.jar"
+    name="SeeGoogleWave"
+    WIDTH="769" HEIGHT="425">
+Wait for CheerpJ to run the applet.
+</applet>
 
-Wait for CheerpJ to run the applet. <script>cheerpjInit();</script>
+<script>  cheerpjInit(); </script>

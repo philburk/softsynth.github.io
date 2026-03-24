@@ -6,10 +6,17 @@ layout: base.njk
 
 ## How it works:
 
-This applet creates a waveform by adding together sine waves that are multiples of the fundamental frequency. 
+This applet creates a waveform by adding together sine waves that are multiples of the fundamental frequency.
 
 Move the faders to control the level of each harmonic.
 
-* * *
+<applet
+	code="com.softsynth.jsyn.examples.TJ_WaveMaker.class"
+	codebase="../../classes"
+	archive="jsyn-examples.jar"
+    name="TJ_WaveMaker"
+    WIDTH="600" HEIGHT="500">
+Wait for CheerpJ to convert the JSyn Applet to WASM.
+</applet>
 
-Wait for CheerpJ to convert the JSyn Applet to WASM. <script>cheerpjInit();</script>
+<script>  cheerpjInit(); </script>

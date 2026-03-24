@@ -10,6 +10,15 @@ The output of an oscillator is fed into a long delay line.  Change the "Frequen
 
 * * *
 
-Java not supported! <script>cheerpjInit();</script>
+<applet
+	code="com.softsynth.jsyn.examples.TJ_Delay1.class"
+	codebase="../../classes"
+	archive="jsyn-examples.jar"
+    name="TJ_Delay1"
+    WIDTH="400" HEIGHT="100">
+Wait for CheerpJ to run the applet.
+</applet>
+
+<script>  cheerpjInit(); </script>
 
 * * *

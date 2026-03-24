@@ -8,4 +8,13 @@ Filters modify a sound by letting some frequency components pass through easier 
 
 In this Applet, you can choose various source signals like sine waves, sawtooth, etc. You can also select different filters and hear the effect of changing their frequency and bandwidth.
 
-Java not supported! <script>cheerpjInit();</script>
+<applet
+	code="com.softsynth.jsyn.examples.FilterFun.class"
+	codebase="../../classes"
+	archive="jsyn-examples.jar"
+    name="FilterFun"
+    WIDTH="606" HEIGHT="488">
+Wait for CheerpJ to run the applet.
+</applet>
+
+<script>  cheerpjInit(); </script>
