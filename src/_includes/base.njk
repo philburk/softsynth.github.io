@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
     <link rel="shortcut icon" href="/favicon.ico">
-    
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-79HEJDRKRP"></script>
     <script>
@@ -23,6 +23,15 @@
     {% if extraHead %}
     {{ extraHead | safe }}
     {% endif %}
+    <script>
+      // Global site configuration for dynamic path resolution
+      window.siteConfig = {
+        pathPrefix: "{{ '/' | url }}".replace(/\/$/, ""),
+        getFullPath: function(path) {
+          return this.pathPrefix + (path.startsWith('/') ? path : '/' + path);
+        }
+      };
+    </script>
 </head>
 <body>
     <header>
@@ -36,7 +45,7 @@
                     <h2>... music and computers ...</h2>
                 </div>
             </div>
-            
+
             <nav class="main-nav">
                 {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({
                     listElement: "ul",
@@ -60,7 +69,7 @@
             {{ content | safe }}
         </main>
     </div>
-    
+
     <footer>
         <p>&copy; {{ page.date.getFullYear() }} SoftSynth.com. Generated with Eleventy.</p>
     </footer>
