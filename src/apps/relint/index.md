@@ -20,7 +20,7 @@ I have created a new Relative Intonation Editor web app that allows composers to
 
 So I have recreated the app by showing Gemini a video of the original editor and then used Gemini Canvas to add new features.
 
-### [Click Here for the Relative Intonation Editor web app.](/apps/relint/relint/)
+### [Click Here for the Relative Intonation Editor web app.](/apps/relint/relint.html)
 
 ## How to Create Relatively Tuned Notes
 

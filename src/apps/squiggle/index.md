@@ -1,6 +1,6 @@
 ---
 layout: base.njk
-title: "Relative Intonation Editor"
+title: "Squiggle"
 eleventyNavigation:
   key: "/apps/squiggle/index.php"
   title: "Squiggle"
@@ -12,7 +12,7 @@ eleventyNavigation:
 
 The first version of Squiggle was written by Phil Burk around 1992 using [HMSL](/hmsl/). The control code ran on the Mac or the Amiga. The synthesis code ran on a Motorola DSP 56000. You can hear an original recording [here](/music/). This version recreates the original experience using JavaScript and WebAudio.
 
-### [Click Here for the SQUIGGLE Web App.](/apps/squiggle/squiggle/)
+### [Click Here for the SQUIGGLE Web App.](/apps/squiggle/squiggle.html)
 
 ## How to Play Squiggle
 
