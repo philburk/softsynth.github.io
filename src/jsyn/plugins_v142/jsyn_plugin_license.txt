@@ -1,0 +1,115 @@
+End User License Agreement for the JSyn Plugin
+
+This License is for the JSyn Plugin.
+
+BEFORE YOU USE THE SOFTWARE DISTRIBUTED WITH THIS LICENSE AGREEMENT,
+CAREFULLY READ THE TERMS AND CONDITIONS OF THIS AGREEMENT.  BY USING
+THE SOFTWARE, YOU ARE CONSENTING TO BE BOUND BY AND ARE BECOMING A
+PARTY TO THIS AGREEMENT.  IF YOU DO NOT AGREE TO ALL OF THE TERMS OF
+THIS AGREEMENT, DO NOT USE THE SOFTWARE AND DESTROY ALL COPIES OF THE
+SOFTWARE FROM YOUR COMPUTER.
+
+English summary: You may use this plugin for free but may not
+redistribute it without a commercial license from SoftSynth.com.
+
+1. SoftSynth.com, (the "Company") grants you (the "Customer") a 
+worlwide, non-exclusive, restricted right and license to use the 
+accompanying JSyn Plugin (the "Software"), in binary executable 
+form for non-commercial purposes only. The Software is 
+formed of the JSyn libraries and compiled Java classes.
+
+2.  The Software is licensed, not sold.  The Software is protected by
+copyright law and international copyright treaty provisions, as well as
+other intellectual property laws and treaties.  Customer must not allow
+copies of the Software or any part of it to be made or distributed to
+anyone else.  Customer may make backup copies of the software for
+archival purposes only.
+
+3.  The Software is licensed for use on a single computer.  Customer
+may delete the Software from one computer and reinstall it on another,
+but Customer may not install the Software on more than one computer at
+any given time without the Company's prior written permission.
+
+4.  The Software may not be rented, leased, or in any other manner
+commercially exploited without the Company's prior written permission.
+This License is personal to Customer and Customer agrees not to assign
+your rights herein.
+
+5. LIMITATION OF WARRANTY. THE COMPANY MAKES NO REPRESENTATIONS OR
+WARRANTIES ABOUT THE SUITABILITY OF THIS SOFTWARE OR ABOUT ANY CONTENT
+OR INFORMATION PLAYED BY THE SOFTWARE, FOR ANY PURPOSE.  THE SOFTWARE
+IS PROVIDED 'AS IS' WITHOUT EXPRESS OR IMPLIED WARRANTIES, INCLUDING
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE OR
+NONINFRINGEMENT. THE COMPANY MAY NOT SUPPORT THIS SOFTWARE AND MAY NOT
+ISSUE UPDATES TO THIS SOFTWARE.
+
+6. All video, audio, and other content accessed through the Software is
+the property of the applicable content owner and may be protected by
+applicable copyright law.  This License gives Customer no rights to
+such content, and Company disclaims any liability for misuse of
+content.
+
+7. While the Company intends to distribute a commercial release of the
+Software, it reserves the right at any time not to release a commercial
+release of the Software or, if released, to alter prices, features,
+specifications, capabilities, functions, licensing terms, release
+dates, general availability or other characteristics of the commercial
+release.
+
+8. Title, ownership rights, and intellectual property rights in and to
+the Software shall remain in the Company and/or its suppliers.
+Customer agrees to abide by the copyright law and all other applicable
+laws of the United States including, but not limited to, export control
+laws.  Customer acknowledges that the Software remains proprietary and
+confidential information and intellectual property of the Company
+and/or its suppliers and therefore Customer agrees not to modify the
+Software or attempt to decipher, decompile, disassemble or reverse
+engineer the Software, except to the extent applicable laws
+specifically prohibit such restriction.  Reproduction and/or
+redistribution of any portion of the Software is specifically
+prohibited without the Company's prior written permission.
+
+9. The Company may terminate this License at any time by delivering
+notice to Customer and Customer may terminate this License at any time
+by destroying or erasing Customer's copy of the Software.  Upon
+termination of this License, or in any event within thirty (30) days
+following the execution of a commercial license between Customer and
+the Company for the license of the Software, Customer agree to destroy
+or erase this evaluation version of Software, unless otherwise provided
+for in the commercial license.  However, in case of termination,
+Sections 5 through 10 of this Agreement shall indefinitely survive its
+termination. This License shall be governed by and construed in
+accordance with the laws of the State of California with exclusive
+venue in courts located in the San Francisco County, California, and,
+as to matters affecting copyrights, trademarks and patents, by U.S.
+federal law.  This License sets forth the entire agreement between the
+Company and Customer.
+
+10. DISCLAIMER OF LIABILITY. THE COMPANY OR ITS SUPPLIERS SHALL NOT BE
+LIABLE FOR (a) DIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL OR INDIRECT
+DAMAGES OF ANY SORT WHATSOEVER, WHETHER ARISING IN TORT, CONTRACT OR
+OTHERWISE, (INCLUDING WITHOUT LIMITATION DAMAGES FOR LOSS OF BUSINESS
+PROFITS, REVENUES, OR INFORMATION, OR FOR BUSINESS INTERRUPTION)
+RESULTING FROM CUSTOMER'S USE OF THE SOFTWARE OR INABILITY TO USE
+THE SOFTWARE, EVEN IF THE COMPANY HAS BEEN INFORMED OF THE POSSIBILITY
+OF SUCH DAMAGES, OR (b) FOR ANY CLAIM BY ANY OTHER PARTY THAN CUSTOMER.
+THIS DISCLAIMER OF LIABILITY SHALL NOT APPLY TO LIABILITY FOR DEATH OR
+PERSONAL INJURY WHERE THE APPLICABLE LAW PROHIBITS SUCH LIMITATION.
+FURTHERMORE, SOME STATES DO NOT ALLOW THE EXCLUSION OR LIMITATION OF
+INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THIS LIMITATION AND EXCLUSION
+MAY NOT APPLY TO CUSTOMER.
+
+11.  HIGH RISK ACTIVITIES.  The Software is not fault-tolerant and is
+not designed, manufactured or intended for use or resale as on-line
+control equipment in hazardous environments requiring fail-safe
+performance, such as in the operation of nuclear facilities, aircraft
+navigation or communication systems, air traffic control, direct life
+support machines, or weapons systems, in which the failure of the
+Software could lead directly to death, personal injury, or severe
+physical or environmental damage ("High Risk Activities"). The Company
+and its suppliers specifically disclaim any express or implied warranty
+of fitness for High Risk Activities.
+
+12. The Company does not represent or warrant that the Software is free
+of infringement of any third-party patents.
+

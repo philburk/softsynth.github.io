@@ -1,0 +1,156 @@
+List of 'C' Forths Available
+Last Updated 3/14/95
+by Phil Burk
+
+Thank you to the following people who helped me compile this list:
+
+  Brad Rodriguez, b.rodriguez2@genie.geis.com
+  Dirk Zoller, duz@roxi.rz.fht-mannheim.de
+  Olivier Goethals, we44637@vub.ac.be
+  Norm Smith, smithn@orvb.saic.com
+  Stephen Pelc, sfp@mpeltd.demon.co.uk
+  Joe Ravo, joer@dorsai.dorsai.org
+  Mike Price, mprice@mrj.com
+
+------------------------------------------------------------------
+Title: C-Forth
+Author: Allan Pratt, completed April 1985.
+From: anonymous@asterix.inescn.pt:pub/forth/unix/c-forth.tar.z (Portugal)
+      also from FIG archive on GENIE
+Standards: FIG
+Status: completed April 1985
+Deal: Public Domain
+Input: block oriented
+Case: SENSITIVE
+
+This C based Forth uses lex and sed to build the dictionary structures.
+
+------------------------------------------------------------------
+Title: PFE - Portable Forth Environment
+Author:  Dirk Uwe Zoller
+From: anonymous@asterix.inescn.pt:pub/forth/unix/pfe-0.9.5.tar.gz (Portugal)
+      also from FIG archive on GENIE
+      roxi.rz.fht-mannheim.de:pub/unix/languages/pfe-VERSION.tar.gz
+            This Danish archive wouldn't let me log in!
+Standards: ANSI compatible, 0.99 available
+Status: active development
+Deal: free under GNU license
+Machines supported:  PCs under Linux or emx, XENIX, DecStation,
+     IBM RX6000, etc.  I had trouble compiling 0.94 on an Indy until I removed
+     the definition of HAVE_SYS_SIGLIST from config.h.
+
+This is a full featured Forth that aims to be the definitive ANSI
+Forth on UNIX.  PFE is very dependant on UNIX calls, however, to support
+signals, windows, etc. so it may not port easily to non-Unix like
+systems.  It is supported on PCs using Linux or emx.
+
+------------------------------------------------------------------
+Title: Timbre
+Author: Rob Chapman, rob@idacom.hp.com
+From: http://taygeta.oc.nps.navy.mil/forth.html
+Standards: ???
+Status: ???
+Deal: Public Domain
+Input: file oriented
+Includes:
+  o Timbre binaries for the Mac (Timbre), PC (TIMBRE.EXE), HP 9000 series 
+    400 workstations (HP400) and HP 9000 series 700 workstations (HP700)
+  o source for compiling Timbre on the Mac, PC or a Unix system
+  o manual sections in postscript
+  o a Forth to C converter
+
+The Forth is built from 'C' code that was built from Forth
+code run through a rule based parser.
+
+------------------------------------------------------------------
+Title: This4th (aka Macro4th)
+Author: Wil Baden
+From: ftp taygeta.oc.nps.navy.mil:pubs/Forth/Reviewed/this4th.tar.gz
+Standards: based on ANSI
+Status: "beta"
+Deal: Public Domain
+Input: Stream oriented
+Case: Insensitive.
+Bonus words:  CATCH [IF] TRACE, 
+Examples: crap game, CRC, file filters, random, coretest
+
+This Forth is fairly complete and is written by an innovator
+in the field of Forth.  It uses many modern ideas.
+
+The kernel for "This Forth" is written in M4, which is
+then converted to 'C' and compiled.  This Forth uses a "Macro"
+technique which inserts text into the input stream for compilation.
+This takes the place of POSTPONE in many places. The use of M4 and
+Macros is powerful but will make the kernel seem unfamiliar to those
+wishing to modify it.
+
+------------------------------------------------------------------
+
+TITLE: CForth
+AUTHOR: Mitch Bradley
+FROM: ???
+STANDARDS: based on F83
+Status: mature
+Deal: Commercial $100-200
+Input: file/stream oriented
+Case: Sensitive
+
+This is a very portable Forth that has few dependencies on the OS.
+It needs little besides the stdio calls.  Thus it is suitable
+for small embedded systems as well as Workstations.
+
+This Forth has many excellent features including conditional
+words "if" and "then" that can be used outside of a colon definition,
+see, etc.
+
+It compiles from straight 'C' and does not use any funny preprocessors
+like lex, sed, or M2.
+
+------------------------------------------------------------------
+
+TITLE: PINC (PowerForth in C)
+FROM: MPE
+    Stephen Pelc, sfp@mpeltd.demon.co.uk
+    MicroProcessor Engineering - More Real, Less Time
+    133 Hill Lane, Southampton SO15 5AF, England
+    tel: +44 1703 631441, fax: +44 1703 339691
+DEAL: Commercial
+
+------------------------------------------------------------------
+Title: Until
+Author: Norman Smith, 72745.1566@compuserve.com, smithn@orvb.saic.com
+From: http://taygeta.oc.nps.navy.mil/until.html
+    FTP at taygeta.oc.nps.navy.mil in /pub/Forth/Reviewed/until201.zip
+Standards: "Forth like"
+Deal: Copyrighted with "liberal distribution policy"
+
+The developer writes:
+
+"I wrote one called Until for UNconventional Threaded Interpretive
+Language. A very minimal version is described in my book
+"Write Your Programming Language Using C++", ISBN 1-55622-264-5.
+The book including disk of source is $15 from Wordware
+Publishing, 214-423-0090. Also any book store can order it.
+
+I recently contributed an almost complete Forth-83 version of Until
+to the Forth CD-ROM project. That version is available via anonymous
+FTP at taygeta.oc.nps.navy.mil in /pub/Forth/Reviewed/until201.zip.
+
+One unique feature of Until is that it is intended to be embedded inside
+other applications. It can both call and be called by other C functions.
+I also included most of the C string and I/O library as Until primitives."
+
+------------------------------------------------------------------
+
+In our FIG chapter library we also have:
+ HENCE4TH
+ CFORTH (_not_ Mitch Bradley's; someone else's)
+ 
+I will check the files for further info on these.
+ 
+Brad Rodriguez    B.RODRIGUEZ2 on GEnie | b.rodriguez2@genie.geis.com
+ So many projects....so little time.
+----------------------------------------------------------
+ 
+ 
+

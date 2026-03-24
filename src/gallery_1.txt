@@ -1,0 +1,4 @@
+Gallery I
+orangeslices,chair1
+umbrellas,stackedbowls,whimsyvases
+redandyellowplums,pitcherfruit

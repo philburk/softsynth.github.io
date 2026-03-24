@@ -1,0 +1,240 @@
+/**
+ * Find best Whole Number Ratio that approximates a Floating Point Ratio
+ *
+ * @author (C) 1997 Phil Burk
+ * You may use this software freely for educational and non-commercial purposes.
+ */
+
+import java.util.*;
+import java.awt.*;
+import java.applet.Applet;
+
+/* Container class for numerator and denominator.
+** We need to put them in an object so we can store them in a Vector.
+*/
+class WholeNumberRatio
+{
+	int inumer;
+	int idenom;
+
+	public WholeNumberRatio( int inumer, int idenom )
+	{
+		this.inumer = inumer;
+		this.idenom = idenom;
+	}
+
+/* Multiply ratio and given number. */
+	public double getRatio()
+	{
+		return (double) inumer / (double) idenom;
+	}
+
+	public int getNumer()
+	{
+		return inumer;
+	}
+	public int getDenom()
+	{
+		return idenom;
+	}
+
+	public String toString()
+	{
+		return ("Ratio = " + inumer + ":" + idenom);
+	}
+}
+
+/* Application that scans a range of whole number ratios and reports the 
+** ones that most closely match the ratio of two floating point numbers.
+*/
+public class RatioFinder extends Applet
+{
+	Button calcButton;
+	Button clearButton;
+	TextField limitField;
+	TextField denomField;
+	TextField numerField;
+	TextField maxrepField;
+	TextArea  reportField;
+	
+	int limit;
+	int maxReports;   /* maximum number of ratios to report */
+	double fdenom;
+	double fnumer;
+	double fratio;
+
+	Vector candidates;
+	double worstFit;   /* error for worst of current candidates */
+
+/* Can be run as either an application or as an applet. */
+    public static void main(String args[])
+	{
+		Frame frame = new Frame("Ratio Finder");
+		RatioFinder applet = new RatioFinder();
+		frame.add( "Center", applet );
+		frame.resize(500,500);
+		frame.show();
+		applet.init();
+		applet.start();
+	}
+
+/*
+ * Setup synthesis.
+ */
+	public void init()
+	{
+		Panel gridPanel;
+		Panel subPanel;
+
+		candidates = new Vector();
+
+/* Build GUI */
+		add( gridPanel = new Panel() );
+		gridPanel.setLayout( new GridLayout( 0, 1 ) );
+
+		gridPanel.add( subPanel = new Panel() );
+		subPanel.setLayout( new FlowLayout( FlowLayout.LEFT ) );
+		subPanel.add( new Label("Floating Point Numerator:") );
+		subPanel.add( numerField = new TextField(Double.toString(Math.PI),30) );
+
+		gridPanel.add( subPanel = new Panel() );
+		subPanel.setLayout( new FlowLayout( FlowLayout.LEFT ) );
+		subPanel.add( new Label("Floating Point Denominator:") );
+		subPanel.add( denomField = new TextField("2.0",30) );
+
+		gridPanel.add( subPanel = new Panel() );
+		subPanel.setLayout( new FlowLayout( FlowLayout.LEFT ) );
+		subPanel.add( new Label("Maximum Integer Numerator:") );
+		subPanel.add( limitField = new TextField("512",8) );
+
+		gridPanel.add( subPanel = new Panel() );
+		subPanel.setLayout( new FlowLayout( FlowLayout.LEFT ) );
+		subPanel.add( new Label("Maximum Ratios To Report:") );
+		subPanel.add( maxrepField = new TextField("3",4) );
+
+		gridPanel.add( subPanel = new Panel() );
+		subPanel.add( calcButton = new Button("Calculate") );
+		subPanel.add( clearButton = new Button("Clear Report") );
+
+		add( reportField = new TextArea( 20, 60 ) );
+		reportField.setEditable( false );
+
+/* Synchronize Java display. */
+		getParent().validate();
+		getToolkit().sync();
+	}
+
+	void getNumbers() throws NumberFormatException
+	{
+		limit = Integer.parseInt( limitField.getText() );
+		maxReports = Integer.parseInt( maxrepField.getText() );
+		fdenom = Double.valueOf( denomField.getText() ).doubleValue();
+		fnumer = Double.valueOf( numerField.getText() ).doubleValue();
+		fratio = (fnumer/fdenom);
+	}
+
+	void report( String msg )
+	{
+		reportField.appendText( msg + "\n");
+	}
+
+/* Report list of ratios in candidate vector. */
+	void reportCandidates()
+	{
+		double newRatio, error, percent;
+		final double DIGIT_RANGE = 100000000.0;
+		for( int i=0; i<candidates.size(); i++ )
+		{
+
+			WholeNumberRatio inlist = (WholeNumberRatio) candidates.elementAt(i);
+			newRatio = inlist.getRatio();
+			error = Math.abs( newRatio - fratio ) / fratio;
+			percent = ((long)((error * 100.0) * DIGIT_RANGE)) / DIGIT_RANGE;
+
+			report("#" + (i+1) + ", " + inlist.getNumer() + " / " + inlist.getDenom() +
+				" = " + newRatio + " ,  err = " + percent + "%" );
+		}
+	}
+
+/* Insert candidate ratio in order from best to worst. */
+	void insertCandidate( WholeNumberRatio ratio )
+	{
+		double inlistRatio, inlistError;
+		int i;
+		double myError = Math.abs( ratio.getRatio() - fratio );
+
+		for( i=0; i<candidates.size(); i++ )
+		{
+			WholeNumberRatio inlist = (WholeNumberRatio) candidates.elementAt(i);
+			inlistRatio = inlist.getRatio();
+			inlistError = Math.abs( inlistRatio - fratio );
+			if( inlistError > myError ) break;
+		}
+		candidates.insertElementAt( ratio, i );
+	}
+
+/* Consider adding a ratio to the list of good ratios. */
+	void considerRatio( int inumer, int idenom )
+	{
+		double myRatio = (double) inumer / (double) idenom;
+		double error = Math.abs(myRatio - fratio);
+		if( error < worstFit )
+		{
+			worstFit = error;
+
+			while( candidates.size() >= maxReports )
+			{
+				candidates.removeElementAt( maxReports-1 );
+			}
+			insertCandidate( new WholeNumberRatio( inumer, idenom ) );
+		}
+	}
+
+/* Scan range of numerators from 1 to limit for best fit. */
+	void findCandidates()
+	{
+		int idenom;
+		worstFit = Double.MAX_VALUE;
+		candidates.removeAllElements();
+		for( int i = 1; i<=limit; i++ )
+		{
+			idenom = (int) ((double) i * fdenom / fnumer );
+			if( idenom > 0) considerRatio( i, idenom );
+			considerRatio( i, idenom+1 );
+		}
+	}
+
+/* Calculate and report best ratios. */
+	void calculateBestRatio()
+	{
+		try
+		{
+			getNumbers();
+			report("-----------------------" );
+			report("FP Ratio = " + fratio + " = " + fnumer + " / " + fdenom );
+			report("Maximum Integer Numerator = " + limit);
+			findCandidates();
+			reportCandidates();
+		} catch( NumberFormatException e )
+		{
+			report(e.toString());
+		}
+	}
+
+/* Respond to mouse clicks. */
+	public boolean action(Event evt, Object what)
+	{
+		if( evt.target == calcButton )
+		{
+			calculateBestRatio();
+			return true;
+		}
+		else if( evt.target == clearButton )
+		{
+			reportField.setText("");
+			return true;
+		}
+		return false;
+    }
+}
+

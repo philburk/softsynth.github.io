@@ -1,0 +1,78 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.77 [en]C-gatewaynet  (Win98; U) [Netscape]">
+   <title>Music and Computers - Additive Synthesis</title>
+</head>
+<body>
+
+<h1>
+Music and Computers</h1>
+
+<h2>
+Changing the Shape of a Waveform</h2>
+
+<h3>
+<b>How it works:</b></h3>
+A sine wave can be played by pressing keys on the computer keyboard. This
+sine wave passes through a chain of WaveShapers that distort the shape
+of the sine wave and add harmonics. Don't worry if it sounds "distorted".
+It's supposed to. Distortion in an audio system is often just unintentional
+WaveShaping that occurs when the signal exceeds the limits of the system.
+Whether that is good or bad is your decision.
+<h3>
+To Do:</h3>
+
+<ol>
+<li>
+Scroll down until you can see the black oscilloscope display.</li>
+
+<li>
+Play sine waves by touching keys on the keyboard. Not all keys make sound.
+Each row is an octave higher. The tuning is a 7 tone scale using just intonation.</li>
+
+<li>
+If the keyboard ever stops playing notes, then click on the "Play Keys"
+button.</li>
+
+<li>
+Enable one WaveShaper at a time by checking the box next to the formula.</li>
+
+<li>
+Increase the amplitude while holding down a key and notice how the shape
+changes. Also notice what happens when you reach the top and bottom. You
+can get clipping even without a WaveShaper as we have seen earlier.</li>
+
+<li>
+Play a chord and notice that the sound changes dramatically when WaveShaping
+is turned on. This is because you are now shaping a signal that is more
+complex than a single sine wave. This results in enharmonic partials. This
+could be avoided by putting an individual WaveShaper on each sine wave.
+If the function is linear, "y=ax+b", then it doesn't matter whether we
+do the WaveShaping before or after we&nbsp; mix (add) them together. But
+if the WaveShaping function is non-linear, "y=x3" or "y=sin(x)", then we
+get different results depending on whether we apply the WaveShaper before
+or after mixing.</li>
+
+<li>
+Play a low note. Enable the first WaveShaper "y=x<sup>2</sup>". Play the
+same note. Notice that the note sounds an octave higher. This is because
+the shape of a X<sup>2</sup> is a parabola which is symmetric about the
+Y axis.</li>
+
+<li>
+Turn on several WaveShapers at once. Each one operates on the output of
+the one above. so "y=g(f(x))".</li>
+
+<li>
+The last WaveShaper is a "soft clipper" "y=x/(1+|x|)" will never exceed
+the range of -1.0 or +1.0. So it prevents the signal from going beyond
+the limits that the audio card can handle.</li>
+</ol>
+
+<hr><applet code="compmus.PlayShaperFormulae.class" codebase="../classes" name="PlayShaperFormulae" width="600" HEIGHT="436"></applet>
+<br>
+
+</body>
+</html>

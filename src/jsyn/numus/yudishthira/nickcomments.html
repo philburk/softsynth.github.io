@@ -1,0 +1,321 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.72 [en] (Win95; I) [Netscape]">
+   <title>Yudishthira's Quartet, programmer's comments
+</title>
+</head>
+<body background="nickcomments.html">
+
+<center>
+<h1>
+Yudishthira's Quartet</h1></center>
+
+<center>
+<h2>
+Comments on the software by Nick Didkovsky</h2></center>
+
+<center>Read more about <a href="index.html">Yudishthira's Quartet</a><a href="index.html"></a>
+<p><font size=+1><a href="../index.html">Back to JSyn@NUMUS Home Page</a></font></center>
+
+<h3>
+The circle</h3>
+Yudishthira's Quartet was the first HMSL piece I programmed. That was in
+1988. So it holds a special spot for me in terms of personal growth. It
+feels good to revisit the piece today, and to realize it with two new emerging
+music technologies: Phil Burk's JSyn, and Phil and my JMSL. The act of
+creating the work again has had some impact on JMSL's design; revealing/squashing
+some bugs and pointing the compass toward some helpful new tools (like
+the Tuning class which was motivated by the need to realize Gamelan Son
+of Lion's tuning, and the Chebyshev and Polynomial classes which were motivated
+by instrument design). I suspect that every new piece of some complexity
+will have an impact on the language design of JMSL as it matures.
+<br>&nbsp;
+<h3>
+A randomized mystery novel</h3>
+Like much of Barbara Benary's music, Yudishthira's Quartet is deceptively
+simple when described on paper. Only through the act of hearing does the
+depth and complexity of the piece make itself known. Yudishthira is exactly
+such a piece. The complexity resulting from its few simple random choices
+and their interactions is addictive. You hear, say, 32 seconds of sound,
+followed by a 16 second pause. During that pause, you are dying to hear
+the next section and see what the random processes created. The piece "reads"
+like a mystery novel - a page turner - engrossing in the moment and compelling
+you to follow it forward. It will always sound like Yudishthira's Quartet,
+but the range of sonic experience is incredible, even with its relatively
+simple instrument designs (see tech comments below).
+<br>&nbsp;
+<h3>
+A few technical comments</h3>
+Yudishthira's Quartet was realized as a JMSL Parallel Collection with a
+repeat count of ten, containing four Players. It has a "repeat function"
+plugged into it which alters its own properties every time it repeats.
+Let's revisit Barbara's specification one point at a time, and I will append
+some technical comments after each.
+<br>&nbsp;
+<ol>
+<li>
+<i>A random selection of 4 notes from the combined pelog and slendro tunings.</i></li>
+
+<br>&nbsp;
+<p>&nbsp;
+<p>JMSL's Tuning class provides for an array of double precision floating
+point numbers which represent frequencies in Hertz. Here is the constructor
+method that realized Son of Lion's tuning.
+<pre>&nbsp;&nbsp;&nbsp;&nbsp; public LionTuning() {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double[] t = {274.8, 298.8, 316.6, 330.0, 358.4, 368.2, 421.1, 452.4, 482.6, 533.9 };
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; setPitches(t);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; }</pre>
+Barbara also mentions a 5 cent stretch per octave. The Tuning class provides
+a method called getFreqOctave() which transposes a given pitch into a given
+octave. The LionTuning class overrides this method to provide the 5 cent
+stretch. It is listed below. Note the reference to method freqPlusCents,
+which is a general tool belonging to the Tuning class. It adds the specified
+number of cents to the specified pitch and returns the result.
+<pre>&nbsp;&nbsp;&nbsp; public double getFreqOctave(double pitch, int octaveNumber) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int cents = octaveNumber * 5;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return Tuning.freqPlusCents(pitch * Math.pow(2.0, octaveNumber), cents);
+&nbsp;&nbsp;&nbsp; }</pre>
+
+<li>
+<i>A randomly selected timbre chosen from 10 presets. All voices use the
+same timbre for the given section. The ten timbres should sound distinctly
+different from each other and should sound "electronic." Because of the
+multiple voices, avoid buzzy timbres.</i></li>
+
+<br>&nbsp;
+<p>&nbsp;
+<p>While JMSL is responsible for the piece's scheduling and algorithmic
+implementation, JSyn delivers the sound. Each timbre is realized as a JSyn
+"SynthNote", which is a virtual synthesis circuit with a noteOn() method,
+so that it can be "played" within a pitch/loudness/duration paradigm.
+<p>To build an instrument, I worked from the bottom up: first designing
+the raw JSyn Circuit (say, a simple FM pair), then wrapping that up in
+a JSyn SynthNote subclass so that it can be played with a noteOn() method,
+finally wrapping the SynthNote up inside a JMSL Instrument subclass, which
+can be scheduled in a JMSL hierarchy, and fired by classes of a higher
+organizational level.
+<p>This implementation of Yudishthira's Quartet collects ten such instruments
+in a class called InstrumentFactory, which instantiates one of these ten
+Instruments by token (ie calling InstrumentFactory.getInstrument(int index)
+with an index ranging from 0..9 will return a newly allocated one of the
+10 instruments it knows how to "manufacture").
+<p>A few words about each instrument...
+<ol>
+<li>
+<b>SINE_WAVE_INS</b></li>
+
+<br>A sine wave with an exponentially decaying amplitude envelope applied
+to it. Stereo.
+<li>
+<b>SQUARE_WAVE_INS</b></li>
+
+<br>A square wave with an exponentially decaying amplitude envelope applied
+to it. Stereo.
+<li>
+<b>FILTERED_SAW_BL_INS</b></li>
+
+<br>A subclass of a SynthNote that is already implemented in JSyn's circuits
+package (FilteredSawtoothBL), adding an envelope to its amplitude to gracefully
+quiet down.
+<br><i>Band limited sawtooth wave table played through a state variable
+resonant filter.</i>
+<br>- Phil Burk
+<li>
+<b>RING_MOD_BELL</b></li>
+
+<br>A SynthNote that is already implemented in JSyn's circuits package
+(RingModBell).
+<br><i>Bell generated by ring modulating two triangle waves.</i>
+<br><i>Ring modulation simply involves multiplying two signals together.</i>
+<br><i>Output = Osc2.output * ( (Osc1.output * ExpLag.output) + ExpLag.output);</i>
+<br><i>Osc1.Frequency = Osc2.frequency * modIndex;</i>
+<br>- Phil Burk
+<li>
+<b>CHOW_BELL</b></li>
+
+<br>An FM Pair with an exponentially decaying envelope applied to both
+carrier amp and modulating amp.
+<br>The ratio of Carrier Frequency to Modulating Frequency (Fc:Fm) is maintained
+at 5:7, with a maximum index of modulation of 10.
+<br>After Chowning as described in Dodge/Jerse's "Computer Music, Synthesis,
+Composition, and Performance" (Schirmer Books), page 113.
+<li>
+<b>CHOW_BRASS</b></li>
+
+<br>An FM Pair with an ADSR envelope applied to both carrier amp and modulating
+amp.
+<br>Fc:Fm is maintained at 1:1, with a maximum index of modulation of 5.
+<br>After Chowning as described in Dodge/Jerse's "Computer Music, Synthesis,
+Composition, and Performance" (Schirmer Books), page 113.
+<li>
+<b>CHOW_RANDOM</b></li>
+
+<br>An FM Pair with the independently randomized ADSR envelopes applied
+to carrier amp and to modulating amp.
+<br>Fc:Fm is randomized when the instrument is instantiated, and maintained
+throughout. Both Fc and Fm are integers that range from 1..10.
+<br>Index of modulation is also randomized when the instrument is instantiated,
+and maintained throughout. Index is a double that ranges from 1.0 .. 25.0
+<br>Note that a quartet of this instrument will have varying timbres, since
+each player will likely have a different sounding random instrument. This
+is a liberty I took when programming Yudishthira, despite the request for
+timbres that are invariant from one instrument to another in a given section.
+But it sounds so wonderful I couldn't help myself.
+<li>
+<b>CHEBYSHEV_RANDOM</b></li>
+
+<br>A WaveShaper whose transfer function (a Chebyshev polynomial) is randomized
+to realize between 4 and 12 harmonics, whose relative amplitudes are also
+chosen at random. Randomly generated ADSR envelopes are applied to the
+sine driving the transfer function, and to the amplitude of the waveshaper's
+output. This instrument's sound can vary radically. As with CHOW_RANDOM,
+I am jumping outside the strict specification of the piece.
+<li>
+<b>CHEBYSHEV_ODD_RANDOM</b></li>
+
+<br>Like CHEBYSHEV_RANDOM, except that only odd harmonics are used.
+<li>
+<b>CHEB_RING_RANDOM</b></li>
+
+<br>Like CHEBYSHEV_RANDOM, whose output is ring modulated with a sine oscillator
+(after Dodge/Jerse, p 142). A Fc:Fm ratio is randomized when the instrument
+is instatiated and maintained. Here, Fc refers to the frequency of the
+sine oscillator which is multiplied by the shaper, while Fm refers to the
+frequency of the waveshaper's sine which drives the transfer function.
+Again, the sound varies dramatically, with good effect!</ol>
+
+<li>
+<i>A randomly selected number of players from 1 to 4. These players represent
+the four octave range of the gamelan balungen instruments. Also select
+which of the four voices shall play, ie if there is only one voice, it
+need not be player #1.</i></li>
+
+<ul>
+<li>
+<i>Player #1 plays continuous 1 second whole notes, octave 1 (slentem)</i></li>
+
+<li>
+<i>Player #2 plays continuous 0.5 second half notes, octave 2 (demung)</i></li>
+
+<li>
+<i>Player #3 plays continuous 0.25 second quarter notes, octave 3 (saron)</i></li>
+
+<li>
+<i>Player #4 plays continuous 0.125 second eighth notes, octave 4 (peking)</i></li>
+</ul>
+Yudishthira's PlayerSelector class is responsible for flagging which of
+four Players will perform in a particular section. JMSL's Player class
+contains an Instrument and musical data (JMSL's MusicShape), for it to
+perform (ie pitches, loudnesses, durations, etc). A YudishthiraPlayer is
+a subclass of Player which adds an Active flag, which is simply true or
+false, depending on whether that player shall perform or remain silent.
+The PlayerSelector select() algorithm accepts a collection of four YudishthiraPlayer's,
+writes them into an ordered list, scrambles the list, then loops from 1
+to a random number between 1 and 4, setting each player's flag to true
+as it loops. Players outside the range of the loop remain inactive.
+<br>&nbsp;
+<li>
+<i>Random melody: every note a player hits is randomly chosen from among
+the four notes that characterize the section.</i></li>
+
+<br>&nbsp;
+<p>&nbsp;
+<p>YudishthiraPlayer also has a unique octave number and a unique speed.
+These are set when the Yudishthira Collection is first built. Both speed
+and octave number are used by the ShapeBuilder class, which is responsible
+for building each section's MusicShapes that contain the actual pitches,
+loudnesses, and durations to be performed. ShapeBuilder is handed a four-pitch
+subset of the LionTuning, the total duration of the section, and the loudness
+of the section. It uses these to generate the appropriate data, handing
+a long rest to players that are inactive.
+<pre>&nbsp;&nbsp;&nbsp; /** Build and deliver a new 3 dimensional (dur, pitch, amp) MusicShape using uniform random processes. An extra dimension
+&nbsp;&nbsp;&nbsp; for optional stereo panning is added. */
+&nbsp;&nbsp;&nbsp; public MusicShape getShape(double eventDur, int octave, boolean active) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MusicShape s = new MusicShape(4);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double pitch = 0;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double pan = 0.0;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double[] pitches = subset.getPitches();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (!active) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; s.add(totalDur, 0.0, 0.0, 0.0);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (int i=0; i&lt;(int)(totalDur/eventDur); i++) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pitch = tuning.getFreqOctave(pitches[JMSLRandom.choose(pitches.length)], octave);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pan = (double)octave/2.0;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; s.add(eventDur, pitch, amp, pan);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return s;
+&nbsp;&nbsp;&nbsp; }</pre>
+
+<li>
+<i>A randomly selected loudness level out of four possible.</i></li>
+
+<br>&nbsp;
+<p>&nbsp;
+<p>The AmpSelector class generates a loudness level at random for a particular
+section. The amplitude is divided by the total number of players to keep
+from clipping.
+<pre>/** 0..1 divided into discrete dynamic levels.&nbsp; For choices p, mp, mf, f, use numDynamics=4
+@return one of these non-zero levels chosen at random */
+&nbsp;&nbsp;&nbsp; public static double getRandomDynamic(int numDynamics, int numPlayers) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return (JMSLRandom.choose(numDynamics) + 1) / (double)(numPlayers*numDynamics);
+&nbsp;&nbsp;&nbsp; }</pre>
+
+<li>
+<i>A randomly selected duration of the sound section, of 16, 32, 64, or
+128 seconds.</i></li>
+
+<br>&nbsp;
+<p>&nbsp;
+<p>The SectionBuilder class is responsible for putting all the above elements
+together, by calling on the appropriate classes to provide the random data
+in which they specialize. SectionBuilder implements the PlayFunction interface,
+which means it can be plugged into the repeatFunction "slot" of the Yudishthira
+Parallel Collection. So every time Yudishthira repeats, it automatically
+fires a SectionBuilder's play() method which prepares the next section.
+<p>SectionBuilder computes a few values directly, without consulting specially
+designed classes. One of these values is the duration of the sound section,
+which is calculated with the following algorithm:
+<pre>&nbsp;&nbsp;&nbsp; // choose duration for sounded section: 16, 32, 64, or 128 seconds
+&nbsp;&nbsp;&nbsp; double soundDuration = 16 *&nbsp; (double) (1 &lt;&lt; JMSLRandom.choose(4)); ;</pre>
+The values of soundDuration is passed to ShapeBuilder.
+<br>&nbsp;
+<li>
+<i>A silence of randomly selected duration of 4, 8, 12, or 16 seconds after
+each section.</i></li>
+
+<br>&nbsp;
+<p>&nbsp;
+<p>Just as the sound duration is directly calculated by SectionBuilder,
+so is the duration of its silences.
+<pre>&nbsp;&nbsp;&nbsp; // choose duration of pause: 4, 8, 12, or 16 seconds
+&nbsp;&nbsp;&nbsp; double pauseDuration = 4 * (JMSLRandom.choose(4)+1);</pre>
+</ol>
+
+<br>&nbsp;
+<h3>
+Future enhancements</h3>
+I am flirting with the idea of giving the listener some control over the
+bias of the random processes. For example, being able to select the relative
+likelihood that various instruments are selected. So if you are a sine
+wave fan, you could set its likelhood to 1 and all the others to 0. Other
+possibilities include biasing other processes as well, such as which pitches
+get selected, or typing in your own tuning tables. Or mixing the audio
+through a JSyn reverberator or other sound processing. Any enhancements,
+however, will stay within the spirit if not the strict spec of Barbara's
+piece.
+<br>&nbsp;
+<h3>
+Thanks</h3>
+Thanks to Open Space, especially Mary Roberts, for encouraging a submission
+to the magazine. Thanks to Phil Burk for JSyn and for some clever optimizations.
+Thanks to Barbara Benary of course! And thanks to New York State Foundation
+for the Arts who awarded me a grant in 1999 to encourage such work in the
+computer arts.
+<p><i>Nick Didkovsky, May 26, 1999, NYC
+<hr></i><a href="index.html">Yudishthira's Quartet Home</a>.
+<br><font size=+1><a href="../index.html">Back to JSyn@NUMUS Home Page</a></font>
+</body>
+</html>

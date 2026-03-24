@@ -1,0 +1,104 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Phil Burk">
+   <meta name="GENERATOR" content="Mozilla/4.75 [en]C-gatewaynet  (Win98; U) [Netscape]">
+   <title>Support for JSyn on Mac with IE or iCab</title>
+<link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!--#include virtual="header.html" -->
+<h2>
+For&nbsp; JSyn Plugins on Windows (PCs) with Internet Explorer</h2>
+
+<h3>
+Known Bugs</h3>
+
+<ol>
+<li>
+JSyn V13 had problems running under NT because of missing functions and
+bugs in the DirectSound library under NT. Download the most recent version,
+which does not use DirectSound.</li>
+
+<li>
+JSyn does not appear to work under IE V4.x unless one installs the JVM
+5.0 upgrade.</li>
+</ol>
+
+<h3>
+Troubleshooting</h3>
+
+<h3>
+Turning on the Java Console</h3>
+You can get more information and error messages from the browser if you
+enable the Java Console. Please cut and paste these error messages when
+reporting bugs. To turn on the consle, select "Java Console" from the "View"
+menu. If there are no "Java Console" menu items, then you must first enable
+it by selecting the "Internet Options" menu item from the "Tools" menu.
+Select the "Advanced" tab, then check the "Java console enabled" under
+the "VM" section. Then restart Internet Explorer.
+<h4>
+Internet Explorer cannot find a JSyn class. Here are some posible reasons:</h4>
+
+<ol>
+<li>
+Are you using IE V4.x? If so, then JSyn will probably not work. Please
+upgrade to&nbsp; <a href="http://www.microsoft.com/downloads/default.asp">Internet
+Explorer 5.0 or greater</a>., or at least upgrade your <a href="ms_jvm.html">Microsoft
+VM (Java Virtual Machine)</a> to V5.0. You may need to reinstall the JSyn
+plugin in order to get the correct classes for the JVM.</li>
+
+<li>
+A prior installation of JSyn may be in your CLASSPATH and may be interfering
+with the JSyn under IE. To find out, launch an MS-DOS shell and enter "SET".
+You will see a list of variables. Does a directory or JAR file containing
+JSyn files appear in the CLASSPATH? If so, you may want to edit your AUTOEXEC.BAT
+and remove JSyn from your CLASSPATH.</li>
+
+<li>
+Are the files "npjsyn.dll" or "npjsyn.jar" installed in the"Netscape\Communicator\Program\Plugins"&nbsp;
+folder for Netscape? If so, please move them <b>out</b> of the Plugins
+folder. IE tries to use them and gets confused.</li>
+</ol>
+
+<h4>
+Internet Explorer crashes with "IEXPLORE caused an invalid page fault "
+message when Loading a JSyn Applet</h4>
+This can happen if you have also installed the JSyn plugin for Netscape!
+Netscape plugins live as a DLL in the "\Netscape\Communicator\Program\Plugins"
+folder. Internet Explorer tries to use the Netscape plugins by reading
+the plugins out that folder. Unfortunately, IE doesn't do it correctly,
+and crashes when trying to do Java LiveConnect! IE is supposed to use the
+JSynV###.DLL and Java classes that were installed especially for it but
+it gets confused when it sees the Netscape plugins.&nbsp; There are two
+ways to prevent this crash:
+<ol>
+<li>
+<b>Applet Developers</b>: Do not use the EMBED tag to launch the JSyn plugin.
+It works for Netscape but causes IE to look for the Netscape plugin and
+use it instead of its own plugin. Instead, please use the<a href="http://www.softsynth.com/jsyn/docs/usersguide.php#WebPage">
+JavaScript that senses the browser type</a> and loads the correct plugin.</li>
+
+<li>
+<b>Web Surfers:</b> Just in case some Applet does not use the script described
+in (1), do NOT install the JSyn plugin for both IE and Netscape! Pick one
+and just use that. If you are a SW developer and need to test with both,
+then keep the JSyn Plugins for Netscape in a folder called "\Netscape\Communicator\Program\PluginsDISABLED"
+and just copy them in when using Netscape. The JSyn/Netscape files are
+called "npjsyn.dll" and npjsyn.jar".</li>
+</ol>
+
+<h4>
+The sound has glitches and pops.</h4>
+
+<blockquote>Then go <a href="../support/sound_pc.html">here</a>.</blockquote>
+If you still have problems make sure you have the most recent versions
+of JSyn.
+<br>&nbsp;
+<p>If you cannot find an answer to your question on this website, then
+please <a href="http://www.softsynth.com/reportbugs.html">contact us</a>
+directly.
+<p><!--#include virtual="footer.html" -->
+</body>
+</html>

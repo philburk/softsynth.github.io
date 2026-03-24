@@ -1,0 +1,244 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.0b5 [en] (Win95; I) [Netscape]">
+   <TITLE>Genetic Online Development</TITLE>
+</HEAD>
+<BODY>
+
+<CENTER>
+<H1>
+
+<HR WIDTH="100%">Genetic Online Development</H1></CENTER>
+
+<CENTER>by <A HREF="http://music.dartmouth.edu/~phil">Phil Burk</A></CENTER>
+
+<CENTER></CENTER>
+
+<CENTER><FONT COLOR="#E5193A">UNDER CONSTRUCTION</FONT></CENTER>
+
+<H2>
+
+<HR WIDTH="100%">To run the application click <A HREF="http://music.dartmouth.edu/~phil/Critters.html">HERE</A>.</H2>
+
+<H2>
+Overview</H2>
+The Genetic Online Development system, or GOD, is an experiment in the
+creation of <A HREF="#Artificial Life">artficial life</A>. GOD is a program
+written in <A HREF="http://www.javasoft.com/">Java </A>that provides a
+<A HREF="#World">world </A>in which <A HREF="#Critters">critters </A>can
+evolve. The critters compete for the food that grows in the world, and
+can also eat each other. Their behavior is controlled by their genetic
+code which can be passed on to their offspring. The genetic code sometimes
+mutates in ways that can help or hurt the critter. Success is measured
+by the accumulation of energy which is obtained by eating. Activities like
+movement expend energy. The critters that are the most successful are able
+to reproduce. Those that are less successful tend to die before reproducing.
+Thus the fitness of the population can improve over time based on the principles
+of evolution.
+<H2>
+Design Goals</H2>
+The goal in this experiment is to answer the question "What is required
+for evolution to occur in a virtual world?". I am particularly interested
+in the evolution of behavior in primitive organisms as they search for
+food. I am interested in seeing how an organism makes use of limited perception
+and movement. Thus GOD provides some built in functions that a more pure
+system, like <A HREF="http://www.hip.atr.co.jp/~ray/tierra/tierra.html">Tierra</A>,
+would avoid because it would be considering tampering. I do try, however,
+to make the higher level functions as atomic as possible.
+<H2>
+Application</H2>
+The Genetic Online Development system is implemented as a <A HREF="http://www.javasoft.com/">Java</A>
+application which is portable across multiple platforms, and can be run
+from a Web browser. You can run the application by clicking <A HREF="http://music.dartmouth.edu/~phil/Critters.html">HERE</A>.
+
+<P>If you have trouble running GOD, read the section on <A HREF="#Funky Java Behavior">Funky
+Java Behavior</A>.
+
+<P>To operate GOD:
+<LI>
+Click on the "<B>Populate</B>" button and wait for some critters to appear.
+The status display indicates the number of time steps, the number of critters,
+the number of births, and the number of deaths. Keep clicking until you
+have over a hundred critters. The critters start with a random genome.</LI>
+
+<LI>
+Click on the "<B>Run</B>" button. Notice that some of the critters don't
+move and die rather quickly. The population will slowly drop until you
+are left with just a handful of critters. Hopefully these critters will
+start to reproduce and the population will climb up to a stable level.</LI>
+
+<LI>
+When you turn off the "Run" button, you can click on the "<B>Step</B>"
+button to single step the world. You can also click on a critter to select
+it which makes it easier to watch.</LI>
+
+<LI>
+You can select between two display modes. "<B>Energy XY</B>" shows each
+critter at its x,y position using a color that indicates its energy level.
+"<B>Energy Profile</B>" displays a histogram of the critters energy levels.</LI>
+
+<LI>
+The "<B>Trace</B>" button will cause genome trace information to print
+to the Java console window. See "Options" menu in Navigator.</LI>
+
+
+<P><FONT COLOR="#E01D2E">WARNING - Be sure to stop GOD from running before
+leaving the application. There is probably a way to do this automatically
+but I haven't got that to work yet.</FONT>
+<H2>
+<A NAME="World"></A>World</H2>
+The world is a two dimensional grid that wraps around at the edges. Thus
+critters can move about without getting stuck in a corner, or falling off
+of the world. Only one critter can exist in one location at a time. If
+a critter attempts to move into a square that is already occupied, then
+it will be blocked. The world grows food that provides nourishment for
+the critters and serves as a primary source of energy.
+<H2>
+<A NAME="Critters"></A>Critters</H2>
+Each critter has an x,y location in the world. It also has a direction
+that determines which one of the eight adjacent squares the critter will
+move to or look at.
+<H2>
+<FONT COLOR="#000000">Virtual Machine</FONT></H2>
+<FONT COLOR="#000000">The critters behavior is determined by its genetic
+code. The genetic code is essentially a program that runs on a virtual
+computer inside each critter. The virtual computer has two 32 bit registers,
+A and B. It also has a data memory that can be addressed using an address
+in the A register. The genetic code is contained in multiple chromosomes
+that are separate from the data memory. The critter cannot modify its own
+code.</FONT>
+
+<P><FONT COLOR="#000000">Since the program is "written" by a random process
+of mutation, the program will be full of "bugs". It is important that the
+computer does not crash when these bugs are encountered. There are a number
+of features of the virtual machine that prevent that from happening.</FONT>
+<H3>
+<FONT COLOR="#000000">Features That Prevent Crashes</FONT></H3>
+<FONT COLOR="#000000">The data memory is addressed modulo the size of the
+memory. Thus we never access outside the data memory and cannot corrupt
+other parts of the system. Thus address errors are avoided.</FONT>
+
+<P><FONT COLOR="#000000">Branches are always forwards and target an indexed
+label. If the label is not found before the end of the chromosome, then
+the branch stops at the end of the chromosome. Thus endless loops and wild
+jumps are avoided.</FONT>
+
+<P><FONT COLOR="#000000">Insertion mutations select new genes from a list
+of legal genes, thus illegal instruction errors are avoided.</FONT>
+
+<P><FONT COLOR="#000000">The critters virtual machine is implemented in
+Java which has its own virtual machine as well. Thus we have two layers
+of protection between the critter program and the host processor. Java
+has very stringent security measures and uses no pointers so many types
+of bugs can be avoided. This should be sufficient to contain the critters
+as they evolve and prevent them from escaping from their world.</FONT>
+<H2>
+Genome/Instruction Set</H2>
+The genome consists of Genes that are objects. Each gene is an instruction.
+The class of each gene determines its operation by defining an execute()
+method. There is a GeneAdd class, a GeneJump class, etc.
+
+<P>The instruction set treats the A and B registers like a very small stack
+that cannot underflow or overflow. When single values are loaded, the contents
+of A are moved to B, and the new value is placed in A. The contents of
+B are lost. When the contents of A is consumed, the contents of B are copied
+to A. Arithmetic unary operators work on A and leave B untouched. Binary
+operators replace the contents of A with the result of the operation and
+leave B untouched. There are no trinary operators.
+<H3>
+Primary Instructions</H3>
+The primary functions are the basic computer like instructions that might
+be found in any computer, add, multiply, load, store, branch, etc. [More
+to come...]
+<H3>
+Secondary Instructions</H3>
+The secondary instructions are higher level functions that allow the critter
+to interact with its environment. These are kept to a minimum number and
+a minimum complexity because I am interested in seeing the more complex
+functions come from the evolutionary process. [More to come...]
+<H2>
+Results So Far</H2>
+
+<H3>
+Version 1 , October 29, 1996</H3>
+The first version of GOD exhibited some very simple evolution. When I seed
+the world with a random population, a majority of the critters are non-functional
+which is to be expected. The losers generally die off within a few hundred
+steps. The critters that are left are the ones that move and graze. The
+population then rebounds and is composed entirely of critters that are
+moving and grazing. Thus the population has evolved to be, on average,
+more fit for survival.
+
+<P>I have allowed the world to run overnight several times so that it executed
+over 100000 steps. I traced the genome of the new critters and found the
+genome to be quite rich in alternating move and graze instructions. This
+is a reasonable strategy but is basically just a critter that runs around
+with its mouth open. The critters also seemed to have at least one eat
+instruction. I did not observe any sophisticated use of perception or of
+search strategies. This might be because I do not have good tools for evaluating
+the genome. It may also be because there is no great advantage to evolving
+further. If the environment is rich enough, then even the dumb critters
+can survive so why bother to improve. Death comes as a result of basically
+random predation that cannot be easily avoided with the current scheme.
+Perhaps environmental stress would encourage evolution.
+<H2>
+<A NAME="Funky Java Behavior"></A>Funky Java Behavior</H2>
+Java is theoretically platform independant but I have noticed some peculiar
+behavior on different platforms. It seems to run best under the Metroworks
+Java environment which is what I am using for development.
+<UL>
+<LI>
+SGI NetScape Navigator 3.0 Gold - display does not update on every step.
+You can get a more rapid update rate if you wiggle the mouse cursor over
+the World display.</LI>
+
+<LI>
+Macintosh NetScape Navigator 3.0 Gold - "Trace" button sometimes disappears.</LI>
+
+<LI>
+PC Internet Explorer 2.0 - does not seem to support Java.</LI>
+
+<LI>
+PC Internet Explorer 3.0 - may not be able to load class files.</LI>
+
+<LI>
+PC NetScape Navigator - thread security violation prevents use of "Run"
+button on the system we tried. Maybe you'll have better luck.</LI>
+</UL>
+
+<H2>
+Future Work</H2>
+
+<LI>
+Add save and load to text files for entire world or for single critters.
+This will allow studs to be emailed between experimenters over the net
+and allow for assisted migration.</LI>
+
+<LI>
+Add histograms of genome size, correlation with selected critter, etc.</LI>
+
+<LI>
+Add environmental stress to force evolution. This could come in the form
+of reduced food supplies. Summer/winter cycles might be useful.</LI>
+
+<LI>
+Add obstacles to the world so that critters can hide from predators, and
+learn navigation.</LI>
+
+<LI>
+Add X,Y sensing so that critters can return home.</LI>
+
+<LI>
+Add smell and stink operatorts so that critters can stalk prey.</LI>
+
+<LI>
+Add mass so that critters can build energy reserves, and for more accurate
+predation modelling.</LI>
+
+<H2>
+Links to Other&nbsp;<A NAME="Artificial Life"></A>Artificial Life Sites</H2>
+The <A HREF="http://alife.santafe.edu">Santra Fe Institute Artificial Life</A>
+page is an excellent starting point for exploring artificial life.
+</BODY>
+</HTML>

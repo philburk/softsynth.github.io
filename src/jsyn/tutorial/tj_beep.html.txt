@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.05 [en] (Win95; I) [Netscape]">
+   <TITLE>JSyn User Program</TITLE>
+</HEAD>
+<BODY>
+
+<H1>Beep Beep</H1>
+
+
+
+<P>This is a minimal example program that demonstrates how to run JSyn programs
+from a web page.
+
+<HR><APPLET CODE="mystuff.TJ_Beep.class" NAME="TJ_Beep"
+	CODEBASE="../../classes"
+	WIDTH="200" HEIGHT="100"></APPLET>
+<HR>
+<BR>Visit the <A HREF="http://www.softsynth.com/jsyn">JSyn</A>
+or <A HREF="http://www.softsynth.com">SoftSynth</A> home pages.
+<BR> 
+</BODY>
+</HTML>

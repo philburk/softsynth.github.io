@@ -1,0 +1,741 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Phil Burk">
+   <meta name="GENERATOR" content="Mozilla/4.61 [en]C-AtHome0407  (Win95; U) [Netscape]">
+   <title>When does JSyn work under IE</title>
+<link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!--#include virtual="header.html" -->
+
+<h1>
+<a href="../">JSyn</a> and Internet Explorer</h1>
+&nbsp;The JSyn "plugin" for Internet Explorer on the PC works on some peoples
+machines but not on others. The behavior seems to be almost completely
+random. But I am sure there is a pattern. So I have constructed this table
+that shows the various situations, and whether it works or not. Please
+help me solve this problem by helping me fill in this table.
+<p>Rows in <font color="#009900">Green</font><font color="#000000"> worked.
+Cells in </font><font color="#FF0000">red</font><font color="#000000">,
+are the suspected cause of failure.</font>
+<table BORDER COLS=16 WIDTH="100%" >
+<tr>
+<td>
+<center><font size=-1>set PATH in AUTOEXEC</font></center>
+</td>
+
+<td>
+<center><font size=-1>or set PATH in JSynIE.bat</font></center>
+</td>
+
+<td>
+<center><font size=-1>or DLL in SYSTEM folder</font></center>
+</td>
+
+<td>
+<center><font size=-1>JSyn</font>
+<br><font size=-1>V13.0</font></center>
+</td>
+
+<td>
+<center><font size=-1>JSyn</font>
+<br><font size=-1>V13.1</font></center>
+</td>
+
+<td>
+<center><font size=-1>JSyn V13.4 alpha2/16</font></center>
+</td>
+
+<td>
+<center><font size=-1>JSyn V13.4 beta2/20</font></center>
+</td>
+
+<td>
+<center><font size=-1>JSyn V13.5</font>
+<br><font size=-1>NT fix</font></center>
+</td>
+
+<td>
+<center><font size=-1>IE V4.0</font></center>
+</td>
+
+<td>
+<center><font size=-1>IE 4.0 + JVM 5.0</font></center>
+</td>
+
+<td>
+<center><font size=-1>IE V5.0</font></center>
+</td>
+
+<td>
+<center><font size=-1>Netscape Plugin Installed</font></center>
+</td>
+
+<td>
+<center><font size=-1>EMBED tag used</font></center>
+</td>
+
+<td>
+<center><font size=-1>OS</font></center>
+</td>
+
+<td>
+<center><font size=-1>Person</font></center>
+</td>
+
+<td>
+<center><font size=-1>Result</font></center>
+</td>
+</tr>
+
+<tr BGCOLOR="#99FF99">
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>&nbsp;</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>95</font></center>
+</td>
+
+<td>
+<center><font size=-1>Phil</font></center>
+</td>
+
+<td>
+<center><font size=-1>OK</font></center>
+</td>
+</tr>
+
+<tr BGCOLOR="#99FF99">
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>&nbsp;</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>95</font></center>
+</td>
+
+<td>
+<center><font size=-1>Phil</font></center>
+</td>
+
+<td>
+<center><font size=-1>OK</font></center>
+</td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>&nbsp;</td>
+
+<td BGCOLOR="#FFCCCC">
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>98</font></center>
+</td>
+
+<td>
+<center><font size=-1>Phil</font></center>
+</td>
+
+<td>
+<center><font size=-1>Can't find DLL</font></center>
+</td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>&nbsp;</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td BGCOLOR="#FFCCCC">
+<center><font size=-1>?</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>98</font></center>
+</td>
+
+<td>
+<center><font size=-1>Dr Pache</font></center>
+</td>
+
+<td>
+<center><font size=-1>Can't find Synth class</font></center>
+</td>
+</tr>
+
+<tr BGCOLOR="#99FF99">
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>&nbsp;</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>?</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>95?</font></center>
+</td>
+
+<td>
+<center><font size=-1>Robert</font></center>
+</td>
+
+<td>
+<center><font size=-1>OK (using CSyn DLL?!)</font></center>
+</td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td BGCOLOR="#FFCCCC">
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>&nbsp;</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>?</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>95</font></center>
+</td>
+
+<td>
+<center><font size=-1>Robert</font></center>
+</td>
+
+<td>
+<center><font size=-1>no</font></center>
+</td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>&nbsp;</td>
+
+<td>
+<center><font size=-1>?</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>?</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td BGCOLOR="#FFCCCC">
+<center><font size=-1>NT</font></center>
+</td>
+
+<td>
+<center><font size=-1>Deborah</font></center>
+</td>
+
+<td>
+<center><font size=-1>access violation</font></center>
+</td>
+</tr>
+
+<tr BGCOLOR="#99FF99">
+<td>&nbsp;</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>&nbsp;</td>
+
+<td>&nbsp;</td>
+
+<td>&nbsp;</td>
+
+<td>&nbsp;</td>
+
+<td>&nbsp;</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>&nbsp;</td>
+
+<td>&nbsp;</td>
+
+<td>&nbsp;</td>
+
+<td>&nbsp;</td>
+
+<td>&nbsp;</td>
+
+<td>
+<center><font size=-1>NT</font></center>
+</td>
+
+<td>
+<center><font size=-1>Deborah</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;OK</font></center>
+</td>
+</tr>
+
+<tr>
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;X</font></center>
+</td>
+
+<td>&nbsp;</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td BGCOLOR="#FFCCCC">
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>98</font></center>
+</td>
+
+<td>
+<center><font size=-1>Nick</font></center>
+</td>
+
+<td>
+<center><font size=-1>IE crashes after complaining about a plugin error,
+when you leave the applet page.</font></center>
+</td>
+</tr>
+
+<tr BGCOLOR="#99FF99">
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>&nbsp;</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>X</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>&nbsp;</font></center>
+</td>
+
+<td>
+<center><font size=-1>98</font></center>
+</td>
+
+<td>
+<center><font size=-1>Nick</font></center>
+</td>
+
+<td>
+<center><font size=-1>OK</font></center>
+</td>
+</tr>
+</table>
+
+<h3>
+Hypothesis</h3>
+I am starting to think there are several reasons JSyn won't work under
+IE.
+<ol>
+<li>
+JSyn fails on NT because of DirectSound inadequacies. (Workaround found
+for NT bug. Get JSyn V13.5 if using NT.)</li>
+
+<li>
+JSyn does not work under IE V4.0 unless one installs the new V5.0 Java
+Virtual Machine.</li>
+
+<li>
+JSyn V13.4 2/16 does not work on some peoples machines because I made the
+JAR file using JDK 1.3 which does not produce a manifest.</li>
+
+<li>
+JSyn fails if the Netscape plugin is installed, IE tries to load it and
+gets confused because it does not support LiveConnect.</li>
+</ol>
+Please let me know if you see a situation that contradicts this hypothesis.
+<br>&nbsp;
+
+<!--#include virtual="footer.html" -->
+</body>
+</html>

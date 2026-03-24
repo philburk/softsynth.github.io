@@ -1,0 +1,69 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Phil Burk">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en] (Windows NT 5.0; U) [Netscape]">
+   <meta name="Description" content="Download FREE plugin for audio synthesis by Java APplets in a web browser.">
+   <meta name="KeyWords" content="audio, synthesis, Java, browser, plugin, music">
+   <title>JSyn Plugin for Audio Synthesis</title>
+<link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!--#include virtual="header.html" -->
+<p>The free JSyn plugin adds a music synthesizer to your browser.</p>
+
+<script language="javascript">
+var user_agent = navigator.userAgent;
+if( user_agent.indexOf("inux") >= 0 )
+{
+    // The AppletContext.showDocument() method is broken on Linux!
+    document.writeln('<blockquote><b><a href="install_linux_sun.html">Install the JSyn plugin for Linux</a></b></blockquote><p>');
+}
+else
+{
+    document.writeln('<b>Click the "Install JSyn Plugin" button below to download and install the JSyn plugin.</b><p>');
+    document.writeln('<applet CODE="com.softsynth.support.JavaSniffer"');
+    document.writeln('   CODEBASE="../../classes" NAME="JavaSniffer"');
+    document.writeln('   WIDTH="493" HEIGHT="207">');
+    document.writeln('<param name="userAgent" value="' + navigator.userAgent + '">');
+    document.writeln('<param name="appVersion" value="' + navigator.appVersion + '">');
+    document.writeln('JSyn requires Java, which is missing from your browser.');
+    document.writeln('Please install or enable Java by clicking the link below.');
+    document.writeln('</applet>');
+}
+</script>
+
+<p>
+If you do not see an "Install JSyn Plugin" button then you are probably missing Java itself.
+Java is used to run Applets, which are small programs that run in the web browser.
+For information on how to install or enable Java, please click <a href="nojava.html">here</a>.
+</p>
+<p>If the &quot;Install JSyn&quot; plugin button does nothing then select a link from the list below:</p>
+<ul>
+  <li>If the java.vendor is Microsoft then click <a href="install_win_ie.html">here</a>.</li>
+  <li>If the java vendor is Sun Microsystems and you are on Windows then click <a href="install_win_sun.html">here</a>.</li>
+  <li>If the java.vendor is Apple and you have Mac OS X then click <a href="install_mac_osx.html">here</a>.    </li>
+</ul>
+<p><b>Use of this software implies acceptance of the <b><a href="jsyn_plugin_license.txt">full
+text</a></b> of the license.</b>
+<ol>
+<li>
+<b>You may download the JSyn Plugin freely from this web site for personal
+use.</b></li>
+
+<li>
+<b>You may not redistribute any JSyn software, including this plugin, without
+a Redistribution License from SoftSynth.com.</b></li>
+
+<li>
+<b>JSyn is provided on an "as is" basis without any warranty of any kind,
+including, without limitation, the implied warranties of merchantability
+and fitness for a particular purpose and their equivalents under the laws
+of any jurisdiction.</b></li>
+</ol>
+Use the <a href="quickcheck.html">QuickCheck Applet</a> if you just
+need to test your JSyn plugin.
+<br><!--#include virtual="footer.html" -->
+</body>
+</html>

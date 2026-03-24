@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.01 [en] (Win95; I) [Netscape]">
+   <TITLE>JSyn Delay Example</TITLE>
+</HEAD>
+<BODY>
+
+<H1>
+Delayed Sound</H1>
+
+<!-- Only EMBED Jsyn plugin for the Netscape browser. -->
+<script src="smart_embed_jsyn.js">
+<!-- hide this stuff from browsers that don't support JavaScript
+document.writeln("ERROR: could not find smart_embed_jsyn.js!");
+// stop hiding javaScript -->
+</script>
+
+<BR><B>How it works:</B>
+<BR>The output of an oscillator is fed into a long delay line.&nbsp; Change
+the "Frequency" of the oscillator from 0.0 up to some value and then back
+down to produce a short sound. Then wait for the sound to be repeated.&nbsp;
+You can produce layers of sound this way.&nbsp; If the sound becomes too
+thick then it will start to clip and make noise.&nbsp; If that occurs,
+lower the "Feedback" to zero until the sound is reduced.
+<BR>
+<HR><APPLET 
+    code=JSynExamples.TJ_Delay1.class
+	codebase="../../classes"
+    name=TJ_Delay1
+    width=400
+    height=100 ></APPLET>
+<HR>
+<BR>Visit the <A HREF="../">JSyn</A> or <A HREF="http://www.softsynth.com">SoftSynth</A>
+home pages.
+<BR>&nbsp;
+</BODY>
+</HTML>

@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.05 [en] (Win95; I) [Netscape]">
+   <TITLE> JSyn Performance Rack</TITLE>
+</HEAD>
+<BODY>
+
+<H1>
+JSyn Performance Rack by Phil Burk</H1>
+
+<!-- Only EMBED Jsyn plugin for the Netscape browser. -->
+<script src="smart_embed_jsyn.js">
+<!-- hide this stuff from browsers that don't support JavaScript
+document.writeln("ERROR: could not find smart_embed_jsyn.js!");
+// stop hiding javaScript -->
+</script>
+
+<BR>
+This Java Applet was written using JSyn, the audio synthesis API for
+Java,  in 1997. You can find out how to add audio synthesis to your own applets at
+<A HREF="http://www.softsynth.com/jsyn">http://www.softsynth.com/jsyn</A>
+
+<P>This Applet uses three types of synthesis: ring modulation, filtered
+noise, and subtractive synthesis. The ever changing melody is generated
+by a simple algorithm:
+<BLOCKQUOTE>
+<PRE>note[n] = note[n-delay] + offset;</PRE>
+</BLOCKQUOTE>
+where delay and offset are randomly generated. The melody is atonal and
+N-tone equal tempered.
+<BR>There are no instructions. Just click and drag on everything and hear
+what happens. It is impossible to make mistakes. Have fun!
+<BR>(Something not obvious. Holding down the SHIFT key while dragging across
+the vertical faders generates random values.)
+<BR>
+<HR><APPLET code="JSynExamples.perfrack.PerformanceRack.class" codebase="../../classes" name="PerformanceRack" WIDTH="708" HEIGHT="637"></APPLET>
+<HR>
+<BR>Visit the <A HREF="../">JSyn</A> or <A HREF="http://www.softsynth.com">SoftSynth</A>
+home pages.
+</BODY>
+</HTML>

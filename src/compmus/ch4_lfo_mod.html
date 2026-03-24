@@ -1,0 +1,54 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.77 [en]C-gatewaynet  (Win98; U) [Netscape]">
+   <meta name="Author" content="Phil Burk">
+   <meta name="KeyWords" content="Java, audio, synthesis">
+   <title>Music and Computers - LFO Modulation</title>
+<!-- This is an automatically generated file.
+
+It will be read and overwritten.
+
+Do Not Edit! -->
+</head>
+<body text="#000000" link="#0000FF" vlink="#FF00FF" alink="#000ED0">
+
+<h1>
+Music and Computers</h1>
+
+<h2>
+Low Frequency Modulation</h2>
+In this example, we are using a sine wave oscillator to modulate (wiggle)
+the frequency of a triangle wave oscillator. The SineOscillator frequency
+is set to a very low value, like 5-10 Hz so that it causes a slow wiggle
+in the TriangleOscillator frequency. The SineOscillator in this situation
+is referred to as an LFO, or "Low Frequency Oscillator". The sine wave
+is added to a constant value that determines the center frequency of the
+TriangleOscillator.
+<br>ToDo:
+<ul>
+<li>
+Increase the "Modulation Depth" fader. Notice that it causes the frequency
+wiggles to get <b>bigger</b>. This controls the amplitude of the SineOscillator.</li>
+
+<li>
+Increase the "Modulation Frequency" fader. Notice that it causes the frequency
+wiggles to get <b>faster</b>. This is sometimes called "Modulation Rate".
+This controls the frequency of the SineOscillator.</li>
+
+<li>
+Set the Modulation Depth to 0.0 and then move the "Center Frequency" fader.
+Notice that the sine oscillator goes up and down in pitch without any modulation.</li>
+
+<li>
+Set the ModDepth and the ModFreq faders to their maximum values. Set the
+"Center Frequency" to about 150.0.&nbsp; Notice how when the output of
+freqAdder goes low, the frequency of the triOsc is at its lowest.</li>
+
+<br>
+<applet code=JSynTutorial.TUT_Vibrato.class    codebase="../classes"
+    name=TUT_Vibrato  width=500  height=500 ></applet></ul>
+
+</body>
+</html>

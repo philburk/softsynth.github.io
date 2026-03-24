@@ -1,0 +1,172 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.72 [en] (Win95; I) [Netscape]">
+   <title>Yudishthira's Quartet, for computer synthesized Gamelan
+</title>
+</head>
+<body background="index.html">
+
+<center><a NAME="top"></a></center>
+
+<center>
+<h1>
+Yudishthira's Quartet, by Barbara Benary</h1></center>
+
+<center>
+<h2>
+Programmed by Nick Didkovsky in JSyn and JMSL</h2></center>
+
+<center>This online implementation dedicated to Open Space.
+<p><font size=+1><a href="../index.html">Back to JSyn@NUMUS Home Page</a></font></center>
+
+<p>
+<hr>
+<ul>Contents
+<li>
+<a href="#intro">Introduction</a></li>
+
+<li>
+<a href="#yudis">Yudishthira</a></li>
+
+<li>
+<a href="#form">The Form</a></li>
+
+<li>
+<a href="#compu">Computer program guidelines</a></li>
+
+<li>
+<font size=+3><a href="yudishapplet.html">Hear the piece</a></font></li>
+
+<li>
+<a href="nickcomments.html">Comments by Nick</a></li>
+</ul>
+
+<p><br>
+<hr>
+<br>&nbsp;
+<p><a NAME="intro"></a><i>Most of the comments below are taken from Barbara
+Benary's specification of her piece, Yudishthira's Quartet.</i>
+<br>&nbsp;
+<h3>
+Introduction</h3>
+Yudishthira's Quartet is a double quartet for computer and live gamelan
+in which various musical parameters are determined by random decisions.
+The first version of the software was programmed by Nick Didkovsky in February
+of 1988 on an Amiga 1000 computer, using the experimental music programming
+language HMSL. The piece was premiered by Gamelan Son of Lion the same
+year. The version presented here was also programmed by Nick, using the
+music languages JSyn and JMSL.
+<p>A performance of Yudishthira's Quartet calls for the computer version
+performing at one end of the hall, and a live gamelan performing simultaneously
+(but not necessarily in tempo synch) at the other. The version presented
+here is only the software version (as opposed to additionally emulating
+the live gamelan, for example).
+<p><a NAME="yudis"></a>
+<h3>
+Yudishthira</h3>
+Yudishthira is an epic hero from the Indian Mahabharata. He is a king who
+compulsively gambles away his kingdom, family, and self into slavery. There
+are no computers in the epic, but insofar as the machine represents perfect
+randomness, the interplay may be seen as the imperfect randomness of man
+in juxtaposition to the ideal.
+<p>The numbers being randomized in this piece are 1-4 and 1-10. Four was
+chosen because it is a quartet in the sense that four melodic octaves may
+be playing in either of the "bands." Ten was chosen because the combined
+scales of Son of Lion's slendro and pelog yield 10 different pitches among
+which to choose.
+<br>&nbsp;
+<p><a NAME="form"></a>
+<h3>
+The Form</h3>
+The piece consists of ten sound sections with variable spaces of rest between
+them. Whenever playing, the instruments hold to these rhythmic relationships:
+<ul>
+<li>
+slentem: 2 seconds</li>
+
+<li>
+demung: 1.0 second</li>
+
+<li>
+saron: 0.5 seconds</li>
+
+<li>
+peking: 0.25 seconds</li>
+</ul>
+Each section consists of four pitches chosen at random from Gamelan Son
+of Lion's tuning, which is a 10 pitch scale which results when the Slendro
+and the Pelog scales are merged. Players improvise melodies using these
+4 pitches. The live player's score has these pitches chosen beforehand.
+The computer version chooses the pitches in real time. Each section also
+has a randomly chosen dynamic level. Again, live players have these levels
+prepared, the computer chooses the dynamics in realtime.
+<br>&nbsp;
+<p><a NAME="compu"></a>
+<h3>
+Computer program guidelines</h3>
+The program cycles ten times, making the following choices each time around:
+<ol>
+<li>
+A random selection of 4 notes from the combined pelog and slendro tunings.</li>
+
+<li>
+A randomly selected timbre chosen from 10 presets. All voices use the same
+timbre for the given section. The ten timbres should sound distinctly different
+from each other and should sound "electronic." Because of the multiple
+voices, avoid buzzy timbres.</li>
+
+<li>
+A randomly selected number of players from 1 to 4. These players represent
+the four octave range of the gamelan balungen instruments. Also select
+which of the four voices shall play, ie if there is only one voice, it
+need not be player #1.</li>
+
+<ul>
+<li>
+Player #1 plays continuous 1 second whole notes, octave 1 (slentem)</li>
+
+<li>
+Player #2 plays continuous 0.5 second half notes, octave 2 (demung)</li>
+
+<li>
+Player #3 plays continuous 0.25 second quarter notes, octave 3 (saron)</li>
+
+<li>
+Player #4 plays continuous 0.125 second eighth notes, octave 4 (peking)</li>
+</ul>
+
+<li>
+Random melody: every note a player hits is randomly chosen from among the
+four notes that characterize the section.</li>
+
+<li>
+A randomly selected loudness level out of four possible.</li>
+
+<li>
+A randomly selected duration of the sound section, of 16, 32, 64, or 128
+seconds.</li>
+
+<li>
+A silence of randomly selected duration of 4, 8, 12, or 16 seconds after
+each section.</li>
+</ol>
+<font size=+1><a href="../index.html">Back to JSyn@NUMUS Home Page</a></font>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>

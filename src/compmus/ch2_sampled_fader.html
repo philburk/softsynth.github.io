@@ -1,0 +1,61 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.73 [en]C-gatewaynet  (Win98; U) [Netscape]">
+   <meta name="Author" content="Phil Burk">
+   <meta name="KeyWords" content="Java, audio, synthesis">
+   <title>Music and Computers - Sampled Fader</title>
+<!-- This is an automatically generated file.
+
+It will be read and overwritten.
+
+Do Not Edit! -->
+</head>
+<body text="#000000" link="#0000FF" vlink="#FF00FF" alink="#000ED0">
+
+<h1>
+Music and Computers</h1>
+
+<h2>
+Sampled Fader</h2>
+This Applet simulates the way that a Analog to Digital Convertor (ADC)
+samples a continuously changing value and produces a stream of numbers.&nbsp;
+The vertical faders represents the analog signal coming from a microphone
+or mixer. The graphical display represents the sampled values coming from
+the ADC.
+<p>To Do:
+<ol>
+<li>
+Move the fader slowly up and down. Notice that the samples reflect the
+fader's motion.</li>
+
+<li>
+Move the fader <b>very slowly</b>. Notice that the samples jump between
+levels even when the fader moves smoothly. This is called "<b>quantization</b>".
+Quantization can cause hiss in a digital recording. In this example we
+are quantizing to 5 bits which only gives us only 32 levels. An audio CD
+uses 16 bits which yields 65536 levels and extremely low hiss.</li>
+
+<li>
+Move the fader very quickly up and down repeatedly. Notice that the sampled
+stream no longer reflects the true motion of the fader. This is because
+the rate at which we are sampling is too low. This is called "<b>under
+sampling</b>" and results in an effect called "<b>aliasing</b>". Aliasing
+causes an unpleasant enharmonic distortion of high frequency sounds.</li>
+
+<li>
+Move the fader all the way to the top and bottom. Our "ADC" cannot handle
+the full range of the fader. Notice that the sampled numbers flatten out
+when the fader nears the ends. This is called "<b>clipping</b>". This can
+cause a buzzing distortion when one trys to record a signal that is too
+loud.</li>
+</ol>
+
+<center>
+<p><br><applet code="compmus.SampledFader.class" codebase="../classes" name="SampledFader" WIDTH="510" HEIGHT="371"></applet>
+<br>
+</center>
+
+</body>
+</html>

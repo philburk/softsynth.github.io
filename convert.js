@@ -8,8 +8,8 @@ const turndownService = new TurndownService({
     codeBlockStyle: 'fenced'
 });
 turndownService.use(turndownPluginGfm.gfm);
-// Keep audio and script elements entirely intact instead of stripping them
-turndownService.keep(['audio', 'source', 'script', 'noscript']);
+// Keep audio, script, iframe, and center elements entirely intact instead of stripping them
+turndownService.keep(['audio', 'source', 'script', 'noscript', 'iframe', 'center']);
 
 // Custom rule to aggressively force headerless HTML layout blocks into Markdown Tables natively 
 turndownService.addRule('forceMarkdownTable', {
@@ -124,6 +124,7 @@ function getNavDataForFile(filePath) {
     
     let currentDir = path.dirname(filePath);
     let myKey = null;
+    let myUrlKey = null;
     let myOrder = null;
     let myParent = null;
     
@@ -141,6 +142,7 @@ function getNavDataForFile(filePath) {
                 const currentFolderIndexUrl = '/' + path.relative(SOFTSYNTH_ROOT, currentDir).replace(/\\/g, '/') + '/index.php';
                 const currentFolderRootUrl = '/' + path.relative(SOFTSYNTH_ROOT, currentDir).replace(/\\/g, '/') + '/';
                 let groupParentName = null;
+                let groupParentUrl = null;
                 const parsedItems = [];
                 
                 for (let item of items) {
@@ -153,6 +155,7 @@ function getNavDataForFile(filePath) {
                         
                         if (url === currentFolderIndexUrl || url === currentFolderRootUrl) {
                             groupParentName = title;
+                            groupParentUrl = url;
                         }
                     }
                 }
@@ -162,20 +165,21 @@ function getNavDataForFile(filePath) {
                     if (item.url === oldWebPath || item.url === oldWebPath.replace('/index.php', '/')) {
                         if (!myKey) {
                             myKey = item.title;
+                            myUrlKey = item.url;
                             myOrder = item.order;
                         }
                         if (item.url !== currentFolderIndexUrl && item.url !== currentFolderRootUrl) {
                             // This file maps as a child in this array
                             if (groupParentName) {
-                                myParent = groupParentName;
-                                return { title: myKey, order: myOrder, parent: myParent };
+                                myParent = groupParentUrl;
+                                return { title: myKey, key: myUrlKey, order: myOrder, parent: myParent };
                             }
                         }
                         // If it matched the current folder index, it is the parent itself, so let loop continue upward!
                     } else if (myKey) {
                         // We are crawling upward. If the current header defines a group parent, that is our actual parent!
                         if (groupParentName && myKey !== groupParentName) {
-                            return { title: myKey, order: myOrder, parent: groupParentName };
+                            return { title: myKey, key: myUrlKey, order: myOrder, parent: groupParentUrl };
                         }
                     }
                 }
@@ -186,7 +190,7 @@ function getNavDataForFile(filePath) {
         currentDir = parentDir;
     }
     
-    if (myKey) return { title: myKey, order: myOrder, parent: myParent };
+    if (myKey) return { title: myKey, key: myUrlKey, order: myOrder, parent: myParent };
     return null;
 }
 
@@ -208,6 +212,12 @@ function processFile(filePath) {
     const basenameNoExt = path.basename(filePath, ext);
     const destRelPath = path.relative(SOFTSYNTH_ROOT, filePath);
     const destPath = path.join(SRC_DIR, destRelPath);
+
+    // CRITICAL: Extremely strict exclusion rule to prevent the raw legacy style.css from obliterating our modern Eleventy layout styles!
+    if (destRelPath === 'style.css') {
+        console.log(`SKIPPED LEGACY CSS: ${destRelPath}`);
+        return;
+    }
 
     if (ext === '.html' || ext === '.htm') {
         const phpPath = path.join(path.dirname(filePath), basenameNoExt + '.php');
@@ -237,8 +247,8 @@ function processFile(filePath) {
     const navData = getNavDataForFile(filePath);
     
     let eleventyNavString = '';
-    if (navData) {
-        eleventyNavString = `eleventyNavigation:\n  key: "${navData.title.replace(/"/g, '\\"')}"\n  order: ${navData.order}\n`;
+    if (navData && navData.title !== 'Android') {
+        eleventyNavString = `eleventyNavigation:\n  key: "${navData.key.replace(/"/g, '\\"')}"\n  title: "${navData.title.replace(/"/g, '\\"')}"\n  order: ${navData.order}\n`;
         if (navData.parent) {
             eleventyNavString += `  parent: "${navData.parent.replace(/"/g, '\\"')}"\n`;
         }
@@ -313,9 +323,18 @@ function processFile(filePath) {
             return '](' + urlPath + suffix + titleStr + ')';
         });
 
+        // 2.5: Safely rebind legacy raw HTML attributes (like audio <source src="...">) to mathematically absolute roots so deep sub-folders don't 404 their media!
+        markdownBody = markdownBody.replace(/(<\/?(?:audio|source|script|noscript|iframe|center|img)\b[^>]*?(?:src|href)=["'])([^"']+)(["'][^>]*>)/gi, (match, prefix, urlPath, suffix) => {
+            if (!urlPath.startsWith('/') && !urlPath.toLowerCase().startsWith('http') && !urlPath.toLowerCase().startsWith('data:')) {
+                const webDir = '/' + path.relative(SOFTSYNTH_ROOT, path.dirname(filePath)).replace(/\\/g, '/');
+                urlPath = path.posix.join(webDir, urlPath);
+            }
+            return prefix + urlPath + suffix;
+        });
+
         // 3. Globally escape all raw HTML tags that Turndown dumped into the Markdown so they display safely as text.
-        // EXCEPT: We use a negative lookahead to ignore <audio>, <source>, <script>, <noscript>, and <br> components so they render natively.
-        markdownBody = markdownBody.replace(/<(?!\/?audio\b|\/?source\b|\/?script\b|\/?noscript\b|\/?br\b)([^>]+)>/gi, '&lt;$1&gt;');
+        // EXCEPT: We use a negative lookahead to ignore natively-rendered structure components so they embed dynamically.
+        markdownBody = markdownBody.replace(/<(?!\/?audio\b|\/?source\b|\/?script\b|\/?noscript\b|\/?iframe\b|\/?center\b|\/?br\b)([^>]+)>/gi, '&lt;$1&gt;');
 
         // 4. Safely restore the legacy HTML anchor tokens back into real DOM elements so in-page links function properly
         markdownBody = markdownBody.replace(/\[\[\[ANCHOR_([^\]]+)\]\]\]/g, '<a name="$1"></a>');

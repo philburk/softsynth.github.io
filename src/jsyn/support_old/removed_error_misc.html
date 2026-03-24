@@ -1,0 +1,1639 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Phil Burk">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en] (Windows NT 5.0; U) [Netscape]">
+   <meta name="Description" content="Let's find the source of this bug!">
+   <meta name="KeyWords" content="The volume that was removed had open files on it.,boot,error,Gateway,Athlon">
+   <title>The volume that was removed had open files on it.</title>
+</head>
+<body>
+Here is some <b>older</b>
+material relating to the <a href="removed_error.html">VolumeBug</a>. If
+you need to do some further research then this information may be useful
+to you.
+<h2>
+<b>What we&nbsp;<a NAME="Know"></a>Know so Far</b></h2>
+
+<ol>
+<li>
+Everyone with the problem so far is using Promise disk controllers. According
+to <a href="http://www.promise.com">Promise tech-support</a>, the source
+of the problem is the Promise Ultra 100 or Ultra66 disk controller. The
+Promise tech-support folks say it can also happen with the FastTrack66
+and FastTrack100 RAID controllers. [The problem was traced to the Tag Command
+Queuing code in the Promise Ultra driver.]</li>
+
+<li>
+Everyone with the problem so far is using Windows98.</li>
+
+<li>
+The bug often appears after installing a new piece of software or hardware.
+Probably by changing the timing of events at startup.</li>
+
+<li>
+The hang can be greatly reduced in frequency by eliminating some Startup
+Items. This supports the idea that the bug is due to a timing problem or
+race condition during startup, or a resource conflict.</li>
+
+<li>
+For some people, reformatting and repartitioning your drive with FDISK
+and reinstalling the OS <a href="http://www.egroups.com/message/volumebug/61">works</a>,
+but for some others it does <a href="http://www.egroups.com/message/volumebug/96">not
+work</a>. it probably just changes the startup timing.</li>
+
+<li>
+The bug can be eliminated by using a different IDE controller.</li>
+
+<li>
+The text of the message can be found at offset 0xC428 in the file "C:\WINDOWS\SYSTEM\VMM32\IFSMGR.VXD".</li>
+</ol>
+Millions of people have Promise controllers but I estimate that only a
+few thousand people per month are encountering this particular problem.&nbsp;
+I get about 580 hits per week to this page. If 10% of the people who have
+this problem actually find this page by searching the web, then that implies
+that over 23,000 people per month, are encountering this problem!
+<h2>
+Various Other&nbsp;<a NAME="Solutions"></a>Solutions</h2>
+[We currently recommend using the Beta driver described above. These workarounds
+are given for historical purposes, and&nbsp; in case the beta driver doesn't
+really fix the problem. When the official driver comes out, I will remove
+this stuff. Still waiting...]
+<p>There are four possible solutions so far. The first two simply change
+the timing of events at startup and mask the bug but do not really fix
+anything. The third involves removing the offending device which is probably
+the best choice. The fourth involves reformatting your drives which a major
+pain and doesn't seem to work.
+<p>So far, noone has offered an explanation of why these first two steps
+work. But I think they simply change the timing of events at startup. This
+somehow prevents two or more critical events from happening at the same
+time and the problem is somehow avoided.
+<h3>
+<a NAME="Defragment"></a>Defragment Your C: Drive</h3>
+The most painless workaround is to <b>defragment your C: drive</b>, although
+it can take an hour or two. But this is a good thing to do anyway because
+defragmenting collects all the data for each file together and places it
+in proper order on the disk. You won't notice any difference except that
+bootup and starting programs may be faster. If may also stop the bug the
+bug from happening for awhile. To Defragment your disk:
+<ol>
+<li>
+Right click on the Desktop screen and select properties. Turn off all ScreenSavers
+and PowerSavers because they interrupt DeFragmentation process and cause
+it to never finish.</li>
+
+<li>
+Select "Disk Defragmenter" from your Start menu, "Programs\Accessories\System
+Tools".</li>
+
+<li>
+Defragment C: drive and any others you want to clean up.</li>
+
+<li>
+Go read a good book while you wait an hour or more to defrag.</li>
+
+<li>
+Reenable ScreenSavers or PowerSavers</li>
+</ol>
+
+<h3>
+<a NAME="Disabling"></a>Disable Some Startup Items</h3>
+If defragmenting doesn't work then try the next set of simple workarounds.
+They all involve <b>turning off a startup item</b>. These changes are considered
+low risk because you can usually just turn the item back on and reboot.
+I recommend the "LoadPowerProfile"&nbsp; fix because it is less likely
+to interfere with any critical functions in your PC.
+<p>Special thanks to Ron Boyer, and Loren Sanders, and others who suggested
+these tricks. Note that I do not believe these "fix" the problem. But they
+can reduce the frequency of occurence to a level you can live with.
+<ol>
+<li>
+Select "Run..." from Windows Start Menu.</li>
+
+<li>
+Enter "msconfig" and hit OK button.</li>
+
+<li>
+Select "StartUp" tab.</li>
+
+<li>
+Now you can choose which of three StartUps to disable. Scroll through the
+list of entries.</li>
+
+<br>If you have two entries for "LoadPowerProfile" uncheck the second one.
+(Recommended) Note: that Jim <a href="http://www.egroups.com/message/volumebug/18">reports</a>
+that LoadPowerProfile may need to run twice. Microsoft says: <a href="http://support.microsoft.com/support/kb/articles/q187/6/11.asp">http://support.microsoft.com/support/kb/articles/q187/6/11.asp</a>
+<br><b>Or</b>, if you don't have two entries for "LoadPowerProfile", then
+uncheck "Disc Detector" from Creative.
+<br><b>Or</b>, if you don't have "Disc Detector", then uncheck "Still Image
+Monitor" (stimon.exe). (This may interfere with your HP scanner operation
+and could cause blue screens of death..) Also Jim says "I found that I
+had to disable both the "HPSCANMonitor" and the "StillImageMonitor" files
+to fix it.
+<li>
+Restart your computer. Did you get a blue screen? Hopefully not.</li>
+
+<li>
+Because STIMON.EXE is required for proper scanner operation, <a href="http://www.egroups.com/message/volumebug/239">Jim
+Swadling found that he can schedule it to start at a different time</a>
+so that his scanner works AND he doesn't crash at startup.</li>
+</ol>
+For more information on Startup Items and what they do, click <a href="http://www2.whidbey.com/djdenham/Uncheck.htm">here.</a>
+<h3>
+If You Can't Boot, Restore&nbsp;<a NAME="Registry"></a>Registry</h3>
+If you cannot boot your machine at all because of persistent crashes, then
+it is hard to try the above two workarounds. Wendy wrote in with a way
+to get your machine to boot.
+<p>"...after a number of&nbsp; unsuccessful tries at booting, only way
+I can boot successfully is to go into DOS and do a registry rollback -
+this works 99.9% of the time, till next time...&nbsp; when you have to
+do it again.&nbsp; It does get you going again though when you need it."
+<ol>
+<li>
+To reboot in DOS mode, hold down CTRL key while rebooting. (Check to see
+how your computer boots into Safe mode, you may need to hold down an F
+key on some systems.)When offered a choice of DOS (or "Command Prompt"),
+SafeMode, or Normal, select DOS (or "Command Prompt").</li>
+
+<li>
+In DOS, enter with no spaces:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; scanreg/restore</li>
+
+<li>
+Pick a STARTED date off the list previous to today's date when the computer
+was ok, and let it restore the registry.&nbsp; Then reboot.</li>
+</ol>
+
+<h3>
+<a NAME="Reinstall"></a>Reinstall and Repartition</h3>
+Promise initially suggested reformatting my drives and reinstalling the
+OS and all my applications. That is obviously so ridiculous that I have
+removed this section.
+<h2>
+Spot the&nbsp;<a NAME="Pattern"></a>Pattern</h2>
+When we first started looking at this problem, we did not know the source.
+So many people sent me information describing their computers. I collected
+this information into a table. If you look through the table you will notice
+that the only component common to all victims of this bug is the Promise
+Ultra disk controller. A more recent list is available <a href="http://groups.yahoo.com/group/volumebug/database">here</a>.
+<br>&nbsp;
+<center><table BORDER WIDTH="2600" >
+<tr>
+<td>
+<center><b>Name</b></center>
+</td>
+
+<td>
+<center><b>OS</b></center>
+</td>
+
+<td>
+<center><b>Make</b></center>
+</td>
+
+<td>
+<center><b>CPU</b></center>
+</td>
+
+<td>
+<center><b>Anti-Virus</b></center>
+</td>
+
+<td>
+<center><b>HD Controller, Driver#</b></center>
+</td>
+
+<td>
+<center><b>"SCSI"Controller, Driver#</b></center>
+</td>
+
+<td>
+<center><b>HD</b></center>
+</td>
+
+<td>
+<center><b>CD1</b></center>
+</td>
+
+<td>
+<center><b>CD2</b></center>
+</td>
+
+<td>
+<center><b>Printer</b></center>
+</td>
+
+<td>
+<center><b>repartitioned?</b></center>
+</td>
+
+<td>
+<center><b>scanner(USB/SCSI)</b></center>
+</td>
+
+<td>
+<center><b>Network</b></center>
+</td>
+
+<td>
+<center><b>Grfx</b></center>
+</td>
+
+<td>
+<center><b>Audio</b></center>
+</td>
+
+<td>
+<center><b>Trigger!?</b></center>
+</td>
+
+<td>
+<center><b>Fix or Workaround</b></center>
+</td>
+</tr>
+
+<tr>
+<td>
+<center>Phil</center>
+</td>
+
+<td>
+<center>Win98SE 4.10.2222 A</center>
+</td>
+
+<td>
+<center>Gateway Sel</center>
+</td>
+
+<td>
+<center>900M AthlonTh</center>
+</td>
+
+<td>
+<center>Norton</center>
+</td>
+
+<td>
+<center>AMD 756, V1.21 RC</center>
+</td>
+
+<td>
+<center><b>Pr. Ultra100</b>, 1.60 (build 18)</center>
+</td>
+
+<td>
+<center>46GB IBM-DTLA-30</center>
+</td>
+
+<td>
+<center>HP RW</center>
+</td>
+
+<td>
+<center>Pioneer DVD-15</center>
+</td>
+
+<td>
+<center>HP LJ 4ML</center>
+</td>
+
+<td>
+<center>PartMagic</center>
+</td>
+
+<td>
+<center>HP4200C,USB</center>
+</td>
+
+<td>
+<center>3COM EtherLink</center>
+</td>
+
+<td>
+<center>GEForce2GTS</center>
+</td>
+
+<td>
+<center>SBLive</center>
+</td>
+
+<td>
+<center>scanner?&nbsp;</center>
+</td>
+
+<td>
+<center>disconnected Promise card</center>
+</td>
+</tr>
+
+<tr>
+<td>
+<center><a href="http://www.egroups.com/message/volumebug/18">Jim H</a></center>
+</td>
+
+<td>
+<center>Win98SE</center>
+</td>
+
+<td>
+<center>Dell XPSB933</center>
+</td>
+
+<td>
+<center>933M PIII</center>
+</td>
+
+<td>
+<center>&nbsp;Norton</center>
+</td>
+
+<td>
+<center><b>Pr. Ultra100</b>,1.60 (build 14)</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>75 GB IBM</center>
+</td>
+
+<td>
+<center>12X Samsung</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>HP 952C</center>
+</td>
+
+<td>
+<center><a href="http://www.egroups.com/message/volumebug/22">no</a></center>
+</td>
+
+<td>
+<center>HP4100C</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>GeForce</center>
+</td>
+
+<td>
+<center>SBLive</center>
+</td>
+
+<td>
+<center>&nbsp;loading my software etc.</center>
+</td>
+
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>
+<center><a href="http://www.egroups.com/message/volumebug/7">Jim K</a></center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>Asus A7V</center>
+</td>
+
+<td>
+<center>&nbsp;700M&nbsp; Duron</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center><b>Pr. Ultra100</b></center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>Maxtor 30GB</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;PartMagic</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>ATI Xpert 2k AGP</center>
+</td>
+
+<td>
+<center>SBLive</center>
+</td>
+
+<td>
+<center>installed SBLive</center>
+</td>
+
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>
+<center><a href="http://www.egroups.com/message/volumebug/14">Tim</a></center>
+</td>
+
+<td>
+<center>Win98SE 4.10.2222 A</center>
+</td>
+
+<td>
+<center>Gateway</center>
+</td>
+
+<td>
+<center>&nbsp;233M PII</center>
+</td>
+
+<td>
+<center><a href="http://www.egroups.com/message/volumebug/47">McAfee</a></center>
+</td>
+
+<td>
+<center><b>Pr. Ultra 66</b></center>
+</td>
+
+<td>
+<center>Adaptec 7850 PCI SCSI</center>
+</td>
+
+<td>
+<center>&nbsp;20GB WDC-WD205BA</center>
+</td>
+
+<td>
+<center>Toshiba 16x</center>
+</td>
+
+<td>
+<center>Ricoh MP-6200S</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center><a href="http://www.egroups.com/message/volumebug/23">no</a></center>
+</td>
+
+<td>
+<center>AcerScan 620USB</center>
+</td>
+
+<td>
+<center>Netgear EA201</center>
+</td>
+
+<td>
+<center>ATI AIW ProPCI8M</center>
+</td>
+
+<td>
+<center>Ensoniq PCI</center>
+</td>
+
+<td>
+<center>upgrade to Ultra66+WD20</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+</tr>
+
+<tr>
+<td>
+<center><a href="http://www.egroups.com/message/volumebug/17">Sergio</a></center>
+</td>
+
+<td>
+<center>Win98SE</center>
+</td>
+
+<td>
+<center>Asus A7V</center>
+</td>
+
+<td>
+<center>&nbsp;700M AthlonTh</center>
+</td>
+
+<td>
+<center><a href="http://www.egroups.com/message/volumebug/30">no</a></center>
+</td>
+
+<td>
+<center><b>Pr. Ultra100</b></center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>30 GB IBM Deskstar 60GXP</center>
+</td>
+
+<td>
+<center>50X</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;HP Deskjey 882C</center>
+</td>
+
+<td>
+<center>&nbsp;PartMagic</center>
+</td>
+
+<td>
+<center>CanonScan FB 630U</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>Asus 7100 Geforce2</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>upgrade to Win98SE</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+</tr>
+
+<tr>
+<td>
+<center><a href="http://www.egroups.com/message/volumebug/21">Rob</a></center>
+</td>
+
+<td>
+<center>&nbsp;Win98SE 4.10.2222 A</center>
+</td>
+
+<td>
+<center>Asus A7V</center>
+</td>
+
+<td>
+<center>800M Athlon Th</center>
+</td>
+
+<td>
+<center>&nbsp;Norton 5.1.1a</center>
+</td>
+
+<td>
+<center><b>Pr. Ultra100</b></center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>IBM DTLA 307030 30.7Gb</center>
+</td>
+
+<td>
+<center>HP 7200</center>
+</td>
+
+<td>
+<center>&nbsp;Asus 8x DVD</center>
+</td>
+
+<td>
+<center>&nbsp; Deskjet 660C</center>
+</td>
+
+<td>
+<center>PartMagic</center>
+</td>
+
+<td>
+<center>IBM IdeaScan2000</center>
+</td>
+
+<td>
+<center>&nbsp;Realtek 8029(AS)</center>
+</td>
+
+<td>
+<center>&nbsp;3D Prophet DDR-DVI</center>
+</td>
+
+<td>
+<center>&nbsp;SBLive1024</center>
+</td>
+
+<td>
+<center>&nbsp;unknown</center>
+</td>
+
+<td>
+<center>disable 2nd LoadPowerProfile</center>
+</td>
+</tr>
+
+<tr>
+<td>
+<center><a href="http://www.egroups.com/message/volumebug/28">Drew</a></center>
+</td>
+
+<td>
+<center>&nbsp;Win98 SE</center>
+</td>
+
+<td>
+<center>&nbsp;Dell XPSB1000</center>
+</td>
+
+<td>
+<center>1 GHz PIII&nbsp;</center>
+</td>
+
+<td>
+<center>Norton 2000&nbsp;</center>
+</td>
+
+<td>
+<center>Intel 820, ATA drv V6.03</center>
+</td>
+
+<td>
+<center>&nbsp;<b>Pr. Ultra100</b></center>
+</td>
+
+<td>
+<center>&nbsp;IBM Deskstar 40 GB</center>
+</td>
+
+<td>
+<center>&nbsp;Sony RW</center>
+</td>
+
+<td>
+<center>Samsung DVD&nbsp;</center>
+</td>
+
+<td>
+<center>none&nbsp;</center>
+</td>
+
+<td>
+<center>FDISK</center>
+</td>
+
+<td>
+<center>Epson USB&nbsp;</center>
+</td>
+
+<td>
+<center>3COM Etherlink&nbsp;</center>
+</td>
+
+<td>
+<center>GeForce 2 GTS&nbsp;</center>
+</td>
+
+<td>
+<center>Turtle B. Santa Cruz&nbsp;</center>
+</td>
+
+<td>
+<center>Promise driver</center>
+</td>
+
+<td>
+<center>removed Promise card</center>
+</td>
+</tr>
+
+<tr>
+<td>
+<center><a href="http://www.egroups.com/message/volumebug/34">Simon</a></center>
+</td>
+
+<td>
+<center><b>Win98</b> and Win98SE</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>
+<center><a href="http://www.egroups.com/message/volumebug/40">Jon A</a></center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>Asus A7V</center>
+</td>
+
+<td>
+<center>900M AthlonTh</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center><b>Pr. Ultra100</b></center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>20 Gig Ultra66</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>HP 3300C</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>Creative GeForce 2</center>
+</td>
+
+<td>
+<center>SBLive X-Gamer</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+</tr>
+
+<tr>
+<td>
+<center><a href="http://www.egroups.com/message/volumebug/59">Jon R</a></center>
+</td>
+
+<td>
+<center>Win98SE</center>
+</td>
+
+<td>
+<center>&nbsp;Asus A7V</center>
+</td>
+
+<td>
+<center>&nbsp;700M Duron</center>
+</td>
+
+<td>
+<center>&nbsp;Norton</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;<b>Pr. Ultra100</b></center>
+</td>
+
+<td>
+<center>&nbsp;20.4 GB Maxtor</center>
+</td>
+
+<td>
+<center>&nbsp;48x Mitsumi</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;Epson 740</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;Agfa 1212U Snapscan</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;Asus V3800</center>
+</td>
+
+<td>
+<center>&nbsp;SBLive</center>
+</td>
+
+<td>
+<center>installed scanner SW</center>
+</td>
+
+<td>
+<center>disabled stimon</center>
+</td>
+</tr>
+
+<tr>
+<td>
+<center><a href="http://www.egroups.com/message/volumebug/44">Michael</a></center>
+</td>
+
+<td>
+<center>W98SE/W2K dual</center>
+</td>
+
+<td>
+<center>ASUS P2B</center>
+</td>
+
+<td>
+<center>Celeron II</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center><b>Pr Ultra100</b>, 1.60 (build 32)</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>IMB Deskstar 75GXP 30GB</center>
+</td>
+
+<td>
+<center>HP Writ 8200i</center>
+</td>
+
+<td>
+<center>Pioneer DVD-114</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>P.M. 20+10</center>
+</td>
+
+<td>
+<center>Umax 1220S</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>GeForce 2 GTS</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>installed SBLive</center>
+</td>
+
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>
+<center><a href="http://www.egroups.com/message/volumebug/45">Nicole</a></center>
+</td>
+
+<td>
+<center>"nearly the same as others"</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>HP DJ 722C,V10.3</center>
+</td>
+
+<td>
+<center>FDISK</center>
+</td>
+
+<td>
+<center>&nbsp;Acer</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>after using Acer scanner</center>
+</td>
+
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>
+<center><a href="http://www.egroups.com/message/volumebug/55">Arnold</a></center>
+</td>
+
+<td>
+<center>Win98SE</center>
+</td>
+
+<td>
+<center>ASUS A7V</center>
+</td>
+
+<td>
+<center>800M AthlonTh</center>
+</td>
+
+<td>
+<center>McAfee v5.1</center>
+</td>
+
+<td>
+<center><b>Pr. Ultra100</b></center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>IBM-DTLA-307030</center>
+</td>
+
+<td>
+<center>Creative CD5233E</center>
+</td>
+
+<td>
+<center>HP 9500 CD Writer</center>
+</td>
+
+<td>
+<center>HP Deskjet 720c</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>Visioneer&nbsp; 8600</center>
+</td>
+
+<td>
+<center>no</center>
+</td>
+
+<td>
+<center>ATI Xpert 2k AGP</center>
+</td>
+
+<td>
+<center>SB PCI128</center>
+</td>
+
+<td>
+<center>installed scanner</center>
+</td>
+
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td>
+<center><a href="http://www.egroups.com/message/volumebug/96">Edwin</a></center>
+</td>
+
+<td>
+<center>Win98SE</center>
+</td>
+
+<td>
+<center>Abit BF6</center>
+</td>
+
+<td>
+<center>800M PIII</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center><b>Pr. Ultra100</b></center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>Fujitsu 20 (ATA66 only)</center>
+</td>
+
+<td>
+<center>HP 9100 RW</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>Epson</center>
+</td>
+
+<td>
+<center>FDISK</center>
+</td>
+
+<td>
+<center>HP Scanjet 5P(ISA)</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>Diamond S540</center>
+</td>
+
+<td>
+<center>Diamond S400</center>
+</td>
+
+<td>
+<center>installing Promise driver!</center>
+</td>
+
+<td>
+<center>dis LPP didn't work! no fix yet</center>
+</td>
+</tr>
+
+<tr>
+<td>
+<center><a href="http://www.egroups.com/message/volumebug/125">rshld</a></center>
+</td>
+
+<td>
+<center>Win98SE</center>
+</td>
+
+<td>
+<center>Asus A7V</center>
+</td>
+
+<td>
+<center>1 GHz Athlon Th</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center><b>Pr. Ultra100</b></center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>IBM Deskstar ATA/100 HD</center>
+</td>
+
+<td>
+<center>Creative 52X</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>FDISK</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>Linksys LNE100TX</center>
+</td>
+
+<td>
+<center>ASUS V7700 AGP</center>
+</td>
+
+<td>
+<center>SB-Live</center>
+</td>
+
+<td>
+<center>adding various drivers</center>
+</td>
+
+<td>
+<center>none</center>
+</td>
+</tr>
+
+<tr>
+<td>
+<center><a href="http://www.egroups.com/message/volumebug/148">tim</a></center>
+</td>
+
+<td>
+<center>Win98</center>
+</td>
+
+<td>
+<center>Sony</center>
+</td>
+
+<td>
+<center>450 MHz PII</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center><b>Pr. Ultra 100</b></center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>13GB+30GB Maxtors</center>
+</td>
+
+<td>
+<center>DVD</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>Lexm Opera E+</center>
+</td>
+
+<td>
+<center>PM, FDISK</center>
+</td>
+
+<td>
+<center>HP SJ5c on Ad2920C</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>Matrox MGA200</center>
+</td>
+
+<td>
+<center>&nbsp;</center>
+</td>
+
+<td>
+<center>added second drive</center>
+</td>
+
+<td>
+<center>removed Promise card</center>
+</td>
+</tr>
+
+<tr>
+<td>
+<center><a href="http://www.egroups.com/message/volumebug/153">Richard</a></center>
+</td>
+
+<td>
+<center>&nbsp;Win 98 SE</center>
+</td>
+
+<td>
+<center>Dell XPS B800r</center>
+</td>
+
+<td>
+<center>800 MHz PIII</center>
+</td>
+
+<td>
+<center>Norton 2K</center>
+</td>
+
+<td>
+<center><b>Pr. Ultra 100</b>/1.60 (Build 14)</center>
+</td>
+
+<td>&nbsp;</td>
+
+<td>
+<center>IBM DTLA 45 GB</center>
+</td>
+
+<td>
+<center>LG CD-RW</center>
+</td>
+
+<td>
+<center>HP DJ 970Cse USB</center>
+</td>
+
+<td>&nbsp;</td>
+
+<td>
+<center>no, no, no</center>
+</td>
+
+<td>
+<center>Epson Perfection 1640SU</center>
+</td>
+
+<td>
+<center>3Com Etherlink</center>
+</td>
+
+<td>
+<center>GeForce 256 AGP</center>
+</td>
+
+<td>
+<center>SB Live! Value</center>
+</td>
+
+<td>
+<center>installed scanner</center>
+</td>
+
+<td>
+<center>disabled stimon.exe</center>
+</td>
+</tr>
+
+<tr>
+<td>
+<center><a href="http://www.egroups.com/message/volumebug/202">Andrew</a></center>
+</td>
+
+<td>
+<center>Win 98</center>
+</td>
+
+<td>
+<center>GA-7ZXR</center>
+</td>
+
+<td>
+<center>900M AthlonTh</center>
+</td>
+
+<td>&nbsp;</td>
+
+<td>
+<center>&nbsp;<b>Pr. Ultra 100</b></center>
+</td>
+
+<td>&nbsp;</td>
+
+<td>
+<center>Maxtor 30.7 ATA100</center>
+</td>
+
+<td>&nbsp;</td>
+
+<td>&nbsp;</td>
+
+<td>&nbsp;</td>
+
+<td>&nbsp;</td>
+
+<td>
+<center>HP Scanjet 4200i USB</center>
+</td>
+
+<td>
+<center>10/100</center>
+</td>
+
+<td>
+<center>ATI Rage Fury 32MB</center>
+</td>
+
+<td>
+<center>SB live value</center>
+</td>
+
+<td>
+<center>added ATA 100 drive</center>
+</td>
+
+<td>
+<center>moved HD to slow IDE</center>
+</td>
+</tr>
+</table></center>
+
+<h2>
+<a NAME="Links"></a>Links</h2>
+
+<ul>
+<li>
+<a href="http://cheetah.cs.swt.edu/~ghall/nocow.html">Gateway Horror Story</a></li>
+
+<li>
+<a href="http://bbs.bianca.com/mforums/e/elfuckero/posts/2000_Jun_18/4044/4048.html">Mention
+on Bianca</a></li>
+
+<li>
+<a href="http://www.annoyances.org/cgi-bin/ce-discussion_show/win98_archive25?n967139691">Mention
+on Windows98Annoyances (discusses stimon)</a></li>
+
+<li>
+<a href="http://www2.whidbey.com/djdenham/Uncheck.htm">http://www2.whidbey.com/djdenham/Uncheck.htm
+- Good Info on Startup Items</a></li>
+
+<li>
+<a href="http://support.microsoft.com/support/kb/articles/Q192/9/26.ASP">How
+to Perform Clean-Boot Troubleshooting for Windows</a></li>
+
+<li>
+<a href="http://discussions.virtualdr.com/Forum2/HTML/026688.html">http://discussions.virtualdr.com/Forum2/HTML/026688.html</a></li>
+
+<li>
+<a href="http://discussions.virtualdr.com/Forum2/HTML/030302.html">http://discussions.virtualdr.com/Forum2/HTML/030302.html</a></li>
+
+<li>
+<a href="http://discussions.virtualdr.com/Forum2/HTML/031110.html">http://discussions.virtualdr.com/Forum2/HTML/031110.html</a></li>
+
+<li>
+<a href="http://discussions.virtualdr.com/Forum2/HTML/032165.html">http://discussions.virtualdr.com/Forum2/HTML/032165.html</a></li>
+
+<li>
+<a href="http://www.computing.net/windows95/wwwboard/forum/48426.html">http://www.computing.net/windows95/wwwboard/forum/48426.html</a>
+(same message but related to adding a second drive)</li>
+
+<li>
+<a href="http://www.nocrash.com/bb/messages/717.shtml">http://www.nocrash.com/bb/messages/717.shtml</a></li>
+
+<li>
+<a href="http://www.computing.net/windows95/wwwboard/forum/48426.html">http://www.computing.net/windows95/wwwboard/forum/48426.html</a></li>
+
+<li>
+<a href="http://forums.winmecentral.com/printthread.php?threadid=35">http://forums.winmecentral.com/printthread.php?threadid=35</a>
+(bug suddenly appeared after adding an ATA/100 controller!)</li>
+
+<li>
+<a href="http://www.promise.com/">Promise Technologies</a></li>
+
+<li>
+<a href="http://networknews.vnunet.com/ReadersToTheRescue/13610">http://networknews.vnunet.com/ReadersToTheRescue/13610</a></li>
+
+<li>
+<a href="http://www.sptimes.com/News/022601/news_pf/Technology/Disk_controller_confl.shtml">Sounds
+familiar!? http://www.sptimes.com/News/022601/news_pf/Technology/Disk_controller_confl.shtml</a></li>
+</ul>
+
+<h4>
+Particularly useful or important letters in the archive. Please suggest
+others which have been helpful to you.</h4>
+
+<ul>
+<li>
+<a href="http://groups.yahoo.com/group/volumebug/message/784">Paolo Conte's
+ASUS links.</a></li>
+
+<li>
+<a href="http://groups.yahoo.com/group/volumebug/message/743">Bob's Suggests
+switching from Promise ATA100 to reliable ATA66 controller.</a></li>
+
+<li>
+<a href="http://groups.yahoo.com/group/volumebug/message/769">Bob's How-To
+switch from Promise ATA100 to reliable ATA66 on Dell XPS.</a></li>
+</ul>
+This page hosted by Phil Burk of <a href="http://www.softsynth.com">SoftSynth.com</a>.
+</body>
+</html>

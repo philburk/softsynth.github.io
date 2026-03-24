@@ -1,0 +1,81 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>JSyn Diagnostic Applet</title>
+<link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!--#include virtual="header.html" -->
+<p>
+
+<br>This Applet can be used to diagnose problems with installing the JSyn
+plugins. You should see all SUCCESS messages in the text box below. If
+you see ERROR messages or an empty box , then please look for an explanation
+below. For more information, see the <a href="http://www.softsynth.com/jsyn/support_old/index.html">support</a>
+page.
+<center>
+<p><applet code="com.softsynth.support.DiagnoseJSyn.class"
+    codebase="../../classes"
+    name="DiagnoseJSyn"
+    WIDTH="600" HEIGHT="250"></applet>
+
+</center><h2>
+Explanation of Error Messages</h2>
+
+<h3>
+ERROR #1 or an empty box - Could not load JSyn Classes!</h3>
+<p>The JSyn classes could not be found by the browser or Java Virtual Machine.
+  <br>
+  If you have <b>not</b> already installed the JSyn plugin then please visit
+the
+  <a href="http://www.softsynth.com/jsyn/plugins">plugins page.</a>
+  <br>
+  If you have already installed the JSyn plugin then please try exiting
+completely from your browser and then restarting the browser.
+  <br>
+If you are using the Sun Java Plugin on Windows then click <a href="../plugins/install_win_sun_jar.html">here</a>.</p>
+<h3>
+ERROR #2 or an empty box - Could not load com.softsynth.support.JSynDiagnostic
+class!</h3>
+
+<h3>
+ERROR #3 - Could not load JSyn DLL or Library!</h3>
+<p>The JSyn DLLs or Extension could not be found by the browser or Java Virtual
+  Machine. This could mean that the "npjsyn.dll", or "JSynV??.DLL" or the
+"JSynNative" file is is missing or in the wrong directory. <br>
+  On a PC, it might mean that JDirect or JNI should be used in place
+  of the current native interface.
+  <br>
+If you are using the Sun Java Plugin on Windows then click <a href="../plugins/install_win_sun_dll.html">here</a>.</p>
+<h3>
+ERROR #4 - Could not start JSyn in NON-real-time mode!</h3>
+If you got this far then all of the files are probably in the right place.
+But a failure here could be because another Applet already opened JSyn,
+but has not closed it properly. If you see a message about "openCount",
+then try quitting your browser and running this Diagnostic Applet again.
+If that works then please report the problem of "not calling Synth.stopEngine()"
+to the author of the Applet.
+<h3>
+ERROR #5 - Could not start JSyn for output in real-time mode!</h3>
+If this error occurs then there is probably some problem with the audio
+device. Try restarting your computer in case your audio device is hung.
+<h3>
+WARNING #6 - Could not start JSyn for input!</h3>
+Your audio hardware may not support audio input. Note that the old JSyn
+V14.1 does
+<b>not</b> support audio input on the Macintosh. Please upgrade
+to the <a href="../plugins">latest version</a>.
+<h3>
+WARNING #7 - Could not start JSyn for simultaneous input AND output!</h3>
+Your audio hardware may not support full duplex audio. Non-PCI sound cards
+on the PC, including Creative Labs AWE-64 and earlier, do not support full
+duplex audio.
+<p>If you need to report problems with installing JSyn then please cut
+and paste the error report from this Applet into your e-mail.
+<p>&nbsp;For more information, see the <a href="http://www.softsynth.com/jsyn/support_old/index.html">support</a>
+page.
+<p><!--#include virtual="footer.html" -->
+</body>
+</html>

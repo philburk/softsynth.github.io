@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.06 [en] (Win98; I) [Netscape]">
+   <META NAME="Author" CONTENT="Phil Burk">
+   <META NAME="KeyWords" CONTENT="Java, audio, synthesis">
+   <TITLE>JSyn - Envelopes</TITLE>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="styles.html">
+<!-- This is an automatically generated file.
+
+It will be read and overwritten.
+
+Do Not Edit! -->
+</HEAD>
+<BODY>
+
+<H1>
+JSyn - Java Audio Synthesis</H1>
+
+<H2>
+SynthEnvelope</H2>
+
+<UL>
+<LI>
+Array of {Duration,Value} pairs used by EnvelopePlayer unit.</LI>
+
+<LI>
+Envelope segments can be queued and looped just like sample segments.</LI>
+
+<LI>
+Used to creates contours for controlling other units.</LI>
+
+<LI>
+Also may be used as a breakpoint oscillator.</LI>
+
+<PRE>myEnvData = new SynthEnvelope( double[] data =
+&nbsp;&nbsp;&nbsp; {&nbsp; /* duration,value pairs */
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.02, 1.0,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.30, 0.3,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.50, 0.0 } );</PRE>
+
+<LI>
+Playback rate can be sped up or slowed down using "rate" port (default
+1.0).</LI>
+</UL>
+<FONT SIZE=+1>&nbsp;[<A HREF="index.html">TOP</A>]&nbsp; [<A HREF="sl_sample.html">PREVIOUS</A>]&nbsp;
+[<A HREF="sl_misc.html">NEXT</A>]</FONT>
+<BR>&nbsp;
+</BODY>
+</HTML>

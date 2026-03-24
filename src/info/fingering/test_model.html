@@ -1,0 +1,30 @@
+
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en] (Windows NT 5.0; U) [Netscape]">
+   <meta name="Author" content="Phil Burk">
+   <meta name="KeyWords" content="audio synthesis, computer music, Forth, JSyn">
+   <meta name="Description" content="Test fingering.">
+   <title>For testing Only</title>
+	<script src="fingering.js"></script>
+</head>
+<body>
+
+<h2>Test Scale Model</h2>
+<div id='report'></div>
+<script language="javascript">
+	var model = new NoteGamut(2, [0, 2, 4, 5, 7, 9, 11]);
+    
+  document.write("<p>key " + model.getRoot() + "</p>");
+  for (i = 0; i < 12; i++) { 
+    document.write("<p>is " + i + " in scale " + (model.isInGamut(i) ? "X" : "_")
+		+ ", " + model.getDegreeName(i)
+		+ "</p>");
+  }
+</script>
+<h3>&copy; 2009 Mobileer Inc - All Rights Reserved. May be printed for personal use only.</h3>
+<?php include("footer.php"); ?>
+</body>
+</html>

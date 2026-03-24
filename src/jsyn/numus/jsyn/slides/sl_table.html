@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.06 [en] (Win98; I) [Netscape]">
+   <META NAME="Author" CONTENT="Phil Burk">
+   <META NAME="KeyWords" CONTENT="Java, audio, synthesis">
+   <TITLE>JSyn - Tables</TITLE>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="styles.html">
+<!-- This is an automatically generated file.
+
+It will be read and overwritten.
+
+Do Not Edit! -->
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000EE" VLINK="#551A8B" ALINK="#FF0000">
+
+<H1>
+JSyn - Java Audio Synthesis</H1>
+
+<H2>
+SynthTable</H2>
+
+<UL>
+<LI>
+Random access table used with TableOscillator and WaveShaper units.</LI>
+
+<LI>
+Contains floating point data if supported by DSP or CPU.</LI>
+
+<LI>
+Create a table with guard point.</LI>
+
+<PRE>SynthTable myTable = new SynthTable( 256 + 1 );</PRE>
+
+<LI>
+Write short[] array of data to table and use it.</LI>
+
+<PRE>myTable.write( data );
+myWaveOsc.tablePort.useTable( myTable );</PRE>
+</UL>
+<FONT SIZE=+1>&nbsp;[<A HREF="index.html">TOP</A>]&nbsp; [<A HREF="sl_signals.html">PREVIOUS</A>]&nbsp;
+[<A HREF="sl_sample.html">NEXT</A>]</FONT> [<A HREF="../examples/tj_wavemaker.html">EXAMPLE</A>]
+<BR>&nbsp;
+</BODY>
+</HTML>

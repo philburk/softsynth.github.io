@@ -1,0 +1,425 @@
+
+body {
+	font-family: verdana, regular;
+	color: #202030;
+	font-size: 10pt;
+	margin: 0;
+	padding: 0;
+}
+H1 {
+	padding-left: 4pt;
+	font-size: x-large;
+}
+H2 {
+	padding-left: 6pt;
+	font-size: large;
+	font-family: arial;
+}
+H3 {
+	padding-left: 8pt;
+	font-size: small;
+}
+H4 {
+	padding-left: 8pt;
+	font-size: small;
+}
+P {
+	padding-left: 12pt
+}
+LI {
+	padding-top: 4pt;
+	padding-bottom: 4pt;
+	padding-right: 8pt
+}
+
+code,tt,pre { font-family: courier, "courier new", monaco; font-size: 12px; margin-left: 20px }
+
+.softsynth { font-family: "Tahoma"; color: #FFE040; font-size: 32px }
+
+.softsynthbar { background-color: #4040FF; font-size: 4px }
+
+.topic    { font-family: "Tahoma"; font-weight: bold; 
+            vertical-align: middle; text-align: center;
+            background-color: #FFFFBB; font-size: 26px }
+            
+.topicbar { background-color: #FFFFBB; font-size: 4px }
+
+.navbar   { font-family: verdana, sans-serif; font-size: 13px; background-color: #FFFFFF; line-height: 120% }
+
+.primary { font-family: verdana, sans-serif; font-size: 13px }
+
+td { font-family: verdana, sans-serif; font-size: 13px }
+            
+table.pretty { background-color: #606080 }
+tr.pretty { background-color: #FCF8FF }
+
+A:link    { color: #0000EE }
+A:visited { color: #000080 }
+A:hover   { color: #FF0000 }
+A:active  { color: #f8f8f0; background-color: #303030 }
+A:focus   { color: #C0C000 }
+
+#tutorial 
+	{
+		background-color: #FFF8F0;
+	}
+#tutorial pre
+	{
+		font-size:12pt;
+		font-weight:bold;
+		margin-left:+20pt;
+		padding:0.5pc;
+		border:1px solid #DCDCDC;
+	}
+	
+#tutorial applet
+	{
+		padding:0.5pc;
+		border:4px solid #DCDCDC;
+	}
+
+#tutorial li
+	{
+		line-height:1.2;
+	} 
+
+
+/* ======================================================= */
+/* Modern Layout Styles extracted from base.njk template */
+/* ======================================================= */
+/* CSS Reset and Variables */
+:root {
+    --primary: #4040FF;
+    --primary-dark: #2020a0;
+    --bg-body: #f4f6f9;
+    --surface: #ffffff;
+    --text-main: #334155;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --accent: #FFFFBB;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Header Navigation Container */
+header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#site-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+#site-header img {
+    height: 60px;
+    width: auto;
+    transition: transform 0.2s ease;
+}
+
+#site-header img:hover {
+    transform: scale(1.02);
+}
+
+#midheader {
+    display: flex;
+    flex-direction: column;
+}
+
+#midheader h1 {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: -0.02em;
+}
+
+#midheader h2 {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.01em;
+}
+
+/* Generic Dropdown Container Styles */
+.nav-list ul {
+    position: absolute;
+    background: var(--surface);
+    min-width: 220px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    list-style: none;
+    padding: 12px 0;
+    margin: 0;
+    z-index: 100;
+}
+
+/* First-level Dropdowns (Drop down) */
+.nav-list > .nav-item > ul {
+    top: calc(100% + 15px);
+    left: -20px;
+    transform: translateY(10px);
+}
+
+/* Sub-level Dropdowns (Fly out to the right) */
+.nav-list ul ul {
+    top: -12px;
+    left: 100%;
+    transform: translateX(10px);
+}
+
+/* Show the immediate <ul> child when a parent <li> is hovered */
+.nav-item:hover > ul {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) translateX(0); /* Reset both transforms naturally */
+}
+
+/* Navigation List Base */
+.nav-list {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Nav Items */
+.nav-item {
+    position: relative;
+}
+
+.nav-item a {
+    padding: 10px 18px;
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    transition: all 0.2s;
+    display: block;
+}
+
+/* Arrow indicator for items with children */
+.nav-item:has(> ul) > a::after {
+    content: "▾";
+    display: inline-block;
+    margin-left: 6px;
+    font-size: 0.8em;
+    transform: translateY(-1px);
+}
+
+/* Change arrow direction for sub-menus */
+.nav-list ul .nav-item:has(> ul) > a::after {
+    content: "▸";
+    float: right;
+    margin-top: 2px;
+}
+
+/* Styling inside dropdowns */
+.nav-list ul .nav-item a {
+    padding: 10px 24px;
+    border-radius: 0; /* Flat edges inside menus */
+    font-size: 0.92rem;
+    color: var(--text-main);
+}
+
+/* Hovers */
+.nav-item:hover > a,
+.nav-item a:hover {
+    color: var(--primary);
+    background-color: var(--bg-body);
+}
+
+/* Dropdown specific hover overrides */
+.nav-list ul .nav-item:hover > a {
+    background-color: #f8fafc;
+    color: var(--primary);
+}
+
+.nav-item.active > a {
+    color: var(--primary);
+    background-color: #eff6ff;
+    font-weight: 600;
+}
+
+/* Layout Main */
+.app-wrapper {
+    max-width: 1000px;
+    margin: 40px auto;
+    background: var(--surface);
+    padding: 40px 60px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    min-height: 60vh;
+}
+
+.app-wrapper h2 {
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+    color: var(--text-main);
+    padding-left: 0;
+}
+
+/* Mobile Hamburger Toggle */
+.nav-toggle-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    z-index: 2000;
+}
+
+.nav-toggle-btn span,
+.nav-toggle-btn span::before,
+.nav-toggle-btn span::after {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text-main);
+    position: absolute;
+    transition: all 0.3s;
+}
+
+.nav-toggle-btn span { left: 8px; top: 19px; }
+.nav-toggle-btn span::before { top: -8px; left: 0; }
+.nav-toggle-btn span::after { top: 8px; left: 0; }
+
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+}
+
+@media (max-width: 900px) {
+    .nav-list {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--surface);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        z-index: 1500;
+    }
+
+    body.menu-open .nav-list {
+        display: flex;
+    }
+
+    body.menu-open .nav-toggle-btn span { background: transparent; }
+    body.menu-open .nav-toggle-btn span::before { transform: rotate(45deg); top: 0; }
+    body.menu-open .nav-toggle-btn span::after { transform: rotate(-45deg); top: 0; }
+
+    .nav-toggle-btn { display: block; }
+
+    .nav-list .nav-item:has(> ul) > a::after {
+        display: none; /* Hide deep-nest arrows on mobile for simplicity */
+    }
+
+    /* On mobile, un-hide the submenus entirely to create a giant flat vertical list */
+    .nav-list ul {
+        position: relative;
+        visibility: visible;
+        opacity: 1;
+        display: block;
+        box-shadow: none;
+        border: none;
+        left: 0 !important;
+        top: 0 !important;
+        transform: none !important;
+        padding-left: 20px;
+        background: transparent;
+    }
+    .nav-item { width: 100%; text-align: center; }
+    .nav-item a { font-size: 1.2rem; }
+    .app-wrapper { margin: 20px; padding: 30px 20px; }
+    #site-header img { height: 40px; }
+    #midheader h1 { font-size: 1.4rem; }
+    #midheader h2 { font-size: 0.8rem; }
+}
+
+pre, code {
+    background-color: #FFFFF0;
+}
+
+pre {
+    font-size: 13px;
+    margin-left: 1.5em;
+    padding: 1em;
+    border: 1px solid silver;
+    border-radius: 6px;
+    overflow-x: auto;
+}
+
+pre code {
+    padding: 0;
+    background-color: transparent;
+    font-size: inherit;
+    border: none;
+}
+
+table {
+    border-collapse: collapse;
+    margin-left: 5px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    width: auto;
+    max-width: 100%;
+}
+td {
+    border: 1px solid #c0c0c0;
+    padding: 8px 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+}
+th {
+    border: 1px solid #c0c0c0;
+    padding: 10px 14px;
+    background-color: #f8f0f0;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+}

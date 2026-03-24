@@ -1,0 +1,51 @@
+1, index.php, Start of Tutorial
+2, howto_tut.php, How to Use the Tutorial
+2, what_jsyn.php, What is JSyn?
+1, section_output.php, Basic Sound Output with JSyn
+2, create_sine.php, Creating Connecting and Starting a Sine Wave Oscillator
+2, hear_sine.php, Hearing a Sine Wave Oscillator, audio
+2, freq_amp.php, Sound Frequency and Amplitude
+2, hear_freq.php, Hearing Frequency and Amplitude, audio
+2, package_jsyn.php, Importing the JSyn Package
+2, synth_exception.php, Catching SynthException
+2, start_engine.php, Starting the Synthesis Engine
+2, basic_program.php, Basic Template for a JSyn Application
+2, mix_sines.php, Mixing Sounds Together
+2, hear_mix.php, Hearing Mixed Sounds and Clipping, audio
+1, section_waveform.php, Waveform Shape Affects Timbre
+2, whats_timbre.php, What is Timbre?
+2, many_osc.php, Available Oscillator Waveforms, audio
+2, how_sawtooth.php, How is the Sawtooth Generated?
+2, other_osc.php, Generating Other Waveforms from the Sawtooth
+1, section_applets.php, Using JSyn Applets in a Web Page
+2, applet_intro.php, Writing an Applet in Java
+2, applet_template.php, Basic Template for a JSyn Applet
+2, applet_html.php, Calling the Applet from HTML
+2, applet_context.php, Using a SynthContext to keep Applets from Interfering with Each Other
+1, section_circuits.php, Circuits Using Multiple Unit Generators
+2, osc_control.php, Using One Oscillator to Control Another
+2, lfo_mod.php, Low Frequency Modulation, audio
+2, what_circuits.php, What are Circuits?
+2, basic_circuits.php, Building a Basic Circuit
+2, siren_circuit.php, Hear a Siren Circuit, audio
+2, wind_tester.php, Using the SoundTester to Test Circuits, audio
+1, envelopes.php, Envelopes as a Modulation Source
+2, what_env.php, What is an Envelope?
+2, create_env.php, Creating an Envelope
+2, play_env.php, Playing an Envelope
+2, hear_env.php, Using an Envelope to Control Amplitude, audio
+2, env_sustain.php, Playing Part of an Envelope (Sustain)
+2, hear_env_sustain.php, Hear a Sustained Note, audio
+2, env_loop.php, Looping Part of an Envelope (Sustain Loop)
+2, hear_env_loop.php, Hear a Sustain Loop, audio
+2, modify_env.php, Modifying an Envelope
+2, env_rate.php, Changing the Envelope Playback Rate
+1, time_scheduling.php, Time and Scheduled Events
+2, frame_ticks.php, Frames and Ticks
+2, time_relative.php, Playing a Sequence Using Relative Timing (Bad)
+2, hear_time_relative.php, Hearing Relative Timing, audio
+2, time_absolute.php, Playing a Sequence Using Absolute Timing (Better)
+2, hear_time_absolute.php, Hearing Absolute Timing, audio
+2, time_buffered.php, Playing a Sequence Using Advance Timing (Best)
+2, event_buffer.php, Using the Event Buffer to Schedule Musical Events
+2, hear_time_buffered.php, Hearing Advance Timing, audio

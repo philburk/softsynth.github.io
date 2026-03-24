@@ -1,0 +1,56 @@
+package com.jsyn.examples;
+
+import com.jsyn.JSyn;
+import com.jsyn.Synthesizer;
+import com.jsyn.unitgen.LineOut;
+import com.jsyn.unitgen.SineOscillator;
+import com.jsyn.unitgen.UnitOscillator;
+
+/**
+ * Play a tone using a JSyn oscillator.
+ * @author  Phil Burk (C) 2010 Mobileer Inc
+ *
+ */
+public class PlayTone
+{
+	Synthesizer synth;
+	UnitOscillator osc;
+	LineOut lineOut;
+
+	private void test()
+	{
+		// Create a context for the synthesizer.
+		synth = JSyn.createSynthesizer();
+		
+		// Add a tone generator.
+		synth.add( osc = new SineOscillator() );
+		// Add an output mixer.
+		synth.add( lineOut = new LineOut() );
+		// Connect the oscillator to the output.
+		osc.output.connect( 0, lineOut.input, 0 );
+
+		// Start synthesizer using default stereo output at 44100 Hz.
+		synth.start();
+		// We only need to start the LineOut. It will pull data from the oscillator.
+		lineOut.start();
+		
+		// Sleep while the sound is generated in the background.
+		try
+		{
+			double time = synth.getCurrentTime();
+			// Sleep for a few seconds.
+			synth.sleepUntil( time + 4.0 );
+		} catch( InterruptedException e )
+		{
+			e.printStackTrace();
+		}
+		
+		// Stop everything.
+		synth.stop();
+	}
+
+	public static void main( String[] args )
+	{
+		new PlayTone().test();
+	}
+}

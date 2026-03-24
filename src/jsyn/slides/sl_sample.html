@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.06 [en] (Win98; I) [Netscape]">
+   <META NAME="Author" CONTENT="Phil Burk">
+   <META NAME="KeyWords" CONTENT="Java, audio, synthesis">
+   <TITLE>JSyn - Samples</TITLE>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="styles.html">
+<!-- This is an automatically generated file.
+
+It will be read and overwritten.
+
+Do Not Edit! -->
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000EE" VLINK="#551A8B" ALINK="#FF0000">
+
+<H1>
+JSyn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ----&nbsp;&nbsp;&nbsp;&nbsp; Java Audio
+Synthesis API</H1>
+
+<H2>
+SynthSample</H2>
+
+<UL>
+<LI>
+Sequential access array used by SampleReader_16F1, SampleReader_16V1, SampleWriter_16F1.</LI>
+
+<LI>
+Can be read from AIFF or WAV files. WAV files can be generated.</LI>
+
+<LI>
+Stored in fixed point 1.15 format.</LI>
+
+<LI>
+Segments of sample data can be queued for reading or writing.</LI>
+
+<LI>
+Segment at end of queue can be optionally looped if no more data.</LI>
+
+<LI>
+Example of queuing an attack and a sustain loop:</LI>
+</UL>
+
+<UL>
+<PRE>sampler.samplePort.queue( mySamp, 0, attackSize );
+sampler.samplePort.queueLoop( mySamp, loopStart, loopSize );</PRE>
+
+<LI>
+Sample based streaming for disk based record and playback, or Java synthesis.</LI>
+</UL>
+<FONT SIZE=+1>&nbsp;[<A HREF="index.html">TOP</A>]&nbsp; [<A HREF="sl_table.html">PREVIOUS</A>]&nbsp;
+[<A HREF="sl_envelope.html">NEXT</A>]</FONT>
+<P>Visit the <A HREF="../">JSyn</A> or <A HREF="http://www.softsynth.com">SoftSynth</A>
+home pages.
+</BODY>
+</HTML>

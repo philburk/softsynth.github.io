@@ -1,0 +1,4 @@
+<SCRIPT language="JavaScript"> if (navigator.appName == 'Netscape') {
+         document.write('<embed src="YOURMIDI.mid" autostart="true" hidden="true" loop="true"></embed>'); } else if
+     (navigator.appName == 'Microsoft Internet Explorer') { document.write( '<bgsound src="YOURMIDI.mid" loop="-1">'); }
+                                  </SCRIPT>

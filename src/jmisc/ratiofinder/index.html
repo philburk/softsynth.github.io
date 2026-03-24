@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.05 [en] (Win95; I) [Netscape]">
+   <META NAME="Author" CONTENT="Phil Burk">
+   <META NAME="Description" CONTENT="Java Applet to find closest whole number ratio.">
+   <META NAME="KeyWords" CONTENT="RatioFinder, PLL design, just intonation">
+   <TITLE>Ratio Finder</TITLE>
+</HEAD>
+<BODY>
+
+<H1>
+Ratio Finder</H1>
+by Phil Burk of&nbsp; <A HREF="http://www.softsynth.com">SoftSynth.com.</A>
+
+<P>This Java Applet will find the closest whole number ratio that approximates
+a floating point ratio. Suppose you want to find a close approximation
+to PI/2. Enter 3.14159265 in the "Floating Point Numerator". Enter 2.0
+in the "Floating Point Denominator". Enter 512 in Maximum Integer Numerator.
+Then hit "Calculate". You will see a list of whole ratios that approximate
+PI/2. The error is calculated as follows:
+<PRE>error_percent = (abs((int_numer/int_denom) - (fp_numer/fp_denom)) * 100.0) / (fp_numer/fp_denom)</PRE>
+
+<HR><APPLET code="RatioFinder.class"  name="Ratio Finder" WIDTH="500" HEIGHT="500"></APPLET>
+<HR>
+<BR>Java Source code in <A HREF="RatioFinder.txt">RatioFinder.txt</A>.
+</BODY>
+</HTML>

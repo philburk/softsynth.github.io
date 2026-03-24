@@ -1,0 +1,46 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.77 [en]C-gatewaynet  (Win98; U) [Netscape]">
+   <title>JSyn Diagnostic Applet</title>
+<link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!--#include virtual="header.html" -->
+<h2>JSyn Plugin Quick Check</h2>
+
+<p><!-- Only EMBED Jsyn plugin for the Netscape browser. -->
+<script src="smart_embed_jsyn.js">
+<!-- hide this stuff from browsers that don't support JavaScript
+document.writeln("ERROR: could not find smart_embed_jsyn.js!");
+// stop hiding javaScript -->
+</script>
+
+<br>This is a quick check to make sure that the JSyn Plugin is installed
+correctly. It may take a few seconds for the Applet to load. You may need
+to exit and restart your browser for the plugin to be activated. Look for
+SUCCESS or ERROR below.
+<p><script language="javascript">
+<!-- hide this stuff from browsers that don't support JavaScript
+	document.writeln('<applet code="com.softsynth.support.QuickCheck.class"');
+	document.writeln('codebase="../../classes" name="QuickCheck"');
+	document.writeln('WIDTH="580" HEIGHT="250">');
+	document.writeln('<param name="userAgent" value="' + navigator.userAgent + '">');
+	document.writeln('</applet>');
+// stop hiding javaScript -->
+</script>
+
+<p><b>SUCCESS</b>: If the plugin is installed correctly, then please visit
+the <a href="../examples/">JSyn Examples</a> page.
+<p><b>ERROR</b>: Try bookmarking this page, exiting your browser, then
+restarting your browser and coming back to this page. The JSyn plugin installation
+is supposed to work. If you encounter <b>any</b> problems, please
+<a href="http://www.softsynth.com/contacts.html">contact us</a> so that we can fix
+the problem. You can also visit the <a href="http://www.softsynth.com/jsyn/support_old/index.html">JSyn
+Technical Support</a> page.
+<p><b>NOTHING</b>: If the Applet does not appear, it may be because JavaScript
+or Java is disabled.
+<p><!--#include virtual="footer.html" -->
+</body>
+</html>

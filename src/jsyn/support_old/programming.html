@@ -1,0 +1,185 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Phil Burk">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>Support for JSyn on Mac with IE or iCab</title>
+<link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!--#include virtual="header.html" -->
+<h2>
+Programming Problems with JSyn</h2>
+Please check the<a href="bugs.html"> List of Known Bugs</a>
+<br>For sound quality issues, pops, clicks, distortion, etc., click <a href="sound.html">here</a>.
+<h3>
+Troubleshooting</h3>
+
+<ul><a href="#NullPointer">If you get a "Null Pointer Exception"...</a>
+<br><a href="#SoundContinues">If the sound continues after you leave the
+Applet...</a>
+<br><a href="#StayOpen">If the scope or other windows stay open after you
+leave the Applet...</a>
+<br><a href="#startEngine">If you get an error "startEngine() not called"
+or "invalid token"...</a>
+<br><a href="#suddenly_stop">If units suddenly stop making sound ...</a>
+<br><a href="#NetscapeFails">If your Applet works for Internet Explorer
+but fails, or gives a NullPointerException, under Netscape...</a>
+<br><a href="#OutOfMemoryError">If you get a java.lang.OutOfMemoryError</a></ul>
+
+<h3>
+If you get a "<a NAME="NullPointer"></a>Null Pointer Exception", it might
+be because:</h3>
+
+<ul>
+<li>
+you are using an object before it is created using "new",</li>
+
+<li>
+or a method that returns an object has failed and returned a null but you
+didn't check,</li>
+
+<li>
+or you are attempting to use an Applet method like getParameter() in an
+application run from main(),</li>
+
+<li>
+or you forgot to <a href="http://www.softsynth.com/jsyn/docs/usersguide.php#WebPage">EMBED
+the plugin</a> for Netscape browsers when running an Applet,</li>
+
+<li>
+or the program aborted because of&nbsp; another problem and your objects
+didn't get created.</li>
+</ul>
+
+<h3>
+If the&nbsp;<a NAME="SoundContinues"></a>sound continues after you leave
+the Applet, it might be because:</h3>
+
+<ul>
+<li>
+you forgot to stop the units and call Synth.stopEngine() in your Applet's
+stop() method.</li>
+</ul>
+
+<h3>
+If the scope or other windows&nbsp;<a NAME="StayOpen"></a>stay open after
+you leave the Applet, it might be because:</h3>
+
+<ul>
+<li>
+you forgot to call hide() on the scope dialog in your Applet's stop() method.</li>
+</ul>
+
+<h3>
+If you get an error "<a NAME="startEngine"></a>startEngine() not called"
+or "invalid token"...</h3>
+
+<ul>
+<li>
+Either you forgot to call <tt>Synth.startEngine()</tt> before using JSyn,</li>
+
+<li>
+or you are using a unit, sample, table or other SynthObject after it has
+been got delete()d,</li>
+
+<br><tt>&nbsp;&nbsp;&nbsp; sineOsc.delete(); // deletes native component
+associated with token</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; sineOsc.start(); // "</tt>invalid token" error
+occurs
+<li>
+or when using Netscape Navigator, if you move from one page with a JSyn
+Applet to another page with a JSyn Applet, the stop() function of the first
+Applet and the start() method of the second Applet may run concurrently.
+This could cause <tt>Synth.stopEngine()</tt> to get called right after
+<tt>Synth.startEngine()</tt>
+which will delete the native parts of the units. Try putting a couple calls
+to <tt>Thread.yield()</tt> right before
+<tt>Synth.startEngine()</tt>, or
+use a unique SynthContext for your Applet so that you will be isolated
+from other Applets..</li>
+</ul>
+
+<h3>
+If units&nbsp;<a NAME="suddenly_stop"></a>suddenly stop making sound ...</h3>
+Have you ever been playing a JSyn piece for 5 or 10 minutes and have the
+sound suddenly stop? Here is a possible explanation.
+<p>In 'C', you allocate memory using malloc() and free it using free().
+Java allocates memory for you when you use "new" to create an object or
+an array. You do not explicitly free the memory in Java. Java detects when
+there is no code that references the object and makes the object available
+for garbage collection. There is a problem with JSyn objects in that they
+have a native component that may be in use even when the Java level is
+no longer referenced.
+<p>Consider the following piece of code:
+<blockquote>
+<pre>class MyThang
+{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LineOut&nbsp; lineOut;</pre>
+
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; void makeIt()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lineOut = new LineOut();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* Note sineOsc not referenced outside this method! */
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SineOScillator sineOsc = new SineOScillator();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sineOsc.output.connect( 0, lineOut.input, 0 );
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sineOsc.start();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+}</pre>
+</blockquote>
+As long as you keep a reference to the MyThang then the lineOut will have
+a reference and not be garbage collected. But the sineOsc is up for grabs
+as soon as you exit makeIt(). There are no references even though the oscillator
+is making sound. When Java decides to, which might be several minutes after
+calling makeIt(), the SineOscillator will be deleted. This will cause the
+native component to also be deleted and the sound will stop. This generally
+not happen during testing if you run a short test. But as soon as you are
+up on stage and playing for 5 or 10 minutes then the sound will sudenly
+stop and you will be left staring at your laptop in puzzlement.
+<p>To prevent this, either declare all SynthObjects at the class level
+instead of the method level, like "lineOut" versus "sineOsc" above. Or
+call:
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Synth.startEngine(0);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SynthObject.enableTracking(true);
+<p>which will cause a reference to all JSyn SynthObjects to be stored in
+a vector to prevent any unexpected garbage collection. The delete() method
+will delete the object and remove the reference from the vector. All tracked
+objects that are left will be deleted automatically when you call Synth.stopEngine().
+<p>Or you can disable the ability of the garbage collector to delete the
+native portion of SynthObjects. Try calling:
+<blockquote>
+<pre>SynthObject.enableDeletionByGarbageCollector( false );</pre>
+</blockquote>
+
+<h3>
+If your Applet works for Internet Explorer but fails, or gives a NullPointerException,
+under Netscape...<a NAME="NetscapeFails"></a></h3>
+
+<blockquote>
+<li>
+You may be using an older obsolete version of Netscape,</li>
+
+<li>
+or you forgot to <a href="http://www.softsynth.com/jsyn/docs/usersguide.php#WebPage">EMBED
+the plugin</a> for Netscape browsers,</li>
+</blockquote>
+
+<h3>
+If you get a java.lang.<a NAME="OutOfMemoryError"></a>OutOfMemoryError</h3>
+Java objects and arrays that live inside the Java virtual machine are allocated
+from a special Java heap. When you run out of memory, it is automatically
+expanded. But you may eventually run out of physical or virtual memory.
+Then you will get a "java.lang.OutOfMemoryError". If so then make sure
+you are not saving references to objects that you no longer need. A typical
+mistake is saving references to objects in Vectors while you use them but
+forgetting to remove them when you are done. See also <a href="sdk_mac.html#MemoryAllocation">"SynthException:
+MemoryAllocationFailed"</a>.
+<p>
+<hr WIDTH="100%">
+<br>If you cannot find an answer to your question on this website, then
+please ask on the <a href="http://www.softsynth.com/jsyn/developers/mail.php">JSyn
+list</a>.
+<p><!--#include virtual="footer.html" -->
+</body>
+</html>

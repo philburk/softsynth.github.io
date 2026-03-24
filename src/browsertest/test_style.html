@@ -1,0 +1,184 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Phil Burk">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>Test Cascading Style Sheets</title>
+   
+<style type="text/css">
+
+h1 { color: #602000; font-weight: bold; font-family: "Tahoma"; font-size: 20px }
+h2 { color: #602000; font-weight: bold; font-size: 18px }
+h3 { color: #602000; font-weight: bold; font-size: 16px }
+h4 { color: #602000; font-weight: bold; font-size: 14px }
+h5 { color: #602000; font-weight: bold; font-size: 12px }
+
+code,tt,pre { font-family: courier, "courier new", monaco; font-size: 12px }
+
+.softsynth { font-family: "Tahoma"; color: #FFE040; font-size: 32px }
+.softsynthbar { background-color: #4040FF; font-size: 4px }
+
+.topic    { font-family: "Tahoma"; font-weight: bold; 
+            vertical-align: middle; text-align: center;
+            background-color: #FFFFBB; font-size: 26px }
+.topicbar { background-color: #FFFFBB; font-size: 4px }
+
+.navbar   { background-color: #FFFFFF; line-height: 120% }
+
+.primary { font-family: verdana, sans-serif; font-size: 13px }
+            
+A:link    { color: #0000EE }
+A:visited { color: #000080 }
+A:hover   { color: #FF0000 }
+A:active  { color: #f8f8f0; background-color: #303030 }
+A:focus   { color: #C0C000 }
+</style>
+
+</head>
+<body>
+
+<table width="100%" cols="2" border="0" cellspacing="0" >
+
+<!-- page peader -->
+
+<tr valign="middle" >
+<td  width="200" bgcolor="#4040FF">
+<center>
+<a href="/">
+<i>
+<b>
+<div class="softsynth">SoftSynth</div>
+</b>
+</i>
+</a>
+</center>
+</td>
+
+<td align="left">
+
+<div align="right">
+<script language="JavaScript">
+<!--
+function searchSoftSynthSite()
+{
+	var searchString = document.ssSearchForm.query.value;
+	// Send to Google in separate window so we don't leave site.
+	window.open("http://www.google.com/search?q=" +
+			escape(searchString + "+site:www.softsynth.com"),
+			"SoftSynthSearchWindow");
+	return false;
+}
+//-->
+</script>
+<form name="ssSearchForm">
+	<input type=text name="query" value="" size=30>
+	<input TYPE="BUTTON"  VALUE="Search" onClick="searchSoftSynthSite()">
+</form>
+</div>
+<br>
+
+<div class="navbar" align="left">
+| <a href="/">Home</a> |
+<a href="/products.php">Products</a> |
+<a href="/contractor.html">Services</a> |
+<a href="/jsyn/">JSyn</a> |
+<a href="/news/index.php">News</a> |
+<a href="/musiclinks.html">Links</a> |
+<a href="/contacts.html">Contact Us</a> |
+</div>
+</td>
+</tr>
+
+<tr height="6">
+<td colspan="2" class="softsynthbar">&nbsp;</td>
+</tr>
+
+</table>
+<div class="primary">
+
+<center>
+<table width="100%" cols="2" border="0" cellspacing="0" >
+
+<tr valign="middle" >
+<td width="200" class="topic">
+<a href="/jsyn/">JSyn</a>
+</td>
+
+<td valign="bottom" >
+Audio Software Synthesis API and Plugins for Java<br>
+| <a href="/jsyn/docs/index.php">Documentation</a> | <a href="/jsyn/examples/">Examples</a>
+| <a href="/jsyn/plugins/">Plugins</a> | <a href="/jsyn/developers/">Developers</a>
+| <a href="/jsyn/support/">Support</a> | <a href="/jsyn/press/">Press</a>
+| <a href="/jsyn/events.php">Events</a>
+|
+</td>
+</tr>
+
+<tr>
+<td colspan="2" class="topicbar">&nbsp;</td>
+</tr>
+
+</table>
+</center>
+
+<center>
+<table width="100%" cols="2" border="0" cellspacing="0" >
+
+<tr valign="middle" >
+<td  width="200" class="topic">
+<a href="/jsyn/support/">Support</a>
+</td>
+
+<td>
+| <a href="bugs.html">Bugs</a>
+| <a href="diagnostic.html">Diagnostic</a>
+| <a href="programming.html">Programming</a>
+| <a href="sound.html">Sound</a>
+|
+</td>
+</tr>
+
+<tr>
+<td colspan="2" class="topicbar">&nbsp;</td>
+</tr>
+
+</table>
+</center>
+
+<h1>Test Cascading Style Sheets</h1>
+
+<h2>This is an H2 Header</h2>
+
+This is regular text click <a href="programming.html">here</a>.
+
+<h3>This is an H3 Header</h3>
+
+<blockquote>
+<a href="#nosound">This is a link in blockquote.</a><br>
+This is normal text in blockquote.
+</blockquote>
+
+This is regular text click <a href="programming.html">here</a>.<br>
+More text after a BR tag.<p>
+More text after a P tag.
+
+<p>This text is enclosed inside matching P tags.</p>
+
+<div class="testclass">This text is inside a DIV tag with class "testclass".</div>
+
+<ul>
+<li>This is a bulleted list using UL and LI tags.</li>
+<li>This is a more of the the list.</li>
+<li>ABCDEFG HIJKLMNOP QRSTUV WXYZ</li>
+<li>abcdefg hijklmnop qrstuv wxyz</li>
+</ul>
+<p>
+<pre>
+	// This is code in a PRE tag.
+	x = y + 234;
+	i = j * mim;
+</pre>
+</div>
+</body>
+</html>

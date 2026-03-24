@@ -1,0 +1,48 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.05 [en] (Win95; I) [Netscape]">
+   <TITLE>JSyn Birds Example</TITLE>
+</HEAD>
+<BODY>
+
+<H1>
+Synthetic Bird Songs</H1>
+<!-- Only EMBED Jsyn plugin for the Netscape browser. -->
+<script src="smart_embed_jsyn.js">
+<!-- hide this stuff from browsers that don't support JavaScript
+document.writeln("ERROR: could not find smart_embed_jsyn.js!");
+// stop hiding javaScript -->
+</script>
+
+<P><B>How it works:</B>
+<BR>Synthetic bird sounds are produced by randomly varying the depth and
+rate of modulation.
+<BR>This page demonstrates how the oscilloscope can be opened in a separate
+window.
+<BR>
+<!-- Use IndirectAppletLoader to test for the presence of JSyn before trying to use it. -->
+<HR><APPLET
+	CODE="com.softsynth.tools.IndirectAppletLoader.class"
+	CODEBASE="../../classes"
+	NAME="IndirectAppletLoader"
+	WIDTH="287" HEIGHT="148">
+	<PARAM 
+	  NAME="testfor"
+	  VALUE="com.softsynth.jsyn.Synth"
+	>
+	<PARAM 
+	  NAME="other"
+	  VALUE="JSynExamples.TJ_Birds"
+	>
+	<PARAM 
+	  NAME="message"
+	  VALUE="JSyn plugin is missing. Please download it from http://www.softsynth.com/jsyn/plugins/"
+	>
+</APPLET>
+<HR>
+<BR>Visit the <A HREF="../">JSyn</A> or <A HREF="http://www.softsynth.com">SoftSynth</A>
+home pages.
+<BR>&nbsp;
+</BODY>
+</HTML>

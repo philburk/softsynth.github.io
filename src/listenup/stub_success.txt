@@ -1,0 +1,2 @@
+SUCCESS pretended to upload file to SS
+This is just a stub file used to indicate that a file uploaded OK.

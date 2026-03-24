@@ -1,0 +1,149 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="Author" CONTENT="Phil Burk">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.05 [en] (Win95; I) [Netscape]">
+   <TITLE>Crono for JForth</TITLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFC0" LINK="#0000FF" VLINK="#800080" ALINK="#FF00FF">
+
+<PRE>Subject:&nbsp; [JForth-List] Timings
+&nbsp;&nbsp;&nbsp;&nbsp; Date:&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tue, 1 Sep 1998 16:45:38 +0200 (METDST)
+&nbsp;&nbsp;&nbsp;&nbsp; From:&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Acereda Macia Jorge &lt;al004046@alumail.uji.es>
+&nbsp;Reply-To:&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JForth-List@chaossolutions.com
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To:&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "JForth-List List Member" &lt;JForth-List@mail.chaossolutions>
+
+Hi,
+
+Here you have a couple of small utilities that can be useful for those
+willing to write demos and games (anyone out there?). Is it ok to post
+sources in this list? Otherwise, where can we share our code?
+
+The first is a more accurate alternative to MEASURE. It takes
+advantage of LowLevel.library, so it might be useless for those
+lacking this library. It can be called with multitasking off, but
+remember to bring it back to life before printing :-)
+
+The second is a frames per second counter.
+
+If you find crappy code, please tell me... I'm new to JForth.
+
+BTW if there's someone interested in writing demos using JForth,
+please email me so we can exchange our ideas/code (and perhaps
+creating the first Forth demo group ;-) Wouldn't it be a great
+promotion for JForth writing a fast and cool demo? :-)
+
+I'm also writing a demo-oriented chunky screen management system.&nbsp; I
+have 18 bits true-color 2x1, 2x2 and fake 1x1 (using GRGB instead of
+the typical RGBB) displays almost ready. They use HiRes screens to do
+the trick. I plan to add scrambled 15bits true-color and 8 bits
+color-mapped displays later.
+
+Also, has anyone interfaced rtgmaster.library with JForth? Does it
+have true-color support for AGA?
+
+If you're interested (or if I'm re-inventing the wheel) email me.
+
+Greetings,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jorge
+
+-------8&lt;-------8&lt;-------8&lt;--- CRONO ----8&lt;-------8&lt;-------8&lt;-------
+\ Accurate time measurements
+\ Jorge Acereda 30-08-98
+\
+\ .Crono ( -- ) Display elapsed seconds between 2 invocations of Crono
+\ Crono&nbsp; ( -- )
+
+INCLUDE? FPINIT jflt:float.double
+FPINIT
+
+ANEW TASK-CRONO
+
+:Library lowlevel
+
+: LowLevel? ( -- )
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LowLevel_NAME LowLevel_LIB LIB?
+;
+
+: -LowLevel ( -- )&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LowLevel_LIB -LIB
+;
+
+CREATE Crono-Vals 0 , 0 ,
+VARIABLE Crono-Time
+
+: Crono ( -- )
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Crono-Vals CALL>ABS LowLevel_Lib ElapsedTime Crono-Time !
+BOTH ;
+
+: .Crono ( -- )
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Crono-Time @ FLOAT 65536.0 F/ F.
+;
+
+: AUTO.INIT ( -- )
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AUTO.INIT LowLevel?
+;
+
+: AUTO.TERM ( -- )
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AUTO.TERM -LowLevel
+;
+
+LowLevel?
+-------8&lt;-------8&lt;-------8&lt;--- FPS ----8&lt;-------8&lt;-------8&lt;-------
+\ Frames per second measurement
+\ Jorge Acereda 30-08-98
+\
+\ FPS.Init&nbsp; ( -- ) Start measurement
+\ FPS.Count ( -- ) Call it each time you render a frame
+\ .FPS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( -- ) End measurement and display number of frames per second
+
+
+INCLUDE? Interrupt ji:exec/interrupts.j
+INCLUDE? FPINIT jflt:float.double
+FPINIT
+
+ANEW TASK-FPS
+
+50 CONSTANT FREQUENCY
+
+Interrupt FPS-Interrupt
+
+VARIABLE FPS-Ints
+ASM FPS.Server
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addq.l&nbsp; #1,(a1)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; moveq&nbsp;&nbsp; #0,d0
+END-CODE
+
+: FPS.AddIntServer ( -- )
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FPS-Ints FPS-Interrupt S! IS_Data
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ' FPS.Server FPS-Interrupt S! IS_Code
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5 FPS-Interrupt CALLVOID>ABS Exec_Lib AddIntServer
+;
+
+: FPS.RemIntServer ( -- )
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5 FPS-Interrupt CALLVOID>ABS Exec_Lib RemIntServer
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+VARIABLE FPS-Count
+: FPS.Count ( -- )
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 FPS-Count +!
+BOTH ;
+
+: FPS.Init ( -- )
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FPS.AddIntServer FPS-Count OFF FPS-Ints OFF
+;
+
+: .FPS ( -- )
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FPS.RemIntServer&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FPS-Count @ FREQUENCY * FLOAT FPS-Ints @ FLOAT F/ F.
+;
+
+</PRE>
+
+</BODY>
+</HTML>

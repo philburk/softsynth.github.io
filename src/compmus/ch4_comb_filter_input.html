@@ -1,0 +1,49 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en] (Windows NT 5.0; U) [Netscape]">
+   <meta name="Author" content="Phil Burk">
+   <meta name="KeyWords" content="Java, audio, synthesis">
+   <title>Music and Computers - Mix Sounds</title>
+<!-- This is an automatically generated file.
+
+It will be read and overwritten.
+
+Do Not Edit! -->
+</head>
+<body text="#000000" link="#0000FF" vlink="#FF00FF" alink="#FF0000">
+
+<h1>
+Music and Computers</h1>
+
+<h2> Comb Filter with Audio Input </h2>
+<p> This is similar to the previous Comb Filter example except it uses your computer's audio input. </p>
+<p>Because this JSyn uses audio input, it will not run at the same time as a JSyn Applet that does not use audio input.
+This is because JSyn gets two conflicting messages about how to open the audio device. So you should exit other JSyn Applets before running this Applet. </p>
+
+
+<p>To Do: </p>
+<ol>
+<li>
+You may need to adjust your computer operating system audio control panel to enable the microphone.
+If you do not have a microphone, you may be able to play a CD through this Applet.
+</li>
+
+<li>
+Experiment with different kinds of sounds such as &quot;aaaaaahhh&quot;, &quot;keh&quot;, &quot;tttttttt&quot;, etc.
+</li>
+<li>Pop a balloon or clap once to hear the impulse response of the system.</li>
+</ol>
+<br>
+<!-- Only EMBED Jsyn plugin for the Netscape browser. -->
+    <script src="smart_embed_jsyn.js"><!-- hide this stuff from browsers that don't support JavaScript
+document.writeln("ERROR: could not find smart_embed_jsyn.js!");
+// stop hiding javaScript -->
+    </script>
+    <applet code="compmus.DelayLabVoice.class" codebase="../classes"
+name="DelayLabVoice" WIDTH="600" HEIGHT="240">
+    </applet>
+</p>
+</body>
+</html>

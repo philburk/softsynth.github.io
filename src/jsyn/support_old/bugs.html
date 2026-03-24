@@ -1,0 +1,166 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Phil Burk">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>JSyn Bugs</title>
+<link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!--#include virtual="header.html" -->
+<p>This is a list of known bugs for JSyn. If you find a bug that is not
+on this list, then <a href="http://www.softsynth.com/reportbugs.html">please
+report it</a>.
+<h4>
+Open Bugs</h4>
+<ul>
+  <li><a href="#BUG0010">BUG0010 - Native library does not load on Snow Leopard.</a></li>
+</ul>
+<h4>Resolved Bugs</h4>
+<ul>
+  <li><a href="#BUG0009">BUG0009 - PortAudio fails on Mac G5</a>
+  </li>
+  <li><a href="#BUG0008">BUG0008 - SynthDataQueue getNumFramesMoved() fails after
+    recording for several hours.</a>
+  </li>
+  <li><a href="#BUG0007">BUG0007 - Stereo WAV samples do not load correctly.</a>
+  </li>
+  <li><a href="#BUG0006">BUG0006 - Streaming to disk using SampleQueueInputStream
+    or StreamRecorder can click periodically.</a>
+  </li>
+  <li><a href="#BUG0005">BUG0005 - SynthTable data clipped between -1.0 to
+    +1.0</a>
+  </li>
+  <li><a href="#BUG0004">BUG0004 - Macintosh JSyn - Host Initialization Fails</a>
+  </li>
+  <li>
+    <a href="#BUG0003">BUG0003 - Unchecking all boxes in SynthScope hangs
+    display.</a>
+  </li>
+  <li>
+    <a href="#BUG0002">BUG0002 - Garbled output from NON_REAL_TIME synthesis.</a>
+  </li>
+  <li>
+    <a href="#BUG0001">BUG0001 - "Internal B2F Error" appears.</a></li>
+</ul>
+<h2>&nbsp;</h2>
+<hr WIDTH="100%">
+<h2> Open Bugs</h2>
+<h3><a NAME="BUG0010" id="BUG0010"></a>BUG0010 - Native library does not load on Snow Leopard.</h3>
+<p><b>Symptoms:</b> JSyn plugin installation fails with &quot;missing library&quot;.<br>
+<b>latforms:</b> Mac OS X 10.6 &quot;Snow Leopard&quot;<br>
+<b>Cause:</b>Need x86_64 bit library for Snow Leopard.<br>
+<b>Workaround:</b> None.<br>
+<b>Status: </b>Open<br>
+<strong>Mantis ID:</strong> #17</p>
+
+<h2>Resolved Bugs (fixed and released)</h2>
+<h3><a NAME="BUG0009"></a>BUG0009 - PortAudio fails on Mac G5</h3>
+<p><b>Symptoms:</b> Audio initialization fails and these errors appear in the Console. <br>
+<pre>Could not create format converter: error = 0x666D743F = 'fmt?'
+PaOSX_HandleOutput: AudioConverterFillBuffer failed: error = 0xFFFFFFCE = '????'
+</pre>
+<b>Platforms:</b> Mac OS X G5. <br>
+<b>Cause:</b> PortAudio is used for low level audio I/O. The Apple audio subsystem is different
+on G5 than earlier models and causes PortAudio to fail. This may be related to a 5.1 audio format on the G5. <br>
+<b>Workaround:</b> Maybe use output only, no input. <br>
+<b>Reported by:</b> Daniel, 3/1/05 <br>
+<b>Status: </b>Fixed in V14.4
+<h3>
+<a NAME="BUG0008"></a>BUG0008 - getNumFramesMoved() fails after recording
+for several hours.</h3>
+<b>Symptoms:</b> When recording or playing data continuously for 13 hours
+at 44100 Hz, getNumFramesMoved() always throws an Exception "Error in getNumFramesMoved()"
+.
+<br><b>Platforms:</b> All.
+<br><b>Cause:</b>&nbsp; I coerce errorCodes to -1 to allow negative frame
+counts. But in SynthDataQueue.java I throw an exception if "&lt; -1" instead
+of "== -1".
+<br><b>Workaround:</b> Switch to a new sample reader or writer before the
+frame count wraps. Difficult when streaming.
+<br><b>Reported by:</b> James High, 5/9/03
+<br>
+<b>Status: </b>Fixed in version V14.3.
+<h3>
+<a NAME="BUG0007"></a>BUG0007 - Stereo WAV samples do not load correctly.</h3>
+<b>Symptoms:</b> Attempts to load a stereo WAV sample fail.
+<br><b>Platforms:</b> All.
+<br><b>Cause:</b>&nbsp; Used bytesPerSample instead of bytesPerFrame when
+parsing.
+<br><b>Workaround:</b> Switch to a new sample reader or writer before the
+frame count wraps. Difficult when streaming.
+<br><b>Reported by:</b>
+<br>
+<b>Status: </b>Fixed in version V14.3.
+<h3>
+<a NAME="BUG0006"></a>BUG0006 - Streaming to disk can click periodically.</h3>
+<b>Symptoms:</b> Streaming to disk using SampleQueueInputStream or StreamRecorder
+can click periodically, several times per second.
+<br><b>Platforms:</b> All.
+<br><b>Cause:</b> The native frame counter code in the sample writer is
+off by one. Some versions of the Java code account for this, some do not.
+<br><b>Workaround:</b> Switch to an older version of the JSynClasses.jar
+file
+<br><b>Reported by:</b> multiple users
+<br>
+<b>Status: </b>Fixed in version V14.3.
+<h3> <a NAME="BUG0005"></a>BUG0005 - SynthTable values clipped between -1.0
+  to +1.0</h3>
+<p><b>Symptoms:</b> Double precision floating point data written to a SynthTable
+  is clipped between -1.0 to +1.0. This is a leftover "feature" from when
+  JSyn did not support full range values. <br>
+      <b>Platforms:</b> All. <br>
+      <b>Cause:</b> The write() method intentionally does clipping. <br>
+      <b>Workaround:</b> Write values between -1.0 and +1.0 then use amplitude
+  to scale output to desired level. <br>
+      <b>Reported by:</b> Nick Didkovsky <br>
+      <b>Status: </b>Fixed in version V14.3</p>
+
+<h3>
+<a NAME="BUG0004"></a>BUG0004 - Macintosh JSyn - Host Initialization Fails</h3>
+<b>Symptoms:</b> Attempting to run the JSynV14.2 released 4/9/01 resulted
+in a "Host Initialization Failed" error on some Macintoshes.
+<br><b>Platforms:</b> Mac dual G4, possibly other Macs.
+<br><b>Cause:</b> SPBGetIndexedDevice returned a surprising value.
+<br><b>Workaround:</b> None.
+<br><b>Reported by:</b> Jahwan Koo
+<br><b>Status:&nbsp;</b> fixed in version V14.2 released as a special bug-fix
+release 4/16/01 at 2AM.
+<h3>
+<a NAME="BUG0003"></a>BUG0003 - Unchecking all boxes in SynthScope hangs
+display.</h3>
+<b>Symptoms:</b> If you uncheck all of the traces shown in a SynthScope,
+then the left and right indices get set to zero, and you can no longer
+zoom out even when you add the traces back in.
+<br><b>Platforms:</b> All.
+<br><b>Cause:</b> Was zooming out by (right-left)/2 which was zero. Now
+zoom by at least one, and reset right index when first trace added.
+<br><b>Workaround:</b> Don't uncheck all the boxes.
+<br><b>Reported by:</b> Kenneth Newby, 11/2/2000
+<br><b>Status:&nbsp;</b> fixed in version V14.2
+<h3>
+<a NAME="BUG0002"></a>BUG0002 - Garbled output from NON_REAL_TIME synthesis.</h3>
+<b>Symptoms:</b> Output captured in a stream from NON_REAL_TIME synthesis
+can have small chunks of audio out of order.
+<br><b>Platforms:</b> Windows NT.
+<br><b>Cause:</b> Improper handling of thread priorities in SharedSleeper.
+One thread ran synthesis engine when other sleeping blocked for I/O.
+<br><b>Workaround: </b>Avoid blocking I/O when using multiple threads.
+Use bigger buffers when streaming to disk, or capture in a single big sample.
+Only call Synth.sleepUntilTick() from one thread.
+<br><b>Reported by:</b> Edward Archibald, 9/29/00
+<br><b>Status: </b>fixed in version V14.2
+<h3>
+<a NAME="BUG0001"></a>BUG0001 - "Internal B2F Error" appears.</h3>
+<b>Symptoms: </b>On rare occasion, the SynthException with "Internal B2F
+Error" is thrown, usually when sleeping. Associated with multiple threads,
+and lots of system activity.
+<br><b>Platforms:</b> Windows JDK.
+<br><b>Cause:</b> Improper mutual exclusion of threads in function CSyn_CheckEngineErrors().
+<br><b>Workaround:</b> none
+<br><b>Reported by: </b>Nick Didkovsky and Jamie Forrest, 9/28/00
+<br><b>Status:&nbsp;</b> fixed in version V14.2
+<p><!--#include virtual="footer.html" -->
+</body>
+</html>

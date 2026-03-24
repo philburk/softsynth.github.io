@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /analog/
+Disallow: /jsyn/support/ms_jvm.html
+Disallow: /jsyn/support/ms_jvm_private.html
+
+User-agent: Mediapartners-Google* 
+Disallow:

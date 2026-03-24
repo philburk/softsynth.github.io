@@ -1,0 +1,80 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.72 [en] (Win95; I) [Netscape]">
+   <title>Mozart's Dice Game by Jonathan Simon</title>
+</head>
+<body>
+
+<center>
+<h1>
+<b>The Mozart Dice Game</b></h1></center>
+
+<center><font size=+2>- By Jonathan S. Simon</font>
+<br>This Applet requires the <a href="../">JSyn</a> Plugin from <a href="http://www.softsynth.com">SoftSynth.com</a>.</center>
+
+<h2>
+<b>Process</b></h2>
+<font size=+0>The concept for this game, devised by Mozart centuries ago,
+involves rolling a group of dice to compose a score. The process consists
+of a 177 measure score and score reference matrix for matching the dice
+roll values to actual measures. For each of the sixteen measures, there
+are eleven possible measure choices (one for each possible roll value of
+two dice 2-12 inclusive). One pair of dice is rolled for each of the sixteen
+measures. The roll value/measure number is used as a coordinate in the
+score reference matrix identifying the measure to play. After sixteen dice
+rolls, the score is complete and ready to be played.</font>
+<h2>
+<b>The Interface</b></h2>
+<font size=+0>At the bottom of the screen there are two matrices The x-axis
+indexes correspond to measure numbers of the score being generated while
+the y-axis indexes correspond to dice roll values. Assume that a 7 is rolled
+for the first measure. The number in the box at (1,7) is 104 indicating
+that measure 1 of the score being composed is measure 104 from Mozart's
+score. When the roll button is pressed, each of the sixteen pairs of dice
+are rolled and the values are displayed to the lower right hand side of
+the interface. Following the roll, each matrix highlights the measures
+that it used to construct the playing score. The red background indicates
+the currently playing measure.</font>
+<h2>
+<b><font size=+2>Instructions</font></b></h2>
+
+<ol>
+<ol>
+<li>
+<b>Wait for the score to be loaded. When you see the Applet appear below,
+then proceed.</b></li>
+
+<li>
+<b>Roll the dice by pressing the "Roll Dice" button.</b></li>
+
+<li VALUE="1">
+<b>Press "Play" button to hear the piece.</b></li>
+
+<li VALUE="1">
+<b>Press "Stop" and roll again to hear a different version.</b></li>
+</ol>
+</ol>
+
+
+<hr><applet code="dicegame.DiceGame.class" name="DiceGame"
+	archive="dicegame.jar"
+	WIDTH="700" HEIGHT="500"></applet>
+<h2>
+<b><font size=+3>Support</font></b></h2>
+<font size=+0>This project was funded by a collaboration grant from the
+National Science Foundation (NSF). The grant for a collaboration between
+computer science and music was written and submitted by Rhys Price Jones
+of Oberlin Computer Science and Gary Nelson of TIMARA. The software is
+currently being used as an example of an historic algorithmic composition
+for their class. This will be one of the featured software pieces at a
+meeting of the Special Interest Group Computer Science Education (SIGCSE)
+division of the Association of Computing Machinery (ACM) which I will be
+attending jointly with Rhys Price Jones of the Oberlin Computer Science
+Department. Special thanks to Phil Burk, author of the </font><a href="../">JSyn</a><font size=+0>
+synthesis engine which is used to power the audio part of the software.
+For more information browse to </font><a href="http://www.softsynth.com">www.softsynth.com</a><font size=+0>.</font>
+<br><font size=+1><a href="../index.html"></a></font>&nbsp;
+</body>
+</html>

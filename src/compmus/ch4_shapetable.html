@@ -1,0 +1,91 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.77 [en]C-gatewaynet  (Win98; U) [Netscape]">
+   <title>Music and Computers - Play WaveShaper</title>
+</head>
+<body>
+
+<h1>
+Music and Computers</h1>
+
+<h2>
+WaveShaping using Tables and Chebyshev Formulae</h2>
+(Special thanks to Nick Didkovsky for contributing the Chebyshev Polynomial
+calculating software.)
+<h3>
+<b>How it works:</b></h3>
+The value of a sine wave is used lookup a value in a table. That value
+becomes the audio output&nbsp; signal. The table's value can be drawn or
+generated using Chebyshev formulae. The output of different Chebyshev polynomials
+of increasing order are mixed together to generate a complex wave shape.
+Faders control the amount that each Chebyshev order contributes to the
+final polynomial.
+<h3>
+To Do:</h3>
+
+<ol>
+<li>
+Move the Oscilloscope window to the side.</li>
+
+<li>
+Scroll down until you can see the faders and the large rectangle..</li>
+
+<li>
+Turn up fader number 1 all the way so that the line in the box is slanted.</li>
+
+<li>
+Click on the "Play Keys" button to enable keys on the left side of the
+ASCII keyboard. Play a tune.</li>
+
+<li>
+If the keyboard ever stops playing notes, then click on the "Play Keys"
+button.</li>
+
+<li>
+Click the "Note On" box to turn on a steady note.</li>
+
+<li>
+Draw a little wiggle on the far right side of the line. Move the "Range"
+fader which controls the amplitude of the sine wave used to index into
+the table.</li>
+
+<li>
+Note that when the range does not include the wiggle, the sound is smooth.
+But when the range includes wiggle the notes sounds richer and the output
+has a wiggle in it.</li>
+
+<li>
+Hit the smooth button. By smoothing the transfer function, we get a smoother
+output with less harmonic content.</li>
+
+<li>
+Set the "Range" fader to 1.0 and the "Amplitude" fader to 0.5.</li>
+
+<li>
+Hit "Clear" then turn up fader #0. Notice the shape and that you hear silence.
+The sine wave is converted to a flat signal.</li>
+
+<li>
+Hit "Clear" then turn up fader #1 which is a first order Chebyshev polynomial.
+This linear transfer function converts a sine wave to another sinewave</li>
+
+<li>
+Hit "Clear and turn up fader #2 which is a first order Chebyshev polynomial.
+Note that we get a sine wave twice as high which is the second harmonic.
+Repeat for higher orders.</li>
+
+<li>
+Combine different polynomials and turn the Range fader up and down. Hear
+how a higher "Range" introduces higher harmonics.</li>
+
+<li>
+Push buttons. Get crazy.</li>
+</ol>
+
+<hr><applet code="compmus.PlayWaveShaper.class" codebase="../classes" name="PlayWaveShaper" WIDTH="584" HEIGHT="514"></applet>
+<br>
+
+</body>
+</html>

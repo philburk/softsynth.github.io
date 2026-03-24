@@ -1,0 +1,52 @@
+To Do Before NUMUS
+
+TeleCruz
+X- document CVRT
+X- write Perl replacement for filter that supports Frame buffer and non-cached RAM
+X- outline remaining tests
+X- send invoice
+O- serial tests
+
+VideoScribe
+X- update client for Tim
+X- meet with Tim
+
+HighWired
+O- audio capture in JSyn/PortAudio
+O- message mix recording Applet
+O- finalize contracts
+
+LeapFrog
+O- deliver MidiChecker V+
+O- debug Jay Cloidt's bug reports
+
+Dartmouth
+O- more Applets to Larry
+
+NUMUS
+
+X- finish NUMUS website
+O- test NUMUS website on raven
+X- try Killing Time and Jonathan Rayback's toys
+X- transfer files to laptop
+X- put critical files on floppy, ZIP disk, and e-mail to Michael.
+
+O- update GlassHand Applet, multiple voices?
+O- wire for workshop
+
+O- prepare for composer talk, study Nicks pieces
+O- prepare overheads for University talk
+O- prepare lesson plan for JSyn workshop
+X- get DiceGame working
+X- work with Nick and Larry on Applets for talk
+X- get more Applets
+X- name for webjam
+X- update jam Applet
+X- use Frame for top navigation
+X- webdrum page with no external links
+X- get docs to Jeannie
+X- post webjam and Raven for testing
+X- web site for NUMUS installation
+
+O- Empodocles
+O- new composition?

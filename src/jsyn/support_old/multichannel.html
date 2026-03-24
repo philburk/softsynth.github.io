@@ -1,0 +1,56 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en] (Windows NT 5.0; U) [Netscape]">
+   <meta name="Author" content="Phil Burk">
+   <meta name="KeyWords" content="java, audio, JSyn, multi-channel, ASIO, device">
+   <title>JSyn Multi-Channel Device Issues</title>
+<link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!--#include virtual="header.html" -->
+<br>&nbsp;
+<h2>
+Multi-Channel Device Issues</h2>
+This page discusses audio devices that provide more than two channels.
+An example would be the 8 channel Terratec EWS88MT.<p>
+For an example of how to program JSyn for multi-channel operation,
+please see the source code for "JSynExamples/TJ_Devices.java" in the SDK.
+Also see the documentation for the 
+<a href="/jsyn/docs/autodocs/com/softsynth/jsyn/AudioDevice.html">AudioDevice</a>
+class and the
+<a href="/jsyn/docs/autodocs/com/softsynth/jsyn/ChannelOut.html">ChannelOut</a> class.
+Also see how to <a href="/jsyn/docs/autodocs/com/softsynth/jsyn/SynthContext.html">
+how to start JSyn in multi-channel mode</a> by calling the start() method with a specified number of channels.
+<p>
+To see what audio devices are available on your computer, please visit the
+<a href="http://www.softsynth.com/jsyn/examples/tj_devices.html">Device Test Applet</a>.
+
+<h3>
+Windows</h3>
+The default audio API used by JSyn on Windows is WMME. WMME sometimes makes multi-channel
+devices appear as several stereo devices. For example, an eight channel device
+might appear as four devices with two channels each. For multi-channel
+device operation, JSyn requires that the audio device provide an "interleaved
+multi-channel device" where all the channels appear under one device. On
+Windows 98, some devices such as the Terratec EWS88MT, provide an eight
+channel "Interleaved" device that can be used for multi-channel operation.
+Unfortunately on WinXP, that 8 channel device is apparently unavailable.
+This makes it impossible for JSyn to do 8 channel operation on WinXP with the Terratec
+device under WMME. There is also a bug in WinXP that makes some devices
+report that they have 65535 channels, which confuses JSyn and prevents
+it from starting.
+<p>If you need multi-channel operation, the ASIO interface often provides
+a multi-channel interface when WMME does not. The ASIO interface
+is an advanced feature that is only available to licensed JSyn developers
+in the restricted area of the JSyn website. It can be accessed by <a href="../developers/register.php">purchasing
+a JSyn SDK license</a>.
+
+<h3>Macintosh</h3>
+
+<h3>Linux</h3>
+
+<p><!--#include virtual="footer.html" -->
+</body>
+</html>

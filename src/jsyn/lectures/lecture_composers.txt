@@ -1,0 +1,56 @@
+Lecture 1 - JSyn composers
+(private notes)
+
+What I will talk about.
+	What is JSyn
+	Demonstrate Pieces
+	What is WebDrum
+	Demonstrate Webdrum
+	
+JSyn - programmer's toolbox for creating sound.
+	Show wind, plucked string, wavemaker.
+
+	JSyn composers are also programmers.
+	Why do composers use JSyn?
+	
+	Java - language for the web
+		Same program runs on PC and Macintosh, Linux, etc.
+		Nice language, logical, powerful.
+		
+	Show HailStone Sequence
+	
+	JSyn has simple but very flexible sound control.
+	Does not impose constraints on style.
+		Techno is just as easy or hard as classical.
+		Maybe easiest to make strange music.
+		
+	Many students learn it at Oberlin, Cal Arts, Dartmouth, NYU, etc.
+	
+
+Jonathan Simon's pieces
+	Student at Oberlin. Graduates
+	Phase
+	Dice Game
+
+Nick Didkovsky
+	Prolific composer with Dr. Nerve, Fred Frith
+	Used HMSL. Now working with me on JMSL.
+	Yudishthira
+	Mandelbrot
+	LoopsaLoopsa
+	
+Larry Polansky
+	Dartmouth professor. Co-author HMSL
+	Killing Time  (go.bat)
+	
+Phil Burk
+	PinWheel
+	Tuna
+	GlassHand
+	
+WebDrum uses a server to communicate between people using a web page.
+(need diagrams)
+	Play WebDrum
+
+Invite people to use installation on balcony
+and to use web site.

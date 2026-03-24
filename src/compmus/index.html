@@ -1,0 +1,245 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.77 [en]C-gatewaynet  (Win98; U) [Netscape]">
+   <meta name="Author" content="Phil Burk">
+   <meta name="KeyWords" content="Java, audio, synthesis">
+   <title>Music and Computers - LFO Modulation</title>
+<!-- This is an automatically generated file.
+
+It will be read and overwritten.
+
+Do Not Edit! -->
+</head>
+<body text="#000000" link="#0000FF" vlink="#FF00FF" alink="#000ED0">
+
+<h1>
+Applets for <a href="http://raven.dartmouth.edu/~book/">Music and Computers</a></h1>
+
+<h2>Completed Applets - <a NAME="needInstall"></a>need to be installed!</h2>
+<blockquote>
+  <p> <a href="ch3_build_saw.html">3.3 Build a Sawtooth using Sine Waves</a><a href="ch4_hear_noise.html"><br>
+    4.1 Noise &quot;Bring in da funk&quot;</a><br>
+      <a href="ch4_voice_formants.html">4.4 Voice Formant</a> synthesis<br>
+      <a href="ch4_grains.html">4.8 Granular Synthesis</a><br>
+      <a href="ch4_pluck.html">4.9 Plucked String using Karplus Strong</a><br>
+      <a href="ch5_multitap.html">5.1 MultiTap Delay</a> <br>
+  <a href="ch5_itd_location.html">5.3 Using ITD to Locate a Sound</a>  </p>
+</blockquote>
+<h2>Installed Applets</h2>
+<blockquote>
+  <p><a href="ch1_hear_sine.html">1.1 Hear a Sine Wave</a> - simple
+  test of JSyn plugin.
+    <br>
+      <a href="ch1_hear_just_amp.html">1.2 Hear Amplitude</a> - Non-pitched,
+  red noise to demo pure amplitude. O- remove extraneous GUI from HearAmplitude
+  O- remove scope and Hit nonsense
+    <br>
+      <a href="ch1_hear_amp_versus_db.html">1.2 Amplitude Versus Decibels</a>
+    <br>
+      <a href="ch1_hear_freq.html">1.3 Hear Frequency</a> - Frequency (0-Nyquist)
+  and amplitude on a sine wave with scope.<br>
+      <a href="ch1_hear_ticks_to_tone.html">1.3 Ticks_Becoming a Steady Tone</a>
+  O- Enlarge Frequency display.
+  <br>
+  <a href="ch1_octave_stretch.html">1.3 Stretched Octave</a> - Perceptual
+  Quiz
+  <br>
+  <a href="ch1_hear_linear_transpose.html">1.3 Transposition of a Melody</a>
+  - Multiplicative versus Additive transformation of a simple melody.
+  <br>
+  <a href="ch1_fletcher_munson.html">1.3 Fletcher-Munson Hearing Test</a>
+  <br>
+  <a href="ch1_draw_wave.html">1.4 Draw a Waveform</a>
+  <br>
+  <a href="ch2_binary_beeper.html">2.4 Binary Counter with Beeping Bits</a>
+  O- did not stop sound in auto mode! Could not reproduce.
+  <br>
+  <a href="ch2_sampled_fader.html">2.2 Sampled_Fader</a> - to show quantization
+  of a continuous signal.
+  <br>
+  <a href="ch2_osc_bl.html">2.3 Band-Limited Sawtooth and other oscillators</a>
+  - Use JSynExamples.TJ_SeeOsc<br>
+  <a href="ch2_scrubber.html">2.3 Sample Scrubber</a><br>
+    <a href="ch2_noisy_copy.html">2.6 Noisy Copy of a Melody</a> - add
+  controllable amount of noise each time to show degradation, show each copy
+  when made, can play any of the copies. <br>
+  <a href="ch3_sampled_phaser.html">3.2 Sampled_Phaser</a> -&nbsp; scribing
+  a sinewave<br>
+  <a href="ch3_build_saw.html">3.3 Build a Sawtooth</a> Using Sinewaves
+  <br>
+    <a href="ch3_see_fft.html">3.3 FFT demo</a>, graphics only, real-time
+  update <br>
+  <a href="ch4_hear_mix.html">4.2 Mix Sine Waves - change amplitudes,
+  shows clipping.</a>
+  <br>
+  <a href="ch4_wavemaker.html">4.2 Make a Waveform by Adding Harmonic
+  Sine Wave Partials</a>
+  <br>
+  <a href="ch4_filterfun.html">4.3 Filter Fun</a>, multiple sources (noise,
+  waveforms),&nbsp; SVF, biquad.<br>
+    <a href="ch4_lfo_mod.html">4.5 Low Frequency Modulation</a>
+    <br>
+    <a href="ch4_shapeformulae.html">4.6 WaveShaping using Formulae</a>
+    <br>
+    <a href="ch4_grains.html">4.6 WaveShaping using Chebyshev Polynomial
+    Tables<br>
+    </a><a href="ch4_fm_edit.html">4.7 FM Editor</a><br>
+  <a href="ch5_drumbox.html">5.1 DrumBox</a></p>
+</blockquote>
+
+<h2>&nbsp;</h2>
+<h2>
+Remaining Applets</h2>
+
+<h3>
+>> Priority (1 lowest, 5 highest)</h3>
+
+<li></li>
+
+<li>
+4.2 Apply spectral envelopes to various partials to make different sounds.
+Attack/Release rates using exponential lags. (like UPIC in 5.7?) >>5</li>
+
+<li>
+4.3 Wind versus Helicopter example of modulating filter cutoff >></li>
+
+<li>
+4.6 AM - low frequency tremolo, high frequency, no offset >>5</li>
+
+<li>
+Simple FM tricks, two op, three op, feedback. >>5</li>
+
+<li>
+5.1 Musique Concrete Workstation - copy/paste piece as text. >>5</li>
+
+<li>
+5.2 Multi-tap delay with recirculation. Place taps. Set gain. >>3</li>
+
+<li>
+Concrete editor. Reverse, cut and paste, loop. Chapter 1 techniques. Auto-zero-cross.
+Stretch. fade in/out. >>2</li>
+
+<li>
+Tuning, select samples with harmonic or enharmonic partials(gender), select
+simple just-pentatonic, 12TET or slendro tuning. >>2</li>
+
+<li>
+More Noise generators. White noise, feedback FM, fractal, >>4</li>
+
+<h3>
+<b>Lower priority</b></h3>
+
+<p>5.2 effects box fun >>2
+<br>
+5.7&nbsp; a color drawing applet organ. huh? >>2-3
+<br>Some kind of algorithmic composition applet, stochastic, Markov? >>1
+no chapter 6!
+<p>O- change Happy Birthday to Mary had a Little Lamb >>5
+<p>Larry says: . ALL THE STUFF BELOW IS FUN&lt; BUT NOT AT ALL NECESSARY
+AT THIS POINT. A LOT OF IT IS HELD OVER FROM WHEN CHAPTER 6 EXISTED......DO
+THE ABOVE STUFF FIRST, and KEEP THIS LIST IN CASE WE HAVE SOME TIME ENERGY
+LEFT OVER.....
+<p>Wrapper for Applet that detects.
+<br>3.2 Triangle building using partials (priority #5)>>5
+<br>4.2 Multi-waveform display>> 2
+<br>4.2 Jamshed phantom fundamental illusion. Play specific tones. Then
+play phantom fundamental.>>1
+<br>4.3 Comb filter over a looping voice sample.>2
+<br>
+5.2 Effects box with ordered line of flange, etc.>>2
+<br>5.3 Spatialization for headphones. ITD, filtering.>>1
+<br>5.3 HemiSync>> if i knew what it was, i'm sure i would want it very
+badly
+<br>5.4 Vocoder (if audio input working)>>1
+<br>5.7 Stupid graphic/sound thingie.>1
+<br>5.7 UPIC>1
+<br>6.2 Markov, text grid>1
+<br>6.2 Composition fun kit>1
+<br>6.3 Simple N track sequencer, select instrument, record/solo/mute,
+play, stop (may be too dopey) LOW PRIORITY>1
+<br>6.4 stochastic generator, start with evenly distributed pitch and event
+triggers, add constraints for scale, timing, etc.
+<br>6.4 Tenney atonal melody generator. When a pitch is selected, its probability
+is set to 0.0. It then creeps back up to 1.0. Show probabilities as bar
+graph. Toggle to setting to 3.0 instead of 0.0.
+<br>6.4 Stochastic based on musical rules, Major scales, start and end
+on C, etc.
+<br>6.5 L-Grammar. User enters string AEBEGC =>.... LOW PRIORITY
+<br>6.6 "Sonify" PI, sonify bio data or stock, or weather data
+<br>Crossfade between waveforms to show timbre.>2
+<br>
+Reverb. Toggle direct/early-echo/reverb. Various networks.
+<br>Spectral display with freq/amp vertical bars. Create bar with mouse
+click. Drag bars. Delete. (What is the purpose of creating and dragging
+bars?)
+<br>Basilar membrane animation showing excitation of hairs for 3 sine waves.
+<br>Parameter morphing. A-B
+<br>Some kind of fractal generator.
+<br>Time domain replacement, queue from A or B.
+<br>Nancarrow piano roll.
+<br>Envelope follower to show amplitude of an input signal.
+<br>&nbsp;
+<h2>
+Applets that Require JSyn Mods</h2>
+
+<blockquote>
+  <li>
+Harmonic shift or spread in additive synthesis for aperiodic waveforms.</li>
+
+<li>
+Real-time FFT/IFFT, show tradefoffs for time/frequency resolution for a
+drum track versus big chord.</li>
+
+<li>
+ITD a sound with variable delay until they break apart. (need fractional
+delay)</li>
+
+<li>
+FFT, filter drawing,</li>
+
+<li>
+Effects box. Phase/flanger/chorus/echo. Use microphone?</li>
+
+<li>
+Violin model theremin.</li>
+</blockquote>
+
+<h2>
+Composition</h2>
+
+<blockquote>
+<li>
+Markov</li>
+
+<li>
+Baroque generator</li>
+
+<li>
+12 tone rows</li>
+
+<li>
+</li>
+</blockquote>
+
+<h3>
+Fix</h3>
+
+<blockquote>
+  <li>
+Amplitude+Frequency of sine wave - add a couple of hot buttons in the AMPLITUDE/FREQUENCY
+applet, to lock to some common frequences (440 (Middle A), 256 (Tuning
+Fork), 60 (wall frequency).</li>
+</blockquote>
+
+<h2>
+Text to Write</h2>
+Averaging filter discussion
+<h3>
+Video Game Synthesis</h3>
+Sega Geneisis had FM
+<br>What machines had what hardware.
+<br>Examples of synth use - filtered car sounds in tunnels, rocket sounds.
+</body>
+</html>

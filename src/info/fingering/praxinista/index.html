@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praxinista KT</title>
+    <!-- COOP/COEP Header Bypass Service Worker for GitHub Pages Support -->
+    <script src="/coi-serviceworker.js"></script>
+    <!-- Audio Bridge JS -->
+    <script type="application/javascript" src="kcab-webaudio.js"></script>
+    <script type="application/javascript" src="kcab-output-stream.js"></script>
+    <!-- Compose Multiplatform WasmJS -->
+    <script type="application/javascript" src="app.js"></script>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: white;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        p {
+            margin: 12px;
+            font-family: sans-serif;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        canvas {
+            width: 100%;
+            flex-grow: 1;
+            min-height: 0;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <p><a href="/">Home</a>&nbsp|&nbsp<a href="../">Fingering</a>
+        &nbsp|&nbsp
+        Practice companion that shows a guitar fretboard or a keyboard.
+        Select a key and chord progression and hit START. Then jam along!</p>
+    <canvas id="ComposeTarget"></canvas>
+</body>
+
+</html>

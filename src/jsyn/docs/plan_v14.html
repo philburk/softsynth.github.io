@@ -1,0 +1,59 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Phil Burk">
+   <meta name="GENERATOR" content="Mozilla/4.73 [en]C-gatewaynet  (Win98; U) [Netscape]">
+   <title>V14 Plan for JSyn</title>
+<link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!--#include virtual="header.html" -->
+<h1>
+Plan for JSyn V14</h1>
+Rerelease Macintosh V13.4 with expiration on 9/15 to allow time for V14
+development. PC Version will also expire 9/15.
+<h2>
+Synth Context - Maybe Not</h2>
+Applets share a common synthesis context which can cause problems when
+they overlap their execution, particularly when one tries to run Applets
+with different sample rates. The CSyn code will be modified to support
+N=64 simultaneous contexts, identified by a special token.. Actually 3
+or 4 should be enough but better too many than to few. The Synth class
+will be made an instantiated class that can hold a token for a 'C' level
+SynthContext. The old API can be preserved by storing a Synth object reference
+in the Synth static class.&nbsp; Unit generators, samples, tables, etc.
+will take a Synth object as a parameter and then keep it so that methods
+like set(), start() etc. will not need to change.
+<h2>
+Numeric Range</h2>
+The signed numeric range from -1 to +1 is an unnecessary restriction. It
+was originally designed to allow JSyn to run on fixed point DSPs but floating
+point is now commonly available even in DSPs. Also the trend is toward
+doing CPU based synthesis. The signed and unsigned numeric ranges will
+be retained for units that require restricted ranges. A new data type called
+FULL_RANGE will be added.&nbsp; Amplitude ports, arithmetic ports, etc.
+will be made FULL_RANGE.
+<p>Oscillators may be made to accept frequencies as Hertz as their native
+format to simplify modulation control. The OSC_FREQ signal type will then
+become a non-converting signal type with a range of +/- Nyquist.
+<h2>
+Unit Generator Reorganization</h2>
+Code for a single unit will be collected into a single file for easier
+maintainance. Compilation of the components will be controlled by compile-time
+flags.
+<h2>
+Other Additions</h2>
+More units.
+<br>Audio Input for Macintosh.
+<br>Audio Recorder
+<br>Record to File, Play from File
+<br>Wire - graphical patch editor.
+<br>Applet gateway that handles version negotiation, etc. Requires JSyn
+code on server to avoid "fair-use" problem.
+<br>Canned APplets for non-programmers.
+<br>Sound Library
+<br>&nbsp;
+<!--#include virtual="footer.html" -->
+</body>
+</html>

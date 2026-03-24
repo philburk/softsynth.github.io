@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>A Loop's A Loop's a Loop's A ... , programmer's comments
+</title>
+</head>
+<body background=#fffffff>
+<center>
+<h1>A Loop's A Loop's a Loop's A ... </h1>
+<h2>Comments on the software by Nick Didkovsky</h2>
+</center>
+<br><br>
+<h3>Wistful Reflections</h3>
+I met Chuck Vrtacek in 1980, through a common friend who told me I'd probably get along with this guy who 
+liked peculiar music. So I called up Chuck, we had a great conversation, and began improvising
+about once a week at his apartment in New Milford, CT. About a year later, Chuck released his first solo LP, 
+<i>Victory Through Grace</i>, and I followed his lead, releasing my first LP, <i>Now I Do This</i>.  Both of our records 
+made use of tape loops.  Chuck has released a number of solo records since then, and loops of one kind 
+or another have appeared on most of these.
+<br><br>
+<h3>A few technical comments</h3>
+This applet was written in Java, using the JMSL algorithmic music package and the JSyn realtime synthesis package.
+It provides the user with a virtual 8 track tape loop studio.  A "found sound" paradigm is followed: 
+you make a loop out of some tape lying around.  If you like it, keep it, if you don't, toss it out and try again.<br><br>	
+The GUI offers eight panels, each corresponding to one independent looping sound event.  A JMSL "MusicShape" 
+(which is simply an ordered list of numerical data with an instrument to play it) inhabits each panel.
+Each MusicShape has exactly two elements: 
+one determining the length, loudness, and pitch of the sound, the other determining the length
+of the silence. <br><br>
+When the user clicks the start button, data is harvested from the panel and used to modify the shape data. 
+A randomly chosen pitch within the user-selected octave is taken the Gamelan Son of Lion's tuning table
+(see <a href="../yudishthira/index.html">Yudishthira's Quartet</a>).
+One of three user-selected instruments is plugged into the shape as well, providing the actual timbre.  These
+instruments were designed in JSyn. A few words about each instrument follows...<br>
+<ol>
+<li><b>Random FM </b><br>
+An FM Pair with the independently randomized envelopes applied to carrier amp and to modulating amp. An additional 
+randomized envelope controls stereo pan movement.<br>
+Fc:Fm is randomized when the instrument is instantiated, and maintained throughout. Both Fc and Fm are integers that range from 1..10. <br>
+Index of modulation is also randomized when the instrument is instantiated, and maintained throughout.  Index is a double that ranges from 1.0 .. 25.0<br>
+This instrument's timbre varies dramatically from instance to instance!
+<br>
+
+<li><b>Cheb Wave Shaper</b><br>
+A WaveShaper whose transfer function (a Chebyshev polynomial) is randomized to realize between 4 and 12 harmonics, whose relative amplitudes are
+also chosen at random.  Randomly generated envelopes are applied to the sine driving the transfer function, and to the
+amplitude of the waveshaper's output.  An additional randomized envelope controls stereo pan movement.  
+This instrument's sound varies, depending on the random values generated.  
+
+<li><b>Ringed Cheb Wave Shaper</b> <br>
+Like Cheb Wave Shaper, whose output is ring modulated with a sine oscillator (after Dodge/Jerse, p 142).  A Fc:Fm ratio
+is randomized when the instrument is instantiated and maintained.  Here, Fc refers to the frequency of the sine oscillator
+which is multiplied by the shaper, while Fm refers to the frequency of the waveshaper's sine which drives the transfer function.
+Again, the sound varies dramatically, with good effect!
+
+</ol>
+
+<br><br>
+<i>Nick Didkovsky, July 6, 1999, NYC</i>
+<hr>
+<a href="index.html">A Loop's A... Home</a>.<br>
+
+<font size=+1><a href="../index.html">Back to JSyn@NUMUS Home Page</a></font>
+</body>
+</html>

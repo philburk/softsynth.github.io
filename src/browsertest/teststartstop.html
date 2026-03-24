@@ -1,0 +1,27 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.73 [en]C-gatewaynet  (Win98; U) [Netscape]">
+   <meta name="Author" content="Phil Burk">
+   <meta name="Description" content="Demonstrate browser Java bug.">
+   <meta name="KeyWords" content="Java, interrupt, bug, Netscape">
+   <title>Test interrupt() in Java Applet</title>
+</head>
+<body>
+
+<h1>
+Report init(), start(),&nbsp; stop(), and destroy() in Java Applet</h1>
+When an Applet is launched, the browser calls the Applet's init() method()
+and its start() method. When the user leaves the page with the Applet,&nbsp;
+the Applet's stop() method is called. At some point the Applet's destroy()
+method may be called when the browser wants to clean up.
+<p>This Applet write "init", "start", "stop" and "destroy" to a TextArea,
+and to the Java Console.
+<p>Note that Netscape calls the Applet's stop() then start() method whenever
+the user resizes the window.
+<p>(C) 2000 Phil Burk
+<p>
+<hr><applet code="browsertest.TestStartStop.class" codebase="../classes" WIDTH="500" HEIGHT="500"></applet>
+</body>
+</html>

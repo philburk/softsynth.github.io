@@ -1,0 +1,159 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Phil Burk">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en] (Windows NT 5.0; U) [Netscape]">
+   <meta name="Description" content="Let's find the source of this bug!">
+   <meta name="KeyWords" content="The volume that was removed had open files on it.,boot,error,Gateway,Athlon">
+   <title>The volume that was removed had open files on it.</title>
+</head>
+<body>
+Here is another possible
+workaround for the <a href="removed_error.html">VolumeBug</a>.
+<h3>
+Use Other Hard Disk Disk Controller</h3>
+Since the Promise controller is the source of the problem, an obvious and
+final solution involves not using it. Many of the new PCs have an on-board
+IDE controller that is used for CD-ROM drives and other slow IDE devices.
+In addition, there is a Promise controller in a PCI slot used for the big
+new hard drive. The fix involves disconnecting your hard drive from the
+Promise controller and connecting it to the primary IDE controller on the
+motherboard.
+<p>This is the solution recommended by Dell, Gateway, and Promise. It is
+also the solution that several folks on the bug mail list have ended up
+doing, including myself. It turns out to be not very hard and really works.
+There are, however, several reasons why you may <b>not</b> want to do this.
+<ol>
+<li>
+You may not have a second IDE controller in your computer.</li>
+
+<li>
+The fix involves opening your PC and moving cables around. If you are not
+comfortable doing this, then find a friendly nerd to do it for you.</li>
+
+<li>
+The Promise controller is possibly being used for a reason. If the other
+disk controller is old, it may not support the full size of your hard drive.
+This could prevent the system from booting.</li>
+
+<li>
+The other controller may not support your hard drive at its full rate in
+which case you will have lower performance.</li>
+</ol>
+Gateway says my controller (AMD-756) will see the whole drive and run almost
+as fast as the Ultra100 except for bursts. So I moved my HD off of the
+Promise controller and haven't noticed any slowdown. Another plus is that
+I should now be able to run Linux 6.2 which doesn't support ATA100.
+<p>First you should determine whether you have a <b>second IDE controller</b>
+to use. Here's how:
+<ol>
+<li>
+Right click on "My Computer icon and select "Properties"</li>
+
+<li>
+Click the "Device Manager" tab.</li>
+
+<li>
+Click on the "+" symbol beside "Hard disk controllers.". If the Promise
+Ultra controller is here then you may be stuck with it. If you have another
+product listed here then you are in luck.</li>
+
+<li>
+Click on the "+" symbol beside "SCSI controllers". You should see the Promise
+Ultra controller listed here.</li>
+</ol>
+If you have a second IDE controller, and wish to proceed at your own risk
+with this change, then try the following:
+<ol>
+<li>
+Read all instructions through once before starting.</li>
+
+<li>
+Backup all your important data.</li>
+
+<li>
+Shutdown PC and open the case.</li>
+
+<li>
+Discharge any static electricity by touching the bare metal chassis of
+the PC.</li>
+
+<li>
+Locate hard drive. Follow ribbon cable to Promise Ultra controller which
+is a PCI card on my machine. Disconnect ribbon cable from the Promise&nbsp;
+controller .</li>
+
+<li>
+Locate CD-ROM drive. Follow cable to Secondary IDE connector. Primary IDE
+controller connector is next to it and should be labelled "Primary".</li>
+
+<li>
+Align red edge of hard drive ribbon cable with red edge of other IDE ribbon
+cable. Plug hard drive cable gently into the Primary IDE connector.</li>
+
+<li>
+Remove Promise Ultra controller and place it in a static proof bag or wrap
+it in aluminum foil.</li>
+
+<li>
+Turn on PC and immediately start hitting the "F1" function key repeatedly
+until you see a special BIOS setup screen.</li>
+</ol>
+You now want to <b>tell the BIOS to use the onboard IDE controller</b>
+instead of the Promise controller. This procedure can vary from machine
+to machine. Your computer probably came with a motherboard manual which
+may give you some clues. Here are some tips for specific machines:
+<h4>
+Asus A7V</h4>
+
+<blockquote>Information from David Lomneck , a system builder using ASUS
+A7V boards:</blockquote>
+
+<ol>
+<li>
+First make sure you are running Bios Ver. 1004C or higher. Only this version
+or higher allows you to disable the Ultra100 Controller in the Bios.</li>
+
+<li>
+After you have entered the bios, under the "boot" tab, you see some options
+at the&nbsp; bottom.</li>
+
+<li>
+You want to disable the ATA and you also want to disable the ATA from being
+first. These are the last two options on that page.</li>
+</ol>
+
+<h4>
+Gateway Select</h4>
+
+<ol>
+<li>
+Use the down arrow to select "Boot Options" and hit &lt;ENTER>.</li>
+
+<li>
+Select the "Third Boot Option" which is probably "SCSI Drive" and hit &lt;ENTER>.</li>
+
+<li>
+Select "1st IDE Drive" and hit &lt;ENTER>.</li>
+</ol>
+
+<h4>
+Dell</h4>
+
+<ul>
+<li>
+<a href="http://groups.yahoo.com/group/volumebug/message/743">Bob's Suggests
+switching from Promise ATA100 to reliable ATA66 controller.</a></li>
+
+<li>
+<a href="http://groups.yahoo.com/group/volumebug/message/769">Bob's How-To
+switch from Promise ATA100 to reliable ATA66 on Dell XPS.</a></li>
+</ul>
+Now save your BIOS changes and exit. Your system should continue to boot
+successfully. Once you have booted, open "My Computer" and make sure all
+your volumes are there and have the correct size. If so, then you are done.
+If not, then put your hard drive back on the Promise controller.
+<br>&nbsp;
+</body>
+</html>

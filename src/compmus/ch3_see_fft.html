@@ -1,0 +1,67 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.77 [en]C-gatewaynet  (Win98; U) [Netscape]">
+   <meta name="Author" content="Phil Burk">
+   <meta name="KeyWords" content="Java, audio, synthesis">
+   <title>Music and Computers - Play with an FFT</title>
+<!-- This is an automatically generated file.
+
+It will be read and overwritten.
+
+Do Not Edit! -->
+</head>
+<body text="#000000" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+<h1>
+Music and Computers</h1>
+
+<h2>
+Play with an FFT</h2>
+This Applet lets you edit real or imaginary values in the Time Domain or
+the Frequency Domain. As you edit the values one domain, the other domain
+is automatically recalculated using an FFT. The magnitude and phase of
+the Frequency Domain is also shown.
+<br>(We would like to thank <a href="http://sepwww.stanford.edu/oldsep/hale/">Dave
+Hale</a> for posting FFTLab to the web. It was the starting point for developing
+this Applet.)
+<p>To Do:
+<ul>
+<li>
+Click the "Clear" button to zero out all the data.</li>
+
+<li>
+Drag the mouse straight across the top-left&nbsp; box labelled "Time Domain",
+"Real". Notice that a peak appears in the first bin of the Frequency Domain.
+This is because a constant value has a frequency of zero*fundamental.</li>
+
+<li>
+Draw a single cycle of a sine wave in the same box. Notice that the peak
+now appears in the second bin representing the 1*fundamental frequency
+of the FFT.</li>
+
+<li>
+Draw two sine waves within the same box and notice the Frequency Domain
+peak moves to the third bin representing 2*fundamental.</li>
+
+<li>
+Hit Clear and then click once in the box so that you get a single peak.
+Notice that the Frequency Domain now shows a constant Magnitude. This is
+because an "impulse" peak has a spectrum that contains all frequencies
+equally.</li>
+
+<li>
+Hit Clear and then click on the first bin. You should see a sine wave in
+the Frequency Domain. This shows that the Time Domain and the Frequency
+Domain are complementary.</li>
+
+<li>
+Poke around in the Frequency Domain boxes, drawing various signals and
+watching the results, until everything suddenly becomes clear and your
+head begins to glow.</li>
+</ul>
+
+<p><br><applet code="compmus.FFTLab.class" codebase="../classes" name="FFTLab" WIDTH="589" HEIGHT="431"></applet>
+</body>
+</html>

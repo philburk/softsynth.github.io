@@ -1,0 +1,335 @@
+package com.jsyn.debug;
+
+import javax.sound.sampled.*;
+import javax.swing.*;
+
+import java.awt.*;
+import java.awt.event.*;
+
+/**
+ * Play a sine wave and listen for pops.
+ * 
+ * The contents of this one file are hereby placed in the Public Domain.
+ * 
+ * @author Phil Burk Public Domain 2010 Mobileer Inc
+ */
+
+public class DebugAudioPops extends JApplet
+{
+	private static final boolean BIG_ENDIAN = false;
+	private static final int FRAMES_PER_BUFFER = 64;
+	private int requestedBufferSize = 16 * 1024;
+	private int actualBufferSize;
+
+	private static final long serialVersionUID = 1L;
+	SinePlayer player;
+	private int frameRate = 44100;
+	public int THREAD_PRIORITY_BUMP = 0;
+	AudioFormat format;
+
+	public DebugAudioPops()
+	{
+	}
+
+	void makePlayer() throws LineUnavailableException
+	{
+		format = new AudioFormat( frameRate, 16, SinePlayer.SAMPLES_PER_FRAME,
+				true, BIG_ENDIAN );
+		DataLine.Info info = new DataLine.Info( SourceDataLine.class, format );
+		if( !AudioSystem.isLineSupported( info ) )
+		{
+			// Handle the error.
+			System.err.println( "openOutputLine - not supported." + format );
+		}
+		else
+		{
+			int minSize = info.getMinBufferSize();
+			int maxSize = info.getMaxBufferSize();
+			System.out.println( "min buffer size = " + minSize
+					+ ", max buffer size = " + maxSize );
+			System.out.println( "AudioSystem.NOT_SPECIFIED = "
+					+ AudioSystem.NOT_SPECIFIED );
+			SourceDataLine line = (SourceDataLine) AudioSystem.getLine( info );
+			if( requestedBufferSize > 0 )
+			{
+				line.open( format, requestedBufferSize );
+			}
+			else
+			{
+				line.open( format );
+			}
+			actualBufferSize = line.getBufferSize();
+			System.out.println( "line = " + line + ", buffer size = "
+					+ actualBufferSize );
+			player = new SinePlayer( line, frameRate );
+		}
+	}
+
+	void startSine()
+	{
+		double freq = 440.0;
+		player.start();
+		player.setAmplitude( 1.0 );
+		System.out.println( "Start at freq = " + freq );
+		player.setFrequency( freq );
+	}
+
+	public void stop()
+	{
+		player.stop();
+		removeAll();
+	}
+
+	protected int getIntegerParameter( String paramName, int defaultValue )
+	{
+		int value = defaultValue;
+		String temp = getParameter( paramName );
+		if( temp != null )
+		{
+			try
+			{
+				value = Integer.parseInt( temp );
+			} catch( NumberFormatException e )
+			{
+				throw new RuntimeException( "Error in " + paramName
+						+ " parameter. Invalid integer = " + temp, e );
+			}
+		}
+		return value;
+	}
+
+	public void init()
+	{
+		try
+		{
+			frameRate = getIntegerParameter( "frameRate", frameRate );
+			requestedBufferSize = getIntegerParameter( "requestedBufferSize", requestedBufferSize );
+		} catch( NullPointerException e )
+		{
+			System.err
+					.println( "Applet parameters only work when run as an Applet." );
+		}
+	}
+
+	public void start()
+	{
+		try
+		{
+			makePlayer();
+			startSine();
+		} catch( LineUnavailableException ex )
+		{
+			System.err.println( "Caught " + ex );
+		}
+
+		setLayout( new GridLayout( 0, 1 ) );
+		add( new JLabel( "Test Clicks in JavaSound" ) );
+		add( new JLabel( "java.version = " + System.getProperty( "java.version" ) ) );
+		add( new JLabel( "format = " + format ) );
+		add( new JLabel( "requestedBufferSize = " + requestedBufferSize ) );
+		add( new JLabel( "actualBufferSize = " + actualBufferSize ) );
+		int calculatedLatency = (int) (1000 * actualBufferSize / (format
+				.getFrameSize() * frameRate));
+		add( new JLabel( "calculatedLatency = " + calculatedLatency + " msec" ) );
+		validate();
+	}
+
+	public class SinePlayer implements Runnable
+	{
+		Thread thread = null;
+		boolean go;
+		SourceDataLine line;
+		public static final int SAMPLES_PER_FRAME = 2;
+		byte bytes[];
+		short shorts[];
+		double phase1;
+		double phase2;
+		double frequency = 440.0;
+		double amplitude = 1.0;
+		static final double TWOPI = 2.0 * Math.PI;
+		float sampleRate;
+		int maxAvailable = actualBufferSize / 4;
+		int hysteresisThreshold = maxAvailable / 2;
+		boolean reportUnderflowEnabled = true;
+		int averageAvailable = 0;
+
+		public SinePlayer(SourceDataLine line, float sampleRate)
+		{
+			this.line = line;
+			this.sampleRate = sampleRate;
+			// allocate enough bytes for buffer
+			bytes = new byte[FRAMES_PER_BUFFER * SAMPLES_PER_FRAME * 2];
+			// allocate enough shorts for buffer
+			shorts = new short[FRAMES_PER_BUFFER * SAMPLES_PER_FRAME];
+		}
+
+		void playShorts() throws LineUnavailableException
+		{
+			int bi = 0;
+			if( BIG_ENDIAN )
+			{
+				for( int i = 0; i < shorts.length; i++ )
+				{
+					short s16 = shorts[i];
+					bytes[bi++] = (byte) (s16 >> 8); // big end
+					bytes[bi++] = (byte) s16; // little end
+				}
+			}
+			else
+			{
+				for( int i = 0; i < shorts.length; i++ )
+				{
+					short s16 = shorts[i];
+					bytes[bi++] = (byte) s16; // little end
+					bytes[bi++] = (byte) (s16 >> 8); // big end
+				}
+			}
+			checkUnderflow();
+			line.write( bytes, 0, bytes.length );
+		}
+
+		private void checkUnderflow()
+		{
+			int available = line.available();
+			if( reportUnderflowEnabled )
+			{
+				if( available > maxAvailable )
+				{
+					maxAvailable = available;
+					System.out.println( "maxAvailable set to " + maxAvailable );
+					reportUnderflowEnabled = false;
+					hysteresisThreshold = maxAvailable / 2;
+				}
+			}
+			averageAvailable = (int) ((0.9 * averageAvailable) + (0.1 * available));
+		}
+
+		void genStereoSines()
+		{
+			double incr1 = (2.0 * frequency) / sampleRate;
+			double incr2 = (3.0 * frequency) / sampleRate;
+			for( int isin = 0; isin < shorts.length; )
+			{
+				phase1 += incr1;
+				if( phase1 > TWOPI )
+					phase1 -= TWOPI;
+				shorts[isin++] = (short) (32767.0 * amplitude * Math
+						.sin( phase1 ));
+
+				phase2 += incr2;
+				if( phase2 > TWOPI )
+					phase2 -= TWOPI;
+				shorts[isin++] = (short) (32767.0 * amplitude * Math
+						.sin( phase2 ));
+			}
+		}
+
+		double getFrequency()
+		{
+			return frequency;
+		}
+
+		void setFrequency( double freq )
+		{
+			frequency = freq;
+		}
+
+		void setAmplitude( double ampl )
+		{
+			amplitude = ampl;
+		}
+
+		public synchronized void start()
+		{
+			go = true;
+			thread = new Thread( this );
+
+			if( THREAD_PRIORITY_BUMP > 0 )
+			{
+				System.out.println( "Sine thread old priority = "
+						+ thread.getPriority() );
+				thread
+						.setPriority( thread.getPriority()
+								+ THREAD_PRIORITY_BUMP );
+				System.out.println( "Sine thread new priority = "
+						+ thread.getPriority() );
+			}
+			thread.start();
+		}
+
+		public synchronized void stop()
+		{
+			if( thread != null )
+			{
+				go = false;
+				try
+				{
+					thread.join( 1000 );
+				} catch( InterruptedException e )
+				{
+					e.printStackTrace();
+				}
+				thread = null;
+			}
+
+		}
+
+		public void run()
+		{
+			line.start();
+			prefillOutput();
+			while( go )
+			{
+				genStereoSines();
+				try
+				{
+					playShorts();
+				} catch( LineUnavailableException ex )
+				{
+					System.err.println( "Caught " + ex );
+					break;
+				}
+			}
+			System.out.println( "averageAvailable = " + averageAvailable );
+			line.flush();
+			line.stop();
+			line.close();
+		}
+
+		private void prefillOutput()
+		{
+			while( line.available() > bytes.length )
+			{
+				line.write( bytes, 0, bytes.length );
+			}
+		}
+
+	}
+
+	static public void main( String[] argv )
+	{
+		System.out.println( "Debug clicks from JavaSound" );
+		System.out
+				.println( "Version = " + System.getProperty( "java.version" ) );
+		final DebugAudioPops applet = new DebugAudioPops();
+
+		JFrame frame = new JFrame( "Test JavaSound Priority" );
+		frame.addWindowListener( new WindowAdapter()
+		{
+			public void windowClosing( WindowEvent e )
+			{
+				applet.stop();
+				System.exit( 0 );
+			}
+		} );
+		frame.pack();
+		frame.setVisible( true );
+
+		frame.setSize( 500, 200 );
+		frame.getContentPane().setLayout( new BorderLayout() );
+		frame.getContentPane().add( "Center", applet );
+		frame.setVisible( true );
+		applet.init();
+		applet.start();
+	}
+}

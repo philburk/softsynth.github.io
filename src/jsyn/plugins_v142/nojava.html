@@ -1,0 +1,92 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en] (Windows NT 5.0; U) [Netscape]">
+   <meta name="KeyWords" content="Java, JSyn, audio, plugin, installation, Sun, JRE">
+   <meta name="Description" content="Install JSyn plugin for browsers using Sun JRE">
+   <meta name="Author" content="Phil Burk">
+   <title>Install JSyn Wizard</title>
+<link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!--#include virtual="header.html" -->
+<h2>No Java</h2>
+
+<p>JSyn requires Java, which is apparently missing from your browser or is disabled!
+If you have installed Java but disabled it then please reenable it so that JSyn will work.
+If you have not installed Java, then please download and install Java using the information below.
+</p>
+
+<script src="client_sniffer.js">
+</script>
+
+<script language="javascript">
+if( navigator.javaEnabled() )
+{
+	document.writeln("JavaScript thinks Java is enabled!<br>");
+	document.writeln("So why are you here?<br>");
+}
+else if( is_mac )
+{
+	if( is_mac68k )
+	{
+		document.writeln(" This is a 680x0 Macintosh. I'm sorry. JSyn only runs on Power Macs.");
+	}
+	else
+	{
+		if( is_nav5up || is_ie4up || is_icab )
+		{
+            document.writeln("Please download MRJ from Apple");
+            document.writeln('at "<a href="http://developer.apple.com/java/classic.html">');
+            document.writeln('http://developer.apple.com/java/classic.html</a>.</li>');
+		}
+		else if( is_nav3 || is_nav4up )
+		{
+
+		    document.writeln("The Java implementation for Netscape 3 & 4 is broken.");
+		    document.writeln("For Mac OS 7,8,9, we recommend using Internet Explorer or iCab and MRJ,");
+		    document.writeln("or using Netscape 6 with the MRJ plugin.");
+		}
+	}
+}
+else if( is_win )
+{
+	if( is_nav5up )
+	{
+        document.writeln('Please download the Sun Java plugin from');
+        document.writeln('<a href="http://www.java.com/en/download/">"www.java.com".</a>.');
+	}
+	else if( is_nav3 || is_nav4 )
+	{
+	    document.writeln('Navigator shipped with Java. What happened to it?');
+	    document.writeln('Please look in your preferences to see if it was disabled.');
+	}
+	else if( is_ie4up )
+	{
+        document.writeln('Please download the Sun Java plugin from');
+        document.writeln('<a href="http://www.java.com/en/download/">"www.java.com".</a>.');
+	}
+	else
+	{
+		document.writeln("Unrecognized browser.");
+	}
+}
+else if( is_unix )
+{
+    document.writeln('Please download the Sun Java plugin from');
+    document.writeln('<a href="http://www.java.com/en/download/">here</a>.');
+}
+else
+{
+	document.writeln("Unsupported or unrecognized type of computer.");
+}
+
+</script>
+
+<p>
+After you have installed or reenabled Java, then please us the "Plugin" link above to download and install the JSyn plugin.
+</p>
+<p><!--#include virtual="footer.html" -->
+</body>
+</html>

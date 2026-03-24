@@ -1,0 +1,107 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en] (Windows NT 5.0; U) [Netscape]">
+   <title>JSyn JSynPlayer Theremin</title>
+<script language="JavaScript">
+
+var voiceIndex = 0;
+
+function loadDefaultSound()
+{
+    if( voiceIndex == 0 ) voiceIndex = document.JSynPlayer.loadSound( "patches.AnalogVoiceA" );
+}
+
+function loadSoundByName( soundName )
+{
+    if( voiceIndex > 0 ) document.JSynPlayer.unloadSound( voiceIndex );
+    voiceIndex = document.JSynPlayer.loadSound( soundName );
+}
+
+// This works on Internet Explorer but not Netscape Navigator.
+function theremin_ie( width, height, amplitude )
+{
+    loadDefaultSound();
+    if( voiceIndex > 0 )
+    {
+        var freq = ((event.offsetX * 1000.0) / width) + 200.0;
+        document.JSynPlayer.setPort( voiceIndex, "frequency", freq );
+        var ampl = amplitude * (width - event.offsetY) / width;
+        document.JSynPlayer.setPort( voiceIndex, "amplitude", ampl );
+    }
+}
+</script>
+</head>
+<body>
+
+<h1>XY Controller using the JSynPlayer</h1>
+
+This is a demonstration of the JSynPlayer.
+The JSynPlayer is a JSyn Applet that can be controlled by JavaScript.
+It allows a web designer to integrate JSyn sound control with HTML.
+It does not require any Java programming.
+<p>
+Please note that this XY page will only work using Internet Explorer on Windows.<p>
+
+<!-- Only EMBED Jsyn plugin for the Netscape browser. -->
+<script src="smart_embed_jsyn.js">
+<!-- hide this stuff from browsers that don't support JavaScript
+document.writeln("ERROR: could not find smart_embed_jsyn.js!");
+// stop hiding javaScript -->
+</script>
+<applet 
+	CODE="com.softsynth.jsyn.player.JSynPlayer.class"
+	CODEBASE="../../classes"
+	NAME="JSynPlayer"
+	WIDTH="300" HEIGHT="30">
+</applet>
+<hr>
+<h3>
+Simple Web Theremin</h3>
+We call this a "theremin" in honor of Leon Theremin who invented
+a pioneering instrument that gave continuous control over pitch and amplitude.
+<p>
+Move the mouse over the blue area to control the sound.<p>
+
+<form NAME="form1">
+<input TYPE="BUTTON" VALUE="Use SineCubedWah"
+    onClick='loadSoundByName( "patches.SineCubedWah" );'> Nonlinear Sinewave Distortion
+<br>
+<input TYPE="BUTTON" VALUE="Use AnalogVoiceA"
+    onClick='loadSoundByName( "patches.AnalogVoiceA" );'> Filtered Sawtooth Waves
+<br>
+<input TYPE="BUTTON" VALUE="Use OneOscFeedback"
+    onClick='loadSoundByName( "patches.OneOscFeedback" );'> Noisy FM Feeback
+</form>
+
+<table BGCOLOR="#3366FF">
+<tr>
+<td>
+<pre onMouseOver="loadDefaultSound(); document.JSynPlayer.noteOn( voiceIndex, 0.0, 0.0 );"
+onMouseMove="theremin_ie( 300, 300, 0.5 );"
+onmouseout="document.JSynPlayer.noteOff( voiceIndex );">
+abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
+abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
+abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
+abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
+abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
+abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
+abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
+abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
+abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
+abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
+abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
+abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
+abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz</pre>
+</td>
+</tr>
+</table>
+
+<hr>
+
+<br>Visit the <a href="../">JSyn</a> or <a href="http://www.softsynth.com">SoftSynth</a>
+home pages.
+<br>&nbsp;
+</body>
+</html>

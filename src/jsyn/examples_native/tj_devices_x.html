@@ -1,0 +1,52 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.75 [en]C-gatewaynet  (Win98; U) [Netscape]">
+   <title>JSyn Audio Devices Example</title>
+<link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!--#include virtual="header.html" -->
+<h1>
+Test Audio Devices (V144)</h1>
+<p>This example requires V144 of the JSyn plugin.</p>
+<p>JSyn can use any available audio device, even devices with more than 2
+  channels.
+</p>
+<h3>
+ToDo:</h3>
+
+<ol>
+<li>
+Select an output device. The number of channels will be in square brackets to the right of the name, typically [2].</li>
+
+<li>
+Click the Start button.</li>
+
+<li>
+Listen to a different sine wave tone on each output channel.</li>
+
+<li>
+Click the stop button.</li>
+
+<li>
+Select an input device and enable both Input and Output.</li>
+
+<li>
+Click the Start button. (Your PC may not support full-duplex audio if it
+uses an ISA soundcard.)</li>
+
+<li>
+Apply a signal to each input channel and listen to it on the corresponding
+output channel.</li>
+<li>You can change the suggested audio device latency. A longer latency will add a delay to the sound. If the latency is too short then the audio will glitch. (Note that on Mac OS X the latency will always be very low.)</li>
+</ol>
+
+<hr><applet code="com.softsynth.jsyn.examples.TJ_Devices.class"
+   ARCHIVE="/classes/JSynExamples.jar" name="TJ_Devices" WIDTH="660" HEIGHT="224"></applet>
+<hr>
+
+<!--#include virtual="footer.html" -->
+</body>
+</html>

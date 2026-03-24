@@ -1,0 +1,39 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.01 [en] (Win95; I) [Netscape]">
+   <TITLE>JSyn FM Composition Example</TITLE>
+</HEAD>
+<BODY>
+
+<H1>
+FM Example</H1>
+<!-- Only EMBED Jsyn plugin for the Netscape browser. -->
+<script src="smart_embed_jsyn.js">
+<!-- hide this stuff from browsers that don't support JavaScript
+document.writeln("ERROR: could not find smart_embed_jsyn.js!");
+// stop hiding javaScript -->
+</script>
+
+<P><B>How it works: ORIGINAL version.</B>
+<BR>In this simple example new&nbsp; pitches are a random whole number
+ratio of the previous pitch.&nbsp; The modulator frequency of the FM operator
+is set to the previous notes frequency.&nbsp; There is no absolute fundamental
+frequency or pitch scale.
+<BR>Use the <B>Capture </B>button on the scope to grab some signals from
+one of the voices.&nbsp; Keep trying if you get no signal the first time.&nbsp;
+Notice how the envelope signal determines the amplitude of the carrier.&nbsp;
+Also notice how the modulator distorts the carrier waveform.
+<BR>
+<HR><APPLET 
+    code=TJ_Comp3.class
+	codebase="../../classes"
+    name=TJ_Comp3
+    width=580
+    height=600 ></APPLET>
+<HR>
+<BR>Visit the <A HREF="../">JSyn</A> or <A HREF="http://www.softsynth.com">SoftSynth</A>
+home pages.
+<BR>&nbsp;
+</BODY>
+</HTML>

@@ -1,0 +1,38 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en] (Windows NT 5.0; U) [Netscape]">
+   <meta name="KeyWords" content="Java, JSyn, audio, plugin, installation, Sun, JRE">
+   <meta name="Description" content="Install JSyn plugin for browsers using Sun JRE">
+   <meta name="Author" content="Phil Burk">
+   <title>Install JSyn for Sun Java Plugin</title>
+<link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!--#include virtual="header.html" -->
+<h2>
+Install JSyn plugin by hand for the Sun JRE</h2>
+<p>If you tried to install JSyn for Sun Java and got the message &quot;ERROR - the JSyn library is MISSING!&quot; then it is because the automatic Java installer did not work. You can install JSyn by hand, which involves placing one file on your hard drive.</p>
+<applet
+    CODE="com.softsynth.javaquery.JavaQuery"
+    ARCHIVE="JavaQuery.jar"
+    NAME="JavaQuery"
+    WIDTH="280" HEIGHT="107">
+</applet>
+
+<ol>
+  <li>Note the Java version number in the box above. It will be something like &quot;1.6.0_01&quot;.</li>
+  <li>Find the corresponding folder on your hard drive for the Java run time engine.<br>
+  It will be something like &quot;C:\Program&nbsp;Files\Java\jre1.6.0_01&quot;. </li>
+  <li>Download this &quot;<a href="archives/JSynV142.dll">JSynV142.dll</a>&quot; file and save it in the &quot;bin&quot; folder, for example: &quot;C:\Program&nbsp;Files\Java\jre1.6.0_01\bin\&quot;. To download the DLL right-click on the link and choose &quot;Save Target As...&quot; or &quot;Save Link As...&quot; from the popup menu. It may ask you to replace an existing file. Please do so. </li>
+  <li>If you cannot save the DLL then it is because the old one is still in use. In that case save the DLL to your desktop, exit the browser then move the DLL to the &quot;C:\Program&nbsp;Files\Java\jre_whatever\bin\&quot; folder. </li>
+  <li>Close all windows  from this web browser then restart the browser. </li>
+</ol>
+<p><b>After installation is complete, you can try some <a href="../examples/">example
+      JSyn Applets</a>.</b>
+</p>
+<p><a href="/contacts.html">Please let us know if this does not work.</a>
+<p><!--#include virtual="footer.html" -->
+</body>
+</html>

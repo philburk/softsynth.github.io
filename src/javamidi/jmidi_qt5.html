@@ -1,0 +1,59 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta http-equiv="Content-Language" content="en-us">
+   <meta name="GENERATOR" content="Mozilla/4.75 [en]C-gatewaynet  (Win98; U) [Netscape]">
+   <meta name="ProgId" content="FrontPage.Editor.Document">
+   <title>Incompatibility between javamidi and QuickTime 5</title>
+</head>
+<body>
+
+<h3>
+Incompatibility between <a href="../javamidi">javamidi</a> and QuickTime
+5</h3>
+A user found a problem installing and running QuickTime 5 after he'd had
+javamidi running for a while.&nbsp; Not only did QuickTime refuse to work,
+but so did javamidi.&nbsp; He described the problem as follows:
+<p>> >>&nbsp; Hi,
+<br>> >>&nbsp; I've been using java midi for some QTJava [QuickTime for
+Java] based art installations with
+<br>> >>&nbsp; best results. Now that I updated to QT5 yesterday, I had
+to realize the
+<br>> >>&nbsp; two obviously don't like each other - resulting in immediate
+system
+<br>> >>&nbsp; crashes (error code 5 on MacOS 9.04) soon as midiport.open()
+is called
+<br>> >>&nbsp; or QT not starting at all, when midiport is opened first.
+In case you
+<br>> >>&nbsp; are allready aware of this: is there a solution to the problem?
+Or maybe
+<br>> >>&nbsp; one to come?
+<p>Tom Erbe found a workaround, and describes it as follows:
+<p>> I just upgraded to QT 5 to check this out, and sure enough, the
+<br>> javamidi code wasn't working with QT 5. I then tried to start OMS
+<br>> Setup, and my machine froze, so I dug in a little further. Here is
+<br>> how I got things working again.
+<br>>
+<br>> 1 - Start the Quicktime Settings control panel. It needs to be run
+<br>> once before anything works. Check the Music section to make sure
+<br>> everything looks normal here.
+<br>>
+<br>> 2 - Remove all of the OMS Preferences and any Autosetups in the OMS
+<br>> Folder in the System Folder
+<br>>
+<br>> 3 - Reinstall the latest OMS (2.3.8)
+<br>>
+<br>> 4 - Restart
+<br>>
+<br>> 5 - Run OMS Setup
+<br>>
+<br>> 6 - Recompile your Java application
+<br>>
+<br>> After I did all this, my Java MIDI code worked once again. I think
+<br>> the problem is that the old OMS autosetup file conflicts with the
+new
+<br>> QT5 Music driver.
+<p>Hope this helps, if you're experiencing the same problem.
+</body>
+</html>

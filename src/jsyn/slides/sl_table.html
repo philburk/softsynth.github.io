@@ -1,0 +1,48 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.75 [en]C-gatewaynet  (Win98; U) [Netscape]">
+   <meta name="Author" content="Phil Burk">
+   <meta name="KeyWords" content="Java, audio, synthesis">
+   <title>JSyn - Tables</title>
+<link REL=STYLESHEET TYPE="text/css" HREF="styles.html">
+<!-- This is an automatically generated file.
+
+It will be read and overwritten.
+
+Do Not Edit! -->
+</head>
+<body text="#000000" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+<h1>
+JSyn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ----&nbsp;&nbsp;&nbsp;&nbsp; Java Audio
+Synthesis API</h1>
+
+<h2>
+SynthTable</h2>
+
+<ul>
+<li>
+Random access table used with TableOscillator and WaveShaper units.</li>
+
+<li>
+Contains floating point data.</li>
+
+<li>
+Create a table with guard point.</li>
+
+<pre>SynthTable myTable = new SynthTable( 256 + 1 );</pre>
+
+<li>
+Write double[] array of data to table and use table on oscillator.</li>
+
+<pre>myTable.write( data );
+myWaveOsc.tablePort.useTable( myTable );</pre>
+</ul>
+<font size=+1>&nbsp;[<a href="index.html">TOP</a>]&nbsp; [<a href="sl_create.html">PREVIOUS</a>]&nbsp;
+[<a href="sl_sample.html">NEXT</a>]</font> [<a href="../examples/tj_wavemaker.php">EXAMPLE</a>]
+<p>Visit the <a href="../">JSyn</a> or <a href="http://www.softsynth.com">SoftSynth</a>
+home pages.
+</body>
+</html>

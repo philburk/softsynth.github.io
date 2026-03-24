@@ -1,0 +1,100 @@
+Subject: [JForth-List] Code: Easy parsing CLI command line arguments
+Date: 06 Sep 98 22:11:24 -0800
+From: "Robert Dickow" <dickow@uidaho.edu>
+Reply-To: JForth-List@chaossolutions.com
+To: "JForth-List List Member" <JForth-List@mail.chaossolutions>
+
+JForthers,
+  Here's a little bit of code I often include in my programs that
+may want CLI arguments. If you don't need all the OS templates
+and complete parsing, but just need to see what the user inputs
+after the CLI command (your JForth program of course), then try
+this. It gives you two simple words to do all the magic. Enjoy!
+
+Bob
+
+***********************************************//*
+*       Bob Dickow  (dickow@uidaho.edu)     \\// *
+* Associate Professor of Horn/Theory/Composition *
+*  Lionel Hampton School of Music/Univ of Idaho  *
+*     URL:   http://www.uidaho.edu/~dickow/      *
+**************************************************
+
+\ ********************************* CUT HERE ***********************************
+\ parsecli     ( compatible with JForth 3.1, 2.0 and 1.2 also )
+\ Bob Dickow, Lionel Hampton School of Music
+\             Moscow, ID  83843
+\             (dickow@uidaho.edu)
+\
+\ A lexicon of words to parse the command line arguments a la 'C'; handy
+\ to keep in your ju: directory for including in applications.
+\
+\ User Words include    NCARG  ...returns number of CLI arguments, not
+\                                 including the program name (always 0 CARG)
+\                       CARG   ...returns, given an index(1...ncarg) on the stack,
+\                                 the addr & cnt of the string for the respective cli
+\                                 argument. 0 is the program or command
+\                                 name, 1 is the 1st argument, etc.
+\                                 N.B. In Jforth, if the program is called
+\                                 from the WB, NCarg = -1.
+\
+\ Special Note: JForth 2.0+ has a default feature to run your CLI arg
+\ as a word upon startup. This may not be compatible with the usual CLI
+\ argument usage, where you might want to use switches, etc. If you have
+\ problems, try recompiling your JForth image with one small
+\ modification: Comment out the last AUTO.INIT definition in jf:auto. That
+\ won't hurt anything at all. But, see if it works as is first.
+
+ANEW TASK-parsecli
+
+: _Cargspan  ( Addr Count -- Addr' Count' ) \ Find end of next carg
+     Swap
+     Dup
+     C@
+     ASCII "
+     = If
+       1+ Swap 1-
+       Ascii " Scan
+       1- Swap 1+ Swap
+     Else
+       Swap
+       BL
+       Scan
+     Then
+; \ End of _Cargspan
+
+: NCARG  ( -- n )    \  Number of command line arguments less prg name.
+     0 >R
+     Clicommand  Count
+     Begin
+       BL  Skip Dup
+     While
+       R> 1+ >R
+       _Cargspan
+     Repeat
+     2Drop  R>
+     1-
+; \ End of NCARG
+
+: CARG  ( n -- Addr Count )  \ Return addr & count of CLI argument string.
+     0 Clicommand Count
+     Begin
+       BL Skip
+       Dswap
+       Ddup
+       = Not
+     While
+       1+ Dswap
+       _Cargspan
+     Repeat
+     2Drop
+     Ddup
+     _Cargspan
+     Drop
+     -Rot
+     Drop
+     Dup
+     -Rot -
+;  \ End of CARG
+
+\ End of ParseCLI  lexicon.

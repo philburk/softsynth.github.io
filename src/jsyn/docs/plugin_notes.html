@@ -1,0 +1,68 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Phil Burk">
+   <meta name="GENERATOR" content="Mozilla/4.61 [en]C-AtHome0407  (Win95; U) [Netscape]">
+   <title>JSyn Installation Guide</title>
+<link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!--#include virtual="header.html" -->
+<h1>
+Notes on How InternetExplorer and Netscape Use Plugins
+</h1>
+
+Through experimentation, I have made the following observations relating
+to IE V5 and Netscape V4.61 and the use of Applets that use native code.
+<h2>
+Windows</h2>
+
+<ol>
+<li>
+Applets with native code can be made to run on IE under Windows by putting
+the classes&nbsp; in a JAR file in the CLASSPATH, and by putting the native
+JNI DLL in the PATH.</li>
+
+<li>
+Applets running in IE will call classes in a JAR file referenced in the
+CLASSPATH. But when Netscape is run, it also picks up the JAR file from
+the CLASSPATH instead of the JAR file in the Plugins directory. This can
+cause problems making it difficult to configure a system to use JSyn in
+both IE and Netscape under Windows.</li>
+
+<li>
+<b>&nbsp;</b>IE on Windows will load a Netscape Plugin if EMBEDed in a
+web page but it does not appear to call it using LiveConnect. When exiting
+the page a "plugin error" is reported in an alert. Because of this it is
+recommended to only EMBED the plugin when using Netscape by using JavaScript
+to detect the browser type.</li>
+</ol>
+
+<h2>
+Macintosh</h2>
+
+<ol>
+<li>
+Applets with native code can be made to run on IE and iCab on the Macintosh
+by putting the classes containing JDirect calls in a JAR file in the "System
+Folder:Extensions:MRJ Libraries:MRJCLasses" folder, and by putting the
+native code in the "System Folder:Extensions" folder.</li>
+
+<li>
+<b>&nbsp;</b>IE on Macintosh will fail to load the Netscape Plugin if EMBEDed
+in a web page and report an error in an alert. Because of this it is recommended
+to only EMBED the plugin when using Netscape by using JavaScript to detect
+the browser type.</li>
+
+<li>
+IE on the Macintosh will crash if it sees the JSyn plugins in the Netscape:Plug-ins
+folder! This can cause problems making it difficult to configure a system
+to use JSyn in both IE and Netscape on Macintosh.</li>
+</ol>
+<b>(C) 1999 All Rights Reserved, Phil Burk</b>
+<br>&nbsp;Link to <a href="http://www.softsynth.com/jsyn">JSyn Home Page</a>
+
+<!--#include virtual="footer.html" -->
+</body>
+</html>

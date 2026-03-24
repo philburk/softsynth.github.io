@@ -1,0 +1,36 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en] (Windows NT 5.0; U) [Netscape]">
+   <meta name="Author" content="Phil Burk">
+   <meta name="KeyWords" content="Java, audio, synthesis">
+   <title>Music and Computers - Mix Sounds</title>
+<!-- This is an automatically generated file.
+
+It will be read and overwritten.
+
+Do Not Edit! -->
+</head>
+<body text="#000000" link="#0000FF" vlink="#FF00FF" alink="#FF0000">
+
+<h1>
+Music and Computers</h1>
+
+<h2> Comb Filter with a Sample </h2>
+<p>A comb filter is a simple delay line that has part of its output fed back into its input. It is called a comb filter because the output spectrum has a bunch of notches in that look like a hair comb. </p>
+<p>.To Do: </p>
+<ol>
+<li> Wait a moment for the sample to load. It should start making a sound as soon as it loads. </li>
+
+<li> Move the delayTime fader back and forth. Notice the pitch rise and fall. How is this related to the Doppler effect?</li>
+<li>Set the delayTime to the minimum value and move the feedback to the far left and the far right until the feedback gets out of control and produces a tone. Notice that the negative feedback produces a lower tone than the positive feedback. That is because with negative feedback the signal has to travel around the loop twice before it is back to its original form. So it makes the loop seem longer, which lowers the pitch. Experiment with delayTime and feedback. </li>
+<li> Increase the delayTimeModDepth, which varies the delay time using a sine wave. At low delayTimes this is similar to a flanger effect. </li>
+</ol>
+
+
+<br><applet code="compmus.DelayLabSample.class" codebase="../classes"
+name="DelayLabSample" WIDTH="600" HEIGHT="240">
+</applet>
+</body>
+</html>

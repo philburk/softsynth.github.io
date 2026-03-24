@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.06 [en] (Win98; I) [Netscape]">
+   <TITLE>JSyn User Program</TITLE>
+</HEAD>
+<BODY>
+
+<H1>
+XY Fun</H1>
+<!-- Only EMBED Jsyn plugin for the Netscape browser. --><SCRIPT src="smart_embed_jsyn.js">
+<!-- hide this stuff from browsers that don't support JavaScript
+document.writeln("ERROR: could not find smart_embed_jsyn.js!");
+// stop hiding javaScript -->
+</SCRIPT>
+
+<P>This is a minimal example program that demonstrates how to run JSyn
+programs from a web page.
+<BR>To use this program you will need <A HREF="http://www.softsynth.com/jsyn">JSyn</A>
+V14.1 from <A HREF="http://www.softsynth.com">SoftSynth.com.</A>
+<CENTER>
+<HR><APPLET code="workshop.XYFun.class" name="XYFun" codebase="../../classes" WIDTH="474" HEIGHT="399"></APPLET>
+<HR></CENTER>
+
+<P><BR>
+</BODY>
+</HTML>

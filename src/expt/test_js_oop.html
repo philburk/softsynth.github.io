@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+
+<div id='destination'></div>
+<script language="javascript">
+
+if (typeof Object.create !== 'function') {
+    Object.create = function (o) {
+        function F() {}
+        F.prototype = o;
+        return new F();
+    };
+}
+
+function ClassA( value )
+{
+	this.value = value;
+	
+	this.prettyPrint = function()
+	{
+		return "(" + this.value + ")";
+	}
+}
+
+var a = new ClassA(75);
+var b = Object.create(a); // inherit from a
+b.value = 138;
+
+function ClassC( value )
+{
+	this = new ClassA(value);
+}
+
+var c = new ClassC(752);
+
+document.getElementById("destination").innerText = "a = " + a.prettyPrint()
+		+ ", b = " + b.prettyPrint()
+		+ ", c = " + c.prettyPrint()
+		;
+</script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.75 [en]C-gatewaynet  (Win98; U) [Netscape]">
+   <meta name="Author" content="Phil Burk">
+   <meta name="KeyWords" content="Java, audio, synthesis">
+   <title>Music and Computers - Frequency Modulation</title>
+<!-- This is an automatically generated file.
+
+It will be read and overwritten.
+
+Do Not Edit! -->
+</head>
+<body text="#000000" link="#0000FF" vlink="#FF00FF" alink="#000ED0">
+
+<h1>
+FMLab</h1>
+This applet uses&nbsp; <a href="http://www.softsynth.com/jsyn/">JSyn</a>
+from <a href="http://www.softsynth.com">SoftSynth.com</a>.
+<h2>
+FM is Frequency Modulation</h2>
+This editor uses FM to create a variety of sounds. Each row has a sine
+wave oscillator.
+<h4>
+To Do</h4>
+
+<ul>
+<li>
+Wait for separate editor window to appear.</li>
+
+<li>
+(Note: an apparent bug in Netscape cause the editor window that pops up
+to be too wide and too short. If using Netscape, you may need to resize
+the editor to be taller and less wide.)</li>
+
+<li>
+Select instruments from the menu such as "Bell" or "Clarinet". Click the
+"Play Keys" button. Play the ASCII keyboard to hear notes. (Note: a Java
+bug in <b>Macintosh</b> Java prevents one from holding down a note to sustain
+it. Use the "NoteOn" check box instead.)</li>
+
+<li>
+Select "Simple" instrument. Uncheck box labelled '1' to hear carrier with
+no modulation. Check it again to turn on modulation.</li>
+
+<li>
+Change the "index" in the second row to increase or decreas the amount
+of modulation.</li>
+
+<li>
+Change the "freqMult" in the second to change the frequency ratio. Try
+typing in a new value and hit ENTER.</li>
+</ul>
+
+<h4>
+How To</h4>
+
+<ul>
+<li>
+"<b>Hear</b>" - check this to hear the output of an oscillator.</li>
+
+<li>
+"1,2,3,4" - check one of these to request modulation by another oscillator.</li>
+
+<li>
+"<b>Sust</b>" - check this to cause the envelope to stick on the second
+point and sustain its level.</li>
+
+<li>
+"<b>Fixed</b>" - check this to use a <b>fixed frequency</b> for an oscillator.
+Otherwise the frequency will be determined by playing keys on the ASCII
+keyboard.</li>
+
+<li>
+EnvelopeEditor - move points, or add new points to shape an oscillator's
+amplitude. Shift click a point to remove it.</li>
+
+<li>
+"<b>frequency</b>" - set frequency of oscillator in Hz. ("FixedFreq" must
+be checked)</li>
+
+<li>
+"<b>freqMult</b>" - scale the frequency from the keyboard by this amount.
+("FixedFreq" must be UNchecked) Controls the "carrier:modulator ratio".</li>
+
+<li>
+"<b>depth</b>" - to scale the amount of modulation input. Normally set
+to 1.0.</li>
+
+<li>
+"<b>index</b>" - amount of modulation is "index * modulatorFrequency"</li>
+
+<li>
+"<b>amplitude(DB)</b>" - controls loudness in decibels.</li>
+</ul>
+
+<h4>
+Instrument Notes</h4>
+
+<ul>
+<li>
+<b>Bell</b> - Op#0 modulated by Op#1. Envelopes decay rapidly like a bell.
+FreqMult set to "1.4" which gives complex enharmonic spectrum.</li>
+
+<li>
+<b>Brass</b> - Uses "sustain" to hold note while key pressed. Vibrato provided
+by Op#2 has delayed start because of envelope rising late. Vibrato frequency
+set to fixed low value by checking "Fixed" box. Vibrato frequency does
+not change with key pressed.</li>
+
+<li>
+<b>Trumpet</b> - You can hear output of Ops 1,2 and 3. Ops 2 and 3 provide
+slightly detuned harmonics. Vibrato from Op#3.</li>
+
+<li>
+<b>Woozy</b> - slowly rising modulation envelope provides "wah" like sound.</li>
+</ul>
+
+<ul>
+<applet code="JSynExamples.FMLab.class" codebase="../classes"
+archive="SoftSynthTools.jar"
+name="FMLab" WIDTH="554" HEIGHT="89"></applet></ul>
+
+</body>
+</html>

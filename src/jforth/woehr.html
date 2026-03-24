@@ -1,0 +1,479 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="Author" CONTENT="Phil Burk">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.05 [en] (Win95; I) [Netscape]">
+   <TITLE>JForth Review by Jack Woehr</TITLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFC0" LINK="#0000FF" VLINK="#800080" ALINK="#FF00FF">
+
+<DL>
+<CENTER>
+<DT>
+<B><FONT SIZE=+2>JForth 2.0 Review by Jack Woehr</FONT></B></DT></CENTER>
+</DL>
+Amazing Computing V4.10, 1989
+<BR>[This document was scanned and converted using an OCR so any errors
+are the result of the conversion and not Jack's.]
+<BR>
+<HR WIDTH="100%">
+<BR>"Worth the Wait"
+<BR><B><FONT SIZE=+2>JForth Professional 2.0</FONT></B>
+
+<P>It is only fitting that the microcomputer
+<BR>world's most brilliant hardware
+<BR>creation, the Amiga, should be garlanded
+<BR>with the most powerful software systems
+<BR>available. JForth Professional from Delta
+<BR>Research of San Rafael, California fulfills
+<BR>this requirement from the perspective of
+<BR>the professional Forth programmer.
+
+<P>JForth Professional is a complete
+<BR>software development system centered
+<BR>around a state-of-the-art, full 32-bit JSR-
+<BR>threaded Forth. Forth programmers have
+<BR>always been able to point to the conven-
+<BR>ience of programming in Forth, but
+<BR>rarely have they been able to point so
+<BR>confidently to the execution speed of a
+<BR>Forth system as they can now with
+<BR>JForth. When JForth 1.0 was introduced
+<BR>in 198(j, there was no comparable Forth
+<BR>system on any popular microcomputer.
+<BR>JForth set the standard, and the Forth
+<BR>world raced to catch up.
+
+<P>JForth provides an excellent
+<BR>environment for Amiga programmers,
+<BR>from the rankest amateur to the profes-
+<BR>sional. Forth is a compiled language with
+<BR>an interpretive layer. Code may be added
+<BR>to the system simply by creating a "colon
+<BR>definition"--typing in the name of the
+<BR>routine preceded by a colon, then listing
+<BR>the "older" routines which the new
+<BR>routine is to call, and terminating the
+<BR>definition with a semicolon. Such
+<BR>definitions may be added to the system
+<BR>at any time, either by typing them in
+<BR>directly or by compiling a text file.
+
+<P>In traditional Forth systems,
+<BR>definitions are compiled into lists of
+<BR>addresses of the called routines. These in
+<BR>turn may consist of address lists and so
+<BR>on until, at some lowest level, executable
+<BR>machine code is reached. Such defini-
+<BR>tions must be "interpreted" by an "inner
+<BR>interpreter", a set of routines, themselves
+<BR>written in Forth, which understands the
+<BR>address lists.
+
+<P>This is not the case with JForth.
+<BR>Short code routines, when referenced in
+<BR>a definition, are compiled as inline code.
+<BR>CThe maximum length of words to be
+<BR>compiled inline is a programmer-settable
+<BR>option.) References to previously defined
+<BR>routines--which are called rather than
+<BR>compiled inline--are laid down as
+<BR>optimized JSR's or BSR's in a clever
+<BR>register-addressed scheme that avoids the
+<BR>use of token tables.
+
+<P>The entire body of a JForth JSR-
+<BR>threaded definition is executable MC68k
+<BR>code. Every definition ends in an RTS.
+<BR>This is the fastest executing type of Forth
+<BR>which can be implemented on a
+<BR>traditional microprocessor. For a faster
+<BR>micro Forth you would have to buy a
+<BR>Harris RTX2000, a chip designed by
+<BR>Forth author Charles Moore specifically
+<BR>to execute Forth in silicon.
+
+<P>While JForth enjoys compiler
+<BR>language execution speed, the program-
+<BR>mer never needs to sacrifice the conven-
+<BR>ience of having a fully interpretive
+<BR>language at his disposal. One obvious
+<BR>advantage of such a system is that you
+<BR>do not have to learn about making
+<BR>Amiga library calls by constant compil-
+<BR>ing, loading, and crashing. You can open
+<BR>windows, create graphic objects, and
+<BR>move things around windows while
+<BR>controlling them interpretively-without
+<BR>sacrificing compiled-code speed. You
+<BR>can even crash the system interpretively
+<BR>a great time saver over traditional
+<BR>compilers!
+
+<P>JForth comes on two disks. The
+<BR>first disk, JForth:, includes most of the
+<BR>source code in Forth for the entire
+<BR>system, many utilities, and the Amiga
+<BR>Include and FD files. The second disk,
+<BR>the Extras: disk, contains the minimal
+<BR>kernel ofJForth (neared from Assembly),
+<BR>for which the source code is not
+<BR>included, and two other JForth images
+<BR>produced by having compiled various
+<BR>assortments of the extensions and
+<BR>utilities available in source on the two
+<BR>disks.
+
+<P>The recommended precompiled
+<BR>development image of JForth is about
+<BR>161K. The Extras: disk also includes the
+<BR>system-generating code for expanding
+<BR>the kernel to a full development system
+<BR>in the Sysgen drawer. The Demos drawer
+<BR>contains many instructive and attractive
+<BR>demos with full source. The Appls
+<BR>drawer includes several intriguing and
+<BR>useful applications (including a
+<BR>wordcounter, a prettyprinter, and a very
+<BR>dumb terminal program). The Clone
+<BR>drawer contains the complete source to
+<BR>CLONE. More on CLONE in a moment.
+
+<P>A session with JForth Professional
+<BR>starts by clicking the XICON scripts on
+<BR>the distribution disks. The scripts assign
+<BR>logical device names to several of the
+<BR>JForth drawers. JForth has a full interface
+<BR>to the normal Amiga file system, and can
+<BR>call up the file from which a word in the
+<BR>JForth image was compiled and display
+<BR>the file for the programmer. JForth
+<BR>"knows" the source file locations under
+<BR>these logical device names.
+
+<P>Double clicking on another icon
+<BR>brings up JForth. System initialization
+<BR>includes setting up traps in the 680x0
+<BR>vector table so that programmer errors
+<BR>which should incarnate the Guru, such
+<BR>as odd address errors, instead evoke a
+<BR>mild JForth rebuke text. Of course, if the
+<BR>programmer is masochistic enough, he or
+<BR>she can compile the file RUDE.F, which
+<BR>generates truly shocking red-and-black
+<BR>system alerts. Dictionary hashing is also
+<BR>installed during JForth system initializa-
+<BR>tion. The JForth Professional dictionary is
+<BR>hashed for faster searches during
+<BR>compiles. Compiles are now quite a bit
+<BR>faster than in earlier versions of JForth.
+
+<P>At any time the programmer can
+<BR>execute MAP, which displays a map of
+<BR>the system as currently constituted. A
+<BR>new image with a larger dictionary space
+<BR>can be created by changing a system
+<BR>variable and executing SAVE-FORTH.
+
+<P>For those familiar with more
+<BR>common Forth systems, there are quite a
+<BR>few surprises in JForth, most of them
+<BR>quite pleasant. As mentioned above,
+<BR>JForth definition bodies consist entirely
+<BR>of executable code. A quick DUMP of
+<BR>part of the dictionary is very informative
+<BR>on this point. Typing DEF or SEE
+<BR>&lt;wordname> results in disassembly,
+<BR>rather than decompilation. However, if
+<BR>branches of the disassembled Forth word
+<BR>point to other high-level words possess-
+<BR>ing a name header, the name of the
+<BR>word branched to is printed in parenthe-
+<BR>ses next to the disassembled branch.
+
+<P>JForth Professional CLONE is an
+<BR>optimizing target compiler. This means
+<BR>that once you have perfected your
+<BR>program under JForth's normal inter-
+<BR>preter/compiler environment and you are
+<BR>satisfied with your code, you can invoke
+<BR>CLONE and produce from the compiled
+<BR>program an optimized, minimally sized
+<BR>target image suitable for commercial
+<BR>distribution. The output of CLONE is not
+<BR>a Forth system; it is your application
+<BR>program pared to the bone.
+
+<P>JForth Professional comes with the
+<BR>complete source to ODE, a congenial
+<BR>and complete object-oriented extension
+<BR>to JForth which allows the programmer
+<BR>to explore Oops! programming style
+<BR>without losing access to the underlying
+<BR>simplicity of Forth syntax. ODE has early
+<BR>and late binding, classes, methods and
+<BR>inheritance--all the tools the OOPS
+<BR>programmer has come to expect.
+
+<P>Among the 91 utilities in the
+<BR>JForth:util drawer are: floating point
+<BR>math, local variables, random numbers,
+<BR>graphics code, printer logging, multi-
+<BR>standard package (a useful item if you
+<BR>intend to port code over from other
+<BR>Forth systems), BLOCK support JForth
+<BR>uses regular Amiga text files as program
+<BR>source; BLOCK is a loadable option), and
+<BR>a JForth implementation of the routines
+<BR>contained in amiga.lib mentioned in the
+<BR>Amiga manuals.
+
+<P>JForth Professional features
+<BR>detachable precompiled modules, so you
+<BR>can use certain JForth resources without
+<BR>adding them permanently to the Forth
+<BR>dictionary. Among the modules are a set
+<BR>of Amiga Includes, an assembler and the
+<BR>disassembler. Source code for the
+<BR>modules and for the code to create new
+<BR>modules from your own code is included
+<BR>on the JForth distribution disks.
+
+<P>Incidentally, the disassembler is not
+<BR>limited to the JForth image. Nor is the
+<BR>power of words like ! (store) DUMP and
+<BR>@ (fetch) limited to the JForth image. The
+<BR>JForth programmer can wander around
+<BR>the memory like a worm, "peeking and
+<BR>poking" at will. (Watch out for collisions
+<BR>with system structures!)
+
+<P>JForth actually has two assemblers,
+<BR>one "traditional" reverse-polish Forth-
+<BR>style assembler, and one featuring
+<BR>Motorola forward syntax with local
+<BR>labels. Use the one which suits your
+<BR>needs. The Motorola syntax assembler is
+<BR>especially useful in writing code words
+<BR>or stand-alone routines such as interrupt
+<BR>handlers. The advantage of the reverse-
+<BR>polish Forth-style assembler is that one
+<BR>can resort to assembler right in the
+<BR>middle of a high-level Forth definition
+<BR>without any "magic handwaves".
+
+<P>Another gratifying feature of the
+<BR>JForth interpretive/compiler environment
+<BR>is that JForth has F-key mapping and
+<BR>command-line history and editing like
+<BR>that provided by the shell. The F-keys
+<BR>come pre-mapped to such useful words
+<BR>as INCLUDE and MAP, but this can be
+<BR>changed at any time by the programmer.
+<BR>As usual, the source for these items
+<BR>which comes precompiled in the recom-
+<BR>mended development image is included
+<BR>on the distribution disks.
+
+<P>JForth Professional comes with a
+<BR>laser-printed manual of about 300 pages
+<BR>in a three-ring binder. The various
+<BR>features of the system are described in
+<BR>detail. There is a tutorial for beginners in
+<BR>Forth, and a glossary of the JForth
+<BR>vocabulary. ODE, Amiga system calls,
+<BR>and the JForth version of C structures are
+<BR>all carefully documented.
+
+<P>JForth is the brainchild of Phil
+<BR>Burk, Brian Donovan, Mike Haas and Jim
+<BR>King. Phil and Mike recently used JForth
+<BR>and an Amiga to win $1,000.00 and the
+<BR>title of World's Fastest Programmers at
+<BR>the Realtime Programming Convention
+<BR>last November in Anaheim, CA.
+
+<P>The World's Fastest Programmer
+<BR>Contest required entrants to bring their
+<BR>own hardware and software and use it to
+<BR>program a "Mystery Gizmo" controller to
+<BR>wave a saw-blade around in the air while
+<BR>a set of LED's flashed out "THE RAIN IN
+<BR>SPAIN FALLS MAINLY IN THE PLAIN".
+<BR>With JForth and the Amiga as their
+<BR>development platform, Phil and Mike
+<BR>had the one grand in the bag in a little
+<BR>over an hour, while other programmers
+<BR>were fuming, fussing, and burning out
+<BR>the delicate stepper motors of the
+<BR>Mystery Gizno.
+
+<P>JForth Professional is alternatively
+<BR>known as JForth 2.0, the culmination of
+<BR>three years of debugging, improvements,
+<BR>extensions, and optimization of the
+<BR>original JForth 1.0. Thereby hangs the
+<BR>tale.
+
+<P>In 1986 when JForth 1.0 was first
+<BR>announced, the ads promised, among
+<BR>other things, "Optimizing Target Com-
+<BR>piler" and free upgrades for the cost of
+<BR>media and postage and handling. Early
+<BR>purchasers eventually received the
+<BR>upgrade to version 1.2, which up to now
+<BR>has been the latest commercial release of
+<BR>JForth. However, the optimizer was not
+<BR>forthcoming, so to speak. In its place
+<BR>was a Turnkey utility that stripped the
+<BR>dictionary headers from the system, thus
+<BR>manufacturing a legally distributable
+<BR>object that did not constitute a redistribu-
+<BR>tion of the underlying JForth system.
+
+<P>However, the object was not auto-
+<BR>matically optimized, and the programmer
+<BR>had to very carefully compile a minimal
+<BR>image by recompiling the system
+<BR>upwards from the kernel to achieve a
+<BR>distributable object of reasonable size.
+<BR>Furthermore, there was no way to shrink
+<BR>the kernel itself, meaning that any JForth
+<BR>program had a minimum size of about
+<BR>70K.
+
+<P>CLONE, however, is the promised
+<BR>goods, and does indeed produce objects
+<BR>as small as about 2 1/2K. However,
+<BR>much has changed with JForth other than
+<BR>CLONE, and Delta Research came to
+<BR>market with the greatly expanded JForth
+<BR>Professional system, JForth 2.0, offering
+<BR>$50.00 upgrades to registered 1.2 owners.
+
+<P>At this point, some of the earliest
+<BR>buyers who had purchased on the basis
+<BR>of the original ad (which had been long
+<BR>cancelled even before version 1.2 was
+<BR>available) contacted Phil Burk of Delta
+<BR>Research and asked why Delta should
+<BR>not keep its original commitment to a
+<BR>target compiler. Phil responded by
+<BR>offering a CLONE-only upgrade to
+<BR>registered 1.2 owners for $10.00, which
+<BR>includes the cost of media, postage and
+<BR>handling. This reviewer, who has
+<BR>followed and owned JForth since version
+<BR>1.0, is glad to see Delta honoring its early
+<BR>advertisements.
+
+<P>JForth has its quirks, some appar-
+<BR>ently rooted in the collective personality
+<BR>of the Delta team. While JForth is
+<BR>advertised as "Forth 83 Standard". This is
+<BR>an impossibility. The 1383 Standard
+<BR>(unwisely, in many opinions) defined
+<BR>Forth in terms of 16 bits. A 32-bit Forth
+<BR>cannot be 83-Standard, though it may
+<BR>resemble the standard quite closely from
+<BR>the programmer's point of view.
+
+<P>Further, philosophical differences
+<BR>between Delta and certain trends of the
+<BR>Forth 83 Standard led to some anomalies:
+<BR>NOT in JForth is a logical Boolean NOT
+<BR>instead of the bitwise NOT prescribed by
+<BR>the 83 Standard. Division is floored to
+<BR>zero (O) in JForth, instead of towards
+<BR>negative infinity, which is the 83
+<BR>Standard. The familiar division operator
+<BR>UM/MOD is missing and is replaced by
+<BR>U/ which operates in a slightly different
+<BR>manner.
+
+<P>Delta Research has not been alone
+<BR>in its conflict with the 83 Standard. The
+<BR>world's largest Forth vendor, FORTH
+<BR>Inc., has never totally reconciled itself to
+<BR>the 83 Standard. The question may soon
+<BR>be moot. The Forth language is in ANSI
+<BR>X3J14 procedure right now, and if
+<BR>anything may be gleaned from the BASIS
+<BR>documents leaking out from the commit-
+<BR>tee, the ANSI Standard Forth to emerge
+<BR>in 1990 or 13~1 will contain radical
+<BR>departures from the 83 Standard, which
+<BR>later was very heavily tilted towards 16-
+<BR>bit micros.
+
+<P>In any event, the Forth standard is
+<BR>currently undergoing revision at the ANSI
+<BR>level to deal with the problems vendors
+<BR>faced as Forth grew beyond the horizons
+<BR>envisioned by the 1383 Standards
+<BR>committee. As a rooter on the sidelines
+<BR>of the current Standardization effort, it is
+<BR>my observation that JForth substantially
+<BR>conforms to the functionality of the still-
+<BR>evolving ANSI Standard BASIS.
+
+<P>Some of the observed anomalies in
+<BR>JForth are addressed by the JForth
+<BR>loadable multi-standard package which
+<BR>allows the programmer to go back all the
+<BR>way to FIG Forth if desired, but anyone
+<BR>intending on porting code from other
+<BR>Forths should be aware that the old saw,
+<BR>"If you've seen one Forth, you've
+<BR>seen...one Forth" is not ready for
+<BR>retirement quite yet.
+
+<P>Experienced Forth programmers
+<BR>will have mixed feelings about the
+<BR>absence of local multitasking in JForth.
+<BR>Phil and Mike feel local multitasking is
+<BR>inefficient on the Amiga; they recom-
+<BR>mend using the Amiga Exec facilities for
+<BR>spawning child processes. Your corre-
+<BR>spondent favors the syntactic conven-
+<BR>ience of Forth-style local multitasking
+<BR>and hopes to prevail upon the Delta
+<BR>gang to hook up all the stubs they
+<BR>purposely left in the kernel for local
+<BR>multitasking. Those stubs include full
+<BR>implementation of local variables, and
+<BR>make it possible for the programmer to
+<BR>install local multitasking on his own! I
+<BR>may try it Real Soon Now.
+
+<P>However, not one of the quirks of
+<BR>JForth renders the system unusable or
+<BR>even difficult to use. Forth programmers
+<BR>just tend to be eccentric and opinionated
+<BR>(talk to me sometime), and the Delta
+<BR>gang is no exception!
+
+<P>Most important, I cannot envision a
+<BR>more suitable environment for program-
+<BR>mers unfamiliar with the Amiga system
+<BR>resources to pleasantly and efficiently
+<BR>explore the intricacies of the Exec-
+<BR>Intuition-AmigaDOS universe. The value
+<BR>of the interpretive layer, combined with
+<BR>the compact syntax of Forth and the
+<BR>blazing execution speed ofJForth,
+<BR>should not be taken lightly by Amigans
+<BR>nor professional Forth users.
+
+<P>Author's Info:
+<BR>Jack Woehr is a Forth programmer at
+<BR>Vesta Technology, Inc. in WheatRidge,
+<BR>CO. He is Chapter Coordinatorfor the
+<BR>Forth Interest Group, and host ofthe
+<BR>Forth Conference on the WELL&nbsp; in
+<BR>Sausalito, CA. Mr. Woehr as also Sysop of
+<BR>the RealTime Control &amp; Forth Board,
+<BR>which is part of the CFB Forth Network
+<BR>&nbsp;
+</BODY>
+</HTML>

@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.06 [en] (Win98; I) [Netscape]">
+   <META NAME="Author" CONTENT="Phil Burk">
+   <META NAME="KeyWords" CONTENT="Java, audio, synthesis">
+   <TITLE>JSyn - Signals</TITLE>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="styles.html">
+<!-- This is an automatically generated file.
+
+It will be read and overwritten.
+
+Do Not Edit! -->
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000EE" VLINK="#551A8B" ALINK="#FF0000">
+
+<H1>
+JSyn - Java Audio Synthesis</H1>
+
+<H2>
+Signal Passed Between Units</H2>
+
+<UL>
+<LI>
+Internally signals are signed (-1.0 to 1.0 ) or unsigned (0.0 to 2.0) for
+DSPs.</LI>
+
+<LI>
+Signal "type" controls conversion in set() method.</LI>
+
+<UL>
+<LI>
+SIGNAL_TYPE_RAW_SIGNED</LI>
+
+<LI>
+SIGNAL_TYPE_RAW_UNSIGNED</LI>
+
+<LI>
+SIGNAL_TYPE_HALF_LIFE</LI>
+
+<LI>
+SIGNAL_TYPE_OSC_FREQ</LI>
+
+<LI>
+SIGNAL_TYPE_SAMPLE_RATE</LI>
+
+<LI>
+SIGNAL_TYPE_SVF_FREQ</LI>
+</UL>
+
+<LI>
+Set signal type for a port on an adder that is connected to an oscillator
+frequency.</LI>
+</UL>
+
+<BLOCKQUOTE>
+<PRE>myAdder.inputB.setSignalType( Synth.SIGNAL_TYPE_OSC_FREQ );
+myAdder.inputB.set( 440.0 );</PRE>
+</BLOCKQUOTE>
+<FONT SIZE=+1>&nbsp;[<A HREF="index.html">TOP</A>]&nbsp; [<A HREF="sl_create.html">PREVIOUS</A>]&nbsp;
+[<A HREF="sl_table.html">NEXT</A>]</FONT>
+<BR>&nbsp;
+</BODY>
+</HTML>

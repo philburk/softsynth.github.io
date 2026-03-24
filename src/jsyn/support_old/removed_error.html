@@ -1,0 +1,125 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Phil Burk">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en] (Windows NT 5.0; U) [Netscape]">
+   <meta name="Description" content="Let's find the source of this bug!">
+   <meta name="KeyWords" content="The volume that was removed had open files on it.,boot,error,Gateway,Athlon">
+   <title>The volume that was removed had open files on it.</title>
+</head>
+<body>
+<script type="text/javascript"><!--
+google_ad_client = "pub-1426437777355396";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_color_border = "A8DDA0";
+google_color_bg = "EBFFED";
+google_color_link = "0000CC";
+google_color_url = "008000";
+google_color_text = "6F6F6F";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<p>
+<b>"The volume that was
+removed had open files on it. Next time please check first to see that
+the volume can really be removed."</b>
+<p>Does your Windows 98 PC sometimes crash at startup with a blue screen and that
+message? Want to know why? Lots of people have worked together, sharing
+data on a mail list, harassing manufacturers, and running tests. We now
+know&nbsp; the source of the problem. There is a bug in early versions
+of the driver for the Promise Ultra 100/66 Hard Disk Controller. There
+is also an apparent fix.
+
+<h2>
+<a NAME="Symptoms"></a>Symptoms</h2>
+Here are the original symptoms that I reported on the net when I was looking
+for a solution. Does this sound familiar? "On reboot, while displaying
+startup icons in TaskBar, Windows will show a blue screen that says "The
+volume that was removed had open files on it. Next time please check first
+to see that the volume can really be removed.". I cannot get Windows to
+reboot using CTRL-ALT-DELETE and must do a hard reset. This happens about
+half the time I reboot. The message would imply that I had pulled out a
+floppy, Zip disk, or other removable drive but no disks had been removed!"
+<p>
+Many people responded and eventually we figured it out. You can read
+the email thread <a href="http://groups.yahoo.com/group/volumebug/">here</a>.
+<h2>
+Primary Cures</h2>
+
+<h3>
+Get latest Promise Ultra 100/66 Hard Disk Controller driver from Microsoft.</h3>
+The bug seems to be caused by an old buggy version of the driver for the
+Promise Ultra 100/66 Hard Disk Controller. If you upgrade your driver,
+then you will probably fix the problem. Microsoft now has a new Promise
+driver available from their Windows Update site that seems to work. It
+also removed the delay from build 35&amp;36 drivers. Skintigh reports that
+his boot time is now 23 seconds faster! Please give it a try. If it doesn't
+work then come back here and read on. Also send us a note because as far
+as we know it is a real fix.
+<p>To try the new driver:
+<ol><b><font color="#FF0000">The Fix ---> </font>Visit the <a href="http://windowsupdate.microsoft.com/" target="_blank">Microsoft
+Windows Update</a> site and look for updates related to the Promise Driver.&nbsp;
+It may say SCSIAdapter but that's OK. It's really for IDE. Install the
+driver according to their instructions.</b></ol>
+
+<h3>
+Or get latest driver from Promise.</h3>
+If you can't find the new driver on the Microsoft site then look for it
+on the <a href="http://www.promise.com/support/support_eng.asp" target="_blank">Promise
+support site</a>. The product is the "Ultra 100" Windows Driver.
+<h2>
+Other Cures</h2>
+<b>[NOTE: There is no guarantee that any of the fixes proposed on this
+web site will work for you. They may even cause problems of their own.
+I accept no liability for anything you do to your PC. Please proceed at
+your own risk. Phil Burk]</b>
+<p>The problem in the driver seems to be timing related. So various actions
+like defragmenting your drive may change the timing of the boot-up and
+make the bug appear to go away. But it may just be lurking in the shadows.
+If something else changes the timing then the bug may reappear. The best
+cure is to replace the buggy driver.
+<p>But if that is not possible, here are some other things you can do to
+help avoid the blue screen.
+<ol>
+<li>
+Install the <a href="http://www.microsoft.com/windows98/downloads/contents/WURecommended/S%5FWUFeatured/Win98SE/" target="_blank">"Shutdown
+Supplement"</a> from Microsoft. Read more about that <a href="http://groups.yahoo.com/group/volumebug/message/1053" target="_blank">here</a>.
+It makes sure that the files are flushed properly to disk when shutting
+down.</li>
+
+<li>
+Disable the <a href="disable_stimon.html">STIMON.EXE Startup Item</a>.</li>
+
+<li>
+<a href="http://groups.yahoo.com/group/volumebug/message/1069">Run SCANDISK
+every time before shutting down.</a></li>
+</ol>
+If the above do not work for you, there <a href="removed_error_misc.html">here
+is some older information on possible cures and some research on the bug</a>.
+<p>
+<hr WIDTH="80%">
+<br>If you want to join an e-mail-list of people working on this problem,
+enter your e-mail address below. Notification of any new fixes will be
+sent to that list.
+<p><form method=GET action="http://groups.yahoo.com/subscribe/volumebug">
+<table BORDER=0 CELLSPACING=0 CELLPADDING=2 BGCOLOR="#FFFFCC" >
+<tr>
+<td ALIGN=CENTER COLSPAN="2"><b>Subscribe to volumebug mail list.</b></td>
+</tr>
+
+<tr>
+<td><input type=text name="user" value="enter email address" size=20></td>
+
+<td><input type=image border=0 alt="Click here to join volumebug"
+       name="Click here to join volumebug"        src="http://groups.yahoo.com/img/ui/join.gif"></td>
+</tr>
+</table>
+</form>
+<p>If you want to read the archives of that list, visit "<a href="http://groups.yahoo.com/group/volumebug/">http://groups.yahoo.com/group/volumebug/</a>".
+<p>This page hosted by Phil Burk of <a href="http://www.softsynth.com">SoftSynth.com</a>.
+</body>
+</html>

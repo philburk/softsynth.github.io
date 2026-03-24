@@ -1,0 +1,36 @@
+<HTML>
+ <HEAD></HEAD>
+ <BODY>
+ <H2>Test JavaScript to Java calls with variable setting and param passing.</H2>
+ <APPLET NAME="myApplet"
+	 CODEBASE="../classes"
+	 CODE="expt.TestJavaScriptCalls.class" HEIGHT=1 WIDTH=1></APPLET>
+ <FORM>
+ <SCRIPT>
+function passViaVariable()
+{
+	if (document.applets[0].isActive())
+    {
+    	document.myApplet.msg = "Passed by variable!";
+		document.myApplet.showFrame();
+	}
+}
+function passViaParameter()
+{
+	if (document.applets[0].isActive())
+    {
+ 		document.myApplet.showFrameText("Passed by parameter!");
+	}
+}
+ </SCRIPT>
+ <INPUT TYPE="button" 
+        VALUE="Start the Applet Variable" 
+        onClick="passViaVariable()" >
+ <INPUT TYPE="button" 
+        VALUE="Start the Applet parameter" 
+        onClick="passViaParameter()" >
+ <INPUT TYPE="button" 
+        VALUE="Stop the Applet" 
+        onClick="if (document.applets[0].isActive()) document.myApplet.disposeFrame()" >    
+ </FORM></BODY></HTML>
+ 

@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.05 [en] (Win95; I) [Netscape]">
+   <TITLE>JSyn Wind Example</TITLE>
+</HEAD>
+<BODY>
+
+<H1>
+Wind</H1>
+<B>How it works:</B>
+<BR>This wind noise is created by feeding white noise into a low pass filter.&nbsp;
+The cutoff frequency of the low pass filter is being modified by a slowly
+varying random ramp function.&nbsp; Change the values below to hear their
+effect on the sound. The "Stage" control is used to trigger state changes
+in a circuit. The oscilloscope gives&nbsp; you a plot of the amplitude
+of the wind circuit versus time.
+<BR>
+<!-- Only EMBED Jsyn plugin for the Netscape browser. -->
+<script src="smart_embed_jsyn.js">
+<!-- hide this stuff from browsers that don't support JavaScript
+document.writeln("ERROR: could not find smart_embed_jsyn.js!");
+// stop hiding javaScript -->
+</script><BR>
+<HR>
+
+<APPLET code="JSynExamples.TJ_Wind.class"
+  codebase="../../classes" name="TJ_Wind" WIDTH="491" HEIGHT="415"></APPLET>
+<HR>
+
+<BR>Visit the <A HREF="../">JSyn</A> or <A HREF="http://www.softsynth.com">SoftSynth</A>
+home pages.
+</BODY>
+</HTML>

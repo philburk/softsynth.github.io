@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.04 [en] (Win95; I) [Netscape]">
+   <TITLE>JSyn Evelope2 Example</TITLE>
+</HEAD>
+<BODY>
+
+<H1>
+Multi Segmented Envelope</H1>
+
+<!-- Only EMBED Jsyn plugin for the Netscape browser. -->
+<script src="smart_embed_jsyn.js">
+<!-- hide this stuff from browsers that don't support JavaScript
+document.writeln("ERROR: could not find smart_embed_jsyn.js!");
+// stop hiding javaScript -->
+</script>
+
+
+<P><B>How it works:</B>
+<BR>An envelope contains an array of {duration,value} pairs called segments.&nbsp;
+These segments describe a contour or shape that can be used to control
+other unit generators.&nbsp; In this example, the envelope is connected
+to the Amplitude of an oscillator.&nbsp; Portions of an envelope can be
+queued up for playback. Note that the Synth.FLAG_AUTO_STOP is used to stop
+the envelope execution when the last segment finishes.&nbsp; This reduces
+the CPU utilization which can be seen by clicking on the "Usage" button
+before and after the envelope finishes.
+<UL>
+<LI>
+Hit - queues the entire envelope.</LI>
+
+<LI>
+Attack - queues the initial portion of an envelope then queues the middle
+of the envelope to play in a loop.</LI>
+
+<LI>
+Release -&nbsp; queue the final portion of an envelope.</LI>
+
+<LI>
+Rate - controls the rate of envelope playback which can range from 0.0
+to 2.0.</LI>
+
+<LI>
+Frequency - controls the pitch of the oscillator.</LI>
+</UL>
+
+<HR><APPLET 
+    code=JSynExamples.TJ_Env2.class
+	codebase="../../classes"
+    name=TJ_Env2
+    width=400
+    height=300 ></APPLET>
+<HR>
+<BR>Visit the <A HREF="../">JSyn</A> or <A HREF="http://www.softsynth.com">SoftSynth</A>
+home pages.
+<BR>&nbsp;
+</BODY>
+</HTML>

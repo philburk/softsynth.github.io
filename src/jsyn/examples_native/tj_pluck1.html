@@ -1,0 +1,43 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.73 [en]C-gatewaynet  (Win98; U) [Netscape]">
+   <title>JSyn Plucked String Example</title>
+</head>
+<body>
+
+<h1>
+Plucked String</h1>
+
+
+<center>
+<p><b>Click the "Hit" button to hear the sound.</b>
+
+</center><p><b>How it works:</b>
+<br>The plucked string sound is generated using the Karplus-Strong method.
+This involves creating a short delay with feedback. In the feedback loop
+is a low pass filter. A noisy sample is injected into the delay line to
+simulate a "pluck". As the noisy data circulates around the delay line,
+the high frequencies are filtered out and the amplitude dies down. This
+is similar to what happens when a string is plucked.
+<ul>
+<li>
+PluckStrength - controls how hard string is plucked.</li>
+
+<li>
+Rate - controls sample rate of pluck sample.&nbsp; Slower rate sounds more
+like rubbed string. Does not affect pitch of string.</li>
+
+<li>
+Feedback - determines how much of the delayed sound is mixed back into
+the delay line. This determines how long it takes for the sound to decay.</li>
+</ul>
+
+<hr><applet code="JSynExamples.TJ_Pluck1.class" codebase="../../classes" name="TJ_Pluck1" WIDTH="538" HEIGHT="368"></applet>
+<hr>
+<br>Visit the <a href="../">JSyn</a> or <a href="http://www.softsynth.com">SoftSynth</a>
+home pages.
+<br>&nbsp;
+</body>
+</html>

@@ -1,0 +1,92 @@
+package com.softsynth.jsyn.circuits;
+import com.softsynth.jsyn.*;
+/**
+ * Band limited sawtooth wave table played through a
+ * state variable resonant filter.
+ *
+ * @author (C) 1997 Phil Burk, SoftSynth.com, All Rights Reserved
+ */
+
+public class FilteredSawtoothBL extends SynthNote
+{
+	public Filter_StateVariable myFilter;
+	public EnvelopePlayer      myEnv;
+	public SynthEnvelope       myEnvData; 
+	public MultiplyUnit        freqScalar;
+	public SawtoothOscillatorBL sawBL;
+	int                        numFrames;
+
+/* Declare ports. */
+	public SynthInput  cutoff;
+	public SynthInput  resonance;
+	public SynthInput  rate;
+
+/*
+ * Setup synthesis.
+ */
+	public FilteredSawtoothBL()  throws SynthException
+	{
+		this( Synth.getSharedContext() );
+	}
+	
+	public FilteredSawtoothBL( SynthContext synthContext )  throws SynthException
+	{
+		super( synthContext );
+		
+/* Create various unit generators and add them to circuit. */
+		add( myFilter = new Filter_StateVariable(synthContext) );
+		add( myEnv = new EnvelopePlayer(synthContext) );
+		add( freqScalar = new MultiplyUnit(synthContext) );
+		add( sawBL = new SawtoothOscillatorBL(synthContext) );		
+
+/* Create an envelope and fill it with recognizable data. */
+		double[] data =
+		{
+			0.1, 0.9,   /* duration,value pair for frame[0] */
+			0.1, 0.5,   /* duration,value pair for frame[1] */
+			0.5, 0.0,   /* duration,value pair for frame[2] */
+		};
+		numFrames = data.length/2;
+
+		myEnvData = new SynthEnvelope( synthContext, data );
+
+/* Connect SynthUnits to make control signal path. */
+		myEnv.output.connect( myFilter.amplitude );
+		myEnv.output.connect( freqScalar.inputA );
+		freqScalar.output.connect( myFilter.frequency );
+
+/* Connect SynthUnits to make audio signal path. */
+		sawBL.output.connect( myFilter.input );
+
+/* Make ports on internal units appear as ports on circuit. */ 
+		addPort( frequency = sawBL.frequency );
+		addPort( amplitude = sawBL.amplitude );
+		addPort( cutoff = freqScalar.inputB, "cutoff" );
+		addPort( resonance = myFilter.resonance );
+		addPort( rate = myEnv.rate );
+		addPort( output = myFilter.output );
+
+		amplitude.setup(0.0, 0.3, 1.0 );
+		frequency.setup(0.0, 160.0, 2000.0);
+		cutoff.setup(0.0, 1000.0, 4000.0);
+		resonance.setup(0.0, 0.5, 0.9 );
+		rate.set(1.0);
+	}
+
+	public void setStage( int time, int stage )  throws SynthException
+	{
+		switch( stage )
+		{
+		case 0:
+//			stop( time );
+			myEnv.envelopePort.clear( time );
+			myEnv.envelopePort.queue( time, myEnvData, 0, numFrames-1 );
+			start( time );
+			break;
+		case 1:
+/* Set AutoStop feature of envelope so that unit stops when data gone. */
+			myEnv.envelopePort.queue( time, myEnvData, numFrames-1, 1, Synth.FLAG_AUTO_STOP );
+			break;
+		}
+	}
+}

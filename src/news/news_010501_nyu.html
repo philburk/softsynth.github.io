@@ -1,0 +1,100 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Phil Burk">
+   <meta name="GENERATOR" content="Mozilla/4.75 [en]C-gatewaynet  (Win98; U) [Netscape]">
+   <title>NYU Students JSyn and JMSL Projects</title>
+<link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!--#include virtual="header.html" -->
+
+<h1>
+<font size=+2>NYU Students Develop Interactive Computer Music Pieces using
+JSyn and JMSL</font></h1>
+New York, NY, May 5, 2001
+<p>Java Music Systems is a course taught by Nick Didkovsky at NYU.&nbsp;
+Core
+<br>technologies are JSyn (realtime audio synthesis API) and JMSL
+<br>(algorithmic music framework).&nbsp; Below is a summary of final projects
+<br>created by Nick's students in the Spring 2001 semester.
+<p>Kyogu Lee designed a JMSL/JSyn application that maps incoming Midi to
+<br>Java Graphics calls, and renders various shapes as the live performer
+<br>plays.&nbsp; He also has an automatic mode where the live performer
+is
+<br>simulated through stochastic processes.&nbsp; All sound is created
+by JSyn
+<br>circuits, which include male and female formant-simulated voices.&nbsp;
+He
+<br>will be posting an applet version of the automatic performer soon.
+<p>Kellie Alexander created an application that maps typing keystrokes
+to
+<br>the frequency of a variety of JSyn circuits.&nbsp; As the user types,
+<br>melodies are generated.&nbsp; The user can capture keystrokes and see
+the
+<br>melodies scored by JMSL's JScore notation package.&nbsp; One of the
+driving
+<br>principles behind the application is to provide sonic feedback to the
+<br>typist, who is not watching the computer screen (as typists are trained
+<br>not to do).&nbsp; Words might become familiar melodies, and Kellie
+<br>conjectures that misspellings would be caught by the typist when a
+<br>word-melody sounds incorrect.
+<p>Adam Neril designed a pitch-tracking patch in Wire, which he drives
+with
+<br>his guitar.&nbsp; The sound is a looping sitar sample, whose rate is
+<br>transposed according to the detected pitch.&nbsp; An interesting twist
+to the
+<br>circuit is that Adam takes the confidence output of the pitch follower
+<br>and connects it to the amplitude port of the sample player, resulting
+in
+<br>dramatically different, often noisy behavior differentiating high,
+<br>clearly tracked notes, and low notes which are harder to track.
+<p>Won Lee sampled Korean percussion and played two drum samples using
+JSyn
+<br>sample playing circuits and JMSL MusicShapes.&nbsp; He generates variations
+<br>of one drum pattern by adding a repeatPlayable object to the MusicShape,
+<br>which occasionally calls scramble() on the MusicShape's Duration
+<br>dimension.
+<p>David Monterosso (private composition) built a beat box applet which
+<br>loads four sound samples, and plays them back with JMSL Music Shapes.
+<br>The user can add and remove the four voices from the collection that
+<br>plays the shapes, using a simple GUI.&nbsp; The applet also has a
+<br>MusicShapeEditor so that the user can change the data driving the
+<br>grooves.&nbsp; The MusicShapes provide control over the duration, playback
+<br>sampling rate, and amplitude of the varios samples.&nbsp; Visit
+<br>http://www.steelrecordings.com/java/onlinesampler.html
+<p>Rob Falotico composed a fixed piece using a variety of sources.&nbsp;
+He
+<br>designed eight JSyn circuits, most of which were driven by either voice
+<br>or guitar.&nbsp; He laid down tracks of various performances, and assembled,
+<br>edited them in multitrack digital editing software.
+<p>Christina Ho composed a fixed piece based on a reading of an ancient
+<br>Chinese poem, "Seven Steps."&nbsp; The poem was a challenge from a
+jealous
+<br>brother to his sibling, who succeeded in composing it in the time it
+<br>took him to walk seven steps.&nbsp; The poem is rich with sorrow,
+<br>helplessness, pain, and anger.&nbsp; Christina used envelope-driven
+sample
+<br>player JSyn circuits to transform the wav files of her reading of the
+<br>poem.&nbsp; Vivid invocations of the poem's imagery are heard in the
+music.
+<p>Joel Mellin (private composition)&nbsp; is engaged in an extensive project
+<br>using genetic algorithms to generate JSyn circuits.&nbsp; He evolves
+two
+<br>kinds of populations: individuals made up of unconnected JSyn units,
+and
+<br>individuals made up of connection maps.&nbsp; The latter connect the
+ports of
+<br>the units contained in the former.&nbsp; Joel intends to model the
+<br>co-evolution of populations, whose fitness is a complex result of their
+<br>interaction.&nbsp; Currently he tracks evolution of populations by
+writing a
+<br>circuit to disk in XML format, which can be loaded and inspected in
+<br>Wire.
+<p>JSyn home <a href="http://www.softsynth.com">http://www.softsynth.com</a>
+<br>JMSL home <a href="http://www.algomusic.com">http://www.algomusic.com</a>
+<br><a href="http://www.softsynth.com"></a>&nbsp;
+<!--#include virtual="footer.html" -->
+</body>
+</html>

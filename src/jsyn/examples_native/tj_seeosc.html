@@ -1,0 +1,49 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.75 [en]C-gatewaynet  (Win98; U) [Netscape]">
+   <title>JSyn SeeOsc</title>
+</head>
+<body>
+
+<h1>
+See Oscillator Waveforms</h1>
+
+
+<p><b>How it works:</b>
+<br>This examples generates many different waveforms ansd displays them
+using the oscilloscope. Uncheck Auto to stop automatic capture. Hit "Capture"
+to record and display waveforms. Select a waveform using radio buttons
+at the bottom.&nbsp; Waveforms include:
+<ul>
+<li>
+Sawtooth - Shaped like the edge of a saw. Contains all harmonics. At negative
+frequency, it slopes backwards.</li>
+
+<li>
+Sine - Single sine wave.</li>
+
+<li>
+Triangle - Looks like a sine wave but with pointy corners. Contains all
+even harmonics.</li>
+
+<li>
+Square - Alternates between -1 and +1. Contains all odd harmonics.</li>
+
+<li>
+RedNoise - Linear ramps between random values.</li>
+
+<br>Impulse - single sample spikes.</ul>
+Note that the waveforms with the "BL" suffix are band-limited. Sweep the
+frequency up and down and compare their smooth sound with the non-band-limited
+versions. Band limiting eliminates high frequency partials above the Nyquist
+rate which cause aliasing.
+<br>
+<hr><applet code="JSynExamples.TJ_SeeOsc.class" codebase="../../classes" name="TJ_SeeOsc" WIDTH="527" HEIGHT="397"></applet>
+<hr>
+<br>Visit the <a href="../">JSyn</a> or <a href="http://www.softsynth.com">SoftSynth</a>
+home pages.
+<br>&nbsp;
+</body>
+</html>

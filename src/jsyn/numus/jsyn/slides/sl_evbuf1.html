@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.06 [en] (Win98; I) [Netscape]">
+   <META NAME="Author" CONTENT="Phil Burk">
+   <META NAME="KeyWords" CONTENT="Java, audio, synthesis">
+   <TITLE>JSyn - Event Buffer Usage</TITLE>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="styles.html">
+<!-- This is an automatically generated file.
+
+It will be read and overwritten.
+
+Do Not Edit! -->
+</HEAD>
+<BODY>
+
+<H1>
+JSyn - Java Audio Synthesis</H1>
+
+<H2>
+Using the Event Buffer</H2>
+
+<UL>
+<LI>
+Java real-time operation is unpredictable.</LI>
+
+<LI>
+So time critical operations such as set(), queue(), and start() may be
+time stamped for future execution.</LI>
+
+<LI>
+Provides very precise timing and also simplifies timed sound effects.</LI>
+
+<PRE>sampler.sampleRate.setAt( startTime, 23456.7 );
+sampler.samplePort.queue( startTime, mySamp, 0, attackSize );
+sampler.start( startTime );</PRE>
+
+<LI>
+Deletion is deferred until after all references are clear from event buffer.</LI>
+
+<PRE>sampler.stop( startTime+dur );
+sampler = null;</PRE>
+</UL>
+<FONT SIZE=+1>&nbsp;[<A HREF="index.html">TOP</A>]&nbsp; [<A HREF="sl_misc.html">PREVIOUS</A>]&nbsp;
+[<A HREF="sl_evbuf2.html">NEXT</A>]</FONT>
+<BR>&nbsp;
+</BODY>
+</HTML>

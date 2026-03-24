@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.06 [en] (Win98; I) [Netscape]">
+   <META NAME="Author" CONTENT="Phil Burk">
+   <META NAME="KeyWords" CONTENT="Java, audio, synthesis">
+   <TITLE>JSyn - Event Buffer Implementation</TITLE>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="styles.html">
+<!-- This is an automatically generated file.
+
+It will be read and overwritten.
+
+Do Not Edit! -->
+</HEAD>
+<BODY>
+
+<H1>
+JSyn - Java Audio Synthesis</H1>
+
+<H2>
+Event Buffer Implementation</H2>
+
+<UL>
+<LI>
+Lists must be kept short to limit time spent on insertion sort.</LI>
+
+<LI>
+Time is hashed to spread events evenly across list headers.</LI>
+
+<PRE>i = (t^(t>>8)) &amp; 255;</PRE>
+</UL>
+<IMG SRC="evbuf.gif" HEIGHT=253 WIDTH=574>
+<BR><FONT SIZE=+1>&nbsp;[<A HREF="index.html">TOP</A>]&nbsp; [<A HREF="sl_evbuf1.html">PREVIOUS</A>]&nbsp;
+[<A HREF="sl_grains.html">NEXT</A>]</FONT>&nbsp; [<A HREF="../examples/tj_birds.html">EXAMPLE</A>]
+<BR>&nbsp;
+</BODY>
+</HTML>

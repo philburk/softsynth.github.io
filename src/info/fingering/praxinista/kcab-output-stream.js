@@ -1,0 +1,73 @@
+/*
+ * Copyright 2025 Phil Burk, Mobileer
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+ // Read float data from a stereo FIFO and write it to the output buffers.
+
+const STEREO = 2;
+
+// Define offsets in the shared int buffer for the FIFO control.
+// These must match the offsets defined in webaudio.js
+const INDEX_FRAMES_WRITTEN = 0;
+const INDEX_FRAMES_READ = 1;
+const INDEX_CAPACITY = 2;
+const INDEX_FRAMES_UNDERFLOWED = 3;
+
+class CustomOutputStream extends AudioWorkletProcessor {
+
+  constructor(options) {
+    // The super constructor call is required.
+    super(options);
+    this.sharedFloatArray = new Float32Array(options.processorOptions.floatSharedBuffer);
+    this.sharedIntArray = new Int32Array(options.processorOptions.intSharedBuffer);
+    this.capacityInFrames = Atomics.load(this.sharedIntArray, INDEX_CAPACITY);
+    this.capacityInSamples = this.capacityInFrames * STEREO;
+    this.sampleMask = this.capacityInSamples - 1;
+  }
+
+  process(inputs, outputs, parameters) {
+    const framesWritten = Atomics.load(this.sharedIntArray, INDEX_FRAMES_WRITTEN);
+    const framesRead = Atomics.load(this.sharedIntArray, INDEX_FRAMES_READ);
+    const output = outputs[0];
+    const channelCount = output.length;
+    const framesPerBurst = output[0].length;
+    const framesAvailable = (framesWritten - framesRead) & 0xFFFFFFFF;
+    const framesMissing = framesPerBurst - framesAvailable
+    if ( framesMissing > 0) {
+       Atomics.add(this.sharedIntArray, INDEX_FRAMES_UNDERFLOWED, framesMissing);
+       // console.log(`Underflow! read = ${framesRead}, written = ${framesWritten}`)
+    }
+    // Data in the float array is interleaved.
+    // We have to de-interleave it into the output buffers.
+    for (let channel = 0; channel < channelCount; ++channel) {
+      const outputChannel = output[channel];
+      let sampleOffset = (framesRead * STEREO) + channel;
+      let i = 0;
+      for (; i < framesAvailable; ++i) {
+        const readIndex = sampleOffset & this.sampleMask;
+        outputChannel[i] = this.sharedFloatArray[readIndex];
+        sampleOffset += STEREO; // stride
+      }
+      // Silence the rest of the buffer in case of an underflow.
+      for (; i < framesMissing; ++i) {
+        outputChannel[i] = 0.0;
+      }
+    }
+    Atomics.store(this.sharedIntArray, INDEX_FRAMES_READ, framesRead + framesPerBurst);
+    return true;
+  }
+}
+
+registerProcessor('output-stream', CustomOutputStream);

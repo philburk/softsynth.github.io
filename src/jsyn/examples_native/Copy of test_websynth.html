@@ -1,0 +1,102 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.05 [en] (Win95; I) [Netscape]">
+   <TITLE>Test WebSynth</TITLE>
+   
+<script language="JavaScript">
+
+// Is it a type of Netscape browser?
+var app = navigator.appName.toLowerCase();
+var is_netscape = (app.indexOf("netscape") != -1 );
+
+var sawIndex = 0;
+function loadSounds()
+{
+    if( sawIndex == 0 ) sawIndex = document.WebSynth.loadSound( "patches.AnalogVoiceA" );
+}
+function playSaw()
+{
+    loadSounds();
+    if( sawIndex > 0 )
+    {
+        var time = document.WebSynth.getTime();
+        document.WebSynth.noteOn( time, sawIndex, 400.0, 0.3 );
+        document.WebSynth.setPort( time + 0.2, sawIndex, "frequency", 500.0 );
+        document.WebSynth.noteOff( time + 0.3, sawIndex );
+        document.WebSynth.noteOn( time + 0.7, sawIndex, 600.0, 0.3 );
+        document.WebSynth.noteOff( time + 1.0, sawIndex );
+    }
+}
+function theremin_ie( width, height, amplitude )
+{
+    loadSounds();
+    if( sawIndex > 0 )
+    {
+        if( event.button > 0 )
+        {
+            var modRate = (event.offsetX * 10.0) / width;
+            document.WebSynth.setPort( sawIndex, "modRate", modRate );
+            var modDepth = 200.0 * (width - event.offsetY) / width;
+            document.WebSynth.setPort( sawIndex, "modDepth", modDepth );
+        }
+        else
+        {
+            var freq = ((event.offsetX * 1000.0) / width) + 200.0;
+            document.WebSynth.setPort( sawIndex, "frequency", freq );
+            var ampl = amplitude * (width - event.offsetY) / width;
+            document.WebSynth.setPort( sawIndex, "amplitude", ampl );
+        }
+    }
+}
+</script>
+
+</HEAD>
+<BODY>
+
+<!-- Only EMBED Jsyn plugin for the Netscape browser. -->
+<script src="smart_embed_jsyn.js">
+<!-- hide this stuff from browsers that don't support JavaScript
+document.writeln("ERROR: could not find smart_embed_jsyn.js!");
+// stop hiding javaScript -->
+</script>
+
+<P onMouseOver="playSaw();">Play it again, Sam</P>
+
+<FORM NAME="form1">
+<INPUT TYPE="TEXT" NAME="text1"><br>
+<INPUT TYPE="BUTTON" VALUE="Load Sounds" onClick="loadSounds();"><br>
+<INPUT TYPE="BUTTON" VALUE="Play Note" onClick="playSaw();">
+</FORM>
+
+<P>
+<HR><APPLET
+	CODE="com.softsynth.jsyn.websynth.WebSynth.class"
+	CODEBASE="../../classes"
+	NAME="WebSynth"
+	WIDTH="140" HEIGHT="30">
+</APPLET>
+
+<h3>Simple Web Theremin</h3><p>
+
+<pre
+onmouseover="loadSounds(); document.WebSynth.noteOn( sawIndex, 400.0, 0.5 );"
+onMouseMove="theremin_ie( 200, 300, 0.5 );"
+onmouseout="document.WebSynth.noteOff( sawIndex );">
+abcdefghijklmnopqrstuvwxyz
+abcdefghijklmnopqrstuvwxyz
+abcdefghijklmnopqrstuvwxyz
+abcdefghijklmnopqrstuvwxyz
+abcdefghijklmnopqrstuvwxyz
+abcdefghijklmnopqrstuvwxyz
+abcdefghijklmnopqrstuvwxyz
+abcdefghijklmnopqrstuvwxyz
+abcdefghijklmnopqrstuvwxyz
+</pre>
+
+<HR>
+<BR>Visit the <A HREF="../">JSyn</A> or <A HREF="http://www.softsynth.com">SoftSynth</A>
+home pages.
+<BR>&nbsp;
+</BODY>
+</HTML>

@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.06 [en] (Win98; I) [Netscape]">
+   <META NAME="Author" CONTENT="Phil Burk">
+   <META NAME="KeyWords" CONTENT="Java, audio, synthesis">
+   <TITLE>JSyn - Creating and Connecting Units</TITLE>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="styles.html">
+<!-- This is an automatically generated file.
+
+It will be read and overwritten.
+
+Do Not Edit! -->
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000EE" VLINK="#551A8B" ALINK="#FF0000">
+
+<H1>
+JSyn - Java Audio Synthesis</H1>
+
+<H2>
+Creating and Connecting Units</H2>
+
+<UL>
+<LI>
+Create a sine-wave oscillator.</LI>
+</UL>
+
+<UL>
+<PRE>SineOscillator sineUnit = new SineOscillator();</PRE>
+
+<LI>
+Connect noise output to State Variable Filter input.</LI>
+
+<PRE>noise.output.connect( filter.input );</PRE>
+
+<LI>
+Set Frequency of sine oscillator to 440.0 hertz.</LI>
+
+<PRE>sineUnit.frequency.set( 440.0 );</PRE>
+</UL>
+<FONT SIZE=+1>&nbsp;[<A HREF="index.html">TOP</A>]&nbsp; [<A HREF="sl_units.html">PREVIOUS</A>]&nbsp;
+[<A HREF="sl_signals.html">NEXT</A>]</FONT>&nbsp; [<A HREF="../examples/tj_wind.html">EXAMPLE</A>]
+<BR>&nbsp;
+</BODY>
+</HTML>

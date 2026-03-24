@@ -1,0 +1,49 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.75 [en]C-gatewaynet  (Win98; U) [Netscape]">
+   <meta name="Author" content="Phil Burk">
+   <meta name="KeyWords" content="Java, audio, synthesis">
+   <title>JSyn - Creating and Connecting Units</title>
+<link REL=STYLESHEET TYPE="text/css" HREF="styles.html">
+<!-- This is an automatically generated file.
+
+It will be read and overwritten.
+
+Do Not Edit! -->
+</head>
+<body text="#000000" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+<h1>
+JSyn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ----&nbsp;&nbsp;&nbsp;&nbsp; Java Audio
+Synthesis API</h1>
+
+<h2>
+Creating and Connecting Units</h2>
+
+<ul>
+<li>
+Create a sine-wave oscillator.</li>
+</ul>
+
+<ul>
+<pre>SineOscillator sineUnit = new SineOscillator();</pre>
+
+<li>
+Connect noise output to State Variable Filter input.</li>
+
+<pre>noise.output.connect( filter.input );</pre>
+
+<li>
+Set Frequency of sine oscillator to 440.0 hertz.</li>
+
+<pre>sineUnit.frequency.set( 440.0 );</pre>
+</ul>
+<font size=+1>[<a href="index.html">TOP</a>]&nbsp; [<a href="sl_units.html">PREVIOUS</a>]&nbsp;
+[<a href="sl_table.html">NEXT</a>]</font>
+<br>[<a href="../examples/tj_wind.php" target="_blank">EXAMPLE: Wind</a>]
+<p>Visit the <a href="../">JSyn</a> or <a href="http://www.softsynth.com">SoftSynth</a>
+home pages.
+</body>
+</html>

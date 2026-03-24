@@ -1,0 +1,44 @@
+<HTML>
+<HEAD>
+<TITLE></TITLE>
+<link href="/style.css" rel="stylesheet" type="text/css">
+</HEAD>
+<BODY>
+<!--#include virtual="header.html" -->
+<h2>Use JavaScript to Query Browser Characteristics.</h2>
+
+<pre>
+<script language="javascript">
+
+document.writeln("<br>navigator.appName     = " + navigator.appName);
+document.writeln("<br>navigator.appCodeName = " + navigator.appCodeName);
+document.writeln("<br>navigator.appVersion  = " + navigator.appVersion);
+document.writeln("<br>navigator.platform    = " + navigator.platform);
+document.writeln("<br>navigator.userAgent   = " + navigator.userAgent);
+document.writeln("<br>");
+
+var msg = (document.layers) ? "defined." : "UNdefined.";
+document.writeln("<br>document.layers is " + msg );
+
+var msg = (document.all) ? "defined." : "UNdefined.";
+document.writeln("<br>document.all is " + msg );
+
+document.writeln("<br>");
+
+if( navigator.javaEnabled() )
+{
+
+	document.writeln("<br>Java is enabled for this browser.<br>");
+}
+else
+{
+	document.writeln("<br>Warning: Java is NOT enabled. You must enable Java in your");
+	document.writeln(" browser preferences before running any JSyn Applets.<br>");
+}
+
+</script>
+
+</pre>
+<p><!--#include virtual="footer.html" -->
+</BODY>
+</HTML>

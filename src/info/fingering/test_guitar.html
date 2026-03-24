@@ -1,0 +1,34 @@
+
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en] (Windows NT 5.0; U) [Netscape]">
+   <meta name="Author" content="Phil Burk">
+   <meta name="KeyWords" content="audio synthesis, computer music, Forth, JSyn">
+   <meta name="Description" content="Test fingering.">
+   <title>For testing Only</title>
+	<link href="http://www.softsynth.com/style.css" rel="stylesheet" type="text/css">
+	<link href="https://philburk.github.io/guitar-charts/fingering.css" rel="stylesheet" type="text/css">
+	<script src="https://philburk.github.io/guitar-charts/fingering.js"></script>
+</head>
+<body>
+
+<h2>Fingering for Guitar</h2>
+<!-- <h2>Fingering for 8 String Guitar tuned GBDEGBDE</h2> -->
+<div id="instructions">
+</div>
+<div id='fingering'></div>
+<script language="javascript">
+
+	// Starting semitone for strings.
+  var guitar = [ 4, 9, 14, 19, 23, 28]; // = MidiPitch - 36, STANDARD
+//  var guitar = [ 7, 11, 14, 16, 19, 23, 26, 28]; // = MidiPitch - 36
+  var app = new FingeringApp(3, guitar );
+  var appElement = app.render();
+  document.getElementById("fingering").appendChild(appElement);
+</script>
+<h3>&copy; 2009 Mobileer Inc - All Rights Reserved. May be printed for personal use only.</h3>
+<?php include("footer.php"); ?>
+</body>
+</html>

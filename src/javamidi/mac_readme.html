@@ -1,0 +1,50 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="Author" CONTENT="Phil Burk">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.05 [en] (Win95; I) [Netscape]">
+   <TITLE>MidiPort README for Macintosh</TITLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFC0" LINK="#0000FF" VLINK="#800080" ALINK="#FF00FF">
+
+<H1>
+README for Macintosh Version of <A HREF="http://www.softsynth.com/javamidi">MidiPort</A></H1>
+Software written by Robert Marsanyi. Ported to JNI by Tom Erbe. README
+by Phil Burk.
+<H2>
+Installing and Compiling the MidiPort Software.</H2>
+
+<OL>
+<LI>
+We recommend using the latest version of <A HREF="http://developer.apple.com/java/">MRJ
+from Apple</A>.</LI>
+
+<LI>
+Place the file "MidiPort" in your "System Folder:Extensions" folder.</LI>
+
+<LI>
+Compile the "MidiPort.java" and "MidiPortException.java" file using javac.</LI>
+
+<LI>
+Place the newly created "jmidi" folder in your "System Folder:Extensions:MRJLibraries:MRJClasses"
+folder.</LI>
+</OL>
+
+<H2>
+Testing the MidiPort Software</H2>
+
+<OL>
+<LI>
+Compile the files "InputDevice.java" and "Main.java" using javac.</LI>
+
+<LI>
+Use JBindery to execute the class "Main", passing parameters:</LI>
+
+<PRE>-device 0 0</PRE>
+You should see a list of available devices printed in the message window,
+and a single note will play. You can change the numbers to target different
+input and output devices.
+<BR>&nbsp;</OL>
+
+</BODY>
+</HTML>

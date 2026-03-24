@@ -1,0 +1,138 @@
+package JSynExamples;
+import java.util.*;
+import java.awt.*;
+import java.applet.Applet;
+import com.softsynth.jsyn.*;
+import com.softsynth.jsyn.view102.*;
+import com.softsynth.jsyn.circuits.*;
+
+/**
+ * Play with an oscillator being modulated by an LFO.
+ *
+ * @author Phil Burk
+ * (C) 1997 Phil Burk
+ */
+
+public class TJ_SawFader extends Applet
+{
+	SawtoothOscillator myOsc;
+	LineOut            myOut;
+	TriangleOscillator myLFO;
+	AddUnit            mySum;
+	ExponentialLag     myLag;
+	PanUnit            myPanner;
+	Button ping;
+
+/* Can be run as either an application or as an applet. */
+    public static void main(String args[])
+	{
+		TJ_SawFader applet = new TJ_SawFader();
+		AppletFrame frame = new AppletFrame("Test Java Synthesis", applet);
+		frame.resize(600,300);
+		frame.show();
+/* Begin test after frame opened so that DirectSound will use Java window. */
+		frame.test();
+	}
+
+/*
+ * Setup synthesis.
+ */
+	public void start()
+	{
+		setLayout( new GridLayout(0,1) );
+		
+		try
+		{
+/* Start synthesis engine. */
+		Synth.startEngine( 0 );
+		
+/* Make waveform unit generators. */
+		myOsc = new SawtoothOscillator();
+		myLFO = new TriangleOscillator();
+		mySum = new AddUnit();
+		myLag = new ExponentialLag();
+		myPanner = new PanUnit();
+		myOut = new LineOut();
+
+/* LFO and Lag are added together to calculate new frequency. */
+		myLag.output.connect( mySum.inputB );
+		myLFO.output.connect( mySum.inputA );
+		mySum.output.connect( myOsc.frequency );
+/* Connect oscillator to both channels of stereo player. */
+		myOsc.output.connect( myPanner.input );
+		myPanner.output.connect( 0, myOut.input, 0 );
+		myPanner.output.connect( 1, myOut.input, 1 );
+
+/* Change port types for user friendly units. */
+		myLag.input.setSignalType( Synth.SIGNAL_TYPE_OSC_FREQ );
+		myLag.current.setSignalType( Synth.SIGNAL_TYPE_OSC_FREQ );
+		myLFO.amplitude.setSignalType( Synth.SIGNAL_TYPE_OSC_FREQ );
+
+		add( new PortFader( myOsc.amplitude, 0.5, 0.0, 0.999 ) );
+		add( new PortFader( myLFO.frequency, "ModRate", 0.2, 0.0, 20.0 ) );
+		add( new PortFader( myLFO.amplitude, "ModDepth", 400.0, 0.0, 2000.0 ) );
+		add( new PortFader( myLag.input, "CenterFreq", 200.0, 0.0, 2000.0 ) );
+		add( new PortFader( myPanner.pan,  0.0, -1.0, 1.0 ) );
+		add( new PortFader( myLag.halfLife,  0.1, 0.0, 1.0 ) );
+		add( ping = new Button("Ping") );
+
+/* Start execution of units. */
+		myOut.start();
+		myOsc.start();
+		mySum.start();
+		myLag.start();
+		myPanner.start();
+		myLFO.start();
+
+		} catch (SynthException e) {
+			SynthAlert.showError(this,e);
+		}
+
+		getParent().validate();
+		getToolkit().sync();
+	}
+	
+
+	public void stop()
+	{
+		try
+		{
+			myOsc.delete();
+			myOut.delete();
+			myLFO.delete();
+			mySum.delete();
+			myLag.delete();
+			myOsc = null;
+			myOut = null;
+			myLFO = null;
+			mySum = null;
+			myLag = null;
+			removeAll(); // remove portFaders
+/* Turn off tracing. */
+			Synth.verbosity = Synth.SILENT;
+/* Stop synthesis engine. */
+			Synth.stopEngine();
+
+		} catch (SynthException e) {
+			SynthAlert.showError(this,e);
+		}
+	}
+
+/* If the ping button is hit, set current value of Lag_Exponential high. */
+	public boolean action(Event evt, Object what)
+	{
+		try
+		{
+			if( evt.target == ping )
+			{
+					myLag.current.set( 2000.0);
+					return true;
+			}
+		} catch (SynthException e) {
+			SynthAlert.showError(this,e);
+			return true;
+		}
+		return false;
+    }
+
+}

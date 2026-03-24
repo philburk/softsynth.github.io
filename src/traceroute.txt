@@ -1,0 +1,31 @@
+#!/bin/sh
+#
+# trace - cgi to run traceroute using ISINDEX
+#
+
+TRACEROUTE=/usr/sbin/traceroute
+TOPSTUFF='Content-type: text/html
+
+<HTML>
+<HEAD>
+<TITLE>Obnosis Traceroute</TITLE>
+</HEAD>
+<BODY BGCOLOR="#000000" TEXT="#FFFFFF">
+<P ALIGN=Left>
+'
+
+if [ -x $TRACEROUTE ]; then
+	if [ $# = 0 ]; then
+		echo "$TOPSTUFF<H1>Traceroute</H1>"
+		echo "<B>To perform a traceroute from www.e-z.net, enter the desired 
+destination host.domain or IP address.  Please be patient this 
+takes a minute or two.</B><ISINDEX>"
+		echo 'The cgi script is <A HREF="http://www.obnosis.com/trace">here</A>.'
+	else
+		echo "$TOPSTUFF<H1>Traceroute Output</H1><B>FROM Obnosis TO 
+"$*".</B><P><PRE>"
+		$TRACEROUTE "$*" 2>&1
+	fi
+else
+	echo ERROR: cannot find traceroute on this system.
+fi
