@@ -338,9 +338,9 @@ footer {
         height: 100vh;
         background: var(--surface);
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         justify-content: flex-start;
-        padding: 80px 0 40px;
+        padding: 80px 40px 60px;
         gap: 0;
         z-index: 1500;
         overflow-y: auto;
@@ -371,17 +371,19 @@ footer {
         left: 0 !important;
         top: 0 !important;
         transform: none !important;
-        padding-left: 20px;
+        padding-left: 30px;
         background: transparent;
     }
-    .nav-item { width: 100%; text-align: center; }
+    .nav-item { width: 100%; text-align: left; }
     .nav-item a {
-        font-size: 1.1rem;
-        padding: 8px 20px;
+        font-size: 1.05rem;
+        padding: 4px 0;
+        font-weight: 600;
     }
     .nav-list ul .nav-item a {
-        padding: 6px 20px;
-        font-size: 1rem;
+        padding: 2px 0;
+        font-size: 0.95rem;
+        font-weight: 400;
     }
     .app-wrapper { margin: 20px; padding: 30px 20px; }
     #site-header img { height: 40px; }
