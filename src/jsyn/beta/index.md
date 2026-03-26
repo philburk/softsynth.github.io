@@ -4,7 +4,7 @@ title: "JSyn - Pure Java Beta Home"
 eleventyNavigation:
   key: "/jsyn/beta/index.md"
   title: "Beta"
-  order: 1
+  order: 7
   parent: "/jsyn/index.md"
 ---
 

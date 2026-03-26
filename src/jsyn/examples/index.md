@@ -4,7 +4,7 @@ title: "JSyn Examples"
 eleventyNavigation:
   key: "/jsyn/examples/index.md"
   title: "Examples"
-  order: 3
+  order: 2
   parent: "/jsyn/index.md"
 ---
 

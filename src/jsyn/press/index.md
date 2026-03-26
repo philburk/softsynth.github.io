@@ -4,7 +4,7 @@ title: "JSyn - Press"
 eleventyNavigation:
   key: "/jsyn/press/index.md"
   title: "Press"
-  order: 1
+  order: 6
   parent: "/jsyn/index.md"
 ---
 

@@ -4,7 +4,7 @@ title: "Squiggle"
 eleventyNavigation:
   key: "/apps/squiggle/index.md"
   title: "Squiggle"
-  order: 3
+  order: 1
   parent: "/apps/index.md"
 ---
 

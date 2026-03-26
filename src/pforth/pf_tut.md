@@ -7,37 +7,29 @@ eleventyNavigation:
   parent: "/pforth/index.md"
 ---
 
-* * *
-
-<center>&lt;h1&gt;Forth Tutorial&lt;/h1&gt;</center>
-
-* * *
-
-<center>Translations: &lt;a href="http://vision.twbbs.org/%7Eletoh/forth/pf_tuttw.html" target="_blank"&gt;Chinese&lt;/a&gt; by &lt;a href="http://vision.twbbs.org/%7Eletoh/blog/?page_id=169" target="_blank"&gt;Letoh&lt;/a&gt;</center>
+# Forth Tutorial
 
 by [Phil Burk](/philburk/) of [SoftSynth.com](/)
 
 ## Table of Contents
 
-*   [Forth Syntax](#Forth%20Syntax)
-*   [Stack Manipulation](#The%20Stack)
-*   [Arithmetic](#Arithmetic)
-*   [Defining a New Word](#Defining%20a%20New%20Word)
-*   [More Arithmetic](#More%20Arithmetic)
-
-*   [Arithmetic Overflow](#Arithmetic%20Overflow)
-*   [Convert Algebraic Expressions to Forth](#Convert%20Algebraic%20Expressions%20to%20Forth)
-
-*   [Character Input and Output](#Character%20Input%20and%20Output)
-*   [Compiling from Files](#Compiling%20from%20Files)
-*   [Variables](#Variables)
-*   [Constants](#Constants)
-*   [Logical Operators](#Logical%20Operators)
-*   [Conditionals - IF ELSE THEN CASE](#Conditionals%20-%20IF%20ELSE%20THEN%20CASE)
-*   [Loops](#Loops)
-*   [Text Input and Output](#Text%20Input%20and%20Output)
-*   [Changing Numeric Base](#Changing%20Numeric%20Base)
-*   [Answers to Problems](#Answers%20to%20Problems)
+* [Forth Syntax](#Forth%20Syntax)
+* [Stack Manipulation](#The%20Stack)
+* [Arithmetic](#Arithmetic)
+* [Defining a New Word](#Defining%20a%20New%20Word)
+* [More Arithmetic](#More%20Arithmetic)
+* [Arithmetic Overflow](#Arithmetic%20Overflow)
+* [Convert Algebraic Expressions to Forth](#Convert%20Algebraic%20Expressions%20to%20Forth)
+* [Character Input and Output](#Character%20Input%20and%20Output)
+* [Compiling from Files](#Compiling%20from%20Files)
+* [Variables](#Variables)
+* [Constants](#Constants)
+* [Logical Operators](#Logical%20Operators)
+* [Conditionals - IF ELSE THEN CASE](#Conditionals%20-%20IF%20ELSE%20THEN%20CASE)
+* [Loops](#Loops)
+* [Text Input and Output](#Text%20Input%20and%20Output)
+* [Changing Numeric Base](#Changing%20Numeric%20Base)
+* [Answers to Problems](#Answers%20to%20Problems)
 
 The intent of this tutorial is to provide a series of experiments that will introduce you to the major concepts of Forth. It is only a starting point. Feel free to deviate from the sequences I provide. A free form investigation that is based on your curiosity is probably the best way to learn any language. Forth is especially well adapted to this type of learning.
 

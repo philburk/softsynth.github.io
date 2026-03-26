@@ -4,7 +4,7 @@ title: "JSyn audio synthesis API for Java"
 eleventyNavigation:
   key: "/jsyn/index.md"
   title: "JSyn"
-  order: 1
+  order: 2
 ---
 
 # JSyn - Audio Synthesis API for Java

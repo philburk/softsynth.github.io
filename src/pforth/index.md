@@ -3,7 +3,7 @@ layout: base.njk
 eleventyNavigation:
   key: "/pforth/index.md"
   title: "pForth"
-  order: 1
+  order: 3
 ---
 
 # pForth - Portable Forth in 'C'

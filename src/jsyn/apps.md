@@ -4,7 +4,7 @@ title: "JSyn Apps"
 eleventyNavigation:
   key: "/jsyn/apps.md"
   title: "Apps"
-  order: 7
+  order: 5
   parent: "/jsyn/index.md"
 ---
 

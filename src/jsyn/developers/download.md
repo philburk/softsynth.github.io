@@ -4,8 +4,8 @@ title: "JSyn Downloads"
 eleventyNavigation:
   key: "/jsyn/developers/download.md"
   title: "Download"
-  order: 1
-  parent: "/jsyn/developers/index.md"
+  order: 3
+  parent: "/jsyn/index.md"
 ---
 
 ### License

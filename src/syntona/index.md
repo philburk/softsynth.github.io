@@ -3,7 +3,7 @@ layout: base.njk
 eleventyNavigation:
   key: "/syntona/index.md"
   title: "Syntona"
-  order: 1
+  order: 4
 ---
 
 # Syntona - Graphical Editor for JSyn
