@@ -1,5 +1,10 @@
 ---
 layout: base.njk
+title: "Music of JSyn, HMSL, etc"
+eleventyNavigation:
+  key: "/music/index.md"
+  title: "Music"
+  order: 5
 ---
 
 # "Music" and Other Sounds
