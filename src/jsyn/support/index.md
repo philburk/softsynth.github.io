@@ -2,10 +2,10 @@
 layout: base.njk
 title: "JSyn Support"
 eleventyNavigation:
-  key: "/jsyn/support/index.php"
+  key: "/jsyn/support/index.md"
   title: "Support"
   order: 6
-  parent: "/jsyn/index.php"
+  parent: "/jsyn/index.md"
 ---
 
 # JSyn Support

@@ -2,7 +2,7 @@
 layout: base.njk
 title: "Computer Music Apps"
 eleventyNavigation:
-  key: "/apps/index.php"
+  key: "/apps/index.md"
   title: "Apps"
   order: 1
 ---

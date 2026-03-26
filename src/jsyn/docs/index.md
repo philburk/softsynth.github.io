@@ -2,10 +2,10 @@
 layout: base.njk
 title: "JSyn Documentation"
 eleventyNavigation:
-  key: "/jsyn/docs/index.php"
+  key: "/jsyn/docs/index.md"
   title: "Docs"
   order: 1
-  parent: "/jsyn/index.php"
+  parent: "/jsyn/index.md"
 ---
 
 # JSyn Documentation

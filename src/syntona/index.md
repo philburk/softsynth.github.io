@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 eleventyNavigation:
-  key: "/syntona/index.php"
+  key: "/syntona/index.md"
   title: "Syntona"
   order: 1
 ---

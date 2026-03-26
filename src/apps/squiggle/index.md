@@ -2,10 +2,10 @@
 layout: base.njk
 title: "Squiggle"
 eleventyNavigation:
-  key: "/apps/squiggle/index.php"
+  key: "/apps/squiggle/index.md"
   title: "Squiggle"
   order: 3
-  parent: "/apps/index.php"
+  parent: "/apps/index.md"
 ---
 
 # Squiggle - Timbral Gesture Looping

@@ -2,10 +2,10 @@
 layout: base.njk
 title: "Relative Intonation Editor"
 eleventyNavigation:
-  key: "/apps/relint/index.php"
+  key: "/apps/relint/index.md"
   title: "RelativeIntonation"
   order: 2
-  parent: "/apps/index.php"
+  parent: "/apps/index.md"
 ---
 
 # Relative Intonation Editor

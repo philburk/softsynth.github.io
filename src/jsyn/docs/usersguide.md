@@ -2,10 +2,10 @@
 layout: base.njk
 title: "JSyn Programmers Guide"
 eleventyNavigation:
-  key: "/jsyn/docs/usersguide.php"
+  key: "/jsyn/docs/usersguide.md"
   title: "ProgrammersGuide"
   order: 4
-  parent: "/jsyn/docs/index.php"
+  parent: "/jsyn/docs/index.md"
 ---
 
 # JSyn Programmers Guide for new Pure Java API

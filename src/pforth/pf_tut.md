@@ -1,10 +1,10 @@
 ---
 layout: base.njk
 eleventyNavigation:
-  key: "/pforth/pf_tut.php"
+  key: "/pforth/pf_tut.md"
   title: "Tutorial"
   order: 3
-  parent: "/pforth/index.php"
+  parent: "/pforth/index.md"
 ---
 
 * * *

@@ -2,10 +2,10 @@
 layout: base.njk
 title: "JSyn on Android Beta"
 eleventyNavigation:
-  key: "/jsyn/beta/jsyn_on_android.php"
+  key: "/jsyn/beta/jsyn_on_android.md"
   title: "JSyn/Android"
   order: 2
-  parent: "/jsyn/beta/index.php"
+  parent: "/jsyn/beta/index.md"
 ---
 
 # JSyn On Android

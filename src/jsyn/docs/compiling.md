@@ -2,10 +2,10 @@
 layout: base.njk
 title: "JSyn Unit Generator Overview"
 eleventyNavigation:
-  key: "/jsyn/docs/compiling.php"
+  key: "/jsyn/docs/compiling.md"
   title: "Compiling"
   order: 3
-  parent: "/jsyn/docs/index.php"
+  parent: "/jsyn/docs/index.md"
 ---
 
 # How to Compile a JSyn Program

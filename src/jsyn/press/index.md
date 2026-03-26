@@ -2,10 +2,10 @@
 layout: base.njk
 title: "JSyn - Press"
 eleventyNavigation:
-  key: "/jsyn/press/index.php"
+  key: "/jsyn/press/index.md"
   title: "Press"
   order: 1
-  parent: "/jsyn/index.php"
+  parent: "/jsyn/index.md"
 ---
 
 **JSyn is an audio synthesis toolbox for Java Programmers. It allows composers, and web developers to build virtual modular synthesizers that can be used in a stand-alone applications, or in web based Java Applets.**

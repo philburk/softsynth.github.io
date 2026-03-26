@@ -2,10 +2,10 @@
 layout: base.njk
 title: "JSyn Apps"
 eleventyNavigation:
-  key: "/jsyn/apps.php"
+  key: "/jsyn/apps.md"
   title: "Apps"
   order: 7
-  parent: "/jsyn/index.php"
+  parent: "/jsyn/index.md"
 ---
 
 # Applications and Projects that Use JSyn

@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 eleventyNavigation:
-  key: "/pforth/index.php"
+  key: "/pforth/index.md"
   title: "pForth"
   order: 1
 ---

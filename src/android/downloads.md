@@ -1,10 +1,10 @@
 ---
 layout: base.njk
 eleventyNavigation:
-  key: "/android/downloads.php"
+  key: "/android/downloads.md"
   title: "Downloads"
   order: 2
-  parent: "/android/index.php"
+  parent: "/android/index.md"
 ---
 
 # Android - Audio and MIDI

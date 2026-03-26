@@ -2,10 +2,10 @@
 layout: base.njk
 title: "JSyn - History"
 eleventyNavigation:
-  key: "/jsyn/press/jsyn_history.php"
+  key: "/jsyn/press/jsyn_history.md"
   title: "History"
   order: 2
-  parent: "/jsyn/press/index.php"
+  parent: "/jsyn/press/index.md"
 ---
 
 # History of [JSyn](/jsyn/)

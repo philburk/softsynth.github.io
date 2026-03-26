@@ -2,10 +2,10 @@
 layout: base.njk
 title: "JSyn Related Events"
 eleventyNavigation:
-  key: "/jsyn/events.php"
+  key: "/jsyn/events.md"
   title: "Events"
   order: 9
-  parent: "/jsyn/index.php"
+  parent: "/jsyn/index.md"
 ---
 
 # JSyn Related Events

@@ -1,10 +1,10 @@
 ---
 layout: base.njk
 eleventyNavigation:
-  key: "/pforth/pf_ref.php"
+  key: "/pforth/pf_ref.md"
   title: "Reference"
   order: 4
-  parent: "/pforth/index.php"
+  parent: "/pforth/index.md"
 ---
 
 <center>&lt;h1&gt;&lt;hr width="100%"&gt;&lt;/h1&gt;</center>

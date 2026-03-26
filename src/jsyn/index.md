@@ -2,7 +2,7 @@
 layout: base.njk
 title: "JSyn audio synthesis API for Java"
 eleventyNavigation:
-  key: "/jsyn/index.php"
+  key: "/jsyn/index.md"
   title: "JSyn"
   order: 1
 ---

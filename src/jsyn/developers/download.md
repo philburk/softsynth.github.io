@@ -2,10 +2,10 @@
 layout: base.njk
 title: "JSyn Downloads"
 eleventyNavigation:
-  key: "/jsyn/developers/download.php"
+  key: "/jsyn/developers/download.md"
   title: "Download"
   order: 1
-  parent: "/jsyn/developers/index.php"
+  parent: "/jsyn/developers/index.md"
 ---
 
 ### License

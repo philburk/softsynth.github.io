@@ -2,10 +2,10 @@
 layout: base.njk
 title: "JSyn - Pure Java Beta Home"
 eleventyNavigation:
-  key: "/jsyn/beta/new_api_old.php"
+  key: "/jsyn/beta/new_api_old.md"
   title: "NewPureJavaAPI"
   order: 3
-  parent: "/jsyn/beta/index.php"
+  parent: "/jsyn/beta/index.md"
 ---
 
 # JSyn Beta (Old)

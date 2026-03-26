@@ -2,10 +2,10 @@
 layout: base.njk
 title: "JSyn Examples"
 eleventyNavigation:
-  key: "/jsyn/examples/index.php"
+  key: "/jsyn/examples/index.md"
   title: "Examples"
   order: 3
-  parent: "/jsyn/index.php"
+  parent: "/jsyn/index.md"
 ---
 
 ### Example JSyn Applets

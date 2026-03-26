@@ -2,10 +2,10 @@
 layout: base.njk
 title: "JSyn Unit Generator Overview"
 eleventyNavigation:
-  key: "/jsyn/docs/unitlist.php"
+  key: "/jsyn/docs/unitlist.md"
   title: "UnitGens"
   order: 6
-  parent: "/jsyn/docs/index.php"
+  parent: "/jsyn/docs/index.md"
 ---
 
 # JSyn Unit Generators by Type (Pure Java API)
