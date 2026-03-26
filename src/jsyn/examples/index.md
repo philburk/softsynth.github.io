@@ -8,7 +8,7 @@ eleventyNavigation:
   parent: "/jsyn/index.md"
 ---
 
-### Example JSyn Applets
+# JSyn Examples
 
 **Note that Java no longer is supported by the Chrome browser.** So we are using [CheerPJ](https://cheerpj.com/) to run these Applets using JavaScript and WASM! The ones marked "OK" are working as intended. The others have problems.
 

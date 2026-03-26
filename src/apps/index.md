@@ -7,7 +7,7 @@ eleventyNavigation:
   order: 1
 ---
 
-## Computer Music Apps
+# Computer Music Apps
 
 *   [Squiggle](/apps/squiggle/) - perform looping XY gestures that control timbre
 *   [Relative Intonation Editor](/apps/relint/) - compose using dynamic just intonation

@@ -3,6 +3,8 @@ layout: base.njk
 title: "SoftSynth - music and computers"
 ---
 
+# SoftSynth - music and computers
+
 SoftSynth.com is the home for various audio and music projects by Phil Burk.
 
 ## Latest News

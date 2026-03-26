@@ -3,7 +3,7 @@ layout: base.njk
 title: "SoftSynth - music and computers"
 ---
 
-## About Us
+# About Us
 
 This site is run by Phil Burk, a music and audio software developer. Developer of Android Oboe/AAudio, JSyn, pForth, HMSL, WebDrum. Contributor to MIDI 2.0. Co-founder of PortAudio.
 

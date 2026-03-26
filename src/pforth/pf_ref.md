@@ -7,11 +7,7 @@ eleventyNavigation:
   parent: "/pforth/index.md"
 ---
 
-<center>&lt;h1&gt;&lt;hr width="100%"&gt;&lt;/h1&gt;</center>
-
-<center>&lt;h1&gt;pForth Reference Manual&lt;/h1&gt;</center>
-
-<center>&lt;hr width="100%"&gt;</center>
+# pForth Reference Manual
 
 ### pForth - a Portable ANSI style Forth written in ANSI 'C'.
 
@@ -21,57 +17,46 @@ by Phil Burk with Larry Polansky, David Rosenboom. Special thanks to contributor
 
 Back to [pForth Home Page](/pforth)
 
-<center>&lt;h2&gt;LEGAL NOTICE&lt;/h2&gt;</center>
+## LEGAL NOTICE
 
 The pForth software code is dedicated to the public domain, and any third party may reproduce, distribute and modify the pForth software code or any derivative works thereof without any compensation or license. The pForth software code is provided on an "as is" basis without any warranty of any kind, including, without limitation, the implied warranties of merchantability and fitness for a particular purpose and their equivalents under the laws of any jurisdiction.
 
-* * *
-
 ## Table of Contents
 
-*   [What is pForth?](#what-is)
-*   [Compiling pForth for your System](#Compiling-pForth-System)
+* [What is pForth?](#what-is)
+* [Compiling pForth for your System](#Compiling-pForth-System)
+* [Description of Source Files](#Description-Files)
+* [Running pForth](#Running-pForth)
+* [ANSI Compliance](#ANSI-Compliance)
+* [pForth Special Features](#pForth-Features)
+* [Compiling from a File - INCLUDE](#Compiling-File)
+* [Saving Precompiled Dictionaries](#Saving-Dictionaries)
+* [Creating Turnkey Applications](#Turnkey-Apps)
+* [Recompiling Code - ANEW INCLUDE?](#Recompiling-Code)
+* [Customising Forget with \[FORGET\]](#Customising-FORGET)
+* [Smart Conditionals](#Smart-Conditionals)
+* [Development Tools](#Development-Tools)
+* [WORDS.LIKE](#WORDS.LIKE)
+* [FILE?](#FILEQ)
+* [SEE](#SEE)
+* [Single Step Trace and Debug](#single-step-trace)
+* [Conditional Compilation - \[IF\] \[ELSE\] \[THEN\]](#Conditional-Compilation)
+* [Miscellaneous Handy Words](#Miscellaneous-Words)
+* [Local Variables { foo -- }](#Local-Variables)
+* ['C' like Structures. :STRUCT](#C-Structures)
+* [Vectorred execution - DEFER](#Vectorred-Execution)
+* [Floating Point](#Floating-Point)
+* [pForth Design](#pForth-Design)
+* ['C' kernel](#C-kernel)
+* [Dictionary Structures](#Dictionary-Structures)
+* [Compiling pForth](#Compiling-pForth)
+* [Compiler Options](#Compiler-Options)
+* [Building pForth on Supported Hosts](#Building-pForth-Hosts)
+* [Compiling for Embedded Systems](#Compiling-Embedded)
+* [Linking with Custom 'C' Functions](#Link-Custom-C)
+* [Testing your Compiled pForth](#Testing-pForth)
 
-*   [Description of Source Files](#Description-Files)
 
-*   [Running pForth](#Running-pForth)
-*   [ANSI Compliance](#ANSI-Compliance)
-*   [pForth Special Features](#pForth-Features)
-
-*   [Compiling from a File - INCLUDE](#Compiling-File)
-*   [Saving Precompiled Dictionaries](#Saving-Dictionaries)
-*   [Creating Turnkey Applications](#Turnkey-Apps)
-*   [Recompiling Code - ANEW INCLUDE?](#Recompiling-Code)
-*   [Customising Forget with \[FORGET\]](#Customising-FORGET)
-*   [Smart Conditionals](#Smart-Conditionals)
-*   [Development Tools](#Development-Tools)
-
-*   [WORDS.LIKE](#WORDS.LIKE)
-*   [FILE?](#FILEQ)
-*   [SEE](#SEE)
-*   [Single Step Trace and Debug](#single-step-trace)
-
-*   [Conditional Compilation - \[IF\] \[ELSE\] \[THEN\]](#Conditional-Compilation)
-*   [Miscellaneous Handy Words](#Miscellaneous-Words)
-*   [Local Variables { foo -- }](#Local-Variables)
-*   ['C' like Structures. :STRUCT](#C-Structures)
-*   [Vectorred execution - DEFER](#Vectorred-Execution)
-*   [Floating Point](#Floating-Point)
-
-*   [pForth Design](#pForth-Design)
-
-*   ['C' kernel](#C-kernel)
-*   [Dictionary Structures](#Dictionary-Structures)
-
-*   [Compiling pForth](#Compiling-pForth)
-
-*   [Compiler Options](#Compiler-Options)
-*   [Building pForth on Supported Hosts](#Building-pForth-Hosts)
-*   [Compiling for Embedded Systems](#Compiling-Embedded)
-*   [Linking with Custom 'C' Functions](#Link-Custom-C)
-*   [Testing your Compiled pForth](#Testing-pForth)
-
-* * *
 
 ## <a name="what-is"></a>What is pForth?
 
@@ -94,8 +79,6 @@ PForth has been designed with portability as the primary design goal. As a resul
 The dictionary files that can be saved from pForth are almost host independent. They can be compiled on one processor, and then run on another processor. as long as the endian-ness is the same. In other words, dictionaries built on a PC will only work on a PC. Dictionaries built on almost any other computer will work on almost any other computer.
 
 PForth can be used to bring up minimal hardware systems that have very few system services implemented. It is possible to compile pForth for systems that only support routines to send and receive a single character. If malloc() and free() are not available, equivalent functions are available in standard 'C' code. If file I/O is not available, the dictionary can be saved as a static data array in 'C' source format on a host system. The dictionary in 'C' source form is then compiled with a custom pForth kernel to avoid having to read the dictionary from disk.
-
-* * *
 
 ## <a name="Compiling-pForth-System"></a>Compiling pForth for your System
 
