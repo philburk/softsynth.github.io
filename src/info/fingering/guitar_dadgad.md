@@ -6,7 +6,7 @@ extraHead: |
   <script src="https://philburk.github.io/guitar-charts/fingering.js"></script>
 ---
 
-## Fingering for Guitar tuned DADGAD
+### Fingering for Guitar tuned DADGAD
 
 <div id="fingering"></div>
 

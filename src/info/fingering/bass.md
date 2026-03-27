@@ -6,7 +6,7 @@ extraHead: |
   <script src="https://philburk.github.io/guitar-charts/fingering.js"></script>
 ---
 
-## Fingering for Bass Guitar
+### Fingering for Bass Guitar
 
 <div id="fingering"></div>
 

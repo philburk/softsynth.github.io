@@ -6,7 +6,7 @@ extraHead: |
   <script src="https://philburk.github.io/guitar-charts/fingering.js"></script>
 ---
 
-## Fingering for Violin
+### Fingering for Violin
 
 <div id="fingering"></div>
 
