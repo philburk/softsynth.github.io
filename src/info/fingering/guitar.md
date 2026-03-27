@@ -6,9 +6,10 @@ extraHead: |
   <script src="https://philburk.github.io/guitar-charts/fingering.js"></script>
 ---
 
-## Fingering for Guitar
+### Fingering for Guitar
 
-<div id="fingering"></div>
+<div id="fingering">
+</div>
 
 <script language="javascript">
 // Starting semitone for strings. MIDI pitch - 36
