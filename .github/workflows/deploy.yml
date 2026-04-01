@@ -34,7 +34,7 @@ jobs:
         run: npm ci
 
       - name: Build Eleventy site
-        run: npm run build -- --pathprefix=/softsynth.github.io/
+        run: npm run build -- --pathprefix=/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
