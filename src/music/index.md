@@ -29,7 +29,7 @@ Full Song
 
 <audio controls=""><source src="/music/webdrum2_nd_pb_40sec.mp3" type="audio/mpeg"> Your browser does not support the audio element.</audio>
 
-Excerpt
+Excerpt (40 seconds)
 
 ### 1992 - RelNet
 
