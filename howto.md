@@ -4,7 +4,17 @@ This file documents how to work with the modern Markdown-driven site, relying so
 
 **Important:** You should no longer use or run `convert.js`. The single source of truth is now the hand-editable `.md` files in the `src/` directory.
 
-## 1. Editing the Markdown to Add or Change Menus
+## How to Test Locally
+
+To convert the markdown and run a local web server:
+```
+cd work/softsynth.github.io
+npm start
+```
+
+Then visit the local link with your browser. The local website will update automatically when you edit a markdown file.
+
+## Editing the Markdown to Add or Change Menus
 
 Every rendered page across the site pulls its menu location and title from the YAML front-matter block at the top of its corresponding Markdown file.
 
@@ -26,7 +36,7 @@ eleventyNavigation:
 *   **`parent`**: The `key` of the parent dropdown this page belongs to (e.g. `/hmsl/` or `/jsyn/`).
 *   **`order`**: An optional integer specifying the sort priority of this item within its parent's menu.
 
-## 2. Passing Javascript and HTML Through to the Website
+## Passing Javascript and HTML Through to the Website
 
 You can inject fully interactive raw HTML or JavaScript features natively into any Markdown file. Since the Eleventy parser maps directly to the browser, anything you write inside a `.md` file that uses standard HTML syntax will render exactly as expected.
 
@@ -46,7 +56,7 @@ This is normal Markdown text describing my widget.
 This is more Markdown text following the widget.
 ```
 
-## 3. The Files Controlling the Markdown to HTML Conversion
+## The Files Controlling the Markdown to HTML Conversion
 
 The underlying mechanism that converts your Markdown string into the final nested HTML layouts is powered entirely by Eleventy (11ty) and defined by two key files:
 
