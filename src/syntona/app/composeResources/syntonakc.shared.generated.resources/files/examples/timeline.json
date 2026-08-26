@@ -15,7 +15,7 @@
       "x": 34.899994,
       "y": 636.075,
       "jacks": {},
-      "text": "Trigger various sounds and events based on a timeline.\n\nDrag triggers using the yellow circles.\n\nAdd triggers by placing the time cursor and clicking the \"+\" button.\n\nConnect the triggers using the blue jack.",
+      "text": "Trigger various sounds and events based on a timeline.\n\nDrag triggers using the yellow diamonds.\n\nAdd triggers by placing the time cursor and clicking the \"+\" button.\n\nDelete triggers by Shift+clicking on the yellow diamond.\n\nConnect the triggers using the blue jack.",
       "w": 516.73486,
       "h": 158.16162
     },
@@ -882,8 +882,8 @@
           },
           {
             "id": 10,
-            "type": "ksyn.control.p2f",
-            "name": "p2f",
+            "type": "ksyn.math.ap2f",
+            "name": "ap2f",
             "x": 97,
             "y": 24.875,
             "jacks": {
@@ -1215,10 +1215,10 @@
             "x": 219.875,
             "y": 28,
             "jacks": {
-              "period(ms)": {
-                "v": 57.98242359498067,
-                "min": 1,
-                "max": 10000
+              "rate(hz)": {
+                "v": 17.246606,
+                "min": 0.01,
+                "max": 1000
               }
             }
           },

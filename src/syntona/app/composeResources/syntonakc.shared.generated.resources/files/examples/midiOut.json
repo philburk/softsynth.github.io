@@ -1,0 +1,187 @@
+{
+  "modules": [
+    {
+      "id": 0,
+      "type": "core.input.comment",
+      "name": "comment",
+      "x": 46.9,
+      "y": 13.1,
+      "text": "The midiOut module will send voice messages to a MIDI device.\nThe device could be an external synthesizer or another MIDI capable app.\nOn Mac OS use the \"Audio MIDI Setup\" app and the \"IAC Driver\" to connect Syntona to Logic Pro or other apps.",
+      "w": 609.69824,
+      "h": 89.25
+    },
+    {
+      "id": 1,
+      "type": "music.midi.midiOut",
+      "name": "midiOut",
+      "x": 929,
+      "y": 357.9,
+      "jacks": {
+        "in": {
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        },
+        "channel": {
+          "v": 1,
+          "min": 1,
+          "max": 16,
+          "kickable": false
+        }
+      },
+      "device": "Gervill",
+      "channel": 1
+    },
+    {
+      "id": 2,
+      "type": "music.input.keyboard25",
+      "name": "keyboard25",
+      "x": 55.9,
+      "y": 190.9,
+      "jacks": {
+        "amplitude": {
+          "v": 0.8,
+          "min": 0,
+          "max": 1,
+          "kickable": false
+        },
+        "octave": {
+          "v": 5,
+          "min": 2,
+          "max": 8,
+          "kickable": false
+        }
+      },
+      "w": 733,
+      "h": 239.875
+    },
+    {
+      "id": 3,
+      "type": "core.view.showMany",
+      "name": "showMany",
+      "x": 982.1,
+      "y": 531,
+      "jacks": {
+        "in": {
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        }
+      }
+    },
+    {
+      "id": 4,
+      "type": "music.input.keyNotes",
+      "name": "keyNotes",
+      "x": 227,
+      "y": 589.9,
+      "jacks": {
+        "amplitude": {
+          "v": 0.8,
+          "min": 0,
+          "max": 1,
+          "kickable": false
+        },
+        "octave": {
+          "v": 4,
+          "min": 2,
+          "max": 8,
+          "kickable": false
+        }
+      },
+      "bottomOctaveKeys": "zsxdcvgbhnjm,",
+      "topOctaveKeys": "q2w3er5t6y7ui9o0p"
+    },
+    {
+      "id": 5,
+      "type": "music.midi.packProgram",
+      "name": "packProgram",
+      "x": 700.9,
+      "y": 504,
+      "jacks": {
+        "program": {
+          "v": 41,
+          "min": 0,
+          "max": 127,
+          "kickable": true
+        }
+      }
+    },
+    {
+      "id": 6,
+      "type": "core.input.number",
+      "name": "number",
+      "x": 488.9,
+      "y": 508,
+      "jacks": {
+        "kick": {
+          "v": 0,
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        },
+        "in": {
+          "v": 41,
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        }
+      }
+    },
+    {
+      "id": 7,
+      "type": "core.input.loadKick",
+      "name": "loadKick",
+      "x": 332.9,
+      "y": 509.9
+    }
+  ],
+  "connections": [
+    {
+      "from": 2,
+      "fromJack": "out",
+      "to": 1,
+      "toJack": "in"
+    },
+    {
+      "from": 2,
+      "fromJack": "out",
+      "to": 3,
+      "toJack": "in"
+    },
+    {
+      "from": 4,
+      "fromJack": "out",
+      "to": 3,
+      "toJack": "in"
+    },
+    {
+      "from": 4,
+      "fromJack": "out",
+      "to": 1,
+      "toJack": "in"
+    },
+    {
+      "from": 5,
+      "fromJack": "out",
+      "to": 1,
+      "toJack": "in"
+    },
+    {
+      "from": 6,
+      "fromJack": "out",
+      "to": 5,
+      "toJack": "program"
+    },
+    {
+      "from": 7,
+      "fromJack": "kick",
+      "to": 6,
+      "toJack": "kick"
+    }
+  ],
+  "windowX": 10,
+  "windowY": 10,
+  "windowWidth": 1390,
+  "windowHeight": 906.6651611328125
+}
