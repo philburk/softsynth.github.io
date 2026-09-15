@@ -1,0 +1,307 @@
+{
+  "version": "0.7.5 beta",
+  "versionCode": 458757,
+  "modules": [
+    {
+      "id": 0,
+      "type": "ksyn.analysis.zeroCrossing",
+      "name": "zeroCrossing",
+      "x": 296.9,
+      "y": 112,
+      "jacks": {
+        "in": {
+          "v": 1,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "hysteresis": {
+          "v": 0.009999999776482582,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "holdOffMs": {
+          "v": 40,
+          "min": 10,
+          "max": 1000,
+          "kickable": false,
+          "add": false
+        }
+      }
+    },
+    {
+      "id": 1,
+      "type": "core.view.flash",
+      "name": "flash",
+      "x": 172.9,
+      "y": 356.9,
+      "jacks": {
+        "flash": {
+          "v": 307.13866666666667,
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        }
+      }
+    },
+    {
+      "id": 2,
+      "type": "core.input.knob",
+      "name": "knob",
+      "x": 123,
+      "y": 178.1,
+      "jacks": {
+        "kick": {
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        },
+        "in": {
+          "v": 1,
+          "min": -1,
+          "max": 1,
+          "kickable": false
+        }
+      }
+    },
+    {
+      "id": 3,
+      "type": "ksyn.lineOut",
+      "name": "lineOut",
+      "x": 800.9,
+      "y": 74,
+      "jacks": {
+        "in0": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "in1": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        }
+      }
+    },
+    {
+      "id": 4,
+      "type": "ksyn.sources.sineOsc",
+      "name": "sineOsc",
+      "x": 551.9,
+      "y": 40,
+      "jacks": {
+        "frequency": {
+          "v": 440,
+          "min": 40,
+          "max": 8000,
+          "kickable": false,
+          "add": false
+        },
+        "amplitude": {
+          "v": 1,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        }
+      }
+    },
+    {
+      "id": 5,
+      "type": "ksyn.control.envAD",
+      "name": "envAD",
+      "x": 681.9,
+      "y": 40,
+      "jacks": {
+        "in": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "attack": {
+          "v": 0.05000000074505806,
+          "min": 0.0010000000474974513,
+          "max": 8,
+          "kickable": false,
+          "add": false
+        },
+        "decay": {
+          "v": 0.20000000298023224,
+          "min": 0.0010000000474974513,
+          "max": 8,
+          "kickable": false,
+          "add": false
+        },
+        "amplitude": {
+          "v": 1,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        }
+      }
+    },
+    {
+      "id": 6,
+      "type": "core.basic.grabTime",
+      "name": "grabTime",
+      "x": 426,
+      "y": 338.9,
+      "jacks": {
+        "in": {
+          "v": 307.13866666666667,
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        }
+      }
+    },
+    {
+      "id": 7,
+      "type": "core.view.show",
+      "name": "show",
+      "x": 539.9,
+      "y": 379.9,
+      "jacks": {
+        "in": {
+          "v": 308.023584709,
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        }
+      }
+    },
+    {
+      "id": 8,
+      "type": "core.view.show",
+      "name": "show",
+      "x": 533.9,
+      "y": 213.9,
+      "jacks": {
+        "in": {
+          "v": 307.13866666666667,
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        }
+      }
+    },
+    {
+      "id": 9,
+      "type": "core.math.-",
+      "name": "-",
+      "x": 705.9,
+      "y": 269.9,
+      "jacks": {
+        "A": {
+          "v": 308.023584709,
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        },
+        "B": {
+          "v": 307.13866666666667,
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        }
+      }
+    },
+    {
+      "id": 10,
+      "type": "core.view.show",
+      "name": "show",
+      "x": 767.9,
+      "y": 283.9,
+      "jacks": {
+        "in": {
+          "v": 0.884918042333311,
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        }
+      }
+    }
+  ],
+  "connections": [
+    {
+      "from": 0,
+      "fromJack": "trigger",
+      "to": 1,
+      "toJack": "flash"
+    },
+    {
+      "from": 2,
+      "fromJack": "out",
+      "to": 0,
+      "toJack": "in"
+    },
+    {
+      "from": 4,
+      "fromJack": "out",
+      "to": 5,
+      "toJack": "amplitude"
+    },
+    {
+      "from": 5,
+      "fromJack": "out",
+      "to": 3,
+      "toJack": "in0"
+    },
+    {
+      "from": 6,
+      "fromJack": "out",
+      "to": 7,
+      "toJack": "in"
+    },
+    {
+      "from": 0,
+      "fromJack": "out",
+      "to": 5,
+      "toJack": "in"
+    },
+    {
+      "from": 0,
+      "fromJack": "trigger",
+      "to": 9,
+      "toJack": "B"
+    },
+    {
+      "from": 0,
+      "fromJack": "trigger",
+      "to": 6,
+      "toJack": "in"
+    },
+    {
+      "from": 6,
+      "fromJack": "out",
+      "to": 9,
+      "toJack": "A"
+    },
+    {
+      "from": 9,
+      "fromJack": "out",
+      "to": 10,
+      "toJack": "in"
+    },
+    {
+      "from": 0,
+      "fromJack": "trigger",
+      "to": 8,
+      "toJack": "in"
+    }
+  ],
+  "windowX": 10,
+  "windowY": 10,
+  "windowWidth": 1024.875,
+  "windowHeight": 519
+}
