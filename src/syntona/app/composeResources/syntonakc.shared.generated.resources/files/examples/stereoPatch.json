@@ -4,66 +4,24 @@
   "modules": [
     {
       "id": 0,
-      "type": "core.input.comment",
-      "name": "comment",
-      "x": 46.9,
-      "y": 13,
-      "text": "You can pass modulation signals like vibrato into a polyPatch.\n\nTo Do:\n* Press multiple keys, eg. Q, E, T. Hear a major chord.\n* Change the frequency and amplitude of the sineOsc to hear the effect.\n* Open the polyPatch to learn how it works.",
-      "w": 471.8191,
-      "h": 194.63818
-    },
-    {
-      "id": 1,
-      "type": "music.input.keyNotes",
-      "name": "keyNotes",
-      "x": 125.9,
-      "y": 237,
-      "jacks": {
-        "amplitude": {
-          "v": 0.771926614580221,
-          "min": 0,
-          "max": 1,
-          "kickable": false
-        },
-        "offset": {
-          "v": 36,
-          "min": 0,
-          "max": 80,
-          "kickable": false,
-          "integer": true
-        }
-      },
-      "row1Keys": "12345678",
-      "row2Keys": "qwertyui",
-      "row3Keys": "asdfghjk",
-      "row4Keys": "zxcvbnm,"
-    },
-    {
-      "id": 2,
       "type": "core.polyPatch",
       "name": "polyPatch",
-      "x": 402.9,
-      "y": 258,
+      "x": 243.9,
+      "y": 256,
       "jacks": {
         "input": {
           "min": 0,
           "max": 100,
           "kickable": true
-        },
-        "vibrato": {
-          "v": 60,
-          "min": 0,
-          "max": 127,
-          "kickable": false,
-          "add": false
         }
       },
       "maxVoices": 8,
-      "windowX": 422.875,
-      "windowY": 272,
-      "windowWidth": 761.896,
-      "windowHeight": 654.80566,
-      "windowOpen": false,
+      "isStereo": true,
+      "windowX": 610.771,
+      "windowY": 134.93066,
+      "windowWidth": 916.875,
+      "windowHeight": 648,
+      "windowOpen": true,
       "patch": {
         "modules": [
           {
@@ -71,12 +29,11 @@
             "type": "core.input",
             "name": "on",
             "x": 50,
-            "y": 145,
+            "y": 60,
             "jacks": {
               "on": {
-                "v": 0,
                 "min": 0,
-                "max": 1,
+                "max": 100,
                 "kickable": false
               }
             }
@@ -86,12 +43,11 @@
             "type": "core.input",
             "name": "off",
             "x": 50,
-            "y": 215,
+            "y": 130,
             "jacks": {
               "off": {
-                "v": 0,
                 "min": 0,
-                "max": 1,
+                "max": 100,
                 "kickable": false
               }
             }
@@ -101,7 +57,7 @@
             "type": "core.input",
             "name": "pitch",
             "x": 50,
-            "y": 285,
+            "y": 200,
             "jacks": {
               "pitch": {
                 "v": 60,
@@ -116,7 +72,7 @@
             "type": "core.input",
             "name": "amplitude",
             "x": 50,
-            "y": 355,
+            "y": 270,
             "jacks": {
               "amplitude": {
                 "v": 1,
@@ -131,10 +87,9 @@
             "type": "core.input",
             "name": "pressure",
             "x": 50,
-            "y": 425,
+            "y": 340,
             "jacks": {
               "pressure": {
-                "v": 0,
                 "min": 0,
                 "max": 100,
                 "kickable": false
@@ -143,12 +98,19 @@
           },
           {
             "id": 5,
-            "type": "ksyn.output~",
+            "type": "ksyn.output2~",
             "name": "output",
-            "x": 539,
-            "y": 304,
+            "x": 697,
+            "y": 198,
             "jacks": {
-              "in": {
+              "in0": {
+                "v": 0,
+                "min": 0,
+                "max": 1,
+                "kickable": false,
+                "add": false
+              },
+              "in1": {
                 "v": 0,
                 "min": 0,
                 "max": 1,
@@ -159,10 +121,10 @@
           },
           {
             "id": 6,
-            "type": "ksyn.sources.sawOscDPW",
-            "name": "sawOscDPW",
-            "x": 288.9,
-            "y": 313.9,
+            "type": "ksyn.sources.sawOscBL",
+            "name": "sawOscBL",
+            "x": 245.9,
+            "y": 197,
             "jacks": {
               "frequency": {
                 "v": 440,
@@ -184,8 +146,8 @@
             "id": 7,
             "type": "ksyn.control.envDAHDSR",
             "name": "envDAHDSR",
-            "x": 413.9,
-            "y": 175,
+            "x": 358.9,
+            "y": 53,
             "jacks": {
               "in": {
                 "v": 0,
@@ -230,7 +192,7 @@
                 "add": false
               },
               "release": {
-                "v": 2.365713357925415,
+                "v": 1,
                 "min": 0,
                 "max": 15,
                 "kickable": false,
@@ -247,41 +209,61 @@
           },
           {
             "id": 8,
-            "type": "core.input.comment",
-            "name": "comment",
-            "x": 53.9,
-            "y": 10.1,
-            "text": "We added an aInput module to this patch then changed the name to \"vibrato\". The name does not really matter.\nWe then replaced the p2f module with an ap2f module so we could sum up the incoming pitch messages and the incoming sine signal.\nOpen the ap2f module editor and notive the \"Add?\" checkbox is set.",
-            "w": 627.75,
-            "h": 98
-          },
-          {
-            "id": 9,
             "type": "ksyn.math.pitchToHz~",
             "name": "pitchToHz~",
-            "x": 209.9,
-            "y": 283,
+            "x": 127.9,
+            "y": 166,
             "jacks": {
               "in": {
                 "v": 60,
                 "min": 0,
                 "max": 127,
                 "kickable": false,
-                "add": true
+                "add": false
+              }
+            }
+          },
+          {
+            "id": 9,
+            "type": "ksyn.effects.pan",
+            "name": "pan",
+            "x": 599.9,
+            "y": 140,
+            "jacks": {
+              "in": {
+                "v": 0,
+                "min": 0,
+                "max": 1,
+                "kickable": false,
+                "add": false
+              },
+              "pan": {
+                "v": 0,
+                "min": -1,
+                "max": 1,
+                "kickable": false,
+                "add": false
               }
             }
           },
           {
             "id": 10,
-            "type": "ksyn.input~",
-            "name": "vibrato",
-            "x": 53.9,
-            "y": 487,
+            "type": "ksyn.sources.sineOsc",
+            "name": "sineOsc",
+            "x": 395.9,
+            "y": 424,
             "jacks": {
-              "vibrato": {
-                "v": 60,
-                "min": 0,
-                "max": 127,
+              "frequency": {
+                "v": 0.6946048140525818,
+                "min": 0.10000000149011612,
+                "max": 8,
+                "kickable": false,
+                "add": false
+              },
+              "amplitude": {
+                "v": 1,
+                "min": -1,
+                "max": 1,
                 "kickable": false,
                 "add": false
               }
@@ -290,10 +272,34 @@
         ],
         "connections": [
           {
-            "from": 3,
+            "from": 6,
+            "fromJack": "out",
+            "to": 7,
+            "toJack": "amplitude"
+          },
+          {
+            "from": 8,
             "fromJack": "out",
             "to": 6,
-            "toJack": "amplitude"
+            "toJack": "frequency"
+          },
+          {
+            "from": 9,
+            "fromJack": "out0",
+            "to": 5,
+            "toJack": "in0"
+          },
+          {
+            "from": 9,
+            "fromJack": "out1",
+            "to": 5,
+            "toJack": "in1"
+          },
+          {
+            "from": 7,
+            "fromJack": "out",
+            "to": 9,
+            "toJack": "in"
           },
           {
             "from": 0,
@@ -308,44 +314,81 @@
             "toJack": "off"
           },
           {
-            "from": 7,
-            "fromJack": "out",
-            "to": 5,
-            "toJack": "in"
-          },
-          {
-            "from": 6,
-            "fromJack": "out",
-            "to": 7,
-            "toJack": "amplitude"
-          },
-          {
             "from": 2,
             "fromJack": "out",
-            "to": 9,
+            "to": 8,
             "toJack": "in"
           },
           {
-            "from": 9,
+            "from": 3,
             "fromJack": "out",
             "to": 6,
-            "toJack": "frequency"
+            "toJack": "amplitude"
           },
           {
             "from": 10,
             "fromJack": "out",
             "to": 9,
-            "toJack": "in"
+            "toJack": "pan"
           }
         ]
       }
     },
     {
-      "id": 3,
+      "id": 1,
+      "type": "music.input.keyNotes",
+      "name": "keyNotes",
+      "x": 51.9,
+      "y": 267,
+      "jacks": {
+        "amplitude": {
+          "v": 0.42335639824666155,
+          "min": 0,
+          "max": 1,
+          "kickable": false
+        },
+        "offset": {
+          "v": 36,
+          "min": 0,
+          "max": 80,
+          "kickable": false,
+          "integer": true
+        }
+      },
+      "row1Keys": "12345678",
+      "row2Keys": "qwertyui",
+      "row3Keys": "asdfghjk",
+      "row4Keys": "zxcvbnm,"
+    },
+    {
+      "id": 2,
       "type": "ksyn.lineOut",
       "name": "lineOut",
-      "x": 581.9,
-      "y": 252,
+      "x": 495,
+      "y": 162.1,
+      "jacks": {
+        "in0": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "in1": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        }
+      }
+    },
+    {
+      "id": 3,
+      "type": "ksyn.view.vu2",
+      "name": "vu2",
+      "x": 467,
+      "y": 267.9,
       "jacks": {
         "in0": {
           "v": 0,
@@ -365,145 +408,49 @@
     },
     {
       "id": 4,
-      "type": "core.input.knob",
-      "name": "knob",
-      "x": 42,
-      "y": 363.1,
-      "jacks": {
-        "kick": {
-          "min": 0,
-          "max": 100,
-          "kickable": true
-        },
-        "in": {
-          "v": 0,
-          "min": -2,
-          "max": 2,
-          "kickable": false
-        }
-      }
-    },
-    {
-      "id": 5,
-      "type": "music.midi.packBend",
-      "name": "packBend",
-      "x": 166.9,
-      "y": 382.9,
-      "jacks": {
-        "bend": {
-          "v": 0,
-          "min": -2,
-          "max": 2,
-          "kickable": true
-        },
-        "tag": {
-          "v": -1,
-          "min": -1,
-          "max": 127,
-          "kickable": false,
-          "integer": true
-        }
-      }
-    },
-    {
-      "id": 6,
-      "type": "core.view.showMany",
-      "name": "showMany",
-      "x": 483.9,
-      "y": 368,
-      "jacks": {
-        "in": {
-          "min": 0,
-          "max": 100,
-          "kickable": true
-        }
-      }
-    },
-    {
-      "id": 7,
-      "type": "ksyn.sources.sineOsc",
-      "name": "sineOsc",
-      "x": 268.9,
-      "y": 233,
-      "jacks": {
-        "frequency": {
-          "v": 2.7086868286132812,
-          "min": 0.10000000149011612,
-          "max": 8,
-          "kickable": false,
-          "add": false
-        },
-        "amplitude": {
-          "v": 0.1970534324645996,
-          "min": 0,
-          "max": 2,
-          "kickable": false,
-          "add": false
-        }
-      }
-    },
-    {
-      "id": 8,
-      "type": "core.basic.link",
-      "name": "link",
-      "x": 91.9,
-      "y": 498,
-      "filePath": "tutorials/05_polyphony/04_delayed_vibrato.json",
-      "buttonText": ">> Next, delayed vibrato"
+      "type": "core.input.comment",
+      "name": "comment",
+      "x": 46.9,
+      "y": 23,
+      "text": "When you add a polyPatch, you can select \"mono\" or \"stereo\" output. With stereo patch you can do various effects like auto-panning.",
+      "w": 413.76318,
+      "h": 144.94409
     }
   ],
   "connections": [
     {
       "from": 1,
       "fromJack": "out",
-      "to": 2,
+      "to": 0,
       "toJack": "input"
     },
     {
-      "from": 2,
-      "fromJack": "output",
+      "from": 0,
+      "fromJack": "out0",
+      "to": 2,
+      "toJack": "in0"
+    },
+    {
+      "from": 0,
+      "fromJack": "out1",
+      "to": 2,
+      "toJack": "in1"
+    },
+    {
+      "from": 0,
+      "fromJack": "out0",
       "to": 3,
       "toJack": "in0"
     },
     {
-      "from": 2,
-      "fromJack": "output",
+      "from": 0,
+      "fromJack": "out1",
       "to": 3,
       "toJack": "in1"
-    },
-    {
-      "from": 4,
-      "fromJack": "out",
-      "to": 5,
-      "toJack": "bend"
-    },
-    {
-      "from": 5,
-      "fromJack": "out",
-      "to": 2,
-      "toJack": "input"
-    },
-    {
-      "from": 1,
-      "fromJack": "out",
-      "to": 6,
-      "toJack": "in"
-    },
-    {
-      "from": 5,
-      "fromJack": "out",
-      "to": 6,
-      "toJack": "in"
-    },
-    {
-      "from": 7,
-      "fromJack": "out",
-      "to": 2,
-      "toJack": "vibrato"
     }
   ],
   "windowX": 10,
   "windowY": 10,
-  "windowWidth": 887.875,
-  "windowHeight": 638.125
+  "windowWidth": 800,
+  "windowHeight": 500
 }
