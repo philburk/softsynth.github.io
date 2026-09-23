@@ -1,0 +1,301 @@
+{
+  "version": "0.6.1 beta",
+  "versionCode": 393217,
+  "modules": [
+    {
+      "id": 0,
+      "type": "music.compose.stepper",
+      "name": "stepper",
+      "x": 507.9,
+      "y": 299,
+      "jacks": {
+        "kick": {
+          "v": 494,
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        },
+        "N": {
+          "v": 4,
+          "min": 1,
+          "max": 128,
+          "kickable": false,
+          "integer": true
+        },
+        "looping": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "integer": true
+        }
+      }
+    },
+    {
+      "id": 1,
+      "type": "music.compose.stepper",
+      "name": "stepper",
+      "x": 511.9,
+      "y": 563,
+      "jacks": {
+        "kick": {
+          "v": 494,
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        },
+        "N": {
+          "v": 4,
+          "min": 1,
+          "max": 128,
+          "kickable": false,
+          "integer": true
+        },
+        "looping": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "integer": true
+        }
+      }
+    },
+    {
+      "id": 2,
+      "type": "core.view.show",
+      "name": "show",
+      "x": 654.9,
+      "y": 372,
+      "jacks": {
+        "in": {
+          "v": 3,
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        }
+      }
+    },
+    {
+      "id": 3,
+      "type": "core.view.show",
+      "name": "show",
+      "x": 660.9,
+      "y": 622,
+      "jacks": {
+        "in": {
+          "v": 3,
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        }
+      }
+    },
+    {
+      "id": 4,
+      "type": "core.view.flash",
+      "name": "flash",
+      "x": 635.9,
+      "y": 300,
+      "jacks": {
+        "flash": {
+          "v": 3,
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        }
+      }
+    },
+    {
+      "id": 5,
+      "type": "core.view.flash",
+      "name": "flash",
+      "x": 650,
+      "y": 547.9,
+      "jacks": {
+        "flash": {
+          "v": 3,
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        }
+      }
+    },
+    {
+      "id": 6,
+      "type": "core.input.comment",
+      "name": "comment",
+      "x": 81.9,
+      "y": 43.1,
+      "text": "The stepper module lets you create series of numbers. These can be used to control sequencers.\n\nToDo:\n* There is no sound in this example.\n* Note that the stepper is not responding to the beatClock.\n* Click the \"arm\" button on the \"oneShot\" module.\n* Notice that the clock now drives the stepper.\n* Note that the top stepper fires a few time.  Then it sends a \"done\" message to the next stepper and starts the next sequence.",
+      "w": 636.875,
+      "h": 199
+    },
+    {
+      "id": 7,
+      "type": "music.compose.beatClock",
+      "name": "beatClock",
+      "x": 197.9,
+      "y": 340,
+      "jacks": {
+        "tempo": {
+          "v": 120,
+          "min": 20,
+          "max": 300,
+          "kickable": false
+        }
+      },
+      "division": "1/1"
+    },
+    {
+      "id": 8,
+      "type": "core.input.onLoad",
+      "name": "onLoad",
+      "x": 72.9,
+      "y": 358.9
+    },
+    {
+      "id": 9,
+      "type": "core.basic.oneShot",
+      "name": "oneShot",
+      "x": 350.9,
+      "y": 335.1,
+      "jacks": {
+        "in": {
+          "v": 494,
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        }
+      }
+    },
+    {
+      "id": 10,
+      "type": "core.view.flash",
+      "name": "flash",
+      "x": 368,
+      "y": 648.1,
+      "jacks": {
+        "flash": {
+          "v": 494,
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        }
+      }
+    },
+    {
+      "id": 11,
+      "type": "core.view.flash",
+      "name": "flash",
+      "x": 636.9,
+      "y": 472,
+      "jacks": {
+        "flash": {
+          "v": 1,
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        }
+      }
+    },
+    {
+      "id": 12,
+      "type": "core.view.flash",
+      "name": "flash",
+      "x": 652.9,
+      "y": 726,
+      "jacks": {
+        "flash": {
+          "v": 1,
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        }
+      }
+    }
+  ],
+  "connections": [
+    {
+      "from": 0,
+      "fromJack": "done",
+      "to": 1,
+      "toJack": "start"
+    },
+    {
+      "from": 0,
+      "fromJack": "index",
+      "to": 2,
+      "toJack": "in"
+    },
+    {
+      "from": 1,
+      "fromJack": "index",
+      "to": 3,
+      "toJack": "in"
+    },
+    {
+      "from": 0,
+      "fromJack": "index",
+      "to": 4,
+      "toJack": "flash"
+    },
+    {
+      "from": 1,
+      "fromJack": "index",
+      "to": 5,
+      "toJack": "flash"
+    },
+    {
+      "from": 7,
+      "fromJack": "out",
+      "to": 0,
+      "toJack": "kick"
+    },
+    {
+      "from": 7,
+      "fromJack": "out",
+      "to": 1,
+      "toJack": "kick"
+    },
+    {
+      "from": 8,
+      "fromJack": "kick",
+      "to": 7,
+      "toJack": "start"
+    },
+    {
+      "from": 7,
+      "fromJack": "out",
+      "to": 9,
+      "toJack": "in"
+    },
+    {
+      "from": 9,
+      "fromJack": "out",
+      "to": 0,
+      "toJack": "start"
+    },
+    {
+      "from": 7,
+      "fromJack": "out",
+      "to": 10,
+      "toJack": "flash"
+    },
+    {
+      "from": 0,
+      "fromJack": "done",
+      "to": 11,
+      "toJack": "flash"
+    },
+    {
+      "from": 1,
+      "fromJack": "done",
+      "to": 12,
+      "toJack": "flash"
+    }
+  ],
+  "windowX": 76,
+  "windowY": 76,
+  "windowWidth": 1338.37890625,
+  "windowHeight": 848.04296875
+}

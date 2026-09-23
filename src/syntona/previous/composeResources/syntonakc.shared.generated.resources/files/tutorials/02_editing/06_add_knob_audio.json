@@ -1,0 +1,168 @@
+{
+  "modules": [
+    {
+      "id": 0,
+      "type": "ksyn.sources.sineOsc",
+      "name": "sineOsc",
+      "x": 340.9,
+      "y": 207.9,
+      "jacks": {
+        "frequency": {
+          "v": 379.390869140625,
+          "min": 40,
+          "max": 8000,
+          "kickable": false,
+          "add": true
+        },
+        "amplitude": {
+          "v": 0.19263790547847748,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        }
+      }
+    },
+    {
+      "id": 1,
+      "type": "ksyn.lineOut",
+      "name": "lineOut",
+      "x": 487.9,
+      "y": 261.1,
+      "jacks": {
+        "input0": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "input1": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        }
+      }
+    },
+    {
+      "id": 2,
+      "type": "ksyn.sources.triOsc",
+      "name": "triOsc",
+      "x": 141.9,
+      "y": 139.1,
+      "jacks": {
+        "frequency": {
+          "v": 3.597822427749634,
+          "min": 0.10000000149011612,
+          "max": 10,
+          "kickable": false,
+          "add": false
+        },
+        "amplitude": {
+          "v": 185.42027282714844,
+          "min": 0,
+          "max": 500,
+          "kickable": false,
+          "add": false
+        }
+      }
+    },
+    {
+      "id": 3,
+      "type": "core.input.knob",
+      "name": "frequency",
+      "x": 32.9,
+      "y": 218,
+      "jacks": {
+        "kick": {
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        },
+        "in": {
+          "v": 379.390869140625,
+          "min": 40,
+          "max": 4000,
+          "kickable": false
+        }
+      }
+    },
+    {
+      "id": 4,
+      "type": "core.input.comment",
+      "name": "comment",
+      "x": 56.9,
+      "y": 23,
+      "text": "Double click on the \"sineOsc\" header to see the module editor. You can see that the \"Add?\" checkbox is set.  This allows the value from the frequency knob to be added to the modulation value from the triOsc.\n",
+      "w": 476.91162,
+      "h": 83.96339
+    },
+    {
+      "id": 5,
+      "type": "core.input.knob",
+      "name": "amplitude",
+      "x": 202,
+      "y": 286.1,
+      "jacks": {
+        "kick": {
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        },
+        "in": {
+          "v": 0.19263790547847748,
+          "min": 0,
+          "max": 1,
+          "kickable": false
+        }
+      }
+    },
+    {
+      "id": 6,
+      "type": "core.basic.link",
+      "name": "link",
+      "x": 371.9,
+      "y": 352,
+      "filePath": "tutorials/03_core/01_clock.json",
+      "buttonText": ">> Next, core modules"
+    }
+  ],
+  "connections": [
+    {
+      "from": 0,
+      "fromJack": "output",
+      "to": 1,
+      "toJack": "input1"
+    },
+    {
+      "from": 2,
+      "fromJack": "output",
+      "to": 0,
+      "toJack": "frequency"
+    },
+    {
+      "from": 3,
+      "fromJack": "out",
+      "to": 0,
+      "toJack": "frequency"
+    },
+    {
+      "from": 0,
+      "fromJack": "output",
+      "to": 1,
+      "toJack": "input0"
+    },
+    {
+      "from": 5,
+      "fromJack": "out",
+      "to": 0,
+      "toJack": "amplitude"
+    }
+  ],
+  "windowX": 10,
+  "windowY": 10,
+  "windowWidth": 800,
+  "windowHeight": 500
+}

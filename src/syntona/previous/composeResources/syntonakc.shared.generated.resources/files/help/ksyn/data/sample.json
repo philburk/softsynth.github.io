@@ -1,0 +1,136 @@
+{
+  "modules": [
+    {
+      "id": 0,
+      "type": "ksyn.data.sample",
+      "name": "sample",
+      "x": 120.0,
+      "y": 200.0,
+      "jacks": {}
+    },
+    {
+      "id": 1,
+      "type": "ksyn.data.sampleReader",
+      "name": "sampleReader",
+      "x": 300.0,
+      "y": 200.0,
+      "jacks": {
+        "amplitude": {
+          "v": 1.0,
+          "min": 0.0,
+          "max": 1.0,
+          "add": false
+        },
+        "rate": {
+          "v": 1.0,
+          "min": 0.0,
+          "max": 8.0,
+          "add": false
+        },
+        "offset": {
+          "v": 0.0,
+          "min": 0.0,
+          "max": 1.0,
+          "add": false
+        },
+        "durationMs": {
+          "v": 0.0,
+          "min": 0.0,
+          "max": 10000.0,
+          "add": false
+        },
+        "loop": {
+          "v": 0.0,
+          "min": 0.0,
+          "max": 1.0,
+          "add": false
+        }
+      }
+    },
+    {
+      "id": 2,
+      "type": "ksyn.lineOut",
+      "name": "lineOut",
+      "x": 550.0,
+      "y": 200.0,
+      "jacks": {
+        "input0": {
+          "v": 0.0,
+          "min": 0.0,
+          "max": 1.0,
+          "add": false
+        },
+        "input1": {
+          "v": 0.0,
+          "min": 0.0,
+          "max": 1.0,
+          "add": false
+        }
+      }
+    },
+    {
+      "id": 3,
+      "type": "core.input.comment",
+      "name": "comment",
+      "x": 68.0,
+      "y": 33.0,
+      "jacks": {},
+      "text": "A 'sample' module holds audio data in memory.\nConnect 'sample.data' to 'sampleReader.data'.\nHit 'start' on sampleReader to play the slice or loop.\nAdjust offset and durationMs (0 = full sample) to play grains or regions.\n",
+      "w": 572,
+      "h": 122
+    },
+    {
+      "id": 4,
+      "type": "ksyn.view.scope",
+      "name": "scope",
+      "x": 550.0,
+      "y": 360.0,
+      "jacks": {
+        "in0": {
+          "v": 0.0,
+          "min": 0.0,
+          "max": 1.0,
+          "add": false
+        },
+        "in1": {
+          "v": 0.0,
+          "min": 0.0,
+          "max": 1.0,
+          "add": false
+        }
+      },
+      "w": 300,
+      "h": 200
+    }
+  ],
+  "connections": [
+    {
+      "from": 0,
+      "fromJack": "data",
+      "to": 1,
+      "toJack": "data"
+    },
+    {
+      "from": 1,
+      "fromJack": "output",
+      "to": 2,
+      "toJack": "input0"
+    },
+    {
+      "from": 1,
+      "fromJack": "output",
+      "to": 2,
+      "toJack": "input1"
+    },
+    {
+      "from": 1,
+      "fromJack": "output",
+      "to": 4,
+      "toJack": "in0"
+    }
+  ],
+  "windowX": 10,
+  "windowY": 10,
+  "windowWidth": 950.0,
+  "windowHeight": 620.0
+}

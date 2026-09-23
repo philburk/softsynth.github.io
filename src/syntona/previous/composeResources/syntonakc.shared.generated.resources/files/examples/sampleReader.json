@@ -1,0 +1,210 @@
+{
+  "version": "0.7.5 beta",
+  "versionCode": 458757,
+  "modules": [
+    {
+      "id": 0,
+      "type": "ksyn.lineIn",
+      "name": "lineIn",
+      "x": 55.9,
+      "y": 239.1
+    },
+    {
+      "id": 1,
+      "type": "ksyn.sampling.recorder",
+      "name": "recorder",
+      "x": 164.9,
+      "y": 198.1,
+      "jacks": {
+        "in": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "amplitude": {
+          "v": 1,
+          "min": 0,
+          "max": 2,
+          "kickable": false,
+          "add": false
+        },
+        "latencyMs": {
+          "v": 82,
+          "min": 0,
+          "max": 1000,
+          "kickable": false
+        }
+      }
+    },
+    {
+      "id": 2,
+      "type": "ksyn.lineOut",
+      "name": "lineOut",
+      "x": 801.9,
+      "y": 205,
+      "jacks": {
+        "in0": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "in1": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        }
+      }
+    },
+    {
+      "id": 3,
+      "type": "ksyn.sampling.sampleReader",
+      "name": "sampleReader",
+      "x": 660,
+      "y": 316.1,
+      "jacks": {
+        "data": {
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        },
+        "offset": {
+          "v": 0.43113213777542114,
+          "min": 0,
+          "max": 1,
+          "kickable": true
+        },
+        "offsetSec": {
+          "v": 0,
+          "min": 0,
+          "max": 600,
+          "kickable": true
+        },
+        "durationMs": {
+          "v": 1056.1466064453125,
+          "min": 0,
+          "max": 10000,
+          "kickable": false
+        },
+        "looping": {
+          "v": 0.871808748888619,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "integer": true
+        },
+        "speed": {
+          "v": 1.1772964000701904,
+          "min": 0,
+          "max": 8,
+          "kickable": false,
+          "add": false
+        },
+        "amplitude": {
+          "v": 0.5604075193405151,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        }
+      }
+    },
+    {
+      "id": 4,
+      "type": "core.input.knob",
+      "name": "knob",
+      "x": 398.9,
+      "y": 471.9,
+      "jacks": {
+        "kick": {
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        },
+        "in": {
+          "v": 0.43113213777542114,
+          "min": 0,
+          "max": 1,
+          "kickable": false
+        }
+      }
+    },
+    {
+      "id": 5,
+      "type": "core.input.knob",
+      "name": "knob",
+      "x": 521.9,
+      "y": 539,
+      "jacks": {
+        "kick": {
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        },
+        "in": {
+          "v": 1056.1466064453125,
+          "min": 0,
+          "max": 10000,
+          "kickable": false
+        }
+      }
+    },
+    {
+      "id": 6,
+      "type": "core.input.comment",
+      "name": "comment",
+      "x": 41.9,
+      "y": 14.1,
+      "text": "The sampleReader can read arbitrary parts of a sample.\n\nToDo:\n* Press \"record\" on the recorder and immediately start talking for 5-10 seconds.\n* Press \"pause\" immediately when you are done.\n* Press \"start\" on the sampleReader.\n* Move the knobs to loop over parts of your recording.",
+      "w": 711.125,
+      "h": 140
+    }
+  ],
+  "connections": [
+    {
+      "from": 0,
+      "fromJack": "out0",
+      "to": 1,
+      "toJack": "in"
+    },
+    {
+      "from": 1,
+      "fromJack": "out",
+      "to": 2,
+      "toJack": "in0"
+    },
+    {
+      "from": 1,
+      "fromJack": "data",
+      "to": 3,
+      "toJack": "data"
+    },
+    {
+      "from": 3,
+      "fromJack": "out",
+      "to": 2,
+      "toJack": "in1"
+    },
+    {
+      "from": 4,
+      "fromJack": "out",
+      "to": 3,
+      "toJack": "offset"
+    },
+    {
+      "from": 5,
+      "fromJack": "out",
+      "to": 3,
+      "toJack": "durationMs"
+    }
+  ],
+  "windowX": 10,
+  "windowY": 10,
+  "windowWidth": 1146.9697265625,
+  "windowHeight": 764.8787231445312
+}

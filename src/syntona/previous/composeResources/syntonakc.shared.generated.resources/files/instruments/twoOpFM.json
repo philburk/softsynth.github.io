@@ -1,0 +1,500 @@
+{
+  "version": "0.7.0 beta",
+  "versionCode": 458752,
+  "type": "core.polyPatch",
+  "maxVoices": 6,
+  "windowX": 38,
+  "windowY": 38,
+  "windowWidth": 984.875,
+  "windowHeight": 660,
+  "patch": {
+    "modules": [
+      {
+        "id": 0,
+        "type": "core.input",
+        "name": "on",
+        "x": 50,
+        "y": 60,
+        "jacks": {
+          "on": {
+            "v": 0,
+            "min": 0,
+            "max": 100,
+            "kickable": false
+          }
+        }
+      },
+      {
+        "id": 1,
+        "type": "core.input",
+        "name": "off",
+        "x": 50,
+        "y": 130,
+        "jacks": {
+          "off": {
+            "v": 0,
+            "min": 0,
+            "max": 100,
+            "kickable": false
+          }
+        }
+      },
+      {
+        "id": 2,
+        "type": "core.input",
+        "name": "pitch",
+        "x": 50,
+        "y": 200,
+        "jacks": {
+          "pitch": {
+            "v": 0,
+            "min": 0,
+            "max": 100,
+            "kickable": false
+          }
+        }
+      },
+      {
+        "id": 3,
+        "type": "core.input",
+        "name": "amplitude",
+        "x": 50,
+        "y": 270,
+        "jacks": {
+          "amplitude": {
+            "v": 1,
+            "min": 0,
+            "max": 1,
+            "kickable": false
+          }
+        }
+      },
+      {
+        "id": 4,
+        "type": "core.input",
+        "name": "pressure",
+        "x": 50,
+        "y": 340,
+        "jacks": {
+          "pressure": {
+            "v": 0,
+            "min": 0,
+            "max": 100,
+            "kickable": false
+          }
+        }
+      },
+      {
+        "id": 5,
+        "type": "ksyn.output~",
+        "name": "output",
+        "x": 882,
+        "y": 202,
+        "jacks": {
+          "in": {
+            "v": 0,
+            "min": 0,
+            "max": 1,
+            "kickable": false,
+            "add": false
+          }
+        }
+      },
+      {
+        "id": 6,
+        "type": "ksyn.control.envDAHDSR",
+        "name": "ampEnv",
+        "x": 779.9,
+        "y": 175,
+        "jacks": {
+          "in": {
+            "v": 0,
+            "min": 0,
+            "max": 1,
+            "kickable": false,
+            "add": false
+          },
+          "delay": {
+            "v": 0,
+            "min": 0,
+            "max": 2,
+            "kickable": false,
+            "add": false
+          },
+          "attack": {
+            "v": 0.12308882921934128,
+            "min": 0,
+            "max": 1,
+            "kickable": false,
+            "add": false
+          },
+          "hold": {
+            "v": 0,
+            "min": 0,
+            "max": 1,
+            "kickable": false,
+            "add": false
+          },
+          "decay": {
+            "v": 0.5190584659576416,
+            "min": 0,
+            "max": 1,
+            "kickable": false,
+            "add": false
+          },
+          "sustain": {
+            "v": 0.7734567523002625,
+            "min": 0,
+            "max": 1,
+            "kickable": false,
+            "add": false
+          },
+          "release": {
+            "v": 6.507680416107178,
+            "min": 0,
+            "max": 15,
+            "kickable": false,
+            "add": false
+          },
+          "amplitude": {
+            "v": 0.5211595296859741,
+            "min": 0,
+            "max": 1,
+            "kickable": false,
+            "add": false
+          }
+        }
+      },
+      {
+        "id": 7,
+        "type": "ksyn.control.envDAHDSR",
+        "name": "modEnv",
+        "x": 256,
+        "y": 230.9,
+        "jacks": {
+          "in": {
+            "v": 0,
+            "min": 0,
+            "max": 1,
+            "kickable": false,
+            "add": false
+          },
+          "delay": {
+            "v": 0,
+            "min": 0,
+            "max": 2,
+            "kickable": false,
+            "add": false
+          },
+          "attack": {
+            "v": 0.09405294060707092,
+            "min": 0,
+            "max": 1,
+            "kickable": false,
+            "add": false
+          },
+          "hold": {
+            "v": 0,
+            "min": 0,
+            "max": 1,
+            "kickable": false,
+            "add": false
+          },
+          "decay": {
+            "v": 0.586752712726593,
+            "min": 0,
+            "max": 1,
+            "kickable": false,
+            "add": false
+          },
+          "sustain": {
+            "v": 0.49316784739494324,
+            "min": 0,
+            "max": 1,
+            "kickable": false,
+            "add": false
+          },
+          "release": {
+            "v": 4.347824573516846,
+            "min": 0,
+            "max": 15,
+            "kickable": false,
+            "add": false
+          },
+          "amplitude": {
+            "v": 1.868822693824768,
+            "min": 0,
+            "max": 10,
+            "kickable": false,
+            "add": false
+          }
+        }
+      },
+      {
+        "id": 8,
+        "type": "ksyn.sources.sineOscPM",
+        "name": "sineOscPM",
+        "x": 662.9,
+        "y": 265,
+        "jacks": {
+          "frequency": {
+            "v": 440,
+            "min": 40,
+            "max": 8000,
+            "kickable": false,
+            "add": false
+          },
+          "amplitude": {
+            "v": 1,
+            "min": 0,
+            "max": 1,
+            "kickable": false,
+            "add": false
+          },
+          "modulation": {
+            "v": 0,
+            "min": 0,
+            "max": 1,
+            "kickable": false,
+            "add": false
+          }
+        }
+      },
+      {
+        "id": 9,
+        "type": "ksyn.sources.sineOsc",
+        "name": "sineOsc",
+        "x": 543.9,
+        "y": 307,
+        "jacks": {
+          "frequency": {
+            "v": 440,
+            "min": 40,
+            "max": 8000,
+            "kickable": false,
+            "add": false
+          },
+          "amplitude": {
+            "v": 1,
+            "min": 0,
+            "max": 1,
+            "kickable": false,
+            "add": false
+          }
+        }
+      },
+      {
+        "id": 10,
+        "type": "ksyn.math.*~",
+        "name": "mult",
+        "x": 464.9,
+        "y": 263,
+        "jacks": {
+          "inA": {
+            "v": 0,
+            "min": 0,
+            "max": 1,
+            "kickable": false,
+            "add": false
+          },
+          "inB": {
+            "v": 2.0077428817749023,
+            "min": 0,
+            "max": 10,
+            "kickable": false,
+            "add": false
+          }
+        }
+      },
+      {
+        "id": 11,
+        "type": "core.input.knob",
+        "name": "mcRatio",
+        "x": 353.9,
+        "y": 269.9,
+        "jacks": {
+          "kick": {
+            "min": 0,
+            "max": 100,
+            "kickable": true
+          },
+          "in": {
+            "v": 2.0077428817749023,
+            "min": 0,
+            "max": 10,
+            "kickable": false
+          }
+        }
+      },
+      {
+        "id": 12,
+        "type": "core.input.knob",
+        "name": "depth",
+        "x": 41.9,
+        "y": 429.9,
+        "jacks": {
+          "kick": {
+            "min": 0,
+            "max": 100,
+            "kickable": true
+          },
+          "in": {
+            "v": 1.868822693824768,
+            "min": 0,
+            "max": 10,
+            "kickable": false
+          }
+        }
+      },
+      {
+        "id": 13,
+        "type": "core.math.+",
+        "name": "+",
+        "x": 182.9,
+        "y": 347,
+        "jacks": {
+          "A": {
+            "min": 0,
+            "max": 100,
+            "kickable": true
+          },
+          "B": {
+            "v": 1.868822693824768,
+            "min": 0,
+            "max": 100,
+            "kickable": true
+          }
+        }
+      },
+      {
+        "id": 14,
+        "type": "core.input.comment",
+        "name": "comment",
+        "x": 117.9,
+        "y": 9.1,
+        "text": "Two operator FM, implemented using phase modulation.",
+        "w": 386,
+        "h": 56.875
+      },
+      {
+        "id": 15,
+        "type": "core.math.pitchToHz",
+        "name": "pitchToHz",
+        "x": 284,
+        "y": 115.9,
+        "jacks": {
+          "in": {
+            "v": 60,
+            "min": 0,
+            "max": 100,
+            "kickable": true
+          }
+        }
+      }
+    ],
+    "connections": [
+      {
+        "from": 0,
+        "fromJack": "out",
+        "to": 7,
+        "toJack": "on"
+      },
+      {
+        "from": 1,
+        "fromJack": "out",
+        "to": 7,
+        "toJack": "off"
+      },
+      {
+        "from": 0,
+        "fromJack": "out",
+        "to": 6,
+        "toJack": "on"
+      },
+      {
+        "from": 1,
+        "fromJack": "out",
+        "to": 6,
+        "toJack": "off"
+      },
+      {
+        "from": 7,
+        "fromJack": "out",
+        "to": 9,
+        "toJack": "amplitude"
+      },
+      {
+        "from": 10,
+        "fromJack": "out",
+        "to": 9,
+        "toJack": "frequency"
+      },
+      {
+        "from": 11,
+        "fromJack": "out",
+        "to": 10,
+        "toJack": "inB"
+      },
+      {
+        "from": 12,
+        "fromJack": "out",
+        "to": 13,
+        "toJack": "B"
+      },
+      {
+        "from": 4,
+        "fromJack": "out",
+        "to": 13,
+        "toJack": "A"
+      },
+      {
+        "from": 13,
+        "fromJack": "out",
+        "to": 7,
+        "toJack": "amplitude"
+      },
+      {
+        "from": 2,
+        "fromJack": "out",
+        "to": 15,
+        "toJack": "in"
+      },
+      {
+        "from": 15,
+        "fromJack": "out",
+        "to": 8,
+        "toJack": "frequency"
+      },
+      {
+        "from": 15,
+        "fromJack": "out",
+        "to": 10,
+        "toJack": "inA"
+      },
+      {
+        "from": 9,
+        "fromJack": "out",
+        "to": 8,
+        "toJack": "modulation"
+      },
+      {
+        "from": 3,
+        "fromJack": "out",
+        "to": 8,
+        "toJack": "amplitude"
+      },
+      {
+        "from": 8,
+        "fromJack": "out",
+        "to": 6,
+        "toJack": "amplitude"
+      },
+      {
+        "from": 6,
+        "fromJack": "out",
+        "to": 5,
+        "toJack": "in"
+      }
+    ]
+  }
+}

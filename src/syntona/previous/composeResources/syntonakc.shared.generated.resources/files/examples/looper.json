@@ -1,0 +1,357 @@
+{
+  "version": "0.6.1 beta",
+  "versionCode": 393217,
+  "modules": [
+    {
+      "id": 0,
+      "type": "ksyn.data.recorder",
+      "name": "recorder",
+      "x": 568,
+      "y": 106.9,
+      "jacks": {
+        "in": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "amplitude": {
+          "v": 1,
+          "min": 0,
+          "max": 2,
+          "kickable": false,
+          "add": false
+        },
+        "latencyMs": {
+          "v": 82,
+          "min": 0,
+          "max": 1000,
+          "kickable": false
+        }
+      }
+    },
+    {
+      "id": 1,
+      "type": "ksyn.lineIn",
+      "name": "lineIn",
+      "x": 32.9,
+      "y": 172.1
+    },
+    {
+      "id": 2,
+      "type": "ksyn.lineOut",
+      "name": "lineOut",
+      "x": 835.9,
+      "y": 245,
+      "jacks": {
+        "in0": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "in1": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        }
+      }
+    },
+    {
+      "id": 3,
+      "type": "music.compose.beatClock",
+      "name": "beatClock",
+      "x": 99.9,
+      "y": 269.1,
+      "jacks": {
+        "tempo": {
+          "v": 120,
+          "min": 20,
+          "max": 300,
+          "kickable": false
+        }
+      },
+      "division": "1/1"
+    },
+    {
+      "id": 4,
+      "type": "core.basic.mod4",
+      "name": "mod4",
+      "x": 360,
+      "y": 276.1,
+      "jacks": {
+        "reset": {
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        },
+        "in": {
+          "v": 18,
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        }
+      }
+    },
+    {
+      "id": 5,
+      "type": "core.basic.mod16",
+      "name": "mod16",
+      "x": 216,
+      "y": 132.9,
+      "jacks": {
+        "reset": {
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        },
+        "in": {
+          "v": 274,
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        }
+      }
+    },
+    {
+      "id": 6,
+      "type": "core.view.show",
+      "name": "show",
+      "x": 452.9,
+      "y": 559.1,
+      "jacks": {
+        "in": {
+          "v": 18,
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        }
+      }
+    },
+    {
+      "id": 7,
+      "type": "core.basic.counter",
+      "name": "counter",
+      "x": 293,
+      "y": 501.1,
+      "jacks": {
+        "reset": {
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        },
+        "kick": {
+          "v": 5,
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        }
+      }
+    },
+    {
+      "id": 8,
+      "type": "ksyn.data.recorder",
+      "name": "recorder",
+      "x": 565,
+      "y": 374.1,
+      "jacks": {
+        "in": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "amplitude": {
+          "v": 1,
+          "min": 0,
+          "max": 2,
+          "kickable": false,
+          "add": false
+        },
+        "latencyMs": {
+          "v": 82,
+          "min": 0,
+          "max": 1000,
+          "kickable": false
+        }
+      }
+    },
+    {
+      "id": 9,
+      "type": "core.input.kick",
+      "name": "stopAll",
+      "x": 68,
+      "y": 491.9
+    },
+    {
+      "id": 10,
+      "type": "core.input.comment",
+      "name": "comment",
+      "x": 28.9,
+      "y": 6,
+      "text": "Use Settings in the File menu to select audio input and output device.\nThen use the Latency tab to measure the round trip latency. This will be used to compensate for the latency and allow for synchronized playback.",
+      "w": 447.896,
+      "h": 95.069336
+    },
+    {
+      "id": 11,
+      "type": "core.input.onLoad",
+      "name": "onLoad",
+      "x": 18.9,
+      "y": 277.9
+    },
+    {
+      "id": 12,
+      "type": "core.patch",
+      "name": "chuff",
+      "x": 682.9,
+      "y": 458.1,
+      "windowOpen": false,
+      "resourcePath": "sounds/chuff.json",
+      "filePath": "/Users/phil/work/syntona-kc/shared/src/commonMain/composeResources/files/sounds/chuff.json"
+    }
+  ],
+  "connections": [
+    {
+      "from": 1,
+      "fromJack": "out0",
+      "to": 0,
+      "toJack": "in"
+    },
+    {
+      "from": 0,
+      "fromJack": "out",
+      "to": 2,
+      "toJack": "in0"
+    },
+    {
+      "from": 4,
+      "fromJack": "out0",
+      "to": 0,
+      "toJack": "rewind"
+    },
+    {
+      "from": 4,
+      "fromJack": "out0",
+      "to": 0,
+      "toJack": "record"
+    },
+    {
+      "from": 3,
+      "fromJack": "out",
+      "to": 5,
+      "toJack": "in"
+    },
+    {
+      "from": 5,
+      "fromJack": "out5",
+      "to": 7,
+      "toJack": "kick"
+    },
+    {
+      "from": 7,
+      "fromJack": "out",
+      "to": 4,
+      "toJack": "in"
+    },
+    {
+      "from": 7,
+      "fromJack": "out",
+      "to": 6,
+      "toJack": "in"
+    },
+    {
+      "from": 4,
+      "fromJack": "out2",
+      "to": 0,
+      "toJack": "rewind"
+    },
+    {
+      "from": 4,
+      "fromJack": "out2",
+      "to": 8,
+      "toJack": "rewind"
+    },
+    {
+      "from": 4,
+      "fromJack": "out2",
+      "to": 0,
+      "toJack": "play"
+    },
+    {
+      "from": 4,
+      "fromJack": "out2",
+      "to": 8,
+      "toJack": "record"
+    },
+    {
+      "from": 4,
+      "fromJack": "out0",
+      "to": 8,
+      "toJack": "rewind"
+    },
+    {
+      "from": 4,
+      "fromJack": "out0",
+      "to": 8,
+      "toJack": "play"
+    },
+    {
+      "from": 8,
+      "fromJack": "out",
+      "to": 2,
+      "toJack": "in0"
+    },
+    {
+      "from": 1,
+      "fromJack": "out0",
+      "to": 8,
+      "toJack": "in"
+    },
+    {
+      "from": 9,
+      "fromJack": "kick",
+      "to": 3,
+      "toJack": "stop"
+    },
+    {
+      "from": 9,
+      "fromJack": "kick",
+      "to": 0,
+      "toJack": "pause"
+    },
+    {
+      "from": 9,
+      "fromJack": "kick",
+      "to": 8,
+      "toJack": "pause"
+    },
+    {
+      "from": 11,
+      "fromJack": "kick",
+      "to": 3,
+      "toJack": "start"
+    },
+    {
+      "from": 12,
+      "fromJack": "out",
+      "to": 2,
+      "toJack": "in1"
+    },
+    {
+      "from": 3,
+      "fromJack": "out",
+      "to": 12,
+      "toJack": "trigger"
+    }
+  ],
+  "windowX": 10,
+  "windowY": 10,
+  "windowWidth": 1307,
+  "windowHeight": 722.75
+}

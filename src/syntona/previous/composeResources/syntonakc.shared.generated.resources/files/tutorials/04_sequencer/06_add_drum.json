@@ -1,0 +1,323 @@
+{
+  "version": "0.7.5 beta",
+  "versionCode": 458757,
+  "modules": [
+    {
+      "id": 0,
+      "type": "core.input.comment",
+      "name": "comment",
+      "x": 49.9,
+      "y": 28,
+      "text": "Now let's add a drum to our sequence. We can trigger the drum on individual notes.\n\nTo Do:\n* In the Filter box, enter \"drum\" then drag a drumFM module into the patch.\n* Connect the drumFM \"aOut1\" jack to the lineOut.\n* Connect some of the individual jacks on the right hand side of the seq8 module to the drumFM \"trigger\" jack.\n* Drag on the drum's pitch jack to raise it to around 57.\n* Increase the \"mcRatio\" and \"depth\" jacks as well.\n",
+      "w": 544.875,
+      "h": 227
+    },
+    {
+      "id": 1,
+      "type": "ksyn.lineOut",
+      "name": "lineOut",
+      "x": 708.9,
+      "y": 366,
+      "jacks": {
+        "in0": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "in1": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        }
+      }
+    },
+    {
+      "id": 2,
+      "type": "music.compose.beatClock",
+      "name": "beatClock",
+      "x": 110.9,
+      "y": 321,
+      "jacks": {
+        "tempo": {
+          "v": 120.57981144577352,
+          "min": 20,
+          "max": 300,
+          "kickable": false
+        }
+      },
+      "division": "8:3"
+    },
+    {
+      "id": 3,
+      "type": "core.basic.seq8",
+      "name": "seq8",
+      "x": 218,
+      "y": 295.9,
+      "jacks": {
+        "in0": {
+          "v": 0,
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        },
+        "in1": {
+          "v": 0,
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        },
+        "in2": {
+          "v": 0,
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        },
+        "in3": {
+          "v": 0,
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        },
+        "in4": {
+          "v": 0,
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        },
+        "in5": {
+          "v": 0,
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        },
+        "in6": {
+          "v": 0,
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        },
+        "in7": {
+          "v": 0,
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        }
+      },
+      "stepValues": ["60.0", "63.0", "67.02", "63.0", "69.0", "48.0", "60.0", "67.02"]
+    },
+    {
+      "id": 4,
+      "type": "core.patch",
+      "name": "beep",
+      "x": 385.9,
+      "y": 323,
+      "jacks": {
+        "in": {
+          "v": 63,
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        }
+      },
+      "windowOpen": false,
+      "patch": {
+        "modules": [
+          {
+            "id": 0,
+            "type": "ksyn.sources.sawOscDPW",
+            "name": "sawOscDPW",
+            "x": 308.1,
+            "y": 170.1,
+            "jacks": {
+              "frequency": {
+                "v": 311.1269836425781,
+                "min": 40,
+                "max": 8000,
+                "kickable": false,
+                "add": false
+              },
+              "amplitude": {
+                "v": 1,
+                "min": 0,
+                "max": 1,
+                "kickable": false,
+                "add": false
+              }
+            }
+          },
+          {
+            "id": 1,
+            "type": "ksyn.control.envAD",
+            "name": "envAD",
+            "x": 432,
+            "y": 80,
+            "jacks": {
+              "in": {
+                "v": 0,
+                "min": 0,
+                "max": 1,
+                "kickable": false,
+                "add": false
+              },
+              "attack": {
+                "v": 0.02099750004708767,
+                "min": 0.0010000000474974513,
+                "max": 8,
+                "kickable": false,
+                "add": false
+              },
+              "decay": {
+                "v": 1.0478034019470215,
+                "min": 0.0010000000474974513,
+                "max": 8,
+                "kickable": false,
+                "add": false
+              },
+              "amplitude": {
+                "v": 1,
+                "min": 0,
+                "max": 1,
+                "kickable": false,
+                "add": false
+              }
+            }
+          },
+          {
+            "id": 2,
+            "type": "core.math.pitchToHz",
+            "name": "pitchToHz",
+            "x": 240,
+            "y": 93,
+            "jacks": {
+              "in": {
+                "v": 63,
+                "min": 0,
+                "max": 100,
+                "kickable": true
+              }
+            }
+          },
+          {
+            "id": 3,
+            "type": "core.input",
+            "name": "in",
+            "x": 30,
+            "y": 93,
+            "jacks": {
+              "in": {
+                "v": 63,
+                "min": 0,
+                "max": 100,
+                "kickable": false
+              }
+            }
+          },
+          {
+            "id": 4,
+            "type": "ksyn.output~",
+            "name": "out",
+            "x": 572,
+            "y": 80,
+            "jacks": {
+              "in": {
+                "v": 0,
+                "min": 0,
+                "max": 1,
+                "kickable": false,
+                "add": false
+              }
+            }
+          }
+        ],
+        "connections": [
+          {
+            "from": 0,
+            "fromJack": "out",
+            "to": 1,
+            "toJack": "amplitude"
+          },
+          {
+            "from": 2,
+            "fromJack": "out",
+            "to": 0,
+            "toJack": "frequency"
+          },
+          {
+            "from": 2,
+            "fromJack": "out",
+            "to": 1,
+            "toJack": "trigger"
+          },
+          {
+            "from": 3,
+            "fromJack": "out",
+            "to": 2,
+            "toJack": "in"
+          },
+          {
+            "from": 1,
+            "fromJack": "out",
+            "to": 4,
+            "toJack": "in"
+          }
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "core.basic.link",
+      "name": "link",
+      "x": 374,
+      "y": 559.9,
+      "filePath": "tutorials/04_sequencer/07_add_mixer.json",
+      "buttonText": ">> Next, add mixer4x2"
+    },
+    {
+      "id": 6,
+      "type": "core.input.onLoad",
+      "name": "onLoad",
+      "x": 17.9,
+      "y": 349
+    }
+  ],
+  "connections": [
+    {
+      "from": 2,
+      "fromJack": "out",
+      "to": 3,
+      "toJack": "kick"
+    },
+    {
+      "from": 3,
+      "fromJack": "out",
+      "to": 4,
+      "toJack": "in"
+    },
+    {
+      "from": 4,
+      "fromJack": "out",
+      "to": 1,
+      "toJack": "in1"
+    },
+    {
+      "from": 4,
+      "fromJack": "out",
+      "to": 1,
+      "toJack": "in0"
+    },
+    {
+      "from": 6,
+      "fromJack": "kick",
+      "to": 2,
+      "toJack": "start"
+    }
+  ],
+  "windowX": 10,
+  "windowY": 10,
+  "windowWidth": 1028.0078125,
+  "windowHeight": 703.749755859375
+}

@@ -1,0 +1,258 @@
+{
+  "version": "0.7.5 beta",
+  "versionCode": 458757,
+  "modules": [
+    {
+      "id": 0,
+      "type": "core.input.comment",
+      "name": "comment",
+      "x": 49.9,
+      "y": 28,
+      "text": "Let's use a seq8 module to provide an 8 note sequence of values.\nWe are interpreting the values as pitches in semitones.\nWe use the \"all\" output jack to receive all the values.\n\nTo Do:\n* Note that we added an \"onLoad\" module. It kicks the Start button when the patch is loaded.\n* Change some of the pitch values in the seq8.\n* It turns red while you are editing. Don't forget to hit ENTER to save the edited value.\n\n",
+      "w": 544.875,
+      "h": 227
+    },
+    {
+      "id": 1,
+      "type": "ksyn.sources.sawOscDPW",
+      "name": "sawOscDPW",
+      "x": 457,
+      "y": 407.1,
+      "jacks": {
+        "frequency": {
+          "v": 440,
+          "min": 40,
+          "max": 8000,
+          "kickable": false,
+          "add": false
+        },
+        "amplitude": {
+          "v": 1,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        }
+      }
+    },
+    {
+      "id": 2,
+      "type": "ksyn.control.envAD",
+      "name": "envAD",
+      "x": 565.9,
+      "y": 338,
+      "jacks": {
+        "in": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "attack": {
+          "v": 0.02099750004708767,
+          "min": 0.0010000000474974513,
+          "max": 8,
+          "kickable": false,
+          "add": false
+        },
+        "decay": {
+          "v": 1.0478034019470215,
+          "min": 0.0010000000474974513,
+          "max": 8,
+          "kickable": false,
+          "add": false
+        },
+        "amplitude": {
+          "v": 1,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        }
+      }
+    },
+    {
+      "id": 3,
+      "type": "ksyn.lineOut",
+      "name": "lineOut",
+      "x": 692.9,
+      "y": 413,
+      "jacks": {
+        "in0": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "in1": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        }
+      }
+    },
+    {
+      "id": 4,
+      "type": "music.compose.beatClock",
+      "name": "beatClock",
+      "x": 123.9,
+      "y": 337,
+      "jacks": {
+        "tempo": {
+          "v": 120.57981144577352,
+          "min": 20,
+          "max": 300,
+          "kickable": false
+        }
+      },
+      "division": "8:3"
+    },
+    {
+      "id": 5,
+      "type": "core.basic.seq8",
+      "name": "seq8",
+      "x": 231,
+      "y": 311.9,
+      "jacks": {
+        "in0": {
+          "v": 0,
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        },
+        "in1": {
+          "v": 0,
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        },
+        "in2": {
+          "v": 0,
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        },
+        "in3": {
+          "v": 0,
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        },
+        "in4": {
+          "v": 0,
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        },
+        "in5": {
+          "v": 0,
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        },
+        "in6": {
+          "v": 0,
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        },
+        "in7": {
+          "v": 0,
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        }
+      },
+      "stepValues": ["60.0", "63.0", "67.02", "63.0", "69.0", "48.0", "60.0", "67.02"]
+    },
+    {
+      "id": 6,
+      "type": "core.math.pitchToHz",
+      "name": "pitchToHz",
+      "x": 362,
+      "y": 403.9,
+      "jacks": {
+        "in": {
+          "v": 69,
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        }
+      }
+    },
+    {
+      "id": 7,
+      "type": "core.basic.link",
+      "name": "link",
+      "x": 380.9,
+      "y": 551,
+      "filePath": "tutorials/04_sequencer/05_make_patch.json",
+      "buttonText": ">> Next, make a patch"
+    },
+    {
+      "id": 8,
+      "type": "core.input.onLoad",
+      "name": "onLoad",
+      "x": 26.9,
+      "y": 362.9
+    }
+  ],
+  "connections": [
+    {
+      "from": 1,
+      "fromJack": "out",
+      "to": 2,
+      "toJack": "amplitude"
+    },
+    {
+      "from": 2,
+      "fromJack": "out",
+      "to": 3,
+      "toJack": "in1"
+    },
+    {
+      "from": 2,
+      "fromJack": "out",
+      "to": 3,
+      "toJack": "in0"
+    },
+    {
+      "from": 4,
+      "fromJack": "out",
+      "to": 5,
+      "toJack": "kick"
+    },
+    {
+      "from": 5,
+      "fromJack": "out",
+      "to": 6,
+      "toJack": "in"
+    },
+    {
+      "from": 6,
+      "fromJack": "out",
+      "to": 1,
+      "toJack": "frequency"
+    },
+    {
+      "from": 8,
+      "fromJack": "kick",
+      "to": 4,
+      "toJack": "start"
+    },
+    {
+      "from": 5,
+      "fromJack": "out",
+      "to": 2,
+      "toJack": "trigger"
+    }
+  ],
+  "windowX": 10,
+  "windowY": 10,
+  "windowWidth": 795.0078125,
+  "windowHeight": 683.874755859375
+}

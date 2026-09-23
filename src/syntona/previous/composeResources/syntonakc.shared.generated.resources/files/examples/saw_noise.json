@@ -1,0 +1,869 @@
+{
+  "version": "0.6.1 beta",
+  "versionCode": 393217,
+  "modules": [
+    {
+      "id": 0,
+      "type": "core.patch",
+      "name": "sawWiggle",
+      "x": 344.9,
+      "y": 122,
+      "jacks": {
+        "freq": {
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        },
+        "start": {
+          "v": 88,
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        },
+        "stop": {
+          "v": 88,
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        }
+      },
+      "windowX": 386.125,
+      "windowY": 363.875,
+      "windowWidth": 960,
+      "windowHeight": 610.875,
+      "windowOpen": false,
+      "patch": {
+        "modules": [
+          {
+            "id": 0,
+            "type": "ksyn.output~",
+            "name": "aOut1",
+            "x": 843.9,
+            "y": 50,
+            "jacks": {
+              "in": {
+                "v": 0,
+                "min": 0,
+                "max": 1,
+                "kickable": false,
+                "add": false
+              }
+            }
+          },
+          {
+            "id": 1,
+            "type": "core.input",
+            "name": "freq",
+            "x": 20.9,
+            "y": 15,
+            "jacks": {
+              "freq": {
+                "v": 0,
+                "min": 0,
+                "max": 100,
+                "kickable": false
+              }
+            }
+          },
+          {
+            "id": 2,
+            "type": "ksyn.sources.sawOscDPW",
+            "name": "sawOscDPW",
+            "x": 705.9,
+            "y": 107,
+            "jacks": {
+              "frequency": {
+                "v": 440,
+                "min": 40,
+                "max": 8000,
+                "kickable": false,
+                "add": false
+              },
+              "amplitude": {
+                "v": 1,
+                "min": 0,
+                "max": 1,
+                "kickable": false,
+                "add": false
+              }
+            }
+          },
+          {
+            "id": 3,
+            "type": "core.math.*",
+            "name": "*",
+            "x": 162.9,
+            "y": 86,
+            "jacks": {
+              "A": {
+                "min": 0,
+                "max": 100,
+                "kickable": true
+              },
+              "B": {
+                "v": 6.808691024780273,
+                "min": 0,
+                "max": 10,
+                "kickable": false
+              }
+            }
+          },
+          {
+            "id": 4,
+            "type": "core.math.+",
+            "name": "+",
+            "x": 211.9,
+            "y": 88,
+            "jacks": {
+              "A": {
+                "min": 0,
+                "max": 100,
+                "kickable": true
+              },
+              "B": {
+                "v": 100,
+                "min": 0,
+                "max": 100,
+                "kickable": false
+              }
+            }
+          },
+          {
+            "id": 5,
+            "type": "core.basic.clock",
+            "name": "clock",
+            "x": 121,
+            "y": 266.9,
+            "jacks": {
+              "rateHz": {
+                "v": 5.456297,
+                "min": 0.01,
+                "max": 1000,
+                "kickable": false
+              }
+            }
+          },
+          {
+            "id": 6,
+            "type": "ksyn.data.envSeg",
+            "name": "ampEnv",
+            "x": 618,
+            "y": 314.1,
+            "jacks": {
+              "looping": {
+                "min": 0,
+                "max": 1,
+                "kickable": false,
+                "integer": true
+              },
+              "speed": {
+                "v": 1,
+                "min": 0,
+                "max": 1,
+                "kickable": false,
+                "add": false
+              },
+              "amplitude": {
+                "v": 0.7794216275215149,
+                "min": 0,
+                "max": 1,
+                "kickable": false,
+                "add": false
+              }
+            },
+            "envData": [0.019999999552965164, 0.8999999761581421, 0.10000000149011612, 0.5, 0.2633333206176758, 0.4000000059604645, 0.0033333301544189453, 0.1594594568014145, 0.15666669607162476, 0.4189189076423645, 0.046666622161865234, 0.1918918937444687, 0.09000003337860107, 0.6054053902626038, 0.12666666507720947, 0.32702702283859253, 0.04000002145767212, 0.7648648619651794, 0.4433332681655884, 0],
+            "sustainBegin": 2,
+            "sustainEnd": 2,
+            "releaseBegin": -1,
+            "releaseEnd": -1
+          },
+          {
+            "id": 7,
+            "type": "ksyn.data.envSeg",
+            "name": "freqEnv",
+            "x": 470.9,
+            "y": 185,
+            "jacks": {
+              "looping": {
+                "min": 0,
+                "max": 1,
+                "kickable": false,
+                "integer": true
+              },
+              "speed": {
+                "v": 1,
+                "min": 0,
+                "max": 1,
+                "kickable": false,
+                "add": false
+              },
+              "amplitude": {
+                "v": 601.2979736328125,
+                "min": 0,
+                "max": 1000,
+                "kickable": false,
+                "add": false
+              }
+            },
+            "envData": [0.20999999344348907, 0.8405405282974243, 0.10000000149011612, 0.5, 0.06000000238418579, 0.32972973585128784, 0.11666667461395264, 0.5810810923576355, 0.3533332943916321, 0.18378378450870514, 0.3399999737739563, 0.227027028799057, 0.25333333015441895, 0.3054054081439972, 0.08333337306976318, 0.1459459513425827, 0.3599998950958252, 0],
+            "sustainBegin": 1,
+            "sustainEnd": 4,
+            "releaseBegin": 4,
+            "releaseEnd": 8
+          },
+          {
+            "id": 8,
+            "type": "ksyn.math.+~",
+            "name": "+~",
+            "x": 544.9,
+            "y": 61,
+            "jacks": {
+              "inA": {
+                "v": 320.0580749511719,
+                "min": 0,
+                "max": 1,
+                "kickable": false,
+                "add": false
+              },
+              "inB": {
+                "v": 0,
+                "min": 0,
+                "max": 1,
+                "kickable": false,
+                "add": false
+              }
+            }
+          },
+          {
+            "id": 9,
+            "type": "core.input",
+            "name": "start",
+            "x": 23,
+            "y": 82.1,
+            "jacks": {
+              "start": {
+                "v": 88,
+                "min": 0,
+                "max": 100,
+                "kickable": false
+              }
+            }
+          },
+          {
+            "id": 10,
+            "type": "core.input",
+            "name": "stop",
+            "x": 21.9,
+            "y": 148,
+            "jacks": {
+              "stop": {
+                "v": 88,
+                "min": 0,
+                "max": 100,
+                "kickable": false
+              }
+            }
+          },
+          {
+            "id": 11,
+            "type": "core.basic.mod2",
+            "name": "mod2",
+            "x": 225.9,
+            "y": 346.9,
+            "jacks": {
+              "reset": {
+                "min": 0,
+                "max": 100,
+                "kickable": true
+              },
+              "in": {
+                "v": 7,
+                "min": 0,
+                "max": 100,
+                "kickable": true
+              }
+            }
+          },
+          {
+            "id": 12,
+            "type": "core.basic.mod8",
+            "name": "mod8",
+            "x": 337.9,
+            "y": 194,
+            "jacks": {
+              "reset": {
+                "min": 0,
+                "max": 100,
+                "kickable": true
+              },
+              "in": {
+                "v": 0,
+                "min": 0,
+                "max": 100,
+                "kickable": true
+              }
+            }
+          }
+        ],
+        "connections": [
+          {
+            "from": 1,
+            "fromJack": "out",
+            "to": 3,
+            "toJack": "A"
+          },
+          {
+            "from": 3,
+            "fromJack": "out",
+            "to": 4,
+            "toJack": "A"
+          },
+          {
+            "from": 2,
+            "fromJack": "out",
+            "to": 0,
+            "toJack": "in"
+          },
+          {
+            "from": 6,
+            "fromJack": "out",
+            "to": 2,
+            "toJack": "amplitude"
+          },
+          {
+            "from": 7,
+            "fromJack": "out",
+            "to": 2,
+            "toJack": "frequency"
+          },
+          {
+            "from": 4,
+            "fromJack": "out",
+            "to": 8,
+            "toJack": "inA"
+          },
+          {
+            "from": 8,
+            "fromJack": "out",
+            "to": 2,
+            "toJack": "frequency"
+          },
+          {
+            "from": 9,
+            "fromJack": "out",
+            "to": 5,
+            "toJack": "start"
+          },
+          {
+            "from": 10,
+            "fromJack": "out",
+            "to": 5,
+            "toJack": "stop"
+          },
+          {
+            "from": 10,
+            "fromJack": "out",
+            "to": 6,
+            "toJack": "off"
+          },
+          {
+            "from": 5,
+            "fromJack": "out",
+            "to": 11,
+            "toJack": "in"
+          },
+          {
+            "from": 11,
+            "fromJack": "out0",
+            "to": 6,
+            "toJack": "on"
+          },
+          {
+            "from": 11,
+            "fromJack": "out1",
+            "to": 6,
+            "toJack": "off"
+          },
+          {
+            "from": 11,
+            "fromJack": "out0",
+            "to": 12,
+            "toJack": "in"
+          },
+          {
+            "from": 12,
+            "fromJack": "out0",
+            "to": 7,
+            "toJack": "on"
+          },
+          {
+            "from": 12,
+            "fromJack": "out3",
+            "to": 7,
+            "toJack": "off"
+          }
+        ]
+      }
+    },
+    {
+      "id": 1,
+      "type": "ksyn.lineOut",
+      "name": "lineOut",
+      "x": 726,
+      "y": 247.9,
+      "jacks": {
+        "in0": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "in1": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        }
+      }
+    },
+    {
+      "id": 2,
+      "type": "core.input.knob",
+      "name": "freq",
+      "x": 34.9,
+      "y": 46,
+      "jacks": {
+        "kick": {
+          "min": 0,
+          "max": 100,
+          "kickable": true
+        },
+        "in": {
+          "v": 32.32017135620117,
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        }
+      }
+    },
+    {
+      "id": 3,
+      "type": "core.input.keyMatch",
+      "name": "keyMatch",
+      "x": 148.9,
+      "y": 142,
+      "keyChar": "X"
+    },
+    {
+      "id": 4,
+      "type": "core.input.keyMatch",
+      "name": "keyMatch",
+      "x": 154.9,
+      "y": 258.9,
+      "keyChar": "N"
+    },
+    {
+      "id": 5,
+      "type": "core.input.comment",
+      "name": "comment",
+      "x": 163,
+      "y": 5.9,
+      "text": "Press the X or N keys to trigger sounds.\nOpen the patches to see how they work.",
+      "w": 320.82324,
+      "h": 68
+    },
+    {
+      "id": 6,
+      "type": "core.patch",
+      "name": "reddishNoise",
+      "x": 343,
+      "y": 246.9,
+      "jacks": {
+        "start": {
+          "v": 78,
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        },
+        "stop": {
+          "v": 78,
+          "min": 0,
+          "max": 100,
+          "kickable": false
+        }
+      },
+      "windowX": 352.0274,
+      "windowY": 426.7969,
+      "windowWidth": 600,
+      "windowHeight": 450,
+      "windowOpen": false,
+      "patch": {
+        "modules": [
+          {
+            "id": 0,
+            "type": "core.input.number",
+            "name": "number",
+            "x": 104.9,
+            "y": 111.9,
+            "jacks": {
+              "kick": {
+                "v": 78,
+                "min": 0,
+                "max": 100,
+                "kickable": true
+              },
+              "in": {
+                "v": 0,
+                "min": 0,
+                "max": 100,
+                "kickable": false
+              }
+            }
+          },
+          {
+            "id": 1,
+            "type": "core.input.number",
+            "name": "number",
+            "x": 101.9,
+            "y": 37,
+            "jacks": {
+              "kick": {
+                "v": 78,
+                "min": 0,
+                "max": 100,
+                "kickable": true
+              },
+              "in": {
+                "v": 0.5,
+                "min": 0,
+                "max": 100,
+                "kickable": false
+              }
+            }
+          },
+          {
+            "id": 2,
+            "type": "core.input",
+            "name": "start",
+            "x": 32,
+            "y": 37.1,
+            "jacks": {
+              "start": {
+                "v": 78,
+                "min": 0,
+                "max": 100,
+                "kickable": false
+              }
+            }
+          },
+          {
+            "id": 3,
+            "type": "core.input",
+            "name": "stop",
+            "x": 33.9,
+            "y": 109,
+            "jacks": {
+              "stop": {
+                "v": 78,
+                "min": 0,
+                "max": 100,
+                "kickable": false
+              }
+            }
+          },
+          {
+            "id": 4,
+            "type": "ksyn.output~",
+            "name": "aOut1",
+            "x": 455.9,
+            "y": 64,
+            "jacks": {
+              "in": {
+                "v": 0,
+                "min": 0,
+                "max": 1,
+                "kickable": false,
+                "add": false
+              }
+            }
+          },
+          {
+            "id": 5,
+            "type": "ksyn.sources.redNoise",
+            "name": "redNoise",
+            "x": 337.9,
+            "y": 77,
+            "jacks": {
+              "frequency": {
+                "v": 440,
+                "min": 40,
+                "max": 8000,
+                "kickable": false,
+                "add": false
+              },
+              "amplitude": {
+                "v": 0,
+                "min": 0,
+                "max": 1,
+                "kickable": false,
+                "add": false
+              }
+            }
+          },
+          {
+            "id": 6,
+            "type": "ksyn.sources.redNoise",
+            "name": "redNoise",
+            "x": 149.9,
+            "y": 202,
+            "jacks": {
+              "frequency": {
+                "v": 0.6447234749794006,
+                "min": 0.10000000149011612,
+                "max": 5,
+                "kickable": false,
+                "add": false
+              },
+              "amplitude": {
+                "v": 2584.367919921875,
+                "min": 0,
+                "max": 3000,
+                "kickable": false,
+                "add": false
+              }
+            }
+          },
+          {
+            "id": 7,
+            "type": "ksyn.math.+~",
+            "name": "+~",
+            "x": 262.9,
+            "y": 193,
+            "jacks": {
+              "inA": {
+                "v": 0,
+                "min": 0,
+                "max": 1,
+                "kickable": false,
+                "add": false
+              },
+              "inB": {
+                "v": 2064.052001953125,
+                "min": 1000,
+                "max": 10000,
+                "kickable": false,
+                "add": false
+              }
+            }
+          }
+        ],
+        "connections": [
+          {
+            "from": 2,
+            "fromJack": "out",
+            "to": 1,
+            "toJack": "kick"
+          },
+          {
+            "from": 3,
+            "fromJack": "out",
+            "to": 0,
+            "toJack": "kick"
+          },
+          {
+            "from": 5,
+            "fromJack": "out",
+            "to": 4,
+            "toJack": "in"
+          },
+          {
+            "from": 1,
+            "fromJack": "out",
+            "to": 5,
+            "toJack": "amplitude"
+          },
+          {
+            "from": 0,
+            "fromJack": "out",
+            "to": 5,
+            "toJack": "amplitude"
+          },
+          {
+            "from": 6,
+            "fromJack": "out",
+            "to": 7,
+            "toJack": "inA"
+          },
+          {
+            "from": 7,
+            "fromJack": "out",
+            "to": 5,
+            "toJack": "frequency"
+          }
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "ksyn.math.mixer4x2",
+      "name": "mixer4x2",
+      "x": 511.9,
+      "y": 115.1,
+      "jacks": {
+        "in0": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "in1": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "in2": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "in3": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "gain0": {
+          "v": 0.6873435378074646,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "gain1": {
+          "v": 0.6050942540168762,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "gain2": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "gain3": {
+          "v": 0,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "amplitude": {
+          "v": 1,
+          "min": 0,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "pan0": {
+          "v": -0.4445836842060089,
+          "min": -1,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "pan1": {
+          "v": 0.4567129611968994,
+          "min": -1,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "pan2": {
+          "v": 0,
+          "min": -1,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        },
+        "pan3": {
+          "v": 0,
+          "min": -1,
+          "max": 1,
+          "kickable": false,
+          "add": false
+        }
+      }
+    }
+  ],
+  "connections": [
+    {
+      "from": 2,
+      "fromJack": "out",
+      "to": 0,
+      "toJack": "freq"
+    },
+    {
+      "from": 3,
+      "fromJack": "on",
+      "to": 0,
+      "toJack": "start"
+    },
+    {
+      "from": 3,
+      "fromJack": "off",
+      "to": 0,
+      "toJack": "stop"
+    },
+    {
+      "from": 4,
+      "fromJack": "on",
+      "to": 6,
+      "toJack": "start"
+    },
+    {
+      "from": 4,
+      "fromJack": "off",
+      "to": 6,
+      "toJack": "stop"
+    },
+    {
+      "from": 6,
+      "fromJack": "aOut1",
+      "to": 7,
+      "toJack": "in1"
+    },
+    {
+      "from": 0,
+      "fromJack": "aOut1",
+      "to": 7,
+      "toJack": "in0"
+    },
+    {
+      "from": 7,
+      "fromJack": "out0",
+      "to": 1,
+      "toJack": "in0"
+    },
+    {
+      "from": 7,
+      "fromJack": "out1",
+      "to": 1,
+      "toJack": "in1"
+    }
+  ],
+  "windowX": 10,
+  "windowY": 10,
+  "windowWidth": 821.98779296875,
+  "windowHeight": 647.8756103515625
+}
