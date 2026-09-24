@@ -13,12 +13,12 @@ module.exports = function(eleventyConfig) {
     linkify: true
   };
   let md = markdownIt(mdOptions);
-  
+
   // Custom rule for external links
   let defaultRender = md.renderer.rules.link_open || function(tokens, idx, options, env, self) {
     return self.renderToken(tokens, idx, options);
   };
-  
+
   md.renderer.rules.link_open = function (tokens, idx, options, env, self) {
     let aIndex = tokens[idx].attrIndex('href');
     if (aIndex >= 0) {
@@ -60,6 +60,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/**/*.jpg");
   eleventyConfig.addPassthroughCopy("src/**/*.jpeg");
   eleventyConfig.addPassthroughCopy("src/**/*.gif");
+  eleventyConfig.addPassthroughCopy("src/**/*.dmg");
 
   return {
     dir: {
