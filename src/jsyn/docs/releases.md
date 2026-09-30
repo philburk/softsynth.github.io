@@ -10,7 +10,11 @@ eleventyNavigation:
 
 # JSyn Release Notes
 
-*   [Version 16](/jsyn/docs/release16/) - Pure Java JSyn
-*   [Version 14](/jsyn/docs/release14/)
-*   [Version 13](/jsyn/docs/release13/)
-*   [Versions 2-12](/jsyn/docs/releases2_12/)
+The latest release notes are now on the [GitHub JSyn Release](https://github.com/philburk/jsyn/releases) page.
+
+## Older Versions
+
+*   [Version 16](/jsyn/docs/release16/) - 2010 - 2017 - Pure Java JSyn
+*   [Version 14](/jsyn/docs/release14/) - 2000 - 2007
+*   [Version 13](/jsyn/docs/release13/) - 1999 - 2000
+*   [Versions 2-12](/jsyn/docs/releases2_12/) - 1997 - 1999
