@@ -5,7 +5,9 @@ title: "HMSL Downloads"
 
 # Downloads for [HMSL](/hmsl)
 
-**The software on this page may be freely downloaded and used with HMSL.**
+**Note that this page is obsolete and provided for historical purposes.**
+
+## The software on this page may be freely downloaded and used with HMSL.
 
 ### [Fix for cache problems on 68040 Macintoshes.](/hmsl/cache_fix.fth)
 

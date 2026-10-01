@@ -3,7 +3,7 @@ layout: base.njk
 title: "HMSL Documentation"
 ---
 
-# HMSL Documentation
+# Documentation for [HMSL](/hmsl)
 
 PDF versions of the original documentation from the HMSL software.
 
