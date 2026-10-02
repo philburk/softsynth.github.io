@@ -26,6 +26,10 @@ The original distribution is out of print. But the [source code is available on 
 
 [HMSL mailing list](https://groups.google.com/forum/#!forum/hmsl), Google group
 
+![HMSL terminal and shape editor](/images/hmsl_term_shep.png)
+
+Screenshot of HMSL Terminal and Shape Editor.
+
 ## News
 
 Oct 30, 2015 - The [Whitechapel Gallery in London hosted an exhibit on HMSL](http://www.whitechapelgallery.org/exhibitions/luke-fowler-and-mark-fell-project/) curated by Luke Fowler. It contains concert notes, correspondance, documentation, artifacts, videos, and a listening room. The exhibit ran through Feb 7, 2016. See [photos here](https://goo.gl/photos/AcBnXnRwf8wecY3J7).

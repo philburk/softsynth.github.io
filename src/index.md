@@ -9,11 +9,10 @@ SoftSynth.com is the home for various audio and music projects by Phil Burk.
 
 ## Latest News
 
-**2026-03-21 - [New web apps](/apps/)** - Squiggle and Relative Intonation Editor released.
-
-**1/9/2023 - [pForth V2.0.1](/pforth/)** - [released on GitHub](https://github.com/philburk/pforth/releases/tag/v2.0.1)
-
-**11/19/2019 - [HMSL](/hmsl/) source on [GitHub](https://github.com/philburk/hmsl)** - ported to JUCE
+* **2026-10-01 - [HMSL](/hmsl/)** - released as a signed installable app for Mac OS.
+* **2026-03-21 - [New web apps](/apps/)** - Squiggle and Relative Intonation Editor released.
+* **2023-01-09 - [pForth V2.0.1](/pforth/)** - [released on GitHub](https://github.com/philburk/pforth/releases/tag/v2.0.1)
+* **2019-11-19 - [HMSL](/hmsl/) source on [GitHub](https://github.com/philburk/hmsl)** - ported to JUCE
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; padding: 20px 0;">
 
