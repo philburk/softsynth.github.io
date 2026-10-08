@@ -43,6 +43,10 @@ Look for RelNet and Squiggle on [this page](/music/).
 
 1990 - [Nick Didkovsky video of "Lottery"](http://eamusic.dartmouth.edu/%7Egamelan/jdvideo/lotterystream.mp4) at Mills College with Larry Polansky, Robert Marsanyi and Phil Burk
 
+### By Phil Corner, Phil Burk, Larry Polansky
+
+1992 - Delicate Computations, realized by Phil Burk on a 56000 DSP based on a score by Phil Corner, [CD 1992](https://www.fondazionebonotto.org/cn/collection/fluxus/cornerphilip/9/2861.html)
+
 ### By Phil Burk, Larry Polansky, Phil Stone
 
 [Buy One For Spare Parts](http://eamusic.dartmouth.edu/~larry/mp3_files/spare_parts/), early live, networked Amiga concertas part of Ubu's Network Muse series in San Francisco in the 1980s. Program notes: [page 1](http://eamusic.dartmouth.edu/~larry/misc_writings/program_notes/spareparts/Page1_BW.png), [page 2](http://eamusic.dartmouth.edu/~larry/misc_writings/program_notes/spareparts/Page2_BW.png), [page 3](http://eamusic.dartmouth.edu/~larry/misc_writings/program_notes/spareparts/Page3_BW.png), [page 4](http://eamusic.dartmouth.edu/~larry/misc_writings/program_notes/spareparts/Page4_BW.png).
