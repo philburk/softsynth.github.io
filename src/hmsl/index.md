@@ -5,8 +5,12 @@ title: "HMSL the Hierarchical Music Specification Language"
 
 # HMSL - Hierarchical Music Specification Language
 
-HMSL is a programming language for experimental music composition and performance. It was actively developed between **1986 to 1996**.
-HMSL is an object oriented set of extensions to the Forth language for the Amiga and the Macintosh.
+HMSL is a programming language for experimental music composition and performance.
+It is an object oriented set of extensions to the Forth language for the Amiga and the Macintosh.
+
+HMSL was actively developed and sold commercially between **1986 to 1996**.
+It was recently ported to Mac OS as a free installable app.
+We hope new generations of computer musicians can now explore and enjoy this software.
 
 ## [Download HMSL DMG Installer for Mac OS](https://github.com/philburk/hmsl/releases). Released Oct 1, 2026
 
