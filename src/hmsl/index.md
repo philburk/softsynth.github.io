@@ -12,7 +12,7 @@ HMSL was actively developed and sold commercially between **1986 to 1996**.
 It was recently ported to Mac OS as a free installable app.
 We hope new generations of computer musicians can now explore and enjoy this software.
 
-## [Download HMSL DMG Installer for Mac OS](https://github.com/philburk/hmsl/releases). Released Oct 1, 2026
+## [Visit GitHub to find the latest HMSL DMG Installer for Mac OS](https://github.com/philburk/hmsl/releases).
 
 ## [Explore the Guided Tours on GitHub](https://github.com/philburk/hmsl/blob/master/docs/README.md).
 
