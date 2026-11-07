@@ -15,7 +15,7 @@ JSyn is licensed under the [Apache License V2](http://www.apache.org/licenses/LI
 
 ### Source Code
 
-The source code is available on GitHub at [https://github.com/philburk/jsyn](https://github.com/philburk/jsyn) . You can build the code using ANT.
+The source code is available on GitHub at [https://github.com/philburk/jsyn](https://github.com/philburk/jsyn) . You can build the code using ANT or Gradle.
 
 ### Download JAR Files
 
