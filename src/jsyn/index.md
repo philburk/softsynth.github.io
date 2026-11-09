@@ -17,7 +17,7 @@ JSyn is licensed under the free [Apache License V2](http://www.apache.org/licens
 
 ## Desktop Applications
 
-For writing desktop or laptop applications, we recommend using [Eclipse](http://www.eclipse.org/) or [IntelliJ IDEA](https://www.jetbrains.com/idea/).
+For writing desktop or laptop applications, we recommend using [IntelliJ IDEA](https://www.jetbrains.com/idea/) or [Eclipse](http://www.eclipse.org/).
 
 You can download JSyn as a [JAR file from here](/jsyn/developers/download/) or import it from a maven repository, for example: \[[clojars](https://clojars.org/com.jsyn/jsyn)\] \[[javalibs](https://javalibs.com/artifact/com.jsyn/jsyn)\]
 

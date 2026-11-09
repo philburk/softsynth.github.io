@@ -25,7 +25,7 @@ Download the latest JSyn JAR file from the [GitHub JSyn Release](https://github.
 
 ## Old API
 
-Ignore this section unless you have very old JSyn code that used the old com.softsynth.jsyn API form before 2012.
+Ignore this section unless you have very old JSyn code that used the old com.softsynth.jsyn API from before 2012.
 
 The jar file below contains both the old JSyn API and the new pure Java API. It is deprecated. It should only be used for old projects that were written with the old API.
 
