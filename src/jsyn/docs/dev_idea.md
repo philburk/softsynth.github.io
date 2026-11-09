@@ -16,9 +16,6 @@ From the File menu, create a new Java project. IDEA will create a simple "Main.j
 Replace the contents of that file with the code below. You may find a Copy icon at the top right of the code.
 
 ```
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-
 import com.jsyn.JSyn;
 import com.jsyn.Synthesizer;
 import com.jsyn.unitgen.LineOut;
