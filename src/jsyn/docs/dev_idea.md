@@ -13,7 +13,7 @@ If you haven't already installed IDEA then get it from [here](https://www.jetbra
 
 From the File menu, create a new Java project. IDEA will create a simple "Main.java" program for you.
 
-Replace the contents of that file with the code below. You may find a Copy icon at the top right of the code.
+Replace the contents of that file with the code below.
 
 ```
 import com.jsyn.JSyn;
