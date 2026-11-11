@@ -352,11 +352,19 @@ header {
 }
 
 .app-wrapper h2 {
-    border-bottom: 2px solid var(--border);
-    padding-bottom: 12px;
-    margin-bottom: 24px;
+    border-top: 2px solid var(--border);
+    padding-top: 16px;
+    margin-top: 32px;
+    margin-bottom: 16px;
     color: var(--text-main);
     padding-left: 0;
+}
+
+.app-wrapper h2:first-child,
+.app-wrapper main > h2:first-child {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
 }
 
 /* Mobile Hamburger Toggle */

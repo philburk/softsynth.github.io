@@ -26,7 +26,7 @@ If you need to, you can run the [previous](previous/) version.
 
 ### Download Executable from [HERE](download/).
 
-### Join the Syntona discussion on [Discourse](https://syntona.discourse.group/)
+## Join the Syntona discussion on [Discourse](https://syntona.discourse.group/)
 
 ## Features
 
