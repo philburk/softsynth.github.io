@@ -31,10 +31,18 @@ P {
     padding-left: 12pt
 }
 
-LI {
-    padding-top: 4pt;
-    padding-bottom: 4pt;
-    padding-right: 8pt
+LI,
+li {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-right: 8pt;
+    line-height: 1.35;
+}
+
+li > ul,
+li > ol {
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
 tt,
@@ -274,6 +282,7 @@ header {
 /* Nav Items */
 .nav-item {
     position: relative;
+    padding: 0;
 }
 
 .nav-item a {
