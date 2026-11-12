@@ -36,6 +36,9 @@ module.exports = function(eleventyConfig) {
   // Passthrough copy for assets like css, images, etc.
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/images");
+  eleventyConfig.addPassthroughCopy("src/syntona/app");
+  eleventyConfig.addPassthroughCopy("src/syntona/test");
+  eleventyConfig.addPassthroughCopy("src/syntona/previous");
   eleventyConfig.addPassthroughCopy("src/**/*.zip");
   eleventyConfig.addPassthroughCopy("src/**/*.lha");
   eleventyConfig.addPassthroughCopy("src/**/*.mid");
